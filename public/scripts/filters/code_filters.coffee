@@ -12,9 +12,6 @@ angular.module('DLApp')
     (Shade) ->
       templateData=x2js.xml2json(Shade)
 
-      NodeHandlers =
-        'Grid': 'pure-g'
-
       _.extend(templateData,{'NodeHandlers':NodeHandlers})
 
       template = _.template($rootScope.shadeTemplate)

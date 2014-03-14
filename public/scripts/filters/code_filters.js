@@ -11,11 +11,8 @@
     };
   }).filter('shade2html', function($rootScope, x2js) {
     return function(Shade) {
-      var NodeHandlers, retval, template, templateData;
+      var retval, template, templateData;
       templateData = x2js.xml2json(Shade);
-      NodeHandlers = {
-        'Grid': 'pure-g'
-      };
       _.extend(templateData, {
         'NodeHandlers': NodeHandlers
       });

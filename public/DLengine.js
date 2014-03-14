@@ -42,11 +42,6 @@ var compiler = require("../src/compiler"),
 	  response.render('index_DL.jade');
 	});
 
-	app.get("/graph", function(request, response) {
-	  response.end("Welcome to the about page!");
-	});
-	
-
 
 
 	app.listen(app.get('port'));
