@@ -1,0 +1,70 @@
+/* line 16, ../sass/split-panel.sass */
+.split-row {
+  position: absolute;
+  overflow: hidden;
+  height: 100%;
+  left: 0;
+  right: 0;
+  display: block;
+}
+
+/* line 25, ../sass/split-panel.sass */
+.resizable-panel {
+  position: relative;
+  display: block;
+  float: left;
+  height: 100%;
+  margin: 0;
+  overflow: auto;
+}
+
+/* line 34, ../sass/split-panel.sass */
+.drag-area {
+  display: none;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 100%;
+  height: 100%;
+  margin: 0 0 0 -1px;
+  background-color: #999999;
+  width: 1px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: moz-none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 6;
+}
+/* line 47, ../sass/split-panel.sass */
+.drag-area::before {
+  content: "";
+  position: fixed;
+  width: 12px;
+  display: block;
+  height: 100%;
+  overflow: none;
+}
+/* line 54, ../sass/split-panel.sass */
+.drag-area:hover {
+  margin: 0 0 0 -2px;
+  border: outset 1px #137200;
+  background-color: #666666;
+  cursor: col-resize;
+}
+/* line 59, ../sass/split-panel.sass */
+.drag-area:active {
+  margin: 0 0 0 -2px;
+  border: outset 1px #13ff10;
+  background-color: #cccccc;
+  cursor: col-resize;
+}
+
+/* line 65, ../sass/split-panel.sass */
+.resizing {
+  cursor: col-resize;
+}

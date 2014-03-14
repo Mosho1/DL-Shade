@@ -1,0 +1,57 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/public/scripts/directives/split-panel.js" />
+        <item url="file://$PROJECT_DIR$/public/scripts/directives/editor.js" />
+        <item url="file://$PROJECT_DIR$/public/scripts/shade_module.js" />
+        <item url="file://$PROJECT_DIR$/public/scripts/directives/render_graph.js" />
+        <item url="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.js" />
+        <item url="file://$PROJECT_DIR$/public/scripts/services/shadeTemplate.js" />
+        <item url="file://$PROJECT_DIR$/public/scripts/services/graph-text.js" />
+        <item url="file://$PROJECT_DIR$/public/scripts/factories/graph-text.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/public/csscripts/directives/render_shade.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/directives/render_shade.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/directives/shade_directives.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/directives/shade_directives.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/factories/graph-text.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/directives/render_graph.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/services/shadeTemplate.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/services/graph-text.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/directives/render_panel.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/shade.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/filters/code_filters.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/app.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/directives/editor.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/shade_module.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/controllers/ShadeCtrl.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/controllers/DLCtrl.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/services/x2js.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/factories/graph-text.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/directives/render_graph.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/services/shadeTemplate.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/services/graph-text.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/directives/render_panel.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/shade.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/filters/code_filters.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/app.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/directives/editor.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/shade_module.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/controllers/ShadeCtrl.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/controllers/DLCtrl.js" />
+      <root url="file://$PROJECT_DIR$/public/csscripts/services/x2js.js" />
+      <root url="file://$PROJECT_DIR$/public/scripts/directives/split-panel.js" />
+      <root url="file://$PROJECT_DIR$/public/scripts/shade_module.js" />
+      <root url="file://$PROJECT_DIR$/public/scripts/directives/editor.js" />
+      <root url="file://$PROJECT_DIR$/public/scripts/directives/render_graph.js" />
+      <root url="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.js" />
+      <root url="file://$PROJECT_DIR$/public/scripts/services/shadeTemplate.js" />
+      <root url="file://$PROJECT_DIR$/public/scripts/services/graph-text.js" />
+      <root url="file://$PROJECT_DIR$/public/scripts/factories/graph-text.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,34 @@
+﻿<Shade>
+    <Styles>item     { bg:White; Width:105; Height:150; Margin:2,5,2,5; Padding:0,0,0,0; HAlign:Center;}
+        buysell  { Fg:#FF696969; FontSize:9; Margin:2,0,0,0; Padding:0;}
+        size     { FontSize:12; Bold:True; Fg:#FF323232; Margin:2,0,0,0; Padding:0;}
+        px       { FontSize:12; Bold:True; Fg:#FF292725; Margin:0,0,0,0; Padding:0,0,2,0; HAlign:Right;}
+        desc     { FontSize:11; Bold:True; Fg:White; Margin:0,0,0,0; Padding:0,0,0,0;  VAlign:Top; FontWeight:UltraBold;}
+        grp     { FontSize:10; Fg:#FFA1A1A4; Margin:0; Padding:0; }
+        date     { Fg:#FF696969; FontSize:9; Margin:2,0,0,0; Padding:0;}
+        count    { FontSize:10; HAlign:Right;Padding:2; Margin:0,-7,12,0; Fg:White;}
+        countBorder {Bg:Red; Height:18; Width:18; Margin:0,-8,8,0; Padding:6;}</Styles>
+    <Node>
+        <UI>Grid</UI>
+        <Span>2, 2</Span>
+        <ColWidth>200, 200</ColWidth>
+        <RowHeight>200, 200</RowHeight>
+        <Sub>
+            <Node>
+                <UI>TestDL</UI>
+                <vDL>x</vDL>
+                <Xy>1, 1</Xy>
+            </Node>
+            <Node>
+                <UI>TestDL</UI>
+                <vDL>y</vDL>
+                <Xy>1, 0</Xy>
+            </Node>
+            <Node>
+                <UI>TestDL</UI>
+                <vDL>z</vDL>
+                <Xy>0, 1</Xy>
+            </Node>
+        </Sub>
+    </Node>
+</Shade>

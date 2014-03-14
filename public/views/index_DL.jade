@@ -1,0 +1,134 @@
+doctype html
+//if lt IE 7
+  html.no-js.lt-ie9.lt-ie8.lt-ie7  
+//if IE 7
+  html.no-js.lt-ie9.lt-ie8  
+//if IE 8
+  html.no-js.lt-ie9  
+// [if gt IE 8] <!
+html.no-js
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    title DL in JS
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width')
+    // Place favicon.ico and apple-touch-icon.png in the root directory
+    // build:css({.tmp,app}) styles/main.css
+    link(rel='stylesheet', href='styles/boilerplate.css')
+    link(rel='stylesheet', href='styles/normalize.css')
+    link(rel='stylesheet', href='DL_libs/bootstrap/css/bootstrap.css')
+    link(rel='stylesheet', href='styles/main.css')
+    link(rel='stylesheet', href='styles/split-panel.css')
+    link(rel='stylesheet', href='styles/jquery.dataTables.css')
+    link(rel='stylesheet', href='http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css')
+    link(rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css")
+
+    // endbuild
+    script
+      window.onbeforeunload = function(){ return 'Unloading this page will cause the editor content to be lost :(' }
+  body
+    //if lt IE 7
+      p.chromeframe
+        | You are using an outdated browser.
+        a(href='http://browsehappy.com/') Upgrade your browser today
+        | or
+        a(href='http://www.google.com/chromeframe/?redirect=true') install Google Chrome Frame
+        | to better experience this site.
+    //if lt IE 9
+      script(src='DL_libs/es5-shim.js')
+      script(src='DL_libs/json3.min.js')
+    .container(ng-app='DLApp', ng-controller='DLCtrl')
+      #header
+        .menu.header-menu
+          span.brand.menu-title DL in JS
+          .menu-items
+            code.menu-item coffeescript cut with markdown
+        #view-menu.menu.header-menu
+          span.menu-title View ▾
+          button(ng-click = 'DLrun($event)') Run
+          ul.menu-items
+            li.menu-item(ng-repeat='col in cols', ng-class='{active_col:col.show}', ng-click='col.show=!col.show') {{col.name}}
+      div(style='position: relative; height: 100%; width: 100%;')
+        split-row(ng-cloak='ng-cloak')
+              resizable-panel#md_col(name='DL Editor', show='show')
+                .menu.panel-menu(ng-class='{show:$parent.col("DL Editor").mouseover}')
+                  span.menu-title Theme ▾
+                  ul.menu-items
+                    li.menu-item(ng-repeat='theme in $parent.themes', ng-click='$parent.setTheme(theme)') {{theme}}
+                  span.hide-button(ng-click='$parent.col("DL Editor").show=false', title='Hide DL Editor panel.') X
+                div(ace-editor='ace-editor', dl-editor, mode='markdown', ng-model='$parent.$parent.litcoffee')
+              resizable-panel#css_col(name='Output Graph')
+                .menu.panel-menu(ng-class='{show:$parent.col("Output Graph").mouseover}')
+                  span.menu-title Theme ▾
+                  ul.menu-items
+                    li.menu-item(ng-repeat='theme in $parent.themes', ng-click='$parent.setTheme(theme)') {{theme}}
+                  span.hide-button(ng-click='$parent.col("Output Graph").show=false', title='Hide Output Graph panel.') X
+                render-graph
+              resizable-panel#css_col(name='Shade Editor', show='show')
+                .menu.panel-menu(ng-class='{show:$parent.col("Shade Editor").mouseover}')
+                  span.menu-title Theme ▾
+                  ul.menu-items
+                    li.menu-item(ng-repeat='theme in $parent.themes', ng-click='$parent.setTheme(theme)') {{theme}}
+                  span.hide-button(ng-click='$parent.col("Shade Editor").show=false', title='Hide Shade Editor panel.') X
+                div(ace-editor='ace-editor', shade-editor, mode='xml', ng-model='style.sheets[style.active].css')
+              resizable-panel#html_col(name='Ouput HTML')
+                .menu.panel-menu(ng-class='{show:$parent.col("Ouput HTML").mouseover}')
+                  span.menu-title Theme ▾
+                  ul.menu-items
+                    li.menu-item(ng-repeat='theme in $parent.theme.list', ng-click='$parent.theme.selected=theme') {{theme}}
+                  span.hide-button(ng-click='$parent.col("Ouput HTML").show=false', title='Hide Ouput HTML panel.') X
+                style(type='text/css', ng-bind='theme.css | scopeCSS:"#html_div"')
+                #html_div(style='height: 100%;')
+                  div(pretty-print-panel='$parent.$parent.style.sheets[style.active].css')
+              resizable-panel#render_col(name='Rendered Output', show='show')
+                .menu.panel-menu(ng-class='{show:$parent.col("Rendered Output").mouseover}')
+                  span.menu-title Theme ▾
+                  ul.menu-items
+                    li.menu-item(ng-repeat='(style, props) in style.sheets', ng-click='$parent.style.active=style', ng-class='{active_style:$parent.style.active==style}')
+                      | {{style}}
+                      ul.menu-actions
+                        li.icon-trash(ng-click='!props.native && delete_style($event, style)', ng-class='{inactive:props.native}', title='Delete styles')
+                        li.icon-copy(ng-click='copy_style($event, style)', title='Duplicate styles')
+                        li.icon-save(ng-show='false', title='Save styles')
+                    li.menu-item(ng-click='select_ext($event)', ng-class='{active_style:style.active=="external"}')
+                      label(for='external-css') External:
+                      input#external-css(ng-model='style.external', ng-keydown='keydown_input($event)', type='text', name='external-css', placeholder='http://')
+                  span.hide-button(ng-click='$parent.col("Rendered Output").show=false', title='Hide Rendered Output panel.') X
+                style(type='text/css', ng-bind='style.sheets[style.active].css | scopeCSS:"#disp_div"')
+                #disp_div
+                  #disp_div_inner(render-panel='$parent.$parent.$parent.style.sheets[style.active].css')
+
+
+    script(src='DL_libs/jquery-2.1.0.min.js')
+    script(src='DL_libs/angular.min.js')
+    script(src='DL_libs/lodash.js')
+    script(src='DL_libs/markdown.js')
+    script(src='DL_libs/angular-resource.min.js')
+    script(src='DL_libs/angular-cookies.min.js')
+    script(src='DL_libs/angular-sanitize.min.js')
+    script(src='DL_libs/google-code-prettify/src/prettify.js')
+    script(src='DL_libs/ace/src-noconflict/ace.js')
+    script(src='DL_libs/ace/src-noconflict/ext-language_tools.js')
+    script(src='DL_libs/d3.v2.js')
+    script(src='DL_libs/xml2json.min.js')
+    script(src='DL_libs/markdown.min.js')
+    script(src='DL_libs/bootstrap/js/bootstrap.js')
+    script(src='https://datatables.net/download/build/jquery.dataTables.min.js')
+
+    script(src='scripts/shade_module.js')
+    script(src='scripts/services/shadeServices.js')
+    script(src='scripts/app.js')
+    script(src='scripts/controllers/DLCtrl.js')
+    script(src='scripts/directives/editor.js')
+    script(src='scripts/directives/split-panel.js')
+    script(src='scripts/directives/render_graph.js')
+    script(src='scripts/filters/code_filters.js')
+    script(src='scripts/services/graph-text.js')
+    script(src='scripts/services/drawGraph.js')
+    script(src='scripts/services/x2js.js')
+    script(src='scripts/graph-dev/dist/graph-text-dev.js')
+    
+
+      

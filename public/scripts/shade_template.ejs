@@ -1,0 +1,65 @@
+﻿
+<%var NodeHandlers = {
+    'Grid': function(grid){
+        var span,widths=[],heights=[];
+        if (grid.Span) {
+            span = grid.Span.split(',');
+            span.forEach(function(e,i,a){a[i]=parseInt(a[i])});}
+        if (grid.Rows)
+            span = [grid.Rows,grid.Sub.Node.length/grid.Rows];
+        if (grid.Cols)
+            span = [grid.Sub.Node.length/grid.Cols,grid.Cols];
+        if (grid.ColWidth)
+            widths = grid.ColWidth.split(',');
+        if (grid.RowHeight)
+            heights = grid.RowHeight.split(',');
+
+        var makeCol = function(node) {%>
+    <div class = "span<%=span[1]%>">
+        <div style="border-style:solid">
+            <div>
+                <% NodeHandlers[node['UI']](node) %>
+            </div>
+        </div>
+    </div>
+
+        <%}
+
+        var makeRow = function(nodes) {
+            %><div class ="row"><%
+                _.each(nodes, function(e,i) {
+                    makeCol(e); }
+            %></div><%
+        }
+
+        for (var i = 0; i<grid.Sub.Node.length; i+=span[1]) {
+            makeRow(grid.Sub.Node.slice(i,i+span[1]))}
+        }
+
+
+
+
+
+
+    },
+
+    'TestDL': function(element){
+         %><div>name: <%-element.vDL%></div>
+                <div>expr: {{graph.variables["<%-element.vDL%>"].expr}}</div>
+                <div>value: {{graph.variables["<%-element.vDL%>"].value}}</div>
+                <div>setValue: {{graph.variables.<%-element.vDL%>.setValue}}</div>
+                <div>
+                    <form>Input: <input type="text" ng-model="vars['<%-element.vDL%>']" ><br />
+                        <button ng-click='setDLVar("<%-element.vDL%>")'>Set</button>
+                    </form>
+                </div><%}
+
+}
+
+function handleNodes(element,index) {
+        NodeHandlers[element['UI']](element);
+    
+};
+if (shd)
+    _.each(shd.Shade, handleNodes); %>
+

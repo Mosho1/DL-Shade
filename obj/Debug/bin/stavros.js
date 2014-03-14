@@ -1,0 +1,26 @@
+
+var compiler = require("../src/compiler"),
+    path     = require("path"),
+    fs       = require("fs");
+
+var basepath = process.env.PWD;
+var filename = path.basename(process.argv[2], '.stav');
+
+if (filename == path.basename(process.argv[2])) {
+    console.log("Stavros only eats .stav files");
+    process.exit();
+}
+
+var jsFile = filename + ".js";
+
+fs.readFile(process.argv[2], 'utf8', function(err, data) {
+    if (err) {
+        console.log("FILE READ ERROR: ", err);
+        process.exit();
+    }
+
+    var output = compiler.compile(data);
+
+    //fs.writeFileSync(jsFile, output.js);
+});
+
