@@ -19,7 +19,9 @@
       restrict: 'E',
       replace: true,
       scope: true,
-      template: '<input type="text" />',
+      template: function(elm, attr) {
+        return '<input type="text" value={{graph.variables.variables[&quot;' + attr.vtext + '&quot;].value}}>';
+      },
       link: function(scope, elm, attrs) {}
     };
   }).directive('renderPanel', function($compile, shadeTemplate) {
@@ -52,7 +54,6 @@
       restrict: 'A',
       replace: true,
       template: '<div class="pp-panel"></div>',
-      scope: true,
       link: function(scope, elm, attrs) {
         return scope.$watch(attrs.prettyPrintPanel, function(shade) {
           var code, pre, raw_html;
@@ -66,16 +67,16 @@
         });
       },
       controller: function($scope, $http) {
-        var theme;
-        $scope.$parent.theme = theme = {
+        var themes;
+        $scope.themes = themes = {
           list: ['google-code-light', 'solarized-dark', 'solarized-light', 'sons-of-obsidian-dark', 'tomorrow-night-blue', 'tomorrow-night-dark', 'tomorrow-night-light', 'tomorrow-night-eighties'],
           selected: 'google-code-light'
         };
-        return $scope.$watch('theme.selected', function(theme_name) {
+        return $scope.$watch('themes.selected', function(theme_name) {
           var url;
           url = "styles/gprettify/" + theme_name + ".css";
           return $http.get(url).then(function(response) {
-            return theme.css = response.data;
+            return themes.css = response.data;
           });
         });
       }

@@ -161,7 +161,11 @@ angular.module('DLApp')
 
 
 .directive 'menu', ($compile, $rootScope) ->
-  scope: true
+  scope: {
+    col: '=',
+    themes: '=',
+    setTheme: '&'
+  }
   restrict: 'C'
   controller: ($scope) ->
     $scope.menuitems ||= {show: false}

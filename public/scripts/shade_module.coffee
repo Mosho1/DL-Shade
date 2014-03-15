@@ -17,10 +17,8 @@ angular.module('ShadeApp',[])
     restrict: 'E'
     replace: true
     scope: true
-    template: '<input type="text" />'
+    template: (elm,attr) -> '<input type="text" value={{graph.variables.variables[&quot;' + attr.vtext+ '&quot;].value}}>'
     link: (scope, elm, attrs) ->
-
-
 
   .directive 'renderPanel', ($compile, shadeTemplate) ->
     restrict: 'A'
@@ -48,7 +46,6 @@ angular.module('ShadeApp',[])
     restrict: 'A'
     replace: true
     template: '<div class="pp-panel"></div>'
-    scope: true
     link: (scope, elm, attrs) ->
       scope.$watch attrs.prettyPrintPanel, (shade) ->
         raw_html = shadeTemplate.toHTML(shade).body
@@ -60,15 +57,15 @@ angular.module('ShadeApp',[])
         prettyPrint()
 
     controller: ($scope, $http) ->
-      $scope.$parent.theme = theme =
+      $scope.themes = themes =
         list: ['google-code-light','solarized-dark','solarized-light','sons-of-obsidian-dark',
                'tomorrow-night-blue','tomorrow-night-dark','tomorrow-night-light','tomorrow-night-eighties']
         selected: 'google-code-light'
 
-      $scope.$watch 'theme.selected', (theme_name) ->
+      $scope.$watch 'themes.selected', (theme_name) ->
         url = "styles/gprettify/#{theme_name}.css"
         $http.get(url).then (response) ->
-          theme.css = response.data
+          themes.css = response.data
 
 
 

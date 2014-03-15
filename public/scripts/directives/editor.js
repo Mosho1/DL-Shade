@@ -10,8 +10,10 @@
         scope.acee = acee = window.ace.edit(elm[0]);
         scope.session = session = acee.getSession();
         scope.mode = attrs.mode;
-        scope.makeCompletions = function(collection, meta) {
-          return collection.map(function(elm) {
+        scope.makeCompletions = function(prefix, collection, meta) {
+          return collection.filter(function(elm) {
+            return elm.substring(0, prefix.length) === prefix;
+          }).map(function(elm) {
             return {
               name: elm,
               value: elm,
@@ -79,8 +81,8 @@
             if (session.$modeId !== "ace/mode/" + attrs.mode) {
               return callback(null, []);
             }
-            identifiers = scope.makeCompletions(Object.keys(scope.$parent.$parent.graph.variables.variables), "variable");
-            functions = scope.makeCompletions(Graph.getFunctions(), "function");
+            identifiers = scope.makeCompletions(prefix, Object.keys(scope.$parent.$parent.graph.variables.variables), "variable");
+            functions = scope.makeCompletions(prefix, Graph.getFunctions(), "function");
             nameList = identifiers.concat(functions);
             return callback(null, nameList);
           }
@@ -101,10 +103,10 @@
             if (session.$modeId !== "ace/mode/" + attrs.mode) {
               return callback(null, []);
             }
-            attrNames = scope.makeCompletions(Object.keys(ShadeDictionary.attrNameHandlers), "attribute name");
-            attrValues = scope.makeCompletions(Object.keys(ShadeDictionary.attrValueHandlers), "attribute value");
-            styleNames = scope.makeCompletions(Object.keys(ShadeDictionary.styleNameHandlers), "style name");
-            styleValues = scope.makeCompletions(Object.keys(ShadeDictionary.styleValueHandlers), "style value");
+            attrNames = scope.makeCompletions(prefix, Object.keys(ShadeDictionary.attrNameHandlers), "attribute name");
+            attrValues = scope.makeCompletions(prefix, Object.keys(ShadeDictionary.attrValueHandlers), "attribute value");
+            styleNames = scope.makeCompletions(prefix, Object.keys(ShadeDictionary.styleNameHandlers), "style name");
+            styleValues = scope.makeCompletions(prefix, Object.keys(ShadeDictionary.styleValueHandlers), "style value");
             nameList = attrNames.concat(attrValues, styleNames, styleValues);
             return callback(null, nameList);
           }

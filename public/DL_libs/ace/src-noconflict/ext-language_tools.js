@@ -28,7 +28,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-ace.define('ace/ext/language_tools', ['require', 'exports', 'module' , 'ace/snippets', 'ace/autocomplete', 'ace/config', 'ace/autocomplete/text_completer', 'ace/editor'], function(require, exports, module) {
+ace.define('ace/ext/language_tools', ['require', 'exports', 'module', 'ace/snippets', 'ace/autocomplete', 'ace/config', 'ace/autocomplete/text_completer', 'ace/editor'], function(require, exports, module) {
 
 
 var snippetManager = require("../snippets").snippetManager;

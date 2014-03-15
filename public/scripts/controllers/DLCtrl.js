@@ -231,7 +231,10 @@
     });
   }).directive('menu', function($compile, $rootScope) {
     return {
-      scope: true,
+      scope: {
+        col: '=',
+        themes: '='
+      },
       restrict: 'C',
       controller: function($scope) {
         $scope.menuitems || ($scope.menuitems = {

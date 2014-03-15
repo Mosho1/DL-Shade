@@ -53,37 +53,37 @@ html.no-js
       div(style='position: relative; height: 100%; width: 100%;')
         split-row(ng-cloak='ng-cloak')
               resizable-panel#md_col(name='DL Editor', show='show')
-                .menu.panel-menu(ng-class='{show:$parent.col("DL Editor").mouseover}')
+                .menu.panel-menu(ng-class='{show:col("DL Editor").mouseover}', col="col")
                   span.menu-title Theme ▾
                   ul.menu-items
-                    li.menu-item(ng-repeat='theme in $parent.themes', ng-click='$parent.setTheme(theme)') {{theme}}
-                  span.hide-button(ng-click='$parent.col("DL Editor").show=false', title='Hide DL Editor panel.') X
+                    li.menu-item(ng-repeat='theme in themes', ng-click='setTheme(theme)', themes="themes", setTheme="setTheme") {{theme}}
+                  span.hide-button(ng-click='col("DL Editor").show=false', title='Hide DL Editor panel.') X
                 div(ace-editor='ace-editor', dl-editor, mode='markdown', ng-model='$parent.$parent.litcoffee')
               resizable-panel#css_col(name='Output Graph')
-                .menu.panel-menu(ng-class='{show:$parent.col("Output Graph").mouseover}')
+                .menu.panel-menu(ng-class='{show:col("Output Graph").mouseover}', col="col")
                   span.menu-title Theme ▾
                   ul.menu-items
-                    li.menu-item(ng-repeat='theme in $parent.themes', ng-click='$parent.setTheme(theme)') {{theme}}
-                  span.hide-button(ng-click='$parent.col("Output Graph").show=false', title='Hide Output Graph panel.') X
+                      li.menu-item(ng-repeat='theme in themes', ng-click='setTheme(theme)', themes="themes", setTheme="setTheme") {{theme}}
+                  span.hide-button(ng-click='col("Output Graph").show=false', title='Hide Output Graph panel.') X
                 render-graph
               resizable-panel#css_col(name='Shade Editor', show='show')
-                .menu.panel-menu(ng-class='{show:$parent.col("Shade Editor").mouseover}')
+                .menu.panel-menu(ng-class='{show:col("Shade Editor").mouseover}', col="col")
                   span.menu-title Theme ▾
                   ul.menu-items
-                    li.menu-item(ng-repeat='theme in $parent.themes', ng-click='$parent.setTheme(theme)') {{theme}}
-                  span.hide-button(ng-click='$parent.col("Shade Editor").show=false', title='Hide Shade Editor panel.') X
+                      li.menu-item(ng-repeat='theme in themes', ng-click='setTheme(theme)', themes="themes", setTheme="setTheme") {{theme}}
+                  span.hide-button(ng-click='col("Shade Editor").show=false', title='Hide Shade Editor panel.') X
                 div(ace-editor='ace-editor', shade-editor, mode='xml', ng-model='style.sheets[style.active].css')
-              resizable-panel#html_col(name='Ouput HTML')
-                .menu.panel-menu(ng-class='{show:$parent.col("Ouput HTML").mouseover}')
+              resizable-panel#html_col(name='Ouput HTML', styles="style")
+                .menu.panel-menu(ng-class='{show:col("Ouput HTML").mouseover}', col="col")
                   span.menu-title Theme ▾
                   ul.menu-items
-                    li.menu-item(ng-repeat='theme in $parent.theme.list', ng-click='$parent.theme.selected=theme') {{theme}}
-                  span.hide-button(ng-click='$parent.col("Ouput HTML").show=false', title='Hide Ouput HTML panel.') X
-                style(type='text/css', ng-bind='theme.css | scopeCSS:"#html_div"')
+                      li.menu-item(ng-repeat='theme in themes.list', ng-click='themes.selected=theme', theme="theme") {{theme}}
+                  span.hide-button(ng-click='col("Ouput HTML").show=false', title='Hide Ouput HTML panel.') X
+                style(type='text/css', ng-bind='themes.css | scopeCSS:"#html_div"')
                 #html_div(style='height: 100%;')
                   div(pretty-print-panel='$parent.$parent.style.sheets[style.active].css')
               resizable-panel#render_col(name='Rendered Output', show='show')
-                .menu.panel-menu(ng-class='{show:$parent.col("Rendered Output").mouseover}')
+                .menu.panel-menu(ng-class='{show:col("Rendered Output").mouseover}', col="col")
                   span.menu-title Theme ▾
                   ul.menu-items
                     li.menu-item(ng-repeat='(style, props) in style.sheets', ng-click='$parent.style.active=style', ng-class='{active_style:$parent.style.active==style}')
@@ -95,7 +95,7 @@ html.no-js
                     li.menu-item(ng-click='select_ext($event)', ng-class='{active_style:style.active=="external"}')
                       label(for='external-css') External:
                       input#external-css(ng-model='style.external', ng-keydown='keydown_input($event)', type='text', name='external-css', placeholder='http://')
-                  span.hide-button(ng-click='$parent.col("Rendered Output").show=false', title='Hide Rendered Output panel.') X
+                  span.hide-button(ng-click='col("Rendered Output").show=false', title='Hide Rendered Output panel.') X
                 style(type='text/css', ng-bind='style.sheets[style.active].css | scopeCSS:"#disp_div"')
                 #disp_div
                   #disp_div_inner(render-panel='$parent.$parent.$parent.style.sheets[style.active].css')

@@ -3,7 +3,8 @@ angular.module('ShadeApp')
     .value('ShadeDictionary', {
         //dictionary for attribute names
         'attrNameHandlers' : {
-            'vDL': ''
+            'vDL': '',
+            'vText': 'vtext'
         },
 
         //dictionary for attribute values

@@ -10,9 +10,12 @@ angular.module('DLApp')
     scope.acee = acee = window.ace.edit(elm[0])
     scope.session = session = acee.getSession()
     scope.mode = attrs.mode
-    scope.makeCompletions = (collection, meta) ->
-      return collection.map (elm)->
-        name:elm, value:elm, meta:meta
+
+    scope.makeCompletions = (prefix, collection, meta) ->
+      collection.filter (elm)->
+        elm.substring(0, prefix.length) == prefix
+      .map((elm)->
+          name:elm, value:elm, meta:meta)
 
     acee.setTheme("ace/theme/solarized_light")
     acee.getSession().setMode("ace/mode/#{scope.mode}")
@@ -63,8 +66,8 @@ angular.module('DLApp')
       getCompletions: (editor, session, pos, prefix, callback) ->
         unless session.$modeId is "ace/mode/" + attrs.mode
           return callback null, []
-        identifiers = scope.makeCompletions Object.keys(scope.$parent.$parent.graph.variables.variables), "variable"
-        functions = scope.makeCompletions Graph.getFunctions(), "function"
+        identifiers = scope.makeCompletions prefix, Object.keys(scope.$parent.$parent.graph.variables.variables), "variable"
+        functions = scope.makeCompletions prefix, Graph.getFunctions(), "function"
         nameList = identifiers.concat(functions)
         callback null, nameList
 
@@ -81,10 +84,10 @@ angular.module('DLApp')
       getCompletions: (editor, session, pos, prefix, callback) ->
         unless session.$modeId is "ace/mode/" + attrs.mode
           return callback null, []
-        attrNames = scope.makeCompletions Object.keys(ShadeDictionary.attrNameHandlers), "attribute name"
-        attrValues = scope.makeCompletions Object.keys(ShadeDictionary.attrValueHandlers), "attribute value"
-        styleNames = scope.makeCompletions Object.keys(ShadeDictionary.styleNameHandlers), "style name"
-        styleValues = scope.makeCompletions Object.keys(ShadeDictionary.styleValueHandlers), "style value"
+        attrNames = scope.makeCompletions prefix, Object.keys(ShadeDictionary.attrNameHandlers), "attribute name"
+        attrValues = scope.makeCompletions prefix, Object.keys(ShadeDictionary.attrValueHandlers), "attribute value"
+        styleNames = scope.makeCompletions prefix, Object.keys(ShadeDictionary.styleNameHandlers), "style name"
+        styleValues = scope.makeCompletions prefix, Object.keys(ShadeDictionary.styleValueHandlers), "style value"
         nameList = attrNames.concat(attrValues, styleNames, styleValues)
         callback null, nameList
 
