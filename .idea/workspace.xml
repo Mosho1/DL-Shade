@@ -27,13 +27,13 @@
     <file path="/functions.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1393884489354" ignored="false" />
     <file path="/compiler.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1393876860207" ignored="false" />
     <file path="/calculator.jison" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1393881813215" ignored="false" />
-    <file path="/shade_module.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394964737089" ignored="false" />
+    <file path="/shade_module.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394978183393" ignored="false" />
     <file path="/testdl.html" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394680954193" ignored="false" />
     <file path="/shade_template_ng.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394060731600" ignored="false" />
     <file path="$PROJECT_DIR$/public/csscripts/controllers/ShadeCtrl.map" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394061537113" ignored="false" />
     <file path="$PROJECT_DIR$/public/csscripts/shade.map" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394061537113" ignored="false" />
     <file path="/test.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394613815759" ignored="false" />
-    <file path="/shadeServices.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394843686769" ignored="false" />
+    <file path="/shadeServices.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394972120431" ignored="false" />
     <file path="$USER_HOME$/Documents/presentation/intro-to-angularjs-master/intro-to-angularjs-master/app/js/app.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394473221858" ignored="false" />
     <file path="/app.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394473221858" ignored="false" />
     <file path="$USER_HOME$/Documents/presentation/intro-to-angularjs-master/intro-to-angularjs-master/login.html" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394472573703" ignored="false" />
@@ -78,7 +78,7 @@
             <file leaf-file-name="index_DL.jade" pinned="false" current="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/public/views/index_DL.jade">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="53" column="94" selection-start="2255" selection-end="2255" vertical-scroll-proportion="0.33297062">
+                  <state line="91" column="43" selection-start="5098" selection-end="5098" vertical-scroll-proportion="0.48095757">
                     <folding />
                   </state>
                 </provider>
@@ -98,7 +98,7 @@
       <file leaf-file-name="shadeServices.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/services/shadeServices.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="154" column="62" selection-start="7171" selection-end="7171" vertical-scroll-proportion="-19.36">
+            <state line="37" column="60" selection-start="1064" selection-end="1064" vertical-scroll-proportion="76.84">
               <folding />
             </state>
           </provider>
@@ -108,7 +108,15 @@
         <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee">
           <provider selected="true" editor-type-id="text-editor">
             <state line="121" column="40" selection-start="3749" selection-end="3749" vertical-scroll-proportion="-23.12">
-              <folding />
+              <folding>
+                <marker date="1394961054889" expanded="true" signature="2404:2815" placeholder="..." />
+                <marker date="1394961054889" expanded="true" signature="2430:2815" placeholder="..." />
+                <marker date="1394961054889" expanded="true" signature="2550:2815" placeholder="..." />
+                <marker date="1394961054889" expanded="true" signature="2702:2779" placeholder="source: 'dragged file'..." />
+                <marker date="1394961054889" expanded="true" signature="2847:2902" placeholder="..." />
+                <marker date="1394961054889" expanded="true" signature="5287:5407" placeholder="..." />
+                <marker date="1394961054889" expanded="true" signature="5498:5637" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -117,7 +125,21 @@
         <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="104" column="23" selection-start="3586" selection-end="3586" vertical-scroll-proportion="-19.04">
-              <folding />
+              <folding>
+                <marker date="1394961055204" expanded="true" signature="47:8730" placeholder="{...}" />
+                <marker date="1394961055204" expanded="true" signature="3322:7653" placeholder="{...}" />
+                <marker date="1394961055204" expanded="true" signature="3196:3205" placeholder="{...}" />
+                <marker date="1394961055204" expanded="true" signature="4090:4672" placeholder="{...}" />
+                <marker date="1394961055204" expanded="true" signature="4133:4666" placeholder="{...}" />
+                <marker date="1394961055204" expanded="true" signature="4254:4293" placeholder="{...}" />
+                <marker date="1394961055204" expanded="true" signature="5788:6022" placeholder="{...}" />
+                <marker date="1394961055204" expanded="true" signature="7704:8725" placeholder="{...}" />
+                <marker date="1394961055204" expanded="true" signature="7717:8720" placeholder="{&quot;restrict&quot;: 'C'...}" />
+                <marker date="1394961055204" expanded="true" signature="7732:7802" placeholder="{&quot;col&quot;: '='...}" />
+                <marker date="1394961055204" expanded="true" signature="7860:8124" placeholder="{...}" />
+                <marker date="1394961055204" expanded="true" signature="8166:8714" placeholder="{...}" />
+                <marker date="1394961055204" expanded="true" signature="8254:8502" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -131,22 +153,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editor.coffee" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="editor.coffee" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/scripts/directives/editor.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="21" selection-start="502" selection-end="502" vertical-scroll-proportion="-14.28">
-              <folding>
-                <marker date="1394960740146" expanded="true" signature="156:2036" placeholder="..." />
-                <marker date="1394960740146" expanded="true" signature="1853:2036" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ng_template_shd.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/ng_template_shd.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="34" selection-start="795" selection-end="795" vertical-scroll-proportion="0.0">
+            <state line="56" column="153" selection-start="1814" selection-end="1814" vertical-scroll-proportion="0.70665085">
               <folding />
             </state>
           </provider>
@@ -155,20 +165,29 @@
       <file leaf-file-name="code_filters.coffee" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/filters/code_filters.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="31" selection-start="2042" selection-end="2042" vertical-scroll-proportion="-53.04">
+            <state line="89" column="31" selection-start="2414" selection-end="2414" vertical-scroll-proportion="-21.76">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shade_module.coffee" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="shade_module.coffee" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/shade_module.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="52" selection-start="630" selection-end="630" vertical-scroll-proportion="0.44418052">
+            <state line="31" column="27" selection-start="760" selection-end="760" vertical-scroll-proportion="-17.0">
               <folding>
-                <marker date="1394964885217" expanded="true" signature="713:786" placeholder="..." />
-                <marker date="1394964885217" expanded="true" signature="1613:1629" placeholder="..." />
+                <marker date="1394978189274" expanded="true" signature="778:851" placeholder="..." />
+                <marker date="1394978189274" expanded="true" signature="1678:1694" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testdl.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/directive-templates/testdl.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -773,13 +792,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/views/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/directives/render_panel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="25" selection-start="669" selection-end="669" vertical-scroll-proportion="0.0">
@@ -823,19 +835,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/directives/render_panel.coffee">
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="27" selection-start="376" selection-end="376" vertical-scroll-proportion="-9.52">
+        <state line="104" column="23" selection-start="3586" selection-end="3586" vertical-scroll-proportion="-19.04">
           <folding>
-            <marker date="1393617306353" expanded="false" signature="908:924" placeholder="..." />
+            <marker date="1394961055204" expanded="true" signature="47:8730" placeholder="{...}" />
+            <marker date="1394961055204" expanded="true" signature="3322:7653" placeholder="{...}" />
+            <marker date="1394961055204" expanded="true" signature="3196:3205" placeholder="{...}" />
+            <marker date="1394961055204" expanded="true" signature="4090:4672" placeholder="{...}" />
+            <marker date="1394961055204" expanded="true" signature="4133:4666" placeholder="{...}" />
+            <marker date="1394961055204" expanded="true" signature="4254:4293" placeholder="{...}" />
+            <marker date="1394961055204" expanded="true" signature="5788:6022" placeholder="{...}" />
+            <marker date="1394961055204" expanded="true" signature="7704:8725" placeholder="{...}" />
+            <marker date="1394961055204" expanded="true" signature="7717:8720" placeholder="{&quot;restrict&quot;: 'C'...}" />
+            <marker date="1394961055204" expanded="true" signature="7732:7802" placeholder="{&quot;col&quot;: '='...}" />
+            <marker date="1394961055204" expanded="true" signature="7860:8124" placeholder="{...}" />
+            <marker date="1394961055204" expanded="true" signature="8166:8714" placeholder="{...}" />
+            <marker date="1394961055204" expanded="true" signature="8254:8502" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/filters/code_filters.coffee">
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="31" selection-start="2042" selection-end="2042" vertical-scroll-proportion="-53.04">
-          <folding />
+        <state line="121" column="40" selection-start="3749" selection-end="3749" vertical-scroll-proportion="-23.12">
+          <folding>
+            <marker date="1394961054889" expanded="true" signature="2404:2815" placeholder="..." />
+            <marker date="1394961054889" expanded="true" signature="2430:2815" placeholder="..." />
+            <marker date="1394961054889" expanded="true" signature="2550:2815" placeholder="..." />
+            <marker date="1394961054889" expanded="true" signature="2702:2779" placeholder="source: 'dragged file'..." />
+            <marker date="1394961054889" expanded="true" signature="2847:2902" placeholder="..." />
+            <marker date="1394961054889" expanded="true" signature="5287:5407" placeholder="..." />
+            <marker date="1394961054889" expanded="true" signature="5498:5637" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -846,17 +878,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.js">
+    <entry file="file://$PROJECT_DIR$/public/scripts/directives/render_panel.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="23" selection-start="3586" selection-end="3586" vertical-scroll-proportion="-19.04">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="40" selection-start="3749" selection-end="3749" vertical-scroll-proportion="-23.12">
-          <folding />
+        <state line="14" column="27" selection-start="376" selection-end="376" vertical-scroll-proportion="-9.52">
+          <folding>
+            <marker date="1393617306353" expanded="false" signature="908:924" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -867,37 +894,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/directives/editor.coffee">
+    <entry file="file://$PROJECT_DIR$/public/scripts/filters/code_filters.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="21" selection-start="502" selection-end="502" vertical-scroll-proportion="-14.28">
-          <folding>
-            <marker date="1394960740146" expanded="true" signature="156:2036" placeholder="..." />
-            <marker date="1394960740146" expanded="true" signature="1853:2036" placeholder="..." />
-          </folding>
+        <state line="89" column="31" selection-start="2414" selection-end="2414" vertical-scroll-proportion="-21.76">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/services/shadeServices.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="62" selection-start="7171" selection-end="7171" vertical-scroll-proportion="-19.36">
+        <state line="37" column="60" selection-start="1064" selection-end="1064" vertical-scroll-proportion="76.84">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/directive-templates/testdl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/index_DL.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="94" selection-start="2255" selection-end="2255" vertical-scroll-proportion="0.33297062">
+        <state line="91" column="43" selection-start="5098" selection-end="5098" vertical-scroll-proportion="0.48095757">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/shade_module.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="52" selection-start="630" selection-end="630" vertical-scroll-proportion="0.44418052">
+        <state line="31" column="27" selection-start="760" selection-end="760" vertical-scroll-proportion="-17.0">
           <folding>
-            <marker date="1394964885217" expanded="true" signature="713:786" placeholder="..." />
-            <marker date="1394964885217" expanded="true" signature="1613:1629" placeholder="..." />
+            <marker date="1394978189274" expanded="true" signature="778:851" placeholder="..." />
+            <marker date="1394978189274" expanded="true" signature="1678:1694" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/directives/editor.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="153" selection-start="1814" selection-end="1814" vertical-scroll-proportion="0.70665085">
+          <folding />
         </state>
       </provider>
     </entry>

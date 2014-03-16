@@ -14,13 +14,15 @@ angular.module('ShadeApp')
 
         //dictionary for style names
         'styleNameHandlers' : {
-            'test': ''
+            'width': '',
+            'height': ''
 
         },
 
         //dictionary for style values
         'styleValueHandlers' : {
-
+            'width': function (width) { return width + "px" },
+            'height': function (height) { return height + "px" }
         }
 
     })
@@ -43,7 +45,24 @@ angular.module('ShadeApp')
                 },
 
                 handleStyles = function (styles, value, style) {
-                    return styles += (value && (style = styleNames.hasOwnProperty(style) ? styleNames[style] || style : '')) ? style + ':' + (styleValues[value]  || value) + '; ' : '';
+                    var stval, type;
+                    if (value && styleNames.hasOwnProperty(style)) {
+                        styles += (styleNames[style] || style) + ': ';
+                        type = typeof (stval = (styleValues[value] || styleValues[style]));
+                        if (type === 'undefined') {
+                            styles += value;
+                        } else if (type === 'function') {
+                            styles += stval(value);
+                        } else {
+                            styles += stval;
+                        }
+                        styles += " !important;";
+                    }
+
+                    return styles;
+
+
+
                 },
 
             //wrappers for creating HTML elements. Creates enumerated CSS classes for each element with style(s).

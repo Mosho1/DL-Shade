@@ -18,11 +18,18 @@
     return {
       restrict: 'E',
       replace: true,
-      scope: true,
-      template: function(elm, attr) {
-        return '<input type="text" value={{graph.variables.variables[&quot;' + attr.vtext + '&quot;].value}}>';
+      scope: {
+        vtext: '='
       },
-      link: function(scope, elm, attrs) {}
+      template: function(elm, attr) {
+        return '<input type="text" ng-model="toSet">';
+      },
+      link: function(scope, elm, attrs) {
+        scope.toSet;
+        return scope.setDLVar = function() {
+          return scope.graph.set(scope.variable, Number(scope.toSet));
+        };
+      }
     };
   }).directive('renderPanel', function($compile, $filter, $sce, shadeTemplate) {
     return {

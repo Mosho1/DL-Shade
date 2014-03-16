@@ -16,9 +16,15 @@ angular.module('ShadeApp',[])
   .directive 'numEdit', () ->
     restrict: 'E'
     replace: true
-    scope: true
-    template: (elm,attr) -> '<input type="text" value={{graph.variables.variables[&quot;' + attr.vtext+ '&quot;].value}}>'
+    scope:
+      vtext: '='
+    template: (elm,attr) -> '<input type="text" ng-model="toSet">'
     link: (scope, elm, attrs) ->
+      scope.toSet
+
+
+      scope.setDLVar = () ->
+        scope.graph.set(scope.variable,Number(scope.toSet))
 
   .directive 'renderPanel', ($compile, $filter, $sce, shadeTemplate) ->
     restrict: 'E'
