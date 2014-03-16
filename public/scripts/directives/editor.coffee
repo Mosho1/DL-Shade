@@ -10,7 +10,7 @@ angular.module('DLApp')
 
 
     scope.$on "Run", () ->
-      #console.log(scope.litcoffee)
+      console.log(scope.litcoffee)
       console.log(scope.$parent.$parent.litcoffee)
 
     scope.acee = acee = window.ace.edit(elm[0])

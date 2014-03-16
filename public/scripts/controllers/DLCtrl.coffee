@@ -62,8 +62,9 @@ angular.module('DLApp')
 
 
 .controller 'DLCtrl', ($scope, $rootScope, $http, $filter, $element, $document, dndFile, Graph, graphService) ->
-  $scope.litcoffee = {code:default_lc}
+  $scope.litcoffee = default_lc
 
+  $scope.test = {test:default_lc}
 
   dndFile.init $element[0],
   dndFile.onactive   () -> $scope.$apply () -> $scope.dragover = true
@@ -73,7 +74,7 @@ angular.module('DLApp')
   dndFile.onfileload (e) ->
     $scope.$apply () ->
       if e.fileExt in ['md', 'litcoffee']
-        $scope.litcoffee.code = e.target.result
+        $scope.litcoffee = e.target.result
       else if e.fileExt is 'css'
         name = e.fileName
         i = 0
@@ -116,10 +117,9 @@ angular.module('DLApp')
     $scope.styles.active = Object.keys($scope.styles.sheets)[0] if $scope.styles.active is style_name
 
   $scope.DLrun = (e) ->
-    console.log($scope.test)
     if e
       _.kill_event(e)
-    Graph.getGraph($scope.test.test,$scope.styles,(graph) ->
+    Graph.getGraph($scope.litcoffee,$scope.styles,(graph) ->
       $scope.graph = graph.evaluate()
       $rootScope.$broadcast('Run')
     )

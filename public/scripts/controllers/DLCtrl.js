@@ -92,8 +92,9 @@
       })(this)
     };
   }).controller('DLCtrl', function($scope, $rootScope, $http, $filter, $element, $document, dndFile, Graph, graphService) {
-    $scope.litcoffee = {
-      code: default_lc
+    $scope.litcoffee = default_lc;
+    $scope.test = {
+      test: default_lc
     };
     dndFile.init($element[0], dndFile.onactive(function() {
       return $scope.$apply(function() {
@@ -119,7 +120,7 @@
       return $scope.$apply(function() {
         var i, name, _ref;
         if ((_ref = e.fileExt) === 'md' || _ref === 'litcoffee') {
-          return $scope.litcoffee.code = e.target.result;
+          return $scope.litcoffee = e.target.result;
         } else if (e.fileExt === 'css') {
           name = e.fileName;
           i = 0;
@@ -173,11 +174,10 @@
       }
     };
     $scope.DLrun = function(e) {
-      console.log($scope.test);
       if (e) {
         _.kill_event(e);
       }
-      return Graph.getGraph($scope.test.test, $scope.styles, function(graph) {
+      return Graph.getGraph($scope.litcoffee, $scope.styles, function(graph) {
         $scope.graph = graph.evaluate();
         return $rootScope.$broadcast('Run');
       });

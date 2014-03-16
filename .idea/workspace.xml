@@ -5,7 +5,7 @@
     <ignored path="DependencyLanguage.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/shade.xml" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1393382164846" ignored="false" />
-    <file path="/DLCtrl.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394960689563" ignored="false" />
+    <file path="/DLCtrl.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394960821940" ignored="false" />
     <file path="/code_filters.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394921265154" ignored="false" />
     <file path="/editor.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394960122872" ignored="false" />
     <file path="/render_graph.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394952343092" ignored="false" />
@@ -98,7 +98,7 @@
       <file leaf-file-name="DLCtrl.coffee" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="49" selection-start="2310" selection-end="2310" vertical-scroll-proportion="-0.014251782">
+            <state line="77" column="35" selection-start="2534" selection-end="2534" vertical-scroll-proportion="0.24821852">
               <folding />
             </state>
           </provider>
@@ -107,7 +107,7 @@
       <file leaf-file-name="DLCtrl.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="23" selection-start="3560" selection-end="3560" vertical-scroll-proportion="-19.04">
+            <state line="101" column="23" selection-start="3557" selection-end="3557" vertical-scroll-proportion="-19.04">
               <folding />
             </state>
           </provider>
@@ -125,7 +125,7 @@
       <file leaf-file-name="editor.coffee" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/directives/editor.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="45" selection-start="593" selection-end="593" vertical-scroll-proportion="-16.32">
+            <state line="21" column="21" selection-start="502" selection-end="502" vertical-scroll-proportion="-14.28">
               <folding />
             </state>
           </provider>
@@ -187,7 +187,7 @@
       <file leaf-file-name="split-panel.coffee" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/directives/split-panel.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="26" selection-start="427" selection-end="448" vertical-scroll-proportion="-12.92">
+            <state line="10" column="13" selection-start="160" selection-end="169" vertical-scroll-proportion="-4.76">
               <folding />
             </state>
           </provider>
@@ -215,9 +215,9 @@
         <option value="$PROJECT_DIR$/public/scripts/filters/code_filters.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/shade_module.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/directives/render_graph.coffee" />
-        <option value="$PROJECT_DIR$/public/scripts/directives/editor.coffee" />
         <option value="$PROJECT_DIR$/public/views/index_DL.jade" />
         <option value="$PROJECT_DIR$/public/scripts/directives/split-panel.coffee" />
+        <option value="$PROJECT_DIR$/public/scripts/directives/editor.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee" />
       </list>
     </option>
@@ -866,7 +866,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="23" selection-start="3560" selection-end="3560" vertical-scroll-proportion="-19.04">
+        <state line="101" column="23" selection-start="3557" selection-end="3557" vertical-scroll-proportion="-19.04">
           <folding />
         </state>
       </provider>
@@ -878,23 +878,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/directives/split-panel.coffee">
+    <entry file="file://$PROJECT_DIR$/public/scripts/directives/editor.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="26" selection-start="427" selection-end="448" vertical-scroll-proportion="-12.92">
+        <state line="21" column="21" selection-start="502" selection-end="502" vertical-scroll-proportion="-14.28">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/directives/editor.coffee">
+    <entry file="file://$PROJECT_DIR$/public/scripts/directives/split-panel.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="45" selection-start="593" selection-end="593" vertical-scroll-proportion="-16.32">
+        <state line="10" column="13" selection-start="160" selection-end="169" vertical-scroll-proportion="-4.76">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="49" selection-start="2310" selection-end="2310" vertical-scroll-proportion="-0.014251782">
+        <state line="77" column="35" selection-start="2534" selection-end="2534" vertical-scroll-proportion="0.24821852">
           <folding />
         </state>
       </provider>
