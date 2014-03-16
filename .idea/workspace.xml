@@ -5,16 +5,16 @@
     <ignored path="DependencyLanguage.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/shade.xml" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1393382164846" ignored="false" />
-    <file path="/DLCtrl.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394848699255" ignored="false" />
-    <file path="/code_filters.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1393537856679" ignored="false" />
-    <file path="/editor.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394848752240" ignored="false" />
-    <file path="/render_graph.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394682381305" ignored="false" />
+    <file path="/DLCtrl.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394960689563" ignored="false" />
+    <file path="/code_filters.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394921265154" ignored="false" />
+    <file path="/editor.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394960122872" ignored="false" />
+    <file path="/render_graph.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394952343092" ignored="false" />
     <file path="/drawGraph.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394681590298" ignored="false" />
     <file path="/ShadeCtrl.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1393532840747" ignored="false" />
     <file path="/x2js.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1393537643838" ignored="false" />
-    <file path="/index_DL.jade" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394851409247" ignored="false" />
+    <file path="/index_DL.jade" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394959182775" ignored="false" />
     <file path="/render_shade.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1393535774057" ignored="false" />
-    <file path="/a.dummy" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394851426848" ignored="false" />
+    <file path="/a.dummy" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394950027353" ignored="false" />
     <file path="/shadeTemplate.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1393541435052" ignored="false" />
     <file path="/render_panel.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1393617306625" ignored="false" />
     <file path="/grammar.jison" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1393804887600" ignored="false" />
@@ -27,7 +27,7 @@
     <file path="/functions.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1393884489354" ignored="false" />
     <file path="/compiler.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1393876860207" ignored="false" />
     <file path="/calculator.jison" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1393881813215" ignored="false" />
-    <file path="/shade_module.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394851284507" ignored="false" />
+    <file path="/shade_module.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394947792492" ignored="false" />
     <file path="/testdl.html" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394680954193" ignored="false" />
     <file path="/shade_template_ng.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394060731600" ignored="false" />
     <file path="$PROJECT_DIR$/public/csscripts/controllers/ShadeCtrl.map" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394061537113" ignored="false" />
@@ -52,11 +52,10 @@
     <file path="$PROJECT_DIR$/public/csscripts/services/graph-text.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394578537480" ignored="false" />
     <file path="/variable-registry.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394680200315" ignored="false" />
     <file path="/lexer.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394614122706" ignored="false" />
-    <file path="/split-panel.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394618944914" ignored="false" />
+    <file path="/split-panel.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394960095060" ignored="false" />
     <file path="/package.json" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394677150807" ignored="false" />
     <file path="/Gruntfile.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394678988063" ignored="false" />
     <file path="/a.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394680289995" ignored="false" />
-    <file path="$PROJECT_DIR$/public/scripts/graph-dev/dist/graph-text-dev.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394748220381" ignored="false" />
     <file path="/ext-language_tools.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1394743404919" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +78,7 @@
             <file leaf-file-name="index_DL.jade" pinned="false" current="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/public/views/index_DL.jade">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="91" column="80" selection-start="5177" selection-end="5177" vertical-scroll-proportion="0.6615925">
+                  <state line="53" column="105" selection-start="2266" selection-end="2266" vertical-scroll-proportion="0.33297062">
                     <folding />
                   </state>
                 </provider>
@@ -96,28 +95,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="render_graph.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/directives/render_graph.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DLCtrl.coffee" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="33" selection-start="3735" selection-end="3735" vertical-scroll-proportion="0.31234568">
+            <state line="71" column="49" selection-start="2310" selection-end="2310" vertical-scroll-proportion="-0.014251782">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shadeTemplate.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/services/shadeTemplate.coffee">
+      <file leaf-file-name="DLCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="370" selection-end="370" vertical-scroll-proportion="0.0">
+            <state line="102" column="23" selection-start="3560" selection-end="3560" vertical-scroll-proportion="-19.04">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="render_graph.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/directives/render_graph.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="47" selection-start="629" selection-end="629" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editor.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/directives/editor.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="45" selection-start="593" selection-end="593" vertical-scroll-proportion="-16.32">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="calculator.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/calculator.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="85" column="53" selection-start="3560" selection-end="3560" vertical-scroll-proportion="-13.24">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ng_template_shd.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/ng_template_shd.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="34" selection-start="795" selection-end="795" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="code_filters.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/filters/code_filters.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="78" column="31" selection-start="2042" selection-end="2042" vertical-scroll-proportion="-53.04">
               <folding />
             </state>
           </provider>
@@ -126,46 +163,12 @@
       <file leaf-file-name="shade_module.coffee" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/shade_module.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="27" selection-start="735" selection-end="735" vertical-scroll-proportion="-9.68">
+            <state line="46" column="52" selection-start="1267" selection-end="1267" vertical-scroll-proportion="-19.04">
               <folding>
-                <marker date="1394851283506" expanded="true" signature="1577:1593" placeholder="..." />
+                <marker date="1394952160545" expanded="true" signature="774:785" placeholder="{...}" />
+                <marker date="1394952160545" expanded="true" signature="787:860" placeholder="..." />
+                <marker date="1394952160545" expanded="true" signature="1503:1519" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="editor.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/directives/editor.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="23" selection-start="1604" selection-end="1604" vertical-scroll-proportion="-16.32">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShadeCtrl.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/controllers/ShadeCtrl.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/main.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="render_panel.map" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/directives/render_panel.map">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -173,10 +176,19 @@
       <file leaf-file-name="render_panel.coffee" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/directives/render_panel.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="21" selection-start="651" selection-end="651" vertical-scroll-proportion="0.0">
+            <state line="14" column="27" selection-start="376" selection-end="376" vertical-scroll-proportion="-9.52">
               <folding>
                 <marker date="1393617306353" expanded="false" signature="908:924" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="split-panel.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/directives/split-panel.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="26" selection-start="427" selection-end="448" vertical-scroll-proportion="-12.92">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -191,30 +203,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/scripts/services/drawGraph.js" />
-        <option value="$PROJECT_DIR$/public/scripts/directives/render_graph.coffee" />
-        <option value="$PROJECT_DIR$/public/scripts/graph-dev/graph-text.js" />
         <option value="$PROJECT_DIR$/public/scripts/services/graph-text.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/services/shadeTemplate.coffee" />
-        <option value="$PROJECT_DIR$/public/scripts/filters/code_filters.coffee" />
         <option value="$PROJECT_DIR$/public/DLengine.js" />
         <option value="$PROJECT_DIR$/public/XML/shade.xml" />
         <option value="$PROJECT_DIR$/public/scripts/ng_template_logic.js" />
         <option value="$PROJECT_DIR$/public/scripts/services/shadeServices.js" />
         <option value="$PROJECT_DIR$/public/DL_libs/ace/src-noconflict/ext-language_tools.js" />
         <option value="$PROJECT_DIR$/public/scripts/ng_template_shd.js" />
-        <option value="$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee" />
-        <option value="$PROJECT_DIR$/public/scripts/directives/editor.coffee" />
+        <option value="$PROJECT_DIR$/public/scripts/graph-dev/calculator.js" />
+        <option value="$PROJECT_DIR$/public/scripts/filters/code_filters.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/shade_module.coffee" />
+        <option value="$PROJECT_DIR$/public/scripts/directives/render_graph.coffee" />
+        <option value="$PROJECT_DIR$/public/scripts/directives/editor.coffee" />
         <option value="$PROJECT_DIR$/public/views/index_DL.jade" />
+        <option value="$PROJECT_DIR$/public/scripts/directives/split-panel.coffee" />
+        <option value="$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1272" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1616" />
-    <option name="height" value="1216" />
+    <option name="width" value="1936" />
+    <option name="height" value="1052" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -406,6 +418,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="graph-dev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="filters" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -452,6 +486,32 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DLCtrl.coffee" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -612,18 +672,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1272" y="-8" width="1616" height="1216" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1052" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32922733" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16177861" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1612542" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24920736" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19911224" sideWeight="0.8382214" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16552451" sideWeight="0.84322506" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25208086" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.09555345" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15677492" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -713,80 +773,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/directive-templates/testdl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="11" selection-start="364" selection-end="364" vertical-scroll-proportion="-5.230769">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/DL_libs/ace/src-noconflict/ext-language_tools.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1126" column="15" selection-start="40392" selection-end="40398" vertical-scroll-proportion="-12.96">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/services/shadeServices.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="59" selection-start="154" selection-end="154" vertical-scroll-proportion="-3.4">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/services/graph-text.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/ng_template_shd.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="42" selection-start="526" selection-end="527" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/directives/split-panel.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="18" selection-start="2780" selection-end="2783" vertical-scroll-proportion="-21.28">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/directives/render_panel.map">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/directives/render_graph.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/ShadeCtrl.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/directives/render_panel.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="21" selection-start="651" selection-end="651" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1393617306353" expanded="false" signature="908:924" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/services/shadeTemplate.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="0" selection-start="370" selection-end="370" vertical-scroll-proportion="0.0">
@@ -801,32 +787,114 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/directives/editor.coffee">
+    <entry file="file://$PROJECT_DIR$/public/scripts/directives/render_panel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="23" selection-start="1604" selection-end="1604" vertical-scroll-proportion="-16.32">
+        <state line="18" column="25" selection-start="669" selection-end="669" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1393617306621" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/lexer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/parser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="24" selection-start="928" selection-end="931" vertical-scroll-proportion="-15.28">
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/calculator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="53" selection-start="3560" selection-end="3560" vertical-scroll-proportion="-13.24">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/ng_template_shd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="34" selection-start="795" selection-end="795" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/directives/render_panel.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="27" selection-start="376" selection-end="376" vertical-scroll-proportion="-9.52">
+          <folding>
+            <marker date="1393617306353" expanded="false" signature="908:924" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/filters/code_filters.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="31" selection-start="2042" selection-end="2042" vertical-scroll-proportion="-53.04">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/directives/render_graph.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="47" selection-start="629" selection-end="629" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/shade_module.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="27" selection-start="735" selection-end="735" vertical-scroll-proportion="-9.68">
+        <state line="46" column="52" selection-start="1267" selection-end="1267" vertical-scroll-proportion="-19.04">
           <folding>
-            <marker date="1394851283506" expanded="true" signature="1577:1593" placeholder="..." />
+            <marker date="1394952160545" expanded="true" signature="774:785" placeholder="{...}" />
+            <marker date="1394952160545" expanded="true" signature="787:860" placeholder="..." />
+            <marker date="1394952160545" expanded="true" signature="1503:1519" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="102" column="23" selection-start="3560" selection-end="3560" vertical-scroll-proportion="-19.04">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/index_DL.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="80" selection-start="5177" selection-end="5177" vertical-scroll-proportion="0.6615925">
+        <state line="53" column="105" selection-start="2266" selection-end="2266" vertical-scroll-proportion="0.33297062">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/directives/split-panel.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="26" selection-start="427" selection-end="448" vertical-scroll-proportion="-12.92">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/directives/editor.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="45" selection-start="593" selection-end="593" vertical-scroll-proportion="-16.32">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="33" selection-start="3735" selection-end="3735" vertical-scroll-proportion="0.31234568">
+        <state line="71" column="49" selection-start="2310" selection-end="2310" vertical-scroll-proportion="-0.014251782">
           <folding />
         </state>
       </provider>

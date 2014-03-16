@@ -21,10 +21,10 @@ angular.module('DLApp')
       $rootScope.$on 'Run', () ->
         _.each($scope.themes, (value) ->
           graphService.deleteGraph(value)
-          graphService.drawGraph[value]($scope.$parent.graph,$scope.elems[value][0]))
+          graphService.drawGraph[value]($scope.graph,$scope.elems[value][0]))
 
   
       $scope.setTheme = (name) ->
         graphService.deleteGraph(name is 'Graph' ? 'Table' : 'Graph' )
-        graphService.drawGraph[name]($scope.$parent.graph,$scope.elems[name][0])
+        graphService.drawGraph[name]($scope.graph,$scope.elems[name][0])
         $scope.gshow = name is 'Graph' ? true : false

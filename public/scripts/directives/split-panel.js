@@ -4,14 +4,20 @@
     return {
       restrict: 'E',
       transclude: true,
-      scope: {},
+      scope: {
+        styles: '=',
+        graph: '=',
+        cols: '=',
+        col: '=',
+        litcoffee: '='
+      },
       replace: true,
       template: '<div class="split-row" ng-transclude></div>',
       controller: function($scope, $element, $compile, $rootScope, $window) {
         var body, cols, dragged;
         $scope.row = $element[0];
-        cols = $scope.$parent.cols = [];
-        $scope.$parent.col = function(name) {
+        cols = $scope.cols = [];
+        $scope.col = function(name) {
           var c;
           return ((function() {
             var _i, _len, _results;
@@ -195,6 +201,7 @@
         });
       },
       link: function(scope, elm, attrs, splitRowCtrl) {
+        scope.themes = [];
         scope.div = elm;
         scope.ctrl = splitRowCtrl;
         scope.mouseover = false;

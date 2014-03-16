@@ -20,23 +20,22 @@ angular.module('ShadeApp',[])
     template: (elm,attr) -> '<input type="text" value={{graph.variables.variables[&quot;' + attr.vtext+ '&quot;].value}}>'
     link: (scope, elm, attrs) ->
 
-  .directive 'renderPanel', ($compile, shadeTemplate) ->
-    restrict: 'A'
-    replace: true
-    template: '<div class="render-panel"></div>'
-    scope: true
+  .directive 'renderPanel', ($compile, $filter, shadeTemplate) ->
+    restrict: 'E'
+    replace: false
+    scope:
+      graph: '='
+      styles: '='
+    template: '<style ng-bind = "data.styles">{{data.body}}'
     link: (scope, elm, attrs) ->
       scope.vars=[]
 
-      scope.$watch attrs.renderPanel, (shade) ->
-        data = shadeTemplate.toHTML(shade)
-        if data
-          elm.empty()
-          elm.append '<style>' + data.styles + '</style>', $compile(data.body)(scope)
-          prettyPrint()
+      scope.$watch 'styles', (shade) ->
+        scope.data = shadeTemplate.toHTML(shade)
 
       scope.$on "Run", () ->
-        scope.graph = scope.$parent.$parent.$parent.graph
+        #scope.graph = scope.$parent.$parent.$parent.graph
+
 
       scope.setDLVar = (variable) ->
         scope.graph.set(variable,parseInt(scope.vars[variable]))
@@ -48,7 +47,7 @@ angular.module('ShadeApp',[])
     template: '<div class="pp-panel"></div>'
     link: (scope, elm, attrs) ->
       scope.$watch attrs.prettyPrintPanel, (shade) ->
-        raw_html = shadeTemplate.toHTML(shade).body
+        raw_html = $filter('indentHTML')(shadeTemplate.toHTML(shade).body)
         pre = angular.element('<pre class="prettyprint lang-html" style="font-size:0.75em"></pre>')
         code = angular.element('<code></code>')
         code.html $filter('escapeHTML')(raw_html)

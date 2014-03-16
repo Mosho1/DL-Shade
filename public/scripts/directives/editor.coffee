@@ -7,6 +7,12 @@ angular.module('DLApp')
   require: '?ngModel'
   scope: false
   link: (scope, elm, attrs, ngModel) ->
+
+
+    scope.$on "Run", () ->
+      #console.log(scope.litcoffee)
+      console.log(scope.$parent.$parent.litcoffee)
+
     scope.acee = acee = window.ace.edit(elm[0])
     scope.session = session = acee.getSession()
     scope.mode = attrs.mode
@@ -31,6 +37,15 @@ angular.module('DLApp')
       return
 
 
+    scope.themes = [
+      'merbivore', 'merbivore_soft', 'mono_industrial', 'monokai', 'pastel_on_dark', 'solarized_dark',
+      'solarized_light', 'terminal', 'textmate', 'tomorrow', 'tomorrow_night', 'tomorrow_night_blue',
+      'tomorrow_night_eighties', 'twilight', 'vibrant_ink', 'xcode'
+    ]
+
+    scope.setTheme = (name) ->
+      scope.acee.setTheme "ace/theme/" + name
+
     if angular.isDefined(ngModel)
       ngModel.$formatters.push (value) ->
         if angular.isUndefined(value) or value is null
@@ -45,17 +60,12 @@ angular.module('DLApp')
       if newValue isnt scope.$eval(attrs.value) and !scope.$$phase and angular.isDefined(ngModel)
         scope.$apply -> ngModel.$setViewValue(newValue)
 
+
   controller: ($scope, $rootScope) ->
     $rootScope.$on 'panel_resized', ()-> $scope.acee.resize()
 
-    $scope.themes = [
-      'merbivore', 'merbivore_soft', 'mono_industrial', 'monokai', 'pastel_on_dark', 'solarized_dark',
-      'solarized_light', 'terminal', 'textmate', 'tomorrow', 'tomorrow_night', 'tomorrow_night_blue',
-      'tomorrow_night_eighties', 'twilight', 'vibrant_ink', 'xcode'
-    ]
 
-    $scope.setTheme = (name) ->
-      $scope.acee.setTheme "ace/theme/" + name
+
 
 .directive 'dlEditor', (Graph) ->
   restrict: 'A'
@@ -66,7 +76,7 @@ angular.module('DLApp')
       getCompletions: (editor, session, pos, prefix, callback) ->
         unless session.$modeId is "ace/mode/" + attrs.mode
           return callback null, []
-        identifiers = scope.makeCompletions prefix, Object.keys(scope.$parent.$parent.graph.variables.variables), "variable"
+        identifiers = scope.makeCompletions prefix, Object.keys(scope.graph.variables.variables), "variable"
         functions = scope.makeCompletions prefix, Graph.getFunctions(), "function"
         nameList = identifiers.concat(functions)
         callback null, nameList

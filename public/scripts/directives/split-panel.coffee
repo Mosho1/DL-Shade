@@ -3,14 +3,19 @@ angular.module('DLApp')
 .directive 'splitRow', () ->
   restrict: 'E'
   transclude: true
-  scope: {}
+  scope:
+    styles: '='
+    graph: '='
+    cols: '='
+    col: '='
+    litcoffee: '='
   replace: true
   template: '<div class="split-row" ng-transclude></div>'
   controller: ($scope, $element, $compile, $rootScope, $window) ->
     $scope.row = $element[0]
-    cols = $scope.$parent.cols = []
+    cols = $scope.cols = []
 
-    $scope.$parent.col = (name) ->
+    $scope.col = (name) ->
       (c for c in cols when c.name is name)[0]
 
     body = document.getElementsByTagName("body")[0]
@@ -101,6 +106,7 @@ angular.module('DLApp')
       setTimeout -> 
         $rootScope.$broadcast 'panel_resized'
   link: (scope, elm, attrs, splitRowCtrl) ->
+    scope.themes = []
     scope.div = elm
     scope.ctrl = splitRowCtrl
     scope.mouseover = false

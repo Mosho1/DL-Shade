@@ -17,7 +17,7 @@
         $rootScope.$on('Run', function() {
           return _.each($scope.themes, function(value) {
             graphService.deleteGraph(value);
-            return graphService.drawGraph[value]($scope.$parent.graph, $scope.elems[value][0]);
+            return graphService.drawGraph[value]($scope.graph, $scope.elems[value][0]);
           });
         });
         return $scope.setTheme = function(name) {
@@ -25,7 +25,7 @@
           graphService.deleteGraph((_ref = name === 'Graph') != null ? _ref : {
             'Table': 'Graph'
           });
-          graphService.drawGraph[name]($scope.$parent.graph, $scope.elems[name][0]);
+          graphService.drawGraph[name]($scope.graph, $scope.elems[name][0]);
           return $scope.gshow = (_ref1 = name === 'Graph') != null ? _ref1 : {
             "true": false
           };

@@ -2,20 +2,58 @@
 
 angular.module('DLApp')
 
-# .filter 'shade2html', () ->
+.filter 'indentHTML', () ->
+    (html) ->
+      return unless html
+      indent = (html) ->
+        str = html
+        i = 1
+        k = 0
+        open = -1
+        insert = ->
+          str = [
+            str.slice(0, open)
+            '#'
+            Array(i).join('@')
+            str.slice(open)
+          ].join('')
+
+        ind = (c) ->
+          str.indexOf c, open + i + k + 1
+
+        for n in [1..1000]
+          open = ind('<')
+          return str  if open is -1
+          if str.charAt(open + 1) is '/'
+            insert()
+            i--
+            k = 1
+          else
+            i++
+            insert()
+            k = 0
+          op = ind('<')
+          cl = ind('/>')
+          if cl > -1 and op > cl
+            k = 1
+            i--
+
+      indent(html,1).replace(new RegExp('#','gi'),'\n')
+                    .replace(new RegExp('@','gi'),'  ')
+
+
+
+
 
 .filter 'md2html', ($interpolate, $rootScope) ->
   # Turns markdown into html courtesy of markdown.js
   (md) -> if md and md.replace(/\s*/,'') then markdown.toHTML(md) else ''
 
-.filter 'shade2html', ($rootScope, x2js) ->
+.filter 'shade2html', (x2js) ->
     (Shade) ->
       templateData=x2js.xml2json(Shade)
-
       _.extend(templateData,{'NodeHandlers':NodeHandlers})
-
       template = _.template($rootScope.shadeTemplate)
-      retval = template(templateData)
       template(templateData)
 
 

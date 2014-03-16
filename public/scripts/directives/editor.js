@@ -7,6 +7,9 @@
       scope: false,
       link: function(scope, elm, attrs, ngModel) {
         var acee, session;
+        scope.$on("Run", function() {
+          return console.log(scope.$parent.$parent.litcoffee);
+        });
         scope.acee = acee = window.ace.edit(elm[0]);
         scope.session = session = acee.getSession();
         scope.mode = attrs.mode;
@@ -35,6 +38,10 @@
             acee.execCommand("startCustomAutocomplete");
           }
         });
+        scope.themes = ['merbivore', 'merbivore_soft', 'mono_industrial', 'monokai', 'pastel_on_dark', 'solarized_dark', 'solarized_light', 'terminal', 'textmate', 'tomorrow', 'tomorrow_night', 'tomorrow_night_blue', 'tomorrow_night_eighties', 'twilight', 'vibrant_ink', 'xcode'];
+        scope.setTheme = function(name) {
+          return scope.acee.setTheme("ace/theme/" + name);
+        };
         if (angular.isDefined(ngModel)) {
           ngModel.$formatters.push(function(value) {
             if (angular.isUndefined(value) || value === null) {
@@ -59,13 +66,9 @@
         });
       },
       controller: function($scope, $rootScope) {
-        $rootScope.$on('panel_resized', function() {
+        return $rootScope.$on('panel_resized', function() {
           return $scope.acee.resize();
         });
-        $scope.themes = ['merbivore', 'merbivore_soft', 'mono_industrial', 'monokai', 'pastel_on_dark', 'solarized_dark', 'solarized_light', 'terminal', 'textmate', 'tomorrow', 'tomorrow_night', 'tomorrow_night_blue', 'tomorrow_night_eighties', 'twilight', 'vibrant_ink', 'xcode'];
-        return $scope.setTheme = function(name) {
-          return $scope.acee.setTheme("ace/theme/" + name);
-        };
       }
     };
   }).directive('dlEditor', function(Graph) {
@@ -81,7 +84,7 @@
             if (session.$modeId !== "ace/mode/" + attrs.mode) {
               return callback(null, []);
             }
-            identifiers = scope.makeCompletions(prefix, Object.keys(scope.$parent.$parent.graph.variables.variables), "variable");
+            identifiers = scope.makeCompletions(prefix, Object.keys(scope.graph.variables.variables), "variable");
             functions = scope.makeCompletions(prefix, Graph.getFunctions(), "function");
             nameList = identifiers.concat(functions);
             return callback(null, nameList);

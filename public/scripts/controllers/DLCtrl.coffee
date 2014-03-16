@@ -62,7 +62,8 @@ angular.module('DLApp')
 
 
 .controller 'DLCtrl', ($scope, $rootScope, $http, $filter, $element, $document, dndFile, Graph, graphService) ->
-  $scope.litcoffee = default_lc
+  $scope.litcoffee = {code:default_lc}
+
 
   dndFile.init $element[0],
   dndFile.onactive   () -> $scope.$apply () -> $scope.dragover = true
@@ -72,92 +73,87 @@ angular.module('DLApp')
   dndFile.onfileload (e) ->
     $scope.$apply () ->
       if e.fileExt in ['md', 'litcoffee']
-        $scope.litcoffee = e.target.result
+        $scope.litcoffee.code = e.target.result
       else if e.fileExt is 'css'
         name = e.fileName
         i = 0
-        name = "#{e.fileName} #{++i}" while name of $scope.style.sheets
-        $scope.style.sheets[name] =
+        name = "#{e.fileName} #{++i}" while name of $scope.styles.sheets
+        $scope.styles.sheets[name] =
           source: 'dragged file'
           native: false
           css: e.target.result
-        $scope.style.active = name
+        $scope.styles.active = name
 
 
   $document.keyup (e) ->
     if e.altKey and e.keyCode == 82
         $scope.DLrun(e)
 
-  $scope.style =
+  $scope.styles =
     active: 'testDL'
     sheets:
       testDL:
         source: 'XML/shade.xml'
-        native: true
-      markdowncss:
-        source: _.corsproxy('http://kevinburke.bitbucket.org/markdowncss/markdown.css')
-        native: true
-      GitHub:
-        source: 'styles/md/github.css'
         native: true
     external: ''
     editor: ''
 
   $scope.copy_style = (e,style_name) ->
     _.kill_event(e)
-    copy = _.clone $scope.style.sheets[style_name]
+    copy = _.clone $scope.styles.sheets[style_name]
     style_name = style_name.match(/(.*?)(:? copy(:? \d+)?)?$/)[1]
     name = "#{style_name} copy"
     i = 0
-    name = "#{style_name} copy #{++i}" while name of $scope.style.sheets
+    name = "#{style_name} copy #{++i}" while name of $scope.styles.sheets
     copy.native = false
-    $scope.style.sheets[name] = copy
-    $scope.style.active = name
+    $scope.styles.sheets[name] = copy
+    $scope.styles.active = name
 
 
   $scope.delete_style = (e,style_name) ->
     _.kill_event(e)
-    delete $scope.style.sheets[style_name]
-    $scope.style.active = Object.keys($scope.style.sheets)[0] if $scope.style.active is style_name
+    delete $scope.styles.sheets[style_name]
+    $scope.styles.active = Object.keys($scope.styles.sheets)[0] if $scope.styles.active is style_name
 
   $scope.DLrun = (e) ->
+    console.log($scope.test)
     if e
       _.kill_event(e)
-    Graph.getGraph($scope.litcoffee,$scope.style,(graph) ->
+    Graph.getGraph($scope.test.test,$scope.styles,(graph) ->
       $scope.graph = graph.evaluate()
       $rootScope.$broadcast('Run')
     )
 
   $document.ready($scope.DLrun())
 
-  $scope.$watch 'style.active', () ->
-    if $scope.style.active of $scope.style.sheets
-      style = $scope.style.sheets[$scope.style.active]
-      if style.css
-        $scope.style.editor = $filter('prettifyCSS')($filter('deSassify')(style.css))
+  $scope.$watch 'styles.active', () ->
+    if $scope.styles.active of $scope.styles.sheets
+      styles = $scope.styles.sheets[$scope.styles.active]
+      if styles.css
+        $scope.styles.editor = $filter('prettifyCSS')($filter('deSassify')(styles.css))
       else
-        $http.get(style.source).then (response) ->
-          style.css = response.data
-          $scope.style.editor = $filter('prettifyCSS')($filter('deSassify')(style.css))
+        $http.get(styles.source).then (response) ->
+          styles.css = response.data
+          $scope.styles.editor = $filter('prettifyCSS')($filter('deSassify')(styles.css))
 
-  $scope.$watch 'style.editor', () ->
-   if $scope.style.sheets[$scope.style.active]
-    $scope.style.sheets[$scope.style.active].css = $scope.style.editor
+  $scope.$watch 'styles.editor', () ->
+   if $scope.styles.sheets[$scope.styles.active]
+    $scope.styles.sheets[$scope.styles.active].css = $scope.styles.editor
 
-  $scope.$watch 'style.external', () ->
-    return unless $scope.style.external and /^(https?:\/\/)?(\w+\.)+[\w\/]+/.test $scope.style.external
-    $http.get(_.corsproxy($scope.style.external)).then (response) ->
+  $scope.$watch 'styles.external', () ->
+    return unless $scope.styles.external and /^(https?:\/\/)?(\w+\.)+[\w\/]+/.test $scope.styles.external
+    $http.get(_.corsproxy($scope.styles.external)).then (response) ->
       i = 0
-      file_name = $scope.style.external.match(/.+?\/(\w+)\.css/)
+      file_name = $scope.styles.external.match(/.+?\/(\w+)\.css/)
       name = file_name and file_name[1] or "external"
-      name = "external #{++i}" while name of $scope.style.sheets
-      $scope.style.sheets[name] =
-        source: $scope.style.external
+      name = "external #{++i}" while name of $scope.styles.sheets
+      $scope.styles.sheets[name] =
+        source: $scope.styles.external
         css: response.data
         external: true
         edited: false
-      $scope.style.active = name
-      $scope.style.external = ''
+      $scope.styles.active = name
+      $scope.styles.external = ''
 
 
 .directive 'menu', ($compile, $rootScope) ->

@@ -24,26 +24,21 @@
       },
       link: function(scope, elm, attrs) {}
     };
-  }).directive('renderPanel', function($compile, shadeTemplate) {
+  }).directive('renderPanel', function($compile, $filter, shadeTemplate) {
     return {
-      restrict: 'A',
-      replace: true,
-      template: '<div class="render-panel"></div>',
-      scope: true,
+      restrict: 'E',
+      replace: false,
+      scope: {
+        graph: '=',
+        styles: '='
+      },
+      template: '<style ng-bind = "data.styles">{{data.body}}',
       link: function(scope, elm, attrs) {
         scope.vars = [];
-        scope.$watch(attrs.renderPanel, function(shade) {
-          var data;
-          data = shadeTemplate.toHTML(shade);
-          if (data) {
-            elm.empty();
-            elm.append('<style>' + data.styles + '</style>', $compile(data.body)(scope));
-            return prettyPrint();
-          }
+        scope.$watch('styles', function(shade) {
+          return scope.data = shadeTemplate.toHTML(shade);
         });
-        scope.$on("Run", function() {
-          return scope.graph = scope.$parent.$parent.$parent.graph;
-        });
+        scope.$on("Run", function() {});
         return scope.setDLVar = function(variable) {
           return scope.graph.set(variable, parseInt(scope.vars[variable]));
         };
@@ -57,7 +52,7 @@
       link: function(scope, elm, attrs) {
         return scope.$watch(attrs.prettyPrintPanel, function(shade) {
           var code, pre, raw_html;
-          raw_html = shadeTemplate.toHTML(shade).body;
+          raw_html = $filter('indentHTML')(shadeTemplate.toHTML(shade).body);
           pre = angular.element('<pre class="prettyprint lang-html" style="font-size:0.75em"></pre>');
           code = angular.element('<code></code>');
           code.html($filter('escapeHTML')(raw_html));

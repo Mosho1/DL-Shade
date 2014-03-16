@@ -51,54 +51,52 @@ html.no-js
           ul.menu-items
             li.menu-item(ng-repeat='col in cols', ng-class='{active_col:col.show}', ng-click='col.show=!col.show') {{col.name}}
       div(style='position: relative; height: 100%; width: 100%;')
-        split-row(ng-cloak='ng-cloak')
-              resizable-panel#md_col(name='DL Editor', show='show')
-                .menu.panel-menu(ng-class='{show:col("DL Editor").mouseover}', col="col")
+        split-row(ng-cloak='ng-cloak', styles="styles", graph="graph", cols='cols', litcoffee="litcoffee")
+              resizable-panel#md_col(name='DL Editor', show='show', graph="graph")
+                .menu.panel-menu(ng-class='{show:col("DL Editor").mouseover}', col='col')
                   span.menu-title Theme ▾
                   ul.menu-items
-                    li.menu-item(ng-repeat='theme in themes', ng-click='setTheme(theme)', themes="themes", setTheme="setTheme") {{theme}}
+                    li.menu-item(ng-repeat='theme in themes', ng-click='setTheme(theme)') {{theme}}
                   span.hide-button(ng-click='col("DL Editor").show=false', title='Hide DL Editor panel.') X
-                div(ace-editor='ace-editor', dl-editor, mode='markdown', ng-model='$parent.$parent.litcoffee')
-              resizable-panel#css_col(name='Output Graph')
-                .menu.panel-menu(ng-class='{show:col("Output Graph").mouseover}', col="col")
+                div(ace-editor='ace-editor', dl-editor, mode='markdown', ng-model='litcoffee')
+              resizable-panel#css_col(name='Output Graph', show='show')
+                .menu.panel-menu(ng-class='{show:col("Output Graph").mouseover}', col='col')
                   span.menu-title Theme ▾
                   ul.menu-items
-                      li.menu-item(ng-repeat='theme in themes', ng-click='setTheme(theme)', themes="themes", setTheme="setTheme") {{theme}}
+                      li.menu-item(ng-repeat='theme in themes', ng-click='setTheme(theme)') {{theme}}
                   span.hide-button(ng-click='col("Output Graph").show=false', title='Hide Output Graph panel.') X
                 render-graph
               resizable-panel#css_col(name='Shade Editor', show='show')
-                .menu.panel-menu(ng-class='{show:col("Shade Editor").mouseover}', col="col")
-                  span.menu-title Theme ▾
+                .menu.panel-menu(ng-class='{show:col("Shade Editor").mouseover}', col='col')
+                  span.menu-title Theme ?
                   ul.menu-items
-                      li.menu-item(ng-repeat='theme in themes', ng-click='setTheme(theme)', themes="themes", setTheme="setTheme") {{theme}}
+                      li.menu-item(ng-repeat='theme in themes', ng-click='setTheme(theme)') {{theme}}
                   span.hide-button(ng-click='col("Shade Editor").show=false', title='Hide Shade Editor panel.') X
-                div(ace-editor='ace-editor', shade-editor, mode='xml', ng-model='style.sheets[style.active].css')
-              resizable-panel#html_col(name='Ouput HTML', styles="style")
-                .menu.panel-menu(ng-class='{show:col("Ouput HTML").mouseover}', col="col")
-                  span.menu-title Theme ▾
+                div(ace-editor='ace-editor', shade-editor, mode='xml', ng-model='styles.sheets[styles.active].css')
+              resizable-panel#html_col(name='Output HTML', show='show')
+                .menu.panel-menu(ng-class='{show:col("Output HTML").mouseover}', col='col')
+                  span.menu-title Theme ?
                   ul.menu-items
                       li.menu-item(ng-repeat='theme in themes.list', ng-click='themes.selected=theme', theme="theme") {{theme}}
-                  span.hide-button(ng-click='col("Ouput HTML").show=false', title='Hide Ouput HTML panel.') X
+                  span.hide-button(ng-click='col("Output HTML").show=false', title='Hide Output HTML panel.') X
                 style(type='text/css', ng-bind='themes.css | scopeCSS:"#html_div"')
                 #html_div(style='height: 100%;')
-                  div(pretty-print-panel='$parent.$parent.style.sheets[style.active].css')
+                  div(pretty-print-panel='styles.sheets[styles.active].css')
               resizable-panel#render_col(name='Rendered Output', show='show')
                 .menu.panel-menu(ng-class='{show:col("Rendered Output").mouseover}', col="col")
                   span.menu-title Theme ▾
                   ul.menu-items
-                    li.menu-item(ng-repeat='(style, props) in style.sheets', ng-click='$parent.style.active=style', ng-class='{active_style:$parent.style.active==style}')
+                    li.menu-item(ng-repeat='(style, props) in styles.sheets', ng-click='styles.active=style', ng-class='{active_style:styles.active==style}')
                       | {{style}}
                       ul.menu-actions
                         li.icon-trash(ng-click='!props.native && delete_style($event, style)', ng-class='{inactive:props.native}', title='Delete styles')
                         li.icon-copy(ng-click='copy_style($event, style)', title='Duplicate styles')
                         li.icon-save(ng-show='false', title='Save styles')
-                    li.menu-item(ng-click='select_ext($event)', ng-class='{active_style:style.active=="external"}')
+                    li.menu-item(ng-click='select_ext($event)', ng-class='{active_style:styles.active=="external"}')
                       label(for='external-css') External:
-                      input#external-css(ng-model='style.external', ng-keydown='keydown_input($event)', type='text', name='external-css', placeholder='http://')
+                      input#external-css(ng-model='styles.external', ng-keydown='keydown_input($event)', type='text', name='external-css', placeholder='http://')
                   span.hide-button(ng-click='col("Rendered Output").show=false', title='Hide Rendered Output panel.') X
-                style(type='text/css', ng-bind='style.sheets[style.active].css | scopeCSS:"#disp_div"')
-                #disp_div
-                  #disp_div_inner(render-panel='$parent.$parent.$parent.style.sheets[style.active].css')
+                render-panel(graph="graph", styles="styles.sheets[styles.active].css")
 
 
     script(src='DL_libs/jquery-2.1.0.min.js')
