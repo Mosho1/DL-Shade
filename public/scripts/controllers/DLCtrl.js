@@ -92,7 +92,9 @@
       })(this)
     };
   }).controller('DLCtrl', function($scope, $rootScope, $http, $filter, $element, $document, dndFile, Graph, graphService) {
-    $scope.litcoffee = default_lc;
+    $scope.litcoffee = {
+      code: default_lc
+    };
     $scope.test = {
       test: default_lc
     };
@@ -177,7 +179,7 @@
       if (e) {
         _.kill_event(e);
       }
-      return Graph.getGraph($scope.litcoffee, $scope.styles, function(graph) {
+      return Graph.getGraph($scope.litcoffee.code, $scope.styles, function(graph) {
         $scope.graph = graph.evaluate();
         return $rootScope.$broadcast('Run');
       });

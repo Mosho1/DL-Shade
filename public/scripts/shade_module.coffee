@@ -20,22 +20,24 @@ angular.module('ShadeApp',[])
     template: (elm,attr) -> '<input type="text" value={{graph.variables.variables[&quot;' + attr.vtext+ '&quot;].value}}>'
     link: (scope, elm, attrs) ->
 
-  .directive 'renderPanel', ($compile, $filter, shadeTemplate) ->
+  .directive 'renderPanel', ($compile, $filter, $sce, shadeTemplate) ->
     restrict: 'E'
-    replace: false
     scope:
       graph: '='
       styles: '='
-    template: '<style ng-bind = "data.styles">{{data.body}}'
     link: (scope, elm, attrs) ->
       scope.vars=[]
 
       scope.$watch 'styles', (shade) ->
         scope.data = shadeTemplate.toHTML(shade)
+        elm.html('<style>' + scope.data.styles + '</style>' + scope.data.body)
+        $compile(elm.contents())(scope)
 
       scope.$on "Run", () ->
         #scope.graph = scope.$parent.$parent.$parent.graph
 
+      scope.to_trusted = (html) ->
+        $compile(html)(scope)
 
       scope.setDLVar = (variable) ->
         scope.graph.set(variable,parseInt(scope.vars[variable]))

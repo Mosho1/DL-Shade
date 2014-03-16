@@ -62,7 +62,7 @@ angular.module('DLApp')
 
 
 .controller 'DLCtrl', ($scope, $rootScope, $http, $filter, $element, $document, dndFile, Graph, graphService) ->
-  $scope.litcoffee = default_lc
+  $scope.litcoffee = {code:default_lc}
 
   $scope.test = {test:default_lc}
 
@@ -119,7 +119,7 @@ angular.module('DLApp')
   $scope.DLrun = (e) ->
     if e
       _.kill_event(e)
-    Graph.getGraph($scope.litcoffee,$scope.styles,(graph) ->
+    Graph.getGraph($scope.litcoffee.code,$scope.styles,(graph) ->
       $scope.graph = graph.evaluate()
       $rootScope.$broadcast('Run')
     )

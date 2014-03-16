@@ -24,21 +24,24 @@
       },
       link: function(scope, elm, attrs) {}
     };
-  }).directive('renderPanel', function($compile, $filter, shadeTemplate) {
+  }).directive('renderPanel', function($compile, $filter, $sce, shadeTemplate) {
     return {
       restrict: 'E',
-      replace: false,
       scope: {
         graph: '=',
         styles: '='
       },
-      template: '<style ng-bind = "data.styles">{{data.body}}',
       link: function(scope, elm, attrs) {
         scope.vars = [];
         scope.$watch('styles', function(shade) {
-          return scope.data = shadeTemplate.toHTML(shade);
+          scope.data = shadeTemplate.toHTML(shade);
+          elm.html('<style>' + scope.data.styles + '</style>' + scope.data.body);
+          return $compile(elm.contents())(scope);
         });
         scope.$on("Run", function() {});
+        scope.to_trusted = function(html) {
+          return $compile(html)(scope);
+        };
         return scope.setDLVar = function(variable) {
           return scope.graph.set(variable, parseInt(scope.vars[variable]));
         };

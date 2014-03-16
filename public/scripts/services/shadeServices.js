@@ -114,7 +114,7 @@ angular.module('ShadeApp')
                                     nodes = function () {
                                         var arr = [];
                                         for (var i = 0; i < span[0] * span[1]; i++)
-                                            arr.push(gridMap[0][0] === i ? nodes[gridMap.shift()[1]] : {'UI': 'Label'});
+                                            arr.push((gridMap[0] || [-1])[0] === i ? nodes[gridMap.shift()[1]] : {'UI': 'Label'});
                                         return arr;
                                     }();
                                 }
