@@ -12,7 +12,7 @@ Features:\n
 -Click 'Run' above or alt+R */\n
 \n
 x=1;\n
-y=2*x;\n
+y=2;\n
 z=f.avg(x,y,6);";
 
 angular.module('DLApp')

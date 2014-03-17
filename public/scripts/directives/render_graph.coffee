@@ -6,7 +6,7 @@ angular.module('DLApp')
   require: '?ngModel'
   scope: false
 
-  controller: ($scope, $rootScope, $element, $compile, graphService) ->
+  controller: ($scope, $rootScope, $element, $compile, graphService, $document) ->
   
       $scope.gshow = false;
 
@@ -23,7 +23,13 @@ angular.module('DLApp')
           graphService.deleteGraph(value)
           graphService.drawGraph[value]($scope.graph,$scope.elems[value][0]))
 
-  
+      $document.ready ()->
+        _.each($scope.themes, (value) ->
+          graphService.deleteGraph(value)
+          graphService.drawGraph[value]($scope.graph,$scope.elems[value][0]))
+
+        
+
       $scope.setTheme = (name) ->
         graphService.deleteGraph(name is 'Graph' ? 'Table' : 'Graph' )
         graphService.drawGraph[name]($scope.graph,$scope.elems[name][0])

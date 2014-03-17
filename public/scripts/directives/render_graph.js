@@ -5,7 +5,7 @@
       restrict: 'E',
       require: '?ngModel',
       scope: false,
-      controller: function($scope, $rootScope, $element, $compile, graphService) {
+      controller: function($scope, $rootScope, $element, $compile, graphService, $document) {
         $scope.gshow = false;
         $scope.themes = ['Graph', 'Table'];
         $scope.elems = {};
@@ -15,6 +15,12 @@
           return $element.append(value);
         });
         $rootScope.$on('Run', function() {
+          return _.each($scope.themes, function(value) {
+            graphService.deleteGraph(value);
+            return graphService.drawGraph[value]($scope.graph, $scope.elems[value][0]);
+          });
+        });
+        $document.ready(function() {
           return _.each($scope.themes, function(value) {
             graphService.deleteGraph(value);
             return graphService.drawGraph[value]($scope.graph, $scope.elems[value][0]);

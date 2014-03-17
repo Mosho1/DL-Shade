@@ -1194,8 +1194,8 @@ var Autocomplete = function() {
             var filtered = this.completions.filtered;
             if (!filtered.length)
                 return this.detach();
-            if (this.autoInsert && filtered.length == 1)
-                return this.insertMatch(filtered[0]);
+            //if (this.autoInsert && filtered.length == 1)
+            //    return this.insertMatch(filtered[0]);
             this.openPopup(this.editor, results.prefix, keepPopupPosition);
         }.bind(this));
     };

@@ -1421,8 +1421,7 @@ var compiler = require('./compiler'),
 var Graph = function(data) {
     this.initialise.apply(this, arguments);
     this.variables = (typeof data === 'string') ? compiler.compile(data) : {};
-	this.variables.sortDependencies();
-    window.gra = this;
+    this.variables.sortDependencies();
 
 };
 Graph.prototype = {

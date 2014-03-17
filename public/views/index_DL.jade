@@ -59,7 +59,7 @@ html.no-js
                     li.menu-item(ng-repeat='theme in themes', ng-click='setTheme(theme)') {{theme}}
                   span.hide-button(ng-click='col("DL Editor").show=false', title='Hide DL Editor panel.') X
                 div(ace-editor='ace-editor', dl-editor, mode='markdown', ng-model='litcoffee.code')
-              resizable-panel#css_col(name='Output Graph', show='show')
+              resizable-panel#css_col(name='Output Graph', show='show', graph="graph")
                 .menu.panel-menu(ng-class='{show:col("Output Graph").mouseover}', col='col')
                   span.menu-title Theme ▾
                   ul.menu-items

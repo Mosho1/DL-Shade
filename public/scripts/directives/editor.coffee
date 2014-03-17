@@ -8,11 +8,6 @@ angular.module('DLApp')
   scope: false
   link: (scope, elm, attrs, ngModel) ->
 
-
-    scope.$on "Run", () ->
-      console.log(scope.litcoffee)
-      console.log(scope.$parent.$parent.litcoffee)
-
     scope.acee = acee = window.ace.edit(elm[0])
     scope.session = session = acee.getSession()
     scope.mode = attrs.mode

@@ -7,10 +7,6 @@
       scope: false,
       link: function(scope, elm, attrs, ngModel) {
         var acee, session;
-        scope.$on("Run", function() {
-          console.log(scope.litcoffee);
-          return console.log(scope.$parent.$parent.litcoffee);
-        });
         scope.acee = acee = window.ace.edit(elm[0]);
         scope.session = session = acee.getSession();
         scope.mode = attrs.mode;
