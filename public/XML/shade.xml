@@ -11,16 +11,17 @@
                 <Xy>1, 1</Xy>
             </Node>
             <Node>
-                <UI>TestDL</UI>
-                <vDL>y</vDL>
+                <UI>DropDown</UI>
+                <Items>FirstName|LastName;Ping|Kong;Chu|John;Richard|Newman</Items>
                 <Xy>1, 0</Xy>
             </Node>
             <Node>
                 <UI>NumEdit</UI>
-                <Xy>0,0</Xy>
+                <Xy>0, 0</Xy>
                 <vText>x</vText>
                 <NumDecFormat>N</NumDecFormat>
             </Node>
         </Sub>
     </Node>
-</Shade>
+</Shade> 
+   

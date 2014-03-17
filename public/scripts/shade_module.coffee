@@ -1,5 +1,5 @@
 
-angular.module('ShadeApp',[])
+angular.module('ShadeApp',['ngGrid'])
 
   .directive 'testDl', () ->
     restrict: 'E'
@@ -18,6 +18,26 @@ angular.module('ShadeApp',[])
     replace: true
     scope: true
     template: (elm,attr) -> '<div><input type="text" ng-model="vars[&quot;'+attr.vtext+'&quot;].model"></div>'
+
+  .directive 'dropDown', ($compile) ->
+    restrict: 'E'
+    scope: true
+    link: (scope, elm, attr) ->
+      header = attr.header.split('|')
+      items = attr.items.split(',')
+        .map (elm) ->
+          elm.split('|')
+      scope.myData = items.map (elm) ->
+        elm.reduce ((obj, el, ind) ->
+           obj[header[ind]] = el
+           return obj)
+           ,{}
+
+      scope.gridOptions =
+        data: 'myData'
+
+      elm.html('<div class="gridStyle" ng-grid="gridOptions"></div>')
+      $compile(elm.contents())(scope)
 
   .directive 'renderPanel', ($compile, shadeTemplate) ->
     restrict: 'E'

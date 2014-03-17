@@ -4,7 +4,7 @@ angular.module('ShadeApp')
         //dictionary for attribute names
         'attrNameHandlers' : {
             'vDL': '',
-            'vText': 'vtext'
+            'vText': 'vtext',
         },
 
         //dictionary for attribute values
@@ -66,17 +66,21 @@ angular.module('ShadeApp')
                 },
 
             //wrappers for creating HTML elements. Creates enumerated CSS classes for each element with style(s).
-                openElement = function (elmName, className, node, customStyles) {
-                    var nativeStyles = _.reduce(node, handleStyles, ''),
-                        nativeClass = "class" + classCount,
-                        cur = currentElement.nodes.push({
+                openElement = function (elmName, className, node, customStyles, customAttr, content) {
+
+                    var nativeStyles = _.reduce(node, handleStyles, '');
+                    var nativeClass = nativeStyles || customStyles ? "class" + classCount : null;
+                    var cur = currentElement.nodes.push({
                             'elmName': elmName,
                             'nativeClass': nativeClass,
                             'className' : className,
                             'node': node,
                             'customStyles': customStyles,
+                            'customAttr': customAttr,
+                            'content': content,
                             'nodes': [],
                             'parent': currentElement
+
                         });
                     if (customStyles || nativeStyles) {
                         addStyles(nativeClass, (customStyles || '') + (nativeStyles || ''));
@@ -197,7 +201,59 @@ angular.module('ShadeApp')
                     'NumEdit': function (node) {
                         openElement('num-edit', '', node, '');
                         closeElement();
+                    },
+
+                    DropDown: function(node) {
+
+                        var items = node.Items.replace(/\s/g,'').split(/;+/);
+                        items = [items[0],items.slice(1).join(',')];
+
+                        openElement('drop-down','',node,'', "header="+items[0]+" items="+items[1],"hello");
+                        closeElement();
+
+
+
+                        /*
+                        var space = 5;
+
+                        var items = node.Items.split(';;');
+                        items = items.map(function(elm) {return elm.split('|')})
+
+                        var longest = items.reduce(function(len, elm){
+                            elm.forEach(function(el, ind){
+                                if ((len[ind] || 0) < el.length)
+                                    len[ind] = el.length;
+
+                            });
+                            return len;
+                        })
+
+                        items = items.map(function(elm) {
+                            return elm.map(function(el, ind){
+                              return el + Array(longest[ind].length - el.length + 1 + space).join(' ');
+                            })
+                        })
+
+                        items = [items[0],items.slice(1)];
+
+                        openElement('select', '', {}, 'font-family:"Courier New", Courier, monospace', 'name="select"');
+                            openElement('option','',{}, '', 'label='+items[0].join('').replace(/ /g, '\u00a0'));
+                            items[1].forEach(function(elm) {
+                                openElement('option','',{}, '', '', elm.join('').replace(/ /g, '\u00a0'));
+                                closeElement();
+                            })
+                            closeElement();
+                        closeElement();
+
+
+                        */
+
+
+
+
+
                     }
+
 
                 },
 

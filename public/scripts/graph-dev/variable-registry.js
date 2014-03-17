@@ -138,7 +138,7 @@ VariableEntry.prototype = {
 
     get: function()
     {
-        return this.setValue || this.value;
+        return _.isNull(this.setValue) ? this.value : this.setValue;
     },
 
     unset: function()
