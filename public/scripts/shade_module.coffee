@@ -7,7 +7,7 @@ angular.module('ShadeApp',[])
     scope: true
     templateUrl: 'directive-templates/testdl.html'
     link: (scope, elm, attrs) ->
-      scope.toSet
+
       scope.variable = attrs.vdl
 
       scope.setDLVar = () ->
@@ -16,37 +16,20 @@ angular.module('ShadeApp',[])
   .directive 'numEdit', () ->
     restrict: 'E'
     replace: true
-    scope:
-      vtext: '='
-    template: (elm,attr) -> '<input type="text" ng-model="toSet">'
-    link: (scope, elm, attrs) ->
-      scope.toSet
+    scope: true
+    template: (elm,attr) -> '<div><input type="text" ng-model="vars[&quot;'+attr.vtext+'&quot;].model"></div>'
 
-
-      scope.setDLVar = () ->
-        scope.graph.set(scope.variable,Number(scope.toSet))
-
-  .directive 'renderPanel', ($compile, $filter, $sce, shadeTemplate) ->
+  .directive 'renderPanel', ($compile, shadeTemplate) ->
     restrict: 'E'
     scope:
+      vars: '='
       graph: '='
       styles: '='
-    link: (scope, elm, attrs) ->
-      scope.vars=[]
-
+    link: (scope, elm) ->
       scope.$watch 'styles', (shade) ->
         scope.data = shadeTemplate.toHTML(shade)
         elm.html('<style>' + scope.data.styles + '</style>' + scope.data.body)
         $compile(elm.contents())(scope)
-
-      scope.$on "Run", () ->
-        #scope.graph = scope.$parent.$parent.$parent.graph
-
-      scope.to_trusted = (html) ->
-        $compile(html)(scope)
-
-      scope.setDLVar = (variable) ->
-        scope.graph.set(variable,parseInt(scope.vars[variable]))
 
 
   .directive 'prettyPrintPanel', ($filter, shadeTemplate) ->

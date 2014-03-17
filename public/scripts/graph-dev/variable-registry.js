@@ -1,6 +1,9 @@
 ﻿var parser = require('./calculator').parser,
     CalcHandlers = require('./calc-handlers');
-    
+
+_ = _ || {};
+_.observe = require('./tools').observe;
+
 //variable registry which holds each variable in an entry
 
 var VariableRegistry = function() {
@@ -14,13 +17,29 @@ VariableRegistry.prototype = {
     },
 
     addToEntry: function (entry) {
-        var _entry = new VariableEntry(entry);
+        var _entry = new VariableEntry(entry), _this = this;
+        _.observe(_entry, 'model', 2, {
+            set: function (value) {
+                _entry.set(value);
+                _this.evaluate(_entry.name);
+            },
+            get: function () {
+                return _entry.get();
+            }
+        });
         this.variables[entry.name] = _entry.concat(this.variables[entry.name] || {});
+
+
     },
 
     set: function (name, value) {
         this.variables[name].set(value);
-		this.evaluate(name);
+        this.evaluate(name);
+    },
+
+    get: function (name) {
+        return this.variables[name].get();
+
     },
 
     unset: function (name, value) {
@@ -29,9 +48,9 @@ VariableRegistry.prototype = {
 
     //resolve each variable's value according to its expression
     evaluate: function (changed) {
-		parser.yy = CalcHandlers(this.variables);
-		var start = changed ? this.sorted.indexOf(changed) + 1 : 0;
-		for (var i = 0; i< this.sorted.length-start; i++){
+        parser.yy = CalcHandlers(this.variables);
+        var start = changed ? this.sorted.indexOf(changed) + 1 : 0;
+        for (var i = 0; i< this.sorted.length-start; i++){
 			var entry = this.variables[this.sorted[start+i]];
 			if (entry.hasOwnProperty('dependsOn')) {
 				var value = parser.parse(entry.expr);
@@ -80,7 +99,8 @@ var VariableEntry = function(entry) {
         this.dependedOnBy = [];
     }
     else
-    {    
+    {
+        this.name = entry.name || "";
         this.expr = entry.expr || "";
         this.value = entry.value ||null;
 		this.setValue = entry.setValue || null;
@@ -101,6 +121,7 @@ VariableEntry.prototype = {
     concat: function(entry) 
     {
         if(entry) {
+                this.name = entry.name ? entry.name : this.name;
                 this.expr = entry.expr ? entry.expr : this.expr;
                 this.value = entry.value ? entry.value : this.value;
 				this.setValue = entry.setValue ? entry.setValue : this.setValue;
@@ -115,10 +136,15 @@ VariableEntry.prototype = {
         this.setValue = value;
     },
 
+    get: function()
+    {
+        return this.setValue || this.value;
+    },
+
     unset: function()
     {
         this.setValue = null;
-    },
+    }
     
     
 };

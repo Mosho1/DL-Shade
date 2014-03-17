@@ -7,7 +7,6 @@
       scope: true,
       templateUrl: 'directive-templates/testdl.html',
       link: function(scope, elm, attrs) {
-        scope.toSet;
         scope.variable = attrs.vdl;
         return scope.setDLVar = function() {
           return scope.graph.set(scope.variable, Number(scope.toSet));
@@ -18,40 +17,25 @@
     return {
       restrict: 'E',
       replace: true,
-      scope: {
-        vtext: '='
-      },
+      scope: true,
       template: function(elm, attr) {
-        return '<input type="text" ng-model="toSet">';
-      },
-      link: function(scope, elm, attrs) {
-        scope.toSet;
-        return scope.setDLVar = function() {
-          return scope.graph.set(scope.variable, Number(scope.toSet));
-        };
+        return '<div><input type="text" ng-model="vars[&quot;' + attr.vtext + '&quot;].model"></div>';
       }
     };
-  }).directive('renderPanel', function($compile, $filter, $sce, shadeTemplate) {
+  }).directive('renderPanel', function($compile, shadeTemplate) {
     return {
       restrict: 'E',
       scope: {
+        vars: '=',
         graph: '=',
         styles: '='
       },
-      link: function(scope, elm, attrs) {
-        scope.vars = [];
-        scope.$watch('styles', function(shade) {
+      link: function(scope, elm) {
+        return scope.$watch('styles', function(shade) {
           scope.data = shadeTemplate.toHTML(shade);
           elm.html('<style>' + scope.data.styles + '</style>' + scope.data.body);
           return $compile(elm.contents())(scope);
         });
-        scope.$on("Run", function() {});
-        scope.to_trusted = function(html) {
-          return $compile(html)(scope);
-        };
-        return scope.setDLVar = function(variable) {
-          return scope.graph.set(variable, parseInt(scope.vars[variable]));
-        };
       }
     };
   }).directive('prettyPrintPanel', function($filter, shadeTemplate) {

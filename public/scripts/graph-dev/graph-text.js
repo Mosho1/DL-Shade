@@ -1,4 +1,6 @@
-﻿var compiler = require('./compiler'),
+﻿
+
+var compiler = require('./compiler'),
     VariableRegistry = require('./variable-registry.js').VariableRegistry;
 
 //Graph class. Holds the variable registry, currently has no distinctive methods and merely provides an interface for the registry.
@@ -7,7 +9,7 @@ var Graph = function(data) {
     this.initialise.apply(this, arguments);
     this.variables = (typeof data === 'string') ? compiler.compile(data) : {};
 	this.variables.sortDependencies();
-
+    window.gra = this;
 
 };
 Graph.prototype = {

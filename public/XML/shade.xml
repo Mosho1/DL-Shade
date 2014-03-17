@@ -18,7 +18,7 @@
             <Node>
                 <UI>NumEdit</UI>
                 <Xy>0,0</Xy>
-                <vText>Test.value2</vText>
+                <vText>x</vText>
                 <NumDecFormat>N</NumDecFormat>
             </Node>
         </Sub>
