@@ -1,27 +1,22 @@
 ﻿<Shade>
-    <Node>
-        <UI>Grid</UI>
-        <Span>2, 2</Span>
-        <ColWidth>200, 200</ColWidth>
-        <RowHeight>200, 200</RowHeight>
-        <Sub>
-            <Node>
-                <UI>TestDL</UI>
-                <vDL>x</vDL>
-                <Xy>1, 1</Xy>
-            </Node>
             <Node>
                 <UI>DropDown</UI>
-                <Items>FirstName|LastName;Ping|Kong;Chu|John;Richard|Newman</Items>
-                <Xy>1, 0</Xy>
+                <Items>SubBusiness|Month|Gross;hell|esef|awdwa;4|5|6;7|8|9</Items>
+                <Cols>
+                    <Col>
+                        <Name>SubBusiness</Name>
+                        <DisplayOnSelect>Y</DisplayOnSelect>
+                        <vSelectPath>Test.selected</vSelectPath>
+                    </Col>
+                    <Col>
+                        <Name>Month</Name>
+                        <DisplayOnSelect>N</DisplayOnSelect>
+                    </Col>
+                    <Col>
+                        <Name>Gross</Name>
+                        <DisplayOnSelect>N</DisplayOnSelect>
+                    </Col>
+                </Cols>
             </Node>
-            <Node>
-                <UI>NumEdit</UI>
-                <Xy>0, 0</Xy>
-                <vText>x</vText>
-                <NumDecFormat>N</NumDecFormat>
-            </Node>
-        </Sub>
-    </Node>
 </Shade> 
    

@@ -139,8 +139,14 @@
       });
     });
     $document.keyup(function(e) {
-      if (e.altKey && e.keyCode === 82) {
-        return $scope.DLrun(e);
+      var col;
+      if (e.altKey) {
+        if (e.keyCode === 82) {
+          $scope.DLrun(e);
+        }
+        if (col = $scope.cols[e.keyCode - 49]) {
+          return $scope.$apply(col.show = !col.show);
+        }
       }
     });
     $scope.styles = {

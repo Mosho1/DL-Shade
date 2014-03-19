@@ -134,24 +134,25 @@ angular.module('ShadeApp')
                                         })].concat(index);
                                     }).sort(function (a, b) { return a[0] - b[0]; });
 
-                                    nodes = function () {
-                                        var arr = [];
-                                        for (var i = 0; i < span[0] * span[1]; i++)
+                                    nodes = (function () {
+                                        var arr = [], i;
+                                        for (i = 0; i < span[0] * span[1]; i++) {
                                             arr.push((gridMap[0] || [-1])[0] === i ? nodes[gridMap.shift()[1]] : {'UI': 'Label'});
+                                        }
                                         return arr;
-                                    }();
+                                    }());
                                 }
                             },
 
                             makeCol = function (node) {
-                                openElement('div', 'span', {}, 'width:' + (widths[++colCount - 1] || widths[width.length - 1]) + 'px; ');
+                                openElement('div', 'span', {}, 'height:100%; width:' + (widths[++colCount - 1] || widths[widths.length - 1]) + 'px; ');
                                 UIHandlers[node.UI](node);
                                 closeElement();
                             },
 
                             makeRow = function (nodes) {
                                 colCount = 0;
-                                openElement('div', 'row', {}, 'height:' + (heights[++rowCount - 1] || heights[heights.length - 1]) + 'px; ');
+                                openElement('div', 'row', {}, 'width:100%; height:' + (heights[++rowCount - 1] || heights[heights.length - 1]) + 'px; ');
                                 _.each(nodes, makeCol);
                                 closeElement();
                             },
@@ -159,13 +160,15 @@ angular.module('ShadeApp')
                         // span[1] is number of cols. For each type of flow we have a loop to create appropriate rows.
                             makeGrid = {
                                 'TToB' : function () {
-                                    var filterFunction = function (elm, ind) {return ind % span[1] === i; };
-                                    for (var i = 0; i < span[1]; i++) {
+                                    var i, filterFunction = function (elm, ind) {return ind % span[1] === i; };
+
+                                    for (i = 0; i < span[1]; i++) {
                                         makeRow(nodes.filter(filterFunction));
                                     }
                                 },
                                 'LToR' : function () {
-                                    for (var i = 0; i < nodes.length; i += span[1]) {
+                                    var i;
+                                    for (i = 0; i < nodes.length; i += span[1]) {
                                         makeRow(nodes.slice(i, i + span[1]));
                                     }
                                 }
@@ -203,90 +206,64 @@ angular.module('ShadeApp')
                         closeElement();
                     },
 
-                    DropDown: function(node) {
+                    DropDown: function (node) {
 
-                        var items = node.Items.replace(/\s/g,'').split(/;+/);
-                        items = [items[0],items.slice(1).join(',')];
+                        var items = node.Items.replace(/\s/g, '').split(/;+/),
+                            options = {};
+                        items = [items[0], items.slice(1).join(',')];
 
-                        openElement('drop-down','',node,'', "header="+items[0]+" items="+items[1],"hello");
-                        closeElement();
-
-
-
-                        /*
-                        var space = 5;
-
-                        var items = node.Items.split(';;');
-                        items = items.map(function(elm) {return elm.split('|')})
-
-                        var longest = items.reduce(function(len, elm){
-                            elm.forEach(function(el, ind){
-                                if ((len[ind] || 0) < el.length)
-                                    len[ind] = el.length;
-
+                        if (node.Cols && node.Cols.Col) {
+                            node.Cols.Col.forEach(function (col) {
+                                options[col.Name] = _.transform(_.omit(col, 'Name'), function (str, val, opt) {
+                                     str.push(opt.charAt(0) + '=' + val);
+                                }, []);
                             });
-                            return len;
-                        })
 
-                        items = items.map(function(elm) {
-                            return elm.map(function(el, ind){
-                              return el + Array(longest[ind].length - el.length + 1 + space).join(' ');
-                            })
-                        })
+                            options = (function (items, opts) {
+                                return items.map(function (item) {
+                                    return opts[item].join('&');
+                                }).join('|');
+                            }(items[0].split('|'), options));
+                        }
 
-                        items = [items[0],items.slice(1)];
-
-                        openElement('select', '', {}, 'font-family:"Courier New", Courier, monospace', 'name="select"');
-                            openElement('option','',{}, '', 'label='+items[0].join('').replace(/ /g, '\u00a0'));
-                            items[1].forEach(function(elm) {
-                                openElement('option','',{}, '', '', elm.join('').replace(/ /g, '\u00a0'));
-                                closeElement();
-                            })
-                            closeElement();
+                        openElement('drop-down', '', node, '', "header=" + items[0] + " items=" + items[1] + " options=" + options);
                         closeElement();
-
-
-                        */
-
-
-
-
 
                     }
-
-
                 },
 
                 nodeHandlers = {
                     'Styles': function (styles) {
                         //parses styles. A bit messy, but gets the job done concisely and shouldn't be too hard to follow with the comments.
-                        var parsedStyles = styles.replace(/[^!-~]/g,"") //remove unneeded characters
+                        var parsedStyles = styles.replace(/[^!-~]/g, "") //remove unneeded characters
                             .split('}') //split lines into array
-                            .map(function(elm){
-                                return elm.split('{');}) //split each line into an array: [name,styles]
-                            .map(function(elm){
-                                if (elm[1]) //if element has styles
-                                    return [elm[0],(elm[1].split(';')//split styles into an array: ["styleName:styleValue" x <number of styles>]
-                                        .map(function(elm){
-                                            return elm.split(':')}) //split each "styleName:styleValue" pair into an array [styleName,styleValue]
-                                        .reduce(function(obj,val,ind){ //reduce the style array into an object where each style is a field.
-                                            obj[val[0]]=val[1]; // obj = {styleName: styleValue}
+                            .map(function (elm) {
+                                return elm.split('{');
+                            }) //split each line into an array: [name,styles]
+                            .map(function (elm) {
+                                if (elm[1]) { //if element has styles
+                                    return [elm[0], (elm[1].split(';')//split styles into an array: ["styleName:styleValue" x <number of styles>]
+                                        .map(function (elm) {
+                                            return elm.split(':');
+                                        }) //split each "styleName:styleValue" pair into an array [styleName,styleValue]
+                                        .reduce(function (obj, val, ind) { //reduce the style array into an object where each style is a field.
+                                            obj[val[0]] = val[1]; // obj = {styleName: styleValue}
                                             return obj;
-                                        }
-                                        ,{})
-                                        )]
+                                        }, {})
+                                        )];
+                                }
                             })
-                            .filter(function(elm){return elm;}) //remove garbage (undefined or otherwise falsey elements)
-                            .forEach(function(elm){ //for each of the parsed and organized classes
-                                var styles = _.reduce(elm[1],handleStyles,''); //parse the styles using our handlers
-                                addStyles(elm[0],styles); //add styles to string to be added to the HTML output
+                            .filter(function (elm) {return elm; }) //remove garbage (undefined or otherwise falsey elements)
+                            .forEach(function (elm) { //for each of the parsed and organized classes
+                                var styles = _.reduce(elm[1], handleStyles, ''); //parse the styles using our handlers
+                                addStyles(elm[0], styles); //add styles to string to be added to the HTML output
                             });
                     },
 
                     'Node': function (node) {
-                        UIHandlers[node['UI']](node);
+                        UIHandlers[node.UI](node);
                     },
-                    'Unknown': function(node) {
+                    'Unknown': function (node) {
                         console.log("can't recognize tag <" + node +">.");
                     }
                 },

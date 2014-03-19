@@ -9,9 +9,11 @@
   ]);
 
   _.kill_event = function(e) {
-    e.cancelBubble = true;
-    e.stopPropagation();
-    return e.preventDefault();
+    if (_.isObject(e)) {
+      e.cancelBubble = true;
+      e.stopPropagation();
+      return e.preventDefault();
+    }
   };
 
   _.corsproxy = function(css_url) {
@@ -37,3 +39,5 @@
   };
 
 }).call(this);
+
+//# sourceMappingURL=app.map

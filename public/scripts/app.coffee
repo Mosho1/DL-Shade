@@ -9,6 +9,7 @@ angular.module('DLApp', ['ShadeApp'])
 
 
 _.kill_event = (e) ->
+  if _.isObject(e)
     e.cancelBubble = true
     e.stopPropagation()
     e.preventDefault()

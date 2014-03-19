@@ -19,25 +19,44 @@ angular.module('ShadeApp',['ngGrid'])
     scope: true
     template: (elm,attr) -> '<div><input type="text" ng-model="vars[&quot;'+attr.vtext+'&quot;].model"></div>'
 
-  .directive 'dropDown', ($compile) ->
+  .directive 'dropDown', ($rootScope) ->
     restrict: 'E'
     scope: true
-    link: (scope, elm, attr) ->
-      header = attr.header.split('|')
-      items = attr.items.split(',')
-        .map (elm) ->
-          elm.split('|')
-      scope.myData = items.map (elm) ->
-        elm.reduce ((obj, el, ind) ->
-           obj[header[ind]] = el
-           return obj)
-           ,{}
+    template: '<div ng-click="dropdown($event,true)" style="overflow: hidden;">{{selected}}</div>
+               <div class="gridStyle" ng-grid="gridOptions" ng-class="{hide:ghide}" ng-click="select($event)"></div>
+               <style>.gridStyle.ng-scope {height:100%;}</style>'
+    link:
+      pre: (scope, elm, attr) ->
+        window.sc = scope
+        header = attr.header.split('|')
+        items = attr.items.split(',')
+          .map (elm) ->
+            elm.split('|')
+        scope.myData = items.map (elm) ->
+          elm.reduce ((obj, el, ind) ->
+             obj[header[ind]] = el
+             return obj)
+             ,{}
+        scope.selected = ["click me"]
+        scope.gridOptions =
+          data: 'myData'
+          selectedItems: scope.selected,
+          multiSelect: false
 
-      scope.gridOptions =
-        data: 'myData'
 
-      elm.html('<div class="gridStyle" ng-grid="gridOptions"></div>')
-      $compile(elm.contents())(scope)
+        scope.ghide = true
+        scope.dropdown = ($event,state) ->
+          _.kill_event($event)
+          scope.ghide = !state
+
+        scope.select = ($event) ->
+          _.kill_event($event)
+
+        $rootScope.$on 'bg_click', ->
+          scope.dropdown()
+
+        scope.$watchCollection 'selected', ->
+          scope.ghide = true
 
   .directive 'renderPanel', ($compile, shadeTemplate) ->
     restrict: 'E'

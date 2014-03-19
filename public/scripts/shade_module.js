@@ -22,27 +22,46 @@
         return '<div><input type="text" ng-model="vars[&quot;' + attr.vtext + '&quot;].model"></div>';
       }
     };
-  }).directive('dropDown', function($compile) {
+  }).directive('dropDown', function($rootScope) {
     return {
       restrict: 'E',
       scope: true,
-      link: function(scope, elm, attr) {
-        var header, items;
-        header = attr.header.split('|');
-        items = attr.items.split(',').map(function(elm) {
-          return elm.split('|');
-        });
-        scope.myData = items.map(function(elm) {
-          return elm.reduce((function(obj, el, ind) {
-            obj[header[ind]] = el;
-            return obj;
-          }), {});
-        });
-        scope.gridOptions = {
-          data: 'myData'
-        };
-        elm.html('<div class="gridStyle" ng-grid="gridOptions"></div>');
-        return $compile(elm.contents())(scope);
+      template: '<div ng-click="dropdown($event,true)" style="overflow: hidden;">{{selected}}</div> <div class="gridStyle" ng-grid="gridOptions" ng-class="{hide:ghide}" ng-click="select($event)"></div> <style>.gridStyle.ng-scope {height:100%;}</style>',
+      link: {
+        pre: function(scope, elm, attr) {
+          var header, items;
+          window.sc = scope;
+          header = attr.header.split('|');
+          items = attr.items.split(',').map(function(elm) {
+            return elm.split('|');
+          });
+          scope.myData = items.map(function(elm) {
+            return elm.reduce((function(obj, el, ind) {
+              obj[header[ind]] = el;
+              return obj;
+            }), {});
+          });
+          scope.selected = ["click me"];
+          scope.gridOptions = {
+            data: 'myData',
+            selectedItems: scope.selected,
+            multiSelect: false
+          };
+          scope.ghide = true;
+          scope.dropdown = function($event, state) {
+            _.kill_event($event);
+            return scope.ghide = !state;
+          };
+          scope.select = function($event) {
+            return _.kill_event($event);
+          };
+          $rootScope.$on('bg_click', function() {
+            return scope.dropdown();
+          });
+          return scope.$watchCollection('selected', function() {
+            return scope.ghide = true;
+          });
+        }
       }
     };
   }).directive('renderPanel', function($compile, shadeTemplate) {

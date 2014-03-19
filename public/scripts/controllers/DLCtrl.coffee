@@ -87,17 +87,23 @@ angular.module('DLApp')
 
 
   $document.keyup (e) ->
-    if e.altKey and e.keyCode == 82
+    if e.altKey
+      if e.keyCode == 82
         $scope.DLrun(e)
+      if col = $scope.cols[e.keyCode - 49]
+        $scope.$apply col.show = !col.show
+
+
+
 
   $scope.styles =
-    active: 'testDL'
-    sheets:
-      testDL:
-        source: 'XML/shade.xml'
-        native: true
-    external: ''
-    editor: ''
+  active: 'testDL'
+  sheets:
+    testDL:
+      source: 'XML/shade.xml'
+      native: true
+  external: ''
+  editor: ''
 
   $scope.copy_style = (e,style_name) ->
     _.kill_event(e)
@@ -167,6 +173,7 @@ angular.module('DLApp')
     $scope.menuitems ||= {show: false}
     $scope.$on 'bg_click', () ->
       $scope.$apply -> $scope.menuitems.show = false
+
   link: (scope, elm, attrs) ->
     elm.children('.menu-title').bind 'click', (e) ->
       _.kill_event(e)
