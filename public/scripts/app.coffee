@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('DLApp', ['ShadeApp'])
+angular.module('DLApp', ['ShadeApp', 'ui.bootstrap'])
 
 .config(['$httpProvider', ($httpProvider) ->
   $httpProvider.defaults.useXDomain = true

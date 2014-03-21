@@ -15,11 +15,11 @@ module.exports = function (grid) {
                 span = span.map(Math.floor);
             },
             'Rows': function () {
-                span = [grid.Rows, nodes.length / grid.Rows];
+                span = [grid.Rows, nodes.length / Number(grid.Rows)];
                 flow = 'TToB';
             },
             'Cols': function () {
-                span = [nodes.length / grid.Cols, grid.Cols];
+                span = [nodes.length / grid.Cols, Number(grid.Cols)];
             },
             'ColWidth': function () {
                 widths = grid.ColWidth.match(/[^ ,]+/g);

@@ -41,11 +41,11 @@ module.exports = function (grid) {
                 span = span.map(Math.floor);
             },
             'Rows': function () {
-                span = [grid.Rows, nodes.length / grid.Rows];
+                span = [grid.Rows, nodes.length / Number(grid.Rows)];
                 flow = 'TToB';
             },
             'Cols': function () {
-                span = [nodes.length / grid.Cols, grid.Cols];
+                span = [nodes.length / grid.Cols, Number(grid.Cols)];
             },
             'ColWidth': function () {
                 widths = grid.ColWidth.match(/[^ ,]+/g);
@@ -160,7 +160,10 @@ angular.module('ShadeServices', [])
             'SETDLVARIABLE': function (cb) {
                 return cb.Event + ',setDL,' + cb.Stat;
             },
-            'SHOWPOPUP': {}
+            'SHOWPOPUP': function (cb) {
+                return cb.Event + ',popup,' + cb.Stat;
+
+            }
 
 
 
@@ -179,17 +182,23 @@ angular.module('ShadeServices', [])
             },
 
             'TestDL': function (node) {
-                that.openElement('test-dl', '', node, '');
+                that.openElement('test-dl', '', node);
                 that.closeElement();
             },
 
             'Label': function (node) {
-                that.openElement('div', '', node, '');
+                that.openElement('div', '', node);
                 that.closeElement();
             },
 
             'NumEdit': function (node) {
-                that.openElement('num-edit', '', node, '');
+                that.openElement('num-edit', '', node);
+                that.closeElement();
+            },
+
+            'Popup': function (node) {
+                that.openElement('div', '', node);
+                _.each((node.Sub || {Node: {}}).Node, that.handleNodes);
                 that.closeElement();
             }
 
@@ -216,7 +225,18 @@ angular.module('ShadeServices', [])
             }
         };
 
+        this.handleNodes = function (node, index) {
+            if (node.length) {
+                _.each(node, that,handleNodes.bind({index: index}));
+            } else {
+                var handlers = that.nodeHandlers;
+                (handlers[index] || handlers[this.index] || handlers.Unknown)(node);
+            }
+        };
+
     return this;
+
+
 
 
     })
@@ -225,21 +245,14 @@ angular.module('ShadeServices', [])
 
     .service('ShadeParser', function (ShadeHandlers, ShadeStyles, ShadeElements) {
 
-        var handleNodes = function (node, index) {
-            if (node.length) {
-                _.each(node, handleNodes.bind({index: index}));
-            } else {
-                var handlers = ShadeHandlers.nodeHandlers;
-                (handlers[index] || handlers[this.index] || handlers.Unknown)(node);
-            }
-        };
+
 
         this.parse = function (shd) {
             if (shd) {
                 ShadeStyles.init();
                 ShadeElements.init();
 
-                _.each(shd.Shade, handleNodes);
+                _.each(shd.Shade, ShadeHandlers.handleNodes);
                 return {'styles': ShadeStyles.getStyles(), 'elements': ShadeElements.getElements()};
             }
 

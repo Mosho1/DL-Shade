@@ -2,19 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15758fa3-0dc6-4239-9815-36387ae5d86d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/controllers/DLCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/controllers/DLCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/directives/editor.js" afterPath="$PROJECT_DIR$/public/scripts/directives/editor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/dist/graph-text-dev.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/dist/graph-text-dev.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/directives/render_graph.js" afterPath="$PROJECT_DIR$/public/scripts/directives/render_graph.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/directives/render_graph.map" afterPath="$PROJECT_DIR$/public/scripts/directives/render_graph.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/DL_libs/ng-popover/dimensions.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/DL_libs/ng-popover/popover.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/DL_libs/ng-popover/tooltip.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/ShadeServices/Grid.js" afterPath="$PROJECT_DIR$/public/scripts/services/ShadeServices/Grid.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/app.coffee" afterPath="$PROJECT_DIR$/public/scripts/app.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/app.js" afterPath="$PROJECT_DIR$/public/scripts/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/index_DL.jade" afterPath="$PROJECT_DIR$/public/views/index_DL.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/XML/shade.xml" afterPath="$PROJECT_DIR$/public/XML/shade.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js" afterPath="$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/ShadeServices/dist/shadeServices.js" afterPath="$PROJECT_DIR$/public/scripts/services/ShadeServices/dist/shadeServices.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/shade_module.coffee" afterPath="$PROJECT_DIR$/public/scripts/shade_module.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/shade_module.js" afterPath="$PROJECT_DIR$/public/scripts/shade_module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/directives/split-panel.js" afterPath="$PROJECT_DIR$/public/scripts/directives/split-panel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/directives/split-panel.map" afterPath="$PROJECT_DIR$/public/scripts/directives/split-panel.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/directive-templates/testdl.html" afterPath="$PROJECT_DIR$/public/directive-templates/testdl.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DependencyLanguage.iws" />
@@ -29,12 +29,14 @@
     <file path="/variable-registry.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395075426570" ignored="false" />
     <file path="/shadeServices.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395195987979" ignored="false" />
     <file path="/dl-example.txt" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395085162785" ignored="false" />
-    <file path="/shade_module.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395411768859" ignored="false" />
-    <file path="/index_DL.jade" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395094818793" ignored="false" />
-    <file path="/app.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395172200594" ignored="false" />
+    <file path="/shade_module.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395428200440" ignored="false" />
+    <file path="/index_DL.jade" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395420091964" ignored="false" />
+    <file path="/app.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395420057053" ignored="false" />
     <file path="/DLCtrl.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395175817677" ignored="false" />
     <file path="/shade.xml" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395195283494" ignored="false" />
-    <file path="/shadeHandlers.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395408297549" ignored="false" />
+    <file path="/shadeHandlers.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395427798634" ignored="false" />
+    <file path="/Grid.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395415308867" ignored="false" />
+    <file path="/testdl.html" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395416043761" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,103 +56,99 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="shade_module.coffee" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/scripts/shade_module.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="38" selection-start="774" selection-end="774" vertical-scroll-proportion="0.6028369">
-              <folding>
-                <marker date="1395411820433" expanded="true" signature="1624:1641" placeholder="..." />
-                <marker date="1395411820433" expanded="true" signature="1642:1841" placeholder="..." />
-                <marker date="1395411820433" expanded="true" signature="1822:1836" placeholder="{...}" />
-                <marker date="1395411820433" expanded="true" signature="1822:1834" placeholder="{...}" />
-                <marker date="1395411820433" expanded="true" signature="3592:3608" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DLengine.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/DLengine.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="35" selection-start="346" selection-end="346" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DLCtrl.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="24" selection-start="3983" selection-end="3983" vertical-scroll-proportion="-21.8">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="render_graph.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/directives/render_graph.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="render_panel.map" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/directives/render_panel.map">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="split-panel.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/directives/split-panel.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="24" selection-start="1204" selection-end="1208" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DLCtrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="41" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shade.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/XML/shade.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="12" selection-start="549" selection-end="549" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="shadeHandlers.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="41" selection-start="1879" selection-end="1879" vertical-scroll-proportion="-44.88">
+            <state line="70" column="23" selection-start="1840" selection-end="1840" vertical-scroll-proportion="-14.96">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shade_module.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/shade_module.js">
+      <file leaf-file-name="shade_module.coffee" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/scripts/shade_module.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="0" selection-start="1340" selection-end="1340" vertical-scroll-proportion="0.0">
+            <state line="28" column="0" selection-start="733" selection-end="785" vertical-scroll-proportion="0.5653207">
               <folding>
-                <marker date="1395411820674" expanded="true" signature="401:804" placeholder="{...}" />
-                <marker date="1395411820674" expanded="true" signature="791:908" placeholder="{...}" />
-                <marker date="1395411820674" expanded="true" signature="812:887" placeholder="{...}" />
-                <marker date="1395411820674" expanded="true" signature="872:876" placeholder="{...}" />
+                <marker date="1395428329492" expanded="false" signature="1901:1918" placeholder="..." />
+                <marker date="1395428329492" expanded="true" signature="1919:2118" placeholder="..." />
+                <marker date="1395428329492" expanded="true" signature="2099:2111" placeholder="{...}" />
+                <marker date="1395428329492" expanded="false" signature="3869:3885" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Grid.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/Grid.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="58" column="51" selection-start="2271" selection-end="2271" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DropDown.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/DropDown.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="39" selection-start="784" selection-end="784" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Button.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/Button.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="popover.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../popover.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="49" selection-start="388" selection-end="388" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dimensions.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/DL_libs/ng-popover/dimensions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tooltip.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/DL_libs/ng-popover/tooltip.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="popover.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/DL_libs/ng-popover/popover.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="31" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="popover.tpl.content.demo.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Temp/PK682C.tmp/popover.tpl.content.demo.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="27" selection-start="378" selection-end="378" vertical-scroll-proportion="-5.230769">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -173,8 +171,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/scripts/graph-dev/tools.js" />
-        <option value="$PROJECT_DIR$/public/scripts/graph-dev/tools.coffee" />
         <option value="$PROJECT_DIR$/public/DL_libs/ace/src-noconflict/ext-language_tools.js" />
         <option value="$PROJECT_DIR$/public/scripts/graph-dev/graph-text.js" />
         <option value="$PROJECT_DIR$/public/scripts/directives/editor.coffee" />
@@ -182,11 +178,13 @@
         <option value="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" />
         <option value="$PROJECT_DIR$/public/scripts/ng_template_shd.js" />
         <option value="$PROJECT_DIR$/public/scripts/dl-example.txt" />
-        <option value="$PROJECT_DIR$/public/views/index_DL.jade" />
-        <option value="$PROJECT_DIR$/public/scripts/app.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/services/shadeServices.js" />
+        <option value="$PROJECT_DIR$/public/scripts/services/ShadeServices/Grid.js" />
+        <option value="$PROJECT_DIR$/public/directive-templates/testdl.html" />
         <option value="$PROJECT_DIR$/public/XML/shade.xml" />
+        <option value="$PROJECT_DIR$/public/scripts/app.coffee" />
+        <option value="$PROJECT_DIR$/public/views/index_DL.jade" />
         <option value="$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js" />
         <option value="$PROJECT_DIR$/public/scripts/shade_module.coffee" />
       </list>
@@ -243,7 +241,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -547,6 +545,64 @@
               <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DL_libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DL_libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ng-popover" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directive-templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -565,11 +621,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\SR71042\Documents\GitHub\DependencyLanguage\public\DL_libs\ng-popover" />
       <recent name="I:\stavrosbackup\DependencyLanguage\public\scripts" />
       <recent name="I:\stavrosbackup\DependencyLanguage\public\csscripts\services" />
       <recent name="I:\stavrosbackup\DependencyLanguage\src\client-src-2" />
       <recent name="I:\stavrosbackup\DependencyLanguage\src" />
-      <recent name="I:\stavrosbackup\DependencyLanguage\public\scripts\graph" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="I:\stavrosbackup\DependencyLanguage\public\scripts\graph-dev" />
@@ -775,125 +831,123 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/scripts/shade_dictionaries.js">
+    <entry file="file://$PROJECT_DIR$/public/scripts/app.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="2" column="51" selection-start="65" selection-end="65" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/index_DL.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="75" selection-start="2787" selection-end="2789" vertical-scroll-proportion="-1.0795107">
+        <state line="115" column="16" selection-start="6642" selection-end="6642" vertical-scroll-proportion="-16.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/ShadeCtrl.coffee">
+    <entry file="file://$PROJECT_DIR$/public/scripts/factories/graph-text.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/services/shadeTemplate.coffee">
+    <entry file="file://$PROJECT_DIR$/public/scripts/factories/graph-text.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/services/shadeServices.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="205" column="51" selection-start="8887" selection-end="8887" vertical-scroll-proportion="-12.44">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+    <entry file="file://$PROJECT_DIR$/public/scripts/factories/variable-registry.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/XML/shade.xml">
+    <entry file="file://$PROJECT_DIR$/public/DL_libs/ui-bootstrap-tpls-0.10.0.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="12" selection-start="549" selection-end="549" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/shade_module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="1340" selection-end="1340" vertical-scroll-proportion="0.0">
+        <state line="3578" column="138" selection-start="0" selection-end="125939" vertical-scroll-proportion="-14.16">
           <folding>
-            <marker date="1395411820674" expanded="true" signature="401:804" placeholder="{...}" />
-            <marker date="1395411820674" expanded="true" signature="791:908" placeholder="{...}" />
-            <marker date="1395411820674" expanded="true" signature="812:887" placeholder="{...}" />
-            <marker date="1395411820674" expanded="true" signature="872:876" placeholder="{...}" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/DLengine.js">
+    <entry file="file://$PROJECT_DIR$/../popover.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="35" selection-start="346" selection-end="346" vertical-scroll-proportion="0.0">
+        <state line="15" column="49" selection-start="388" selection-end="388" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="41" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="24" selection-start="3983" selection-end="3983" vertical-scroll-proportion="-21.8">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/directives/render_panel.map">
+    <entry file="file://$PROJECT_DIR$/public/DL_libs/ng-popover/dimensions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/directives/split-panel.coffee">
+    <entry file="file://$PROJECT_DIR$/public/DL_libs/ng-popover/tooltip.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="24" selection-start="1204" selection-end="1208" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/directives/render_graph.coffee">
+    <entry file="file://$PROJECT_DIR$/public/DL_libs/ng-popover/popover.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="31" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/PK682C.tmp/popover.tpl.content.demo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="27" selection-start="378" selection-end="378" vertical-scroll-proportion="-5.230769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/DropDown.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="39" selection-start="784" selection-end="784" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/Grid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="51" selection-start="2271" selection-end="2271" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/Button.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="41" selection-start="1879" selection-end="1879" vertical-scroll-proportion="-44.88">
+        <state line="70" column="23" selection-start="1840" selection-end="1840" vertical-scroll-proportion="-14.96">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/shade_module.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="38" selection-start="774" selection-end="774" vertical-scroll-proportion="0.6028369">
+        <state line="28" column="0" selection-start="733" selection-end="785" vertical-scroll-proportion="0.5653207">
           <folding>
-            <marker date="1395411820433" expanded="true" signature="1624:1641" placeholder="..." />
-            <marker date="1395411820433" expanded="true" signature="1642:1841" placeholder="..." />
-            <marker date="1395411820433" expanded="true" signature="1822:1836" placeholder="{...}" />
-            <marker date="1395411820433" expanded="true" signature="1822:1834" placeholder="{...}" />
-            <marker date="1395411820433" expanded="true" signature="3592:3608" placeholder="..." />
+            <marker date="1395428329492" expanded="false" signature="1901:1918" placeholder="..." />
+            <marker date="1395428329492" expanded="true" signature="1919:2118" placeholder="..." />
+            <marker date="1395428329492" expanded="true" signature="2099:2111" placeholder="{...}" />
+            <marker date="1395428329492" expanded="false" signature="3869:3885" placeholder="..." />
           </folding>
         </state>
       </provider>

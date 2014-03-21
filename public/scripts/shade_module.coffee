@@ -2,7 +2,7 @@
 
 angular.module('ShadeApp',['ShadeServices', 'ngGrid'])
 
-  .directive 'btn', () ->
+  .directive 'btn', ($compile) ->
     restrict: 'C'
     replace: true
     scope: true
@@ -20,18 +20,24 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid'])
           obj
 
         events =
-          Click:
-            'ng-click='
+          Click: 'ng-click='
           
         handlers =
           setDL: (name ,val) ->
-              'vars[&quot;' + name + '&quot;].model=' + val + ';'
+            'vars[&quot;' + name + '&quot;].model=' + val + ';'
+          popup: (popup, location) ->
+            elm.append(angular.element('#' + popup))
+            'showPopup = !showPopup'
 
         _.each cbs, (cb, name) ->
-          toAppend += events[name] + '"' + (_.map cb, (elm) ->
-            handlers[elm[0]] elm[1], elm[2]).join('') + '" '
+          toAppend += events[name] + '"' + (_.map cb, (el) ->
+            handlers[el[0]] el[1], el[2]).join('') + '" '
 
       '<button ' + toAppend + ' ng-transclude></button>'
+
+    link: (scope, elm) ->
+      $compile(elm.contents())(scope)
+
 
   .directive 'testDl', () ->
     restrict: 'E'
@@ -44,6 +50,8 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid'])
 
       scope.setDLVar = () ->
         scope.graph.set(scope.variable,Number(scope.toSet))
+      scope.unsetDLVar = () ->
+        scope.graph.unset(scope.variable,Number(scope.toSet))
 
   .directive 'numEdit', () ->
     restrict: 'E'
