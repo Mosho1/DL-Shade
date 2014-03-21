@@ -2,7 +2,7 @@
 
 angular.module('ShadeApp',['ShadeServices', 'ngGrid'])
 
-  .directive 'btn', () ->
+  .directive 'btn', ($compile) ->
     restrict: 'C'
     replace: true
     scope: true
@@ -10,16 +10,34 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid'])
     template: (elm, attr) ->
       toAppend = ''
       if (attr.controlBlock)
-        cb = attr.controlBlock.split(',')
-        functions =
-          Click:
-            setDL: (name,val) ->
-               'ng-click="vars[&quot;' + name + '&quot;].model = ' + val + '"'
-          
+        cbs = do ->
+          obj = {}
+          cb_arr = attr.controlBlock.split(';')
+          cb_arr = _.map cb_arr, (str) ->  str.split(',')
+          _.each cb_arr, (arr) ->
+            obj[arr[0]] = obj[arr[0]] || []
+            obj[arr[0]].push arr.slice(1)
+          obj
 
-        toAppend = functions[cb[0]][cb[1]](cb[2],cb[3])
+        events =
+          Click: 'ng-click='
+          
+        handlers =
+          setDL: (name ,val) ->
+            'vars[&quot;' + name + '&quot;].model=' + val + ';'
+          popup: (popup, location) ->
+            elm.append(angular.element('#' + popup))
+            'showPopup = !showPopup'
+
+        _.each cbs, (cb, name) ->
+          toAppend += events[name] + '"' + (_.map cb, (el) ->
+            handlers[el[0]] el[1], el[2]).join('') + '" '
 
       '<button ' + toAppend + ' ng-transclude></button>'
+
+    link: (scope, elm) ->
+      $compile(elm.contents())(scope)
+
 
   .directive 'testDl', () ->
     restrict: 'E'
@@ -32,6 +50,8 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid'])
 
       scope.setDLVar = () ->
         scope.graph.set(scope.variable,Number(scope.toSet))
+      scope.unsetDLVar = () ->
+        scope.graph.unset(scope.variable,Number(scope.toSet))
 
   .directive 'numEdit', () ->
     restrict: 'E'

@@ -1,21 +1,71 @@
 ﻿<Shade>
     <Node>
-        <UI>Button</UI>
-        <Text>click me</Text>
-        <Cb>
-            <Fn>SETDLVARIABLE</Fn>
-            <Stat>x,3</Stat>
-            <Event>Click</Event>
-        </Cb>
+        <UI>Grid</UI>
+        <Cols>2</Cols>
+        <RowHeight>100, 200</RowHeight>
+        <ColWidth>400</ColWidth>
+        <Sub>
+            <Node>
+                <UI>Button</UI>
+                <Text>x = 3;
+                    y = 3;
+                </Text>
+                <Cb>
+                    <Fn>SETDLVARIABLE</Fn>
+                    <Stat>x, 3</Stat>
+                    <Event>Click</Event>
+                </Cb>
+                <Cb>
+                    <Fn>SETDLVARIABLE</Fn>
+                    <Stat>y, 3</Stat>
+                    <Event>Click</Event>
+                </Cb>
+            </Node>
+            <Node>
+                <UI>Button</UI>
+                <Text>z = 5;
+                </Text>
+                <Cb>
+                    <Fn>SETDLVARIABLE</Fn>
+                    <Stat>z, 5</Stat>
+                    <Event>Click</Event>
+                </Cb>
+            </Node>
+            <Node>
+                <UI>TestDL</UI>
+                <vDL>x</vDL>
+            </Node>
+            <Node>
+                <UI>TestDL</UI>
+                <vDL>y</vDL>
+            </Node>
+            <Node>
+                <UI>TestDL</UI>
+                <vDL>z</vDL>
+            </Node>
+            <Node>
+                <UI>NumEdit</UI>
+                <vText>x</vText>
+                <NumDecFormat>N</NumDecFormat>
+            </Node>
+            <Node>
+                <UI>NumEdit</UI>
+                <vText>y</vText>
+                <NumDecFormat>N</NumDecFormat>
+            </Node>
+            <Node>
+                <UI>NumEdit</UI>
+                <vText>z</vText>
+                <NumDecFormat>N</NumDecFormat>
+            </Node>
+            <Node>
+                <UI>DropDown</UI>
+                <Items>a|b|c;
+                    ;
+                    a|b|c;
+                    ;
+                    a|b|c</Items>
+            </Node>
+        </Sub>
     </Node>
-    <Node>
-        <UI>TestDL</UI>
-        <vDL>x</vDL>
-    </Node>
-    <Node>
-        <UI>NumEdit</UI>
-        <Xy>0, 0</Xy>
-        <vText>x</vText>
-        <NumDecFormat>N</NumDecFormat>
-    </Node>
-</Shade>
+</Shade>    

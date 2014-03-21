@@ -9,9 +9,12 @@ angular.module('ShadeServices', [])
 
         this.CbHandlers = {
             'SETDLVARIABLE': function (cb) {
-                return 'control-block="' + cb.Event + ',setDL,' + cb.Stat  + '" ';
+                return cb.Event + ',setDL,' + cb.Stat;
             },
-            'SHOWPOPUP': {}
+            'SHOWPOPUP': function (cb) {
+                return cb.Event + ',popup,' + cb.Stat;
+
+            }
 
 
 
@@ -30,17 +33,23 @@ angular.module('ShadeServices', [])
             },
 
             'TestDL': function (node) {
-                that.openElement('test-dl', '', node, '');
+                that.openElement('test-dl', '', node);
                 that.closeElement();
             },
 
             'Label': function (node) {
-                that.openElement('div', '', node, '');
+                that.openElement('div', '', node);
                 that.closeElement();
             },
 
             'NumEdit': function (node) {
-                that.openElement('num-edit', '', node, '');
+                that.openElement('num-edit', '', node);
+                that.closeElement();
+            },
+
+            'Popup': function (node) {
+                that.openElement('div', '', node);
+                _.each((node.Sub || {Node: {}}).Node, that.handleNodes);
                 that.closeElement();
             }
 
@@ -48,11 +57,18 @@ angular.module('ShadeServices', [])
         };
 
 
+
+
         this.nodeHandlers = {
             'Styles': require('./Styles').bind(that),
 
             'Node': function (node) {
-                var controlBlock = node.Cb ? that.CbHandlers[node.Cb.Fn](node.Cb) : '';
+
+                var handleCb = function (result, Cb) {
+                    return result += (result ? ';' : '') + that.CbHandlers[Cb.Fn](Cb);
+                }
+
+                var controlBlock = node.Cb ? 'control-block="' + _.reduce(node.Cb.length ? node.Cb : [node.Cb], handleCb, '') + '" ' : '';
                 that.UIHandlers[node.UI].call(that, node, controlBlock);
             },
             'Unknown': function (node) {
@@ -60,7 +76,18 @@ angular.module('ShadeServices', [])
             }
         };
 
+        this.handleNodes = function (node, index) {
+            if (node.length) {
+                _.each(node, that,handleNodes.bind({index: index}));
+            } else {
+                var handlers = that.nodeHandlers;
+                (handlers[index] || handlers[this.index] || handlers.Unknown)(node);
+            }
+        };
+
     return this;
+
+
 
 
     })
@@ -69,21 +96,14 @@ angular.module('ShadeServices', [])
 
     .service('ShadeParser', function (ShadeHandlers, ShadeStyles, ShadeElements) {
 
-        var handleNodes = function (node, index) {
-            if (node.length) {
-                _.each(node, handleNodes.bind({index: index}));
-            } else {
-                var handlers = ShadeHandlers.nodeHandlers;
-                (handlers[index] || handlers[this.index] || handlers.Unknown)(node);
-            }
-        };
+
 
         this.parse = function (shd) {
             if (shd) {
                 ShadeStyles.init();
                 ShadeElements.init();
 
-                _.each(shd.Shade, handleNodes);
+                _.each(shd.Shade, ShadeHandlers.handleNodes);
                 return {'styles': ShadeStyles.getStyles(), 'elements': ShadeElements.getElements()};
             }
 
