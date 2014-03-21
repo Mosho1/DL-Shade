@@ -95,7 +95,7 @@
       <root url="file://$PROJECT_DIR$/node_modules/grunt-browserify/node_modules/browserify/node_modules/module-deps/node_modules/detective/node_modules/escodegen/node_modules/esutils/test/keyword.js" />
       <root url="file://$PROJECT_DIR$/public/scripts/services/graph-text.js" />
       <root url="file://$PROJECT_DIR$/public/scripts/directives/split-panel.js" />
-      <root url="file://$PROJECT_DIR$/public/scripts/services/shadeHandlers.js" />
+      <root url="file://$PROJECT_DIR$/public/scripts/services/ShadeHandlers.js" />
       <root url="file://$PROJECT_DIR$/public/scripts/directives/render_graph.js" />
       <root url="file://$PROJECT_DIR$/node_modules/browserify/node_modules/umd/node_modules/rfile/node_modules/resolve/test/resolver/mug.js" />
       <root url="file://$PROJECT_DIR$/public/scripts/directives/render_panel.js" />

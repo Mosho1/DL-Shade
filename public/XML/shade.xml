@@ -4,7 +4,12 @@
         <Text>click me</Text>
         <Cb>
             <Fn>SETDLVARIABLE</Fn>
-            <Stat>x,3</Stat>
+            <Stat>x, 3</Stat>
+            <Event>Click</Event>
+        </Cb>
+        <Cb>
+            <Fn>SETDLVARIABLE</Fn>
+            <Stat>y, 3</Stat>
             <Event>Click</Event>
         </Cb>
     </Node>
@@ -18,4 +23,4 @@
         <vText>x</vText>
         <NumDecFormat>N</NumDecFormat>
     </Node>
-</Shade>
+</Shade>    

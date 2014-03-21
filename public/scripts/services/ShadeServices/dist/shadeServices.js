@@ -158,7 +158,7 @@ angular.module('ShadeServices', [])
 
         this.CbHandlers = {
             'SETDLVARIABLE': function (cb) {
-                return 'control-block="' + cb.Event + ',setDL,' + cb.Stat  + '" ';
+                return cb.Event + ',setDL,' + cb.Stat;
             },
             'SHOWPOPUP': {}
 
@@ -197,11 +197,18 @@ angular.module('ShadeServices', [])
         };
 
 
+
+
         this.nodeHandlers = {
             'Styles': require('./Styles').bind(that),
 
             'Node': function (node) {
-                var controlBlock = node.Cb ? that.CbHandlers[node.Cb.Fn](node.Cb) : '';
+
+                var handleCb = function (result, Cb) {
+                    return result += (result ? ';' : '') + that.CbHandlers[Cb.Fn](Cb);
+                }
+
+                var controlBlock = node.Cb ? 'control-block="' + _.reduce(node.Cb.length ? node.Cb : [node.Cb], handleCb, '') + '" ' : '';
                 that.UIHandlers[node.UI].call(that, node, controlBlock);
             },
             'Unknown': function (node) {

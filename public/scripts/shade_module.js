@@ -7,18 +7,35 @@
       scope: true,
       transclude: true,
       template: function(elm, attr) {
-        var cb, functions, toAppend;
+        var cbs, events, handlers, toAppend;
         toAppend = '';
         if (attr.controlBlock) {
-          cb = attr.controlBlock.split(',');
-          functions = {
-            Click: {
-              setDL: function(name, val) {
-                return 'ng-click="vars[&quot;' + name + '&quot;].model = ' + val + '"';
-              }
+          cbs = (function() {
+            var cb_arr, obj;
+            obj = {};
+            cb_arr = attr.controlBlock.split(';');
+            cb_arr = _.map(cb_arr, function(str) {
+              return str.split(',');
+            });
+            _.each(cb_arr, function(arr) {
+              obj[arr[0]] = obj[arr[0]] || [];
+              return obj[arr[0]].push(arr.slice(1));
+            });
+            return obj;
+          })();
+          events = {
+            Click: 'ng-click='
+          };
+          handlers = {
+            setDL: function(name, val) {
+              return 'vars[&quot;' + name + '&quot;].model=' + val + ';';
             }
           };
-          toAppend = functions[cb[0]][cb[1]](cb[2], cb[3]);
+          _.each(cbs, function(cb, name) {
+            return toAppend += events[name] + '"' + (_.map(cb, function(elm) {
+              return handlers[elm[0]](elm[1], elm[2]);
+            })).join('') + '" ';
+          });
         }
         return '<button ' + toAppend + ' ng-transclude></button>';
       }
