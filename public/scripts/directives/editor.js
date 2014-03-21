@@ -12,7 +12,7 @@
         scope.mode = attrs.mode;
         scope.makeCompletions = function(prefix, collection, meta) {
           return collection.filter(function(elm) {
-            return elm.substring(0, prefix.length) === prefix;
+            return elm.substring(0, prefix.length).toUpperCase() === prefix.toUpperCase();
           }).map(function(elm) {
             return {
               name: elm,
@@ -90,7 +90,7 @@
         return scope.langTools.addCompleter(DLcompleter);
       }
     };
-  }).directive('shadeEditor', function(Graph, ShadeDictionary) {
+  }).directive('shadeEditor', function(Graph, ShadeIdentifiers) {
     return {
       restrict: 'A',
       scope: false,
@@ -99,15 +99,14 @@
         scope.langTools = window.ace.require("ace/ext/language_tools");
         DLcompleter = {
           getCompletions: function(editor, session, pos, prefix, callback) {
-            var attrNames, attrValues, nameList, styleNames, styleValues;
+            var nameList;
             if (session.$modeId !== "ace/mode/" + attrs.mode) {
               return callback(null, []);
             }
-            attrNames = scope.makeCompletions(prefix, Object.keys(ShadeDictionary.attrNameHandlers), "attribute name");
-            attrValues = scope.makeCompletions(prefix, Object.keys(ShadeDictionary.attrValueHandlers), "attribute value");
-            styleNames = scope.makeCompletions(prefix, Object.keys(ShadeDictionary.styleNameHandlers), "style name");
-            styleValues = scope.makeCompletions(prefix, Object.keys(ShadeDictionary.styleValueHandlers), "style value");
-            nameList = attrNames.concat(attrValues, styleNames, styleValues);
+            nameList = [];
+            _.each(ShadeIdentifiers, function(dict) {
+              return nameList = nameList.concat(scope.makeCompletions(prefix, dict.keys, dict.type));
+            });
             return callback(null, nameList);
           }
         };
@@ -117,5 +116,3 @@
   });
 
 }).call(this);
-
-//# sourceMappingURL=editor.map

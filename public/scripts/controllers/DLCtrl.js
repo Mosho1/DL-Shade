@@ -190,7 +190,9 @@
         return $rootScope.$broadcast('Run');
       });
     };
-    $document.ready($scope.DLrun());
+    $document.ready(function() {
+      return setTimeout($scope.DLrun, 100);
+    });
     $scope.$watch('styles.active', function() {
       var styles;
       if ($scope.styles.active in $scope.styles.sheets) {

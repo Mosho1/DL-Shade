@@ -14,7 +14,7 @@ angular.module('DLApp')
 
     scope.makeCompletions = (prefix, collection, meta) ->
       collection.filter (elm)->
-        elm.substring(0, prefix.length) == prefix
+        elm.substring(0, prefix.length).toUpperCase() == prefix.toUpperCase()
       .map((elm)->
           name:elm, value:elm, meta:meta)
 
@@ -80,7 +80,7 @@ angular.module('DLApp')
     scope.langTools.addCompleter(DLcompleter)
 
 
-.directive 'shadeEditor', (Graph, ShadeDictionary) ->
+.directive 'shadeEditor', (Graph, ShadeIdentifiers) ->
   restrict: 'A'
   scope: false
   link: (scope,elm,attrs) ->
@@ -89,11 +89,9 @@ angular.module('DLApp')
       getCompletions: (editor, session, pos, prefix, callback) ->
         unless session.$modeId is "ace/mode/" + attrs.mode
           return callback null, []
-        attrNames = scope.makeCompletions prefix, Object.keys(ShadeDictionary.attrNameHandlers), "attribute name"
-        attrValues = scope.makeCompletions prefix, Object.keys(ShadeDictionary.attrValueHandlers), "attribute value"
-        styleNames = scope.makeCompletions prefix, Object.keys(ShadeDictionary.styleNameHandlers), "style name"
-        styleValues = scope.makeCompletions prefix, Object.keys(ShadeDictionary.styleValueHandlers), "style value"
-        nameList = attrNames.concat(attrValues, styleNames, styleValues)
+        nameList = []
+        _.each ShadeIdentifiers, (dict) ->
+          nameList = nameList.concat scope.makeCompletions prefix, dict.keys, dict.type
         callback null, nameList
 
 

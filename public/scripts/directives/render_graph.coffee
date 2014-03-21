@@ -17,18 +17,11 @@ angular.module('DLApp')
 
       _.each($scope.elems, (value) ->
         $element.append(value))
-         
+
       $rootScope.$on 'Run', () ->
         _.each($scope.themes, (value) ->
           graphService.deleteGraph(value)
           graphService.drawGraph[value]($scope.graph,$scope.elems[value][0]))
-
-      $document.ready ()->
-        _.each($scope.themes, (value) ->
-          graphService.deleteGraph(value)
-          graphService.drawGraph[value]($scope.graph,$scope.elems[value][0]))
-
-        
 
       $scope.setTheme = (name) ->
         graphService.deleteGraph(name is 'Graph' ? 'Table' : 'Graph' )

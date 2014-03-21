@@ -5,13 +5,15 @@ module.exports = function(grunt) {
         browserify: {
             dist: {
                 files: {
-                    'public/scripts/graph-dev/dist/graph-text-dev.js':'public/scripts/graph-dev/graph-text.js'
+                    'public/scripts/graph-dev/dist/graph-text-dev.js': 'public/scripts/graph-dev/graph-text.js',
+                    'public/scripts/services/shadeServices/dist/shadeServices.js': 'public/scripts/services/shadeServices/shadeHandlers.js'
+
                 }
             }
         },
 
         watch: {
-            files: ['public/scripts/graph-dev/*.js'],
+            files: ['public/scripts/graph-dev/*.js', 'public/scripts/services/shadeServices/*.js'],
             tasks: ['browserify']
         }
     });

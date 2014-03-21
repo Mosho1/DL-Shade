@@ -21,8 +21,8 @@ angular.module('ShadeApp')
 
         //dictionary for style values
         'styleValueHandlers' : {
-            'width': function (width) { return width + "px" },
-            'height': function (height) { return height + "px" }
+            'width': function (width) { return width + "px"; },
+            'height': function (height) { return height + "px"; }
         }
 
     })
@@ -71,17 +71,17 @@ angular.module('ShadeApp')
                     var nativeStyles = _.reduce(node, handleStyles, '');
                     var nativeClass = nativeStyles || customStyles ? "class" + classCount : null;
                     var cur = currentElement.nodes.push({
-                            'elmName': elmName,
-                            'nativeClass': nativeClass,
-                            'className' : className,
-                            'node': node,
-                            'customStyles': customStyles,
-                            'customAttr': customAttr,
-                            'content': content,
-                            'nodes': [],
-                            'parent': currentElement
+                        'elmName': elmName,
+                        'nativeClass': nativeClass,
+                        'className' : className,
+                        'node': node,
+                        'customStyles': customStyles,
+                        'customAttr': customAttr,
+                        'content': content,
+                        'nodes': [],
+                        'parent': currentElement
 
-                        });
+                    });
                     if (customStyles || nativeStyles) {
                         addStyles(nativeClass, (customStyles || '') + (nativeStyles || ''));
                     }
@@ -215,7 +215,7 @@ angular.module('ShadeApp')
                         if (node.Cols && node.Cols.Col) {
                             node.Cols.Col.forEach(function (col) {
                                 options[col.Name] = _.transform(_.omit(col, 'Name'), function (str, val, opt) {
-                                     str.push(opt.charAt(0) + '=' + val);
+                                    str.push(opt.charAt(0) + '=' + val);
                                 }, []);
                             });
 

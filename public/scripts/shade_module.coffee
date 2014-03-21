@@ -1,5 +1,25 @@
 
-angular.module('ShadeApp',['ngGrid'])
+
+angular.module('ShadeApp',['ShadeServices', 'ngGrid'])
+
+  .directive 'btn', () ->
+    restrict: 'C'
+    replace: true
+    scope: true
+    transclude: true
+    template: (elm, attr) ->
+      toAppend = ''
+      if (attr.controlBlock)
+        cb = attr.controlBlock.split(',')
+        functions =
+          Click:
+            setDL: (name,val) ->
+               'ng-click="vars[&quot;' + name + '&quot;].model = ' + val + '"'
+          
+
+        toAppend = functions[cb[0]][cb[1]](cb[2],cb[3])
+
+      '<button ' + toAppend + ' ng-transclude></button>'
 
   .directive 'testDl', () ->
     restrict: 'E'
@@ -17,17 +37,21 @@ angular.module('ShadeApp',['ngGrid'])
     restrict: 'E'
     replace: true
     scope: true
-    template: (elm,attr) -> '<div><input type="text" ng-model="vars[&quot;'+attr.vtext+'&quot;].model"></div>'
-
-  .directive 'dropDown', ($rootScope) ->
-    restrict: 'E'
-    scope: true
-    template: '<div ng-click="dropdown($event,true)" style="overflow: hidden;">{{selected}}</div>
-               <div class="gridStyle" ng-grid="gridOptions" ng-class="{hide:ghide}" ng-click="select($event)"></div>
-               <style>.gridStyle.ng-scope {height:100%;}</style>'
+    template: '<div><input type="text" ng-model="vars[vtext].model"></div>'
     link:
       pre: (scope, elm, attr) ->
-        window.sc = scope
+        scope.vtext = attr.vtext
+
+  .directive 'dropDown', ($rootScope, ngGridFlexibleHeightPlugin) ->
+    restrict: 'E'
+    scope: true
+    template: '<ul class="dropdown" ng-click="dropdown($event,ghide)" style="overflow: hidden;">{{selected}}</div>
+               <div class="gridStyle" ng-grid="gridOptions" ng-class="{hide:ghide}" ng-click="select($event)" ></div>
+               <style>.gridStyle.ng-scope {float:left}</style>'
+    link:
+      pre: (scope, elm, attr) ->
+
+
         header = attr.header.split('|')
         items = attr.items.split(',')
           .map (elm) ->
@@ -42,6 +66,10 @@ angular.module('ShadeApp',['ngGrid'])
           data: 'myData'
           selectedItems: scope.selected,
           multiSelect: false
+          plugins: [new ngGridFlexibleHeightPlugin({maxHeight:300})]
+          enableSorting: false
+          rowHeight: 27
+
 
 
         scope.ghide = true
@@ -58,17 +86,17 @@ angular.module('ShadeApp',['ngGrid'])
         scope.$watchCollection 'selected', ->
           scope.ghide = true
 
-  .directive 'renderPanel', ($compile, shadeTemplate) ->
+  .directive 'renderPanel', ($compile, $rootScope, shadeTemplate) ->
     restrict: 'E'
     scope:
       vars: '='
       graph: '='
       styles: '='
     link: (scope, elm) ->
-      scope.$watch 'styles', (shade) ->
-        scope.data = shadeTemplate.toHTML(shade)
-        elm.html('<style>' + scope.data.styles + '</style>' + scope.data.body)
-        $compile(elm.contents())(scope)
+      $rootScope.$on 'Run', () ->
+        if scope.data = shadeTemplate.toHTML(scope.styles)
+          elm.html('<style>' + scope.data.styles + '</style>' + scope.data.body)
+          $compile(elm.contents())(scope)
 
 
   .directive 'prettyPrintPanel', ($filter, shadeTemplate) ->
@@ -77,7 +105,7 @@ angular.module('ShadeApp',['ngGrid'])
     template: '<div class="pp-panel"></div>'
     link: (scope, elm, attrs) ->
       scope.$watch attrs.prettyPrintPanel, (shade) ->
-        raw_html = $filter('indentHTML')(shadeTemplate.toHTML(shade).body)
+        raw_html = $filter('indentHTML')((shadeTemplate.toHTML(shade) || {body:''}).body)
         pre = angular.element('<pre class="prettyprint lang-html" style="font-size:0.75em"></pre>')
         code = angular.element('<code></code>')
         code.html $filter('escapeHTML')(raw_html)
@@ -98,7 +126,7 @@ angular.module('ShadeApp',['ngGrid'])
 
 
 
-  .service 'shadeTemplate', ($http, x2js, ShadeParser, ShadeDictionary) ->
+  .service 'shadeTemplate', ($http, x2js, ShadeParser, ShadeAttrDictionary) ->
 
       template = ->
 
@@ -112,8 +140,50 @@ angular.module('ShadeApp',['ngGrid'])
 
       this.toHTML = (shade) ->
         parsed = ShadeParser.parse(x2js.xml2json(shade))
-        _.extend(parsed, ShadeDictionary)
-        {'body': template(parsed), 'styles': (parsed || {}).styles}
+        _.extend(parsed, ShadeAttrDictionary)
+        {'body': template(parsed || {}), 'styles': (parsed || {styles: ''}).styles}
 
 
       return this
+
+  .factory 'ngGridFlexibleHeightPlugin', () ->
+    ngGridFlexibleHeightPlugin = (opts) ->
+      self = this
+      self.grid = null
+      self.scope = null
+      self.init = (scope, grid, services) ->
+        self.domUtilityService = services.DomUtilityService
+        self.grid = grid
+        self.scope = scope
+        recalcHeightForData = ->
+          setTimeout innerRecalcForData, 1
+          return
+
+        innerRecalcForData = ->
+          gridId = self.grid.gridId
+          footerPanelSel = "." + gridId + " .ngFooterPanel"
+          extraHeight = self.grid.$topPanel.height() + $(footerPanelSel).height()
+          naturalHeight = self.grid.$canvas.height() + 1
+          if opts?
+            naturalHeight = opts.minHeight - extraHeight - 2  if opts.minHeight? and (naturalHeight + extraHeight) < opts.minHeight
+            naturalHeight = opts.maxHeight - extraHeight - 2  if opts.maxHeight? and (naturalHeight + extraHeight) > opts.maxHeight
+          newViewportHeight = naturalHeight + 2
+          if not self.scope.baseViewportHeight or self.scope.baseViewportHeight isnt newViewportHeight
+            self.grid.$viewport.css "height", newViewportHeight + "px"
+            self.grid.$root.css "height", (newViewportHeight + extraHeight) + "px"
+            self.scope.baseViewportHeight = newViewportHeight
+            self.domUtilityService.RebuildGrid self.scope, self.grid
+          return
+
+        self.scope.catHashKeys = ->
+          hash = ""
+          idx = undefined
+          for idx of self.scope.renderedRows
+            hash += self.scope.renderedRows[idx].$$hashKey
+          hash
+
+        self.scope.$watch "catHashKeys()", innerRecalcForData
+        self.scope.$watch self.grid.config.data, recalcHeightForData
+        return
+
+      return

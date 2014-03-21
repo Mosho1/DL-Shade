@@ -1,7 +1,7 @@
 <%
 var handleAttributes = function (value, attr) {
      if (shd.attrNameHandlers.hasOwnProperty(attr)) {
-        %> <%=shd.attrNameHandlers[attr] || attr%> = "<%=shd.attrValueHandlers[value] || value%>" <%}
+        %> <%=shd.attrNameHandlers[attr] || attr.toLowerCase()%> = "<%=shd.attrValueHandlers[value] || value.toLowerCase()%>" <%}
     },
     
 

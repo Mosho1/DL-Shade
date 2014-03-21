@@ -20,12 +20,6 @@
             return graphService.drawGraph[value]($scope.graph, $scope.elems[value][0]);
           });
         });
-        $document.ready(function() {
-          return _.each($scope.themes, function(value) {
-            graphService.deleteGraph(value);
-            return graphService.drawGraph[value]($scope.graph, $scope.elems[value][0]);
-          });
-        });
         return $scope.setTheme = function(name) {
           var _ref, _ref1;
           graphService.deleteGraph((_ref = name === 'Graph') != null ? _ref : {

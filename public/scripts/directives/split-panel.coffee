@@ -19,7 +19,8 @@ angular.module('DLApp')
       (c for c in cols when c.name is name)[0]
 
     body = document.getElementsByTagName("body")[0]
-    body.addEventListener 'click', () ->
+    body.addEventListener 'click', (e) ->
+      _.kill_event(e)
       $rootScope.$broadcast 'bg_click'
     $(document).keyup (e) ->
       $rootScope.$broadcast 'bg_click' if e.keyCode is 27 # esc

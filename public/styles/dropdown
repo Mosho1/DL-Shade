@@ -1,0 +1,7 @@
+.dropdown::-webkit-scrollbar { width: 7px; height: 7px; } /* the scrollbar element for webkit browsers */
+.dropdown::-webkit-scrollbar-button { display: none; } /* the arrows, we hide them for this demo */
+.dropdown::-webkit-scrollbar-thumb { /* the scroller/thumb element (the piece that moves) */
+    background: #C9D9ED;
+    -webkit-border-radius: 3px;
+    border-right: 1px solid #fff;
+}

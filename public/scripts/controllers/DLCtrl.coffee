@@ -130,7 +130,8 @@ angular.module('DLApp')
       $rootScope.$broadcast('Run')
     )
 
-  $document.ready($scope.DLrun())
+  $document.ready(() ->
+    setTimeout $scope.DLrun, 100)
 
   $scope.$watch 'styles.active', () ->
     if $scope.styles.active of $scope.styles.sheets
