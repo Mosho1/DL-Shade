@@ -1,11 +1,17 @@
 
 
-angular.module('ShadeApp',['ShadeServices', 'ngGrid'])
+angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover'])
 
-  .directive 'btn', ($compile) ->
+  .directive 'popup', () ->
+    restrict: 'E'
+    replace: true
+    scope: false
+    template: '<div data-placement="bottom" trigger="manual" var-trigger="showPopup" bs-popover>loil</div>'
+
+  .directive 'btn', ($compile, $timeout) ->
     restrict: 'C'
     replace: true
-    scope: true
+    scope: false
     transclude: true
     template: (elm, attr) ->
       toAppend = ''
@@ -13,33 +19,32 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid'])
         cbs = do ->
           obj = {}
           cb_arr = attr.controlBlock.split(';')
-          cb_arr = _.map cb_arr, (str) ->  str.split(',')
+          cb_arr = _.map cb_arr, (str) ->  str.split(/\s?,\s?/)
           _.each cb_arr, (arr) ->
             obj[arr[0]] = obj[arr[0]] || []
             obj[arr[0]].push arr.slice(1)
           obj
-
         events =
           Click: 'ng-click='
-          
         handlers =
           setDL: (name ,val) ->
             'vars[&quot;' + name + '&quot;].model=' + val + ';'
           popup: (popup, location) ->
-            elm.append(angular.element('#' + popup))
-            'showPopup = !showPopup'
+            "popup('" + popup + "','" + location + "')"
 
         _.each cbs, (cb, name) ->
           toAppend += events[name] + '"' + (_.map cb, (el) ->
             handlers[el[0]] el[1], el[2]).join('') + '" '
 
       '<button ' + toAppend + ' ng-transclude></button>'
+    link: (scope) ->
+      scope.popup = (id, elm) ->
+        popup = angular.element('#'+id).remove()
+        angular.element('#'+elm).after(popup = $compile(popup)(scope))
+        $timeout(() -> angular.element('#'+id).triggerHandler('popup'))
+        return
 
-    link: (scope, elm) ->
-      $compile(elm.contents())(scope)
-
-
-  .directive 'testDl', () ->
+.directive 'testDl', () ->
     restrict: 'E'
     replace: true
     scope: true
@@ -117,6 +122,7 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid'])
         if scope.data = shadeTemplate.toHTML(scope.styles)
           elm.html('<style>' + scope.data.styles + '</style>' + scope.data.body)
           $compile(elm.contents())(scope)
+        scope.showPopup = false
 
 
   .directive 'prettyPrintPanel', ($filter, shadeTemplate) ->

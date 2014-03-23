@@ -7,65 +7,33 @@
         <Sub>
             <Node>
                 <UI>Button</UI>
-                <Text>x = 3;
-                    y = 3;
-                </Text>
+                <Text>sumfuk</Text>
+                <Name>button1</Name>
+
                 <Cb>
-                    <Fn>SETDLVARIABLE</Fn>
-                    <Stat>x, 3</Stat>
+                    <Fn>SHOWPOPUP</Fn>
+                    <Stat>pop,button1</Stat>
                     <Event>Click</Event>
                 </Cb>
-                <Cb>
-                    <Fn>SETDLVARIABLE</Fn>
-                    <Stat>y, 3</Stat>
-                    <Event>Click</Event>
-                </Cb>
+            </Node>
+            <Node>
+                <UI>Popup</UI>
+                <Name>pop</Name>
             </Node>
             <Node>
                 <UI>Button</UI>
-                <Text>z = 5;
-                </Text>
+                <Text>sumfuk2</Text>
+                <Name>button2</Name>
                 <Cb>
-                    <Fn>SETDLVARIABLE</Fn>
-                    <Stat>z, 5</Stat>
+                    <Fn>SHOWPOPUP</Fn>
+                    <Stat>pop2,button1</Stat>
                     <Event>Click</Event>
                 </Cb>
             </Node>
             <Node>
-                <UI>TestDL</UI>
-                <vDL>x</vDL>
-            </Node>
-            <Node>
-                <UI>TestDL</UI>
-                <vDL>y</vDL>
-            </Node>
-            <Node>
-                <UI>TestDL</UI>
-                <vDL>z</vDL>
-            </Node>
-            <Node>
-                <UI>NumEdit</UI>
-                <vText>x</vText>
-                <NumDecFormat>N</NumDecFormat>
-            </Node>
-            <Node>
-                <UI>NumEdit</UI>
-                <vText>y</vText>
-                <NumDecFormat>N</NumDecFormat>
-            </Node>
-            <Node>
-                <UI>NumEdit</UI>
-                <vText>z</vText>
-                <NumDecFormat>N</NumDecFormat>
-            </Node>
-            <Node>
-                <UI>DropDown</UI>
-                <Items>a|b|c;
-                    ;
-                    a|b|c;
-                    ;
-                    a|b|c</Items>
+                <UI>Popup</UI>
+                <Name>pop2</Name>
             </Node>
         </Sub>
     </Node>
-</Shade>    
+</Shade>   

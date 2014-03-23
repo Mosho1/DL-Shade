@@ -7,9 +7,10 @@ angular.module('mgcrea.ngStrap.popover', ['mgcrea.ngStrap.tooltip'])
     var defaults = this.defaults = {
       animation: 'am-fade',
       placement: 'right',
-      template: 'popover/popover.tpl.html',
+      template: 'DL_libs/ng-popover/tooltip.tpl.html',
       contentTemplate: false,
       trigger: 'click',
+      varTrigger: '',
       keyboard: true,
       html: false,
       title: '',
@@ -18,14 +19,14 @@ angular.module('mgcrea.ngStrap.popover', ['mgcrea.ngStrap.tooltip'])
       container: false
     };
 
-    this.$get = function($tooltip) {
+    this.$get = function($customTooltip) {
 
       function PopoverFactory(element, config) {
 
         // Common vars
         var options = angular.extend({}, defaults, config);
 
-        var $popover = $tooltip(element, options);
+        var $popover = $customTooltip(element, options);
 
         // Support scope as string options [/*title, */content]
         if(options.content) {
@@ -52,8 +53,8 @@ angular.module('mgcrea.ngStrap.popover', ['mgcrea.ngStrap.tooltip'])
       link: function postLink(scope, element, attr) {
 
         // Directive options
-        var options = {scope: scope};
-        angular.forEach(['template', 'contentTemplate', 'placement', 'container', 'delay', 'trigger', 'keyboard', 'html', 'animation'], function(key) {
+        var options = {scope: scope, attr: attr};
+        angular.forEach(['template', 'contentTemplate', 'placement', 'container', 'delay', 'trigger', 'varTrigger', 'keyboard', 'html', 'animation'], function(key) {
           if(angular.isDefined(attr[key])) options[key] = attr[key];
         });
 

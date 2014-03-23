@@ -48,7 +48,7 @@ angular.module('ShadeServices', [])
             },
 
             'Popup': function (node) {
-                that.openElement('div', '', node);
+                that.openElement('popup', '', node);
                 _.each((node.Sub || {Node: {}}).Node, that.handleNodes);
                 that.closeElement();
             }
@@ -78,7 +78,7 @@ angular.module('ShadeServices', [])
 
         this.handleNodes = function (node, index) {
             if (node.length) {
-                _.each(node, that,handleNodes.bind({index: index}));
+                _.each(node, that.handleNodes.bind({index: index}));
             } else {
                 var handlers = that.nodeHandlers;
                 (handlers[index] || handlers[this.index] || handlers.Unknown)(node);
