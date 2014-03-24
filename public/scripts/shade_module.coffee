@@ -1,14 +1,18 @@
 
+###
+.directive 'popup', ($templateCache) ->
+    restrict: 'E'
+    scope: false
+    link:
+      pre: (scope, elm, attr) ->
+        $templateCache.put attr.id, elm.html()
+###
+
 
 angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover'])
 
-  .directive 'popup', () ->
-    restrict: 'E'
-    replace: true
-    scope: false
-    template: '<div data-placement="bottom" trigger="manual" var-trigger="showPopup" bs-popover>loil</div>'
 
-  .directive 'btn', ($compile, $timeout) ->
+.directive 'btn', ($compile, $timeout, $templateCache) ->
     restrict: 'C'
     replace: true
     scope: false
@@ -39,9 +43,16 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover'])
       '<button ' + toAppend + ' ng-transclude></button>'
     link: (scope) ->
       scope.popup = (id, elm) ->
-        popup = angular.element('#'+id).remove()
-        angular.element('#'+elm).after(popup = $compile(popup)(scope))
-        $timeout(() -> angular.element('#'+id).triggerHandler('popup'))
+        popup = angular.element('#' + id)
+        unless popup.attr('container') is '#' + elm
+          popup.attr({
+            'container': '#' + elm,
+            'bs-popover': ''
+            'trigger': 'manual'
+            'template': popup.html()
+          });
+          $compile(popup)(scope)
+        $timeout((() -> popup.triggerHandler('popup')),50)
         return
 
 .directive 'testDl', () ->
@@ -122,7 +133,6 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover'])
         if scope.data = shadeTemplate.toHTML(scope.styles)
           elm.html('<style>' + scope.data.styles + '</style>' + scope.data.body)
           $compile(elm.contents())(scope)
-        scope.showPopup = false
 
 
   .directive 'prettyPrintPanel', ($filter, shadeTemplate) ->

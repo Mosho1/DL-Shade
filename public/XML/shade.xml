@@ -12,7 +12,7 @@
 
                 <Cb>
                     <Fn>SHOWPOPUP</Fn>
-                    <Stat>pop,button1</Stat>
+                    <Stat>pop, button1</Stat>
                     <Event>Click</Event>
                 </Cb>
             </Node>
@@ -26,13 +26,25 @@
                 <Name>button2</Name>
                 <Cb>
                     <Fn>SHOWPOPUP</Fn>
-                    <Stat>pop2,button1</Stat>
+                    <Stat>pop2, button1</Stat>
                     <Event>Click</Event>
                 </Cb>
             </Node>
             <Node>
                 <UI>Popup</UI>
                 <Name>pop2</Name>
+
+                <Sub>
+                    <Node>
+                        <UI>Button</UI>
+                        <Text>aawfwaf</Text>
+                        <Name>awd</Name>
+                    </Node>
+
+
+
+
+                </Sub>
             </Node>
         </Sub>
     </Node>

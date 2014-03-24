@@ -54,7 +54,7 @@ angular.module('mgcrea.ngStrap.popover', ['mgcrea.ngStrap.tooltip'])
 
         // Directive options
         var options = {scope: scope, attr: attr};
-        angular.forEach(['template', 'contentTemplate', 'placement', 'container', 'delay', 'trigger', 'varTrigger', 'keyboard', 'html', 'animation'], function(key) {
+        angular.forEach(['template', 'contentTemplate', 'placement', 'container', 'afterContainer', 'delay', 'trigger', 'keyboard', 'html', 'animation', 'type'], function (key) {
           if(angular.isDefined(attr[key])) options[key] = attr[key];
         });
 

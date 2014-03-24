@@ -197,8 +197,8 @@ angular.module('ShadeServices', [])
             },
 
             'Popup': function (node) {
-                that.openElement('popup', '', node);
-                _.each((node.Sub || {Node: {}}).Node, that.handleNodes);
+                that.openElement('popup', '', node, 'display:none;');
+                _.each(((angular.isArray(node.Sub) ? node.Sub : {Node: node.Sub}) || {Node: {}}).Node, that.handleNodes);
                 that.closeElement();
             }
 
@@ -226,7 +226,7 @@ angular.module('ShadeServices', [])
         };
 
         this.handleNodes = function (node, index) {
-            if (node.length) {
+            if (angular.isArray(node)) {
                 _.each(node, that.handleNodes.bind({index: index}));
             } else {
                 var handlers = that.nodeHandlers;

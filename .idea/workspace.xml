@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15758fa3-0dc6-4239-9815-36387ae5d86d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/app.js" afterPath="$PROJECT_DIR$/public/scripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/compiler.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/compiler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/dist/graph-text-dev.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/dist/graph-text-dev.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/index_DL.jade" afterPath="$PROJECT_DIR$/public/views/index_DL.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/DL_libs/ng-popover/popover.js" afterPath="$PROJECT_DIR$/public/DL_libs/ng-popover/popover.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/XML/shade.xml" afterPath="$PROJECT_DIR$/public/XML/shade.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js" afterPath="$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js" />
@@ -14,6 +9,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/shade_module.coffee" afterPath="$PROJECT_DIR$/public/scripts/shade_module.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/shade_module.js" afterPath="$PROJECT_DIR$/public/scripts/shade_module.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/DL_libs/ng-popover/tooltip.js" afterPath="$PROJECT_DIR$/public/DL_libs/ng-popover/tooltip.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/DL_libs/ng-popover/tooltip.tpl.html" afterPath="$PROJECT_DIR$/public/DL_libs/ng-popover/tooltip.tpl.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DependencyLanguage.iws" />
@@ -39,7 +35,7 @@
             <file leaf-file-name="tooltip.js" pinned="false" current="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/public/DL_libs/ng-popover/tooltip.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="11" column="43" selection-start="339" selection-end="339" vertical-scroll-proportion="0.20326087" vertical-offset="0" max-vertical-offset="7514">
+                  <state line="404" column="60" selection-start="13100" selection-end="13108" vertical-scroll-proportion="2.9380436" vertical-offset="4165" max-vertical-offset="7718">
                     <folding />
                   </state>
                 </provider>
@@ -48,7 +44,7 @@
             <file leaf-file-name="popover.js" pinned="false" current="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/public/DL_libs/ng-popover/popover.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="83" column="30" selection-start="2431" selection-end="2439" vertical-scroll-proportion="-27.8" vertical-offset="716" max-vertical-offset="1734">
+                  <state line="2" column="29" selection-start="41" selection-end="44" vertical-scroll-proportion="-1.36" vertical-offset="0" max-vertical-offset="1734">
                     <folding />
                   </state>
                 </provider>
@@ -65,15 +61,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="shade_module.coffee" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="shade_module.coffee" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/shade_module.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="23" selection-start="1420" selection-end="1420" vertical-scroll-proportion="0.81408453" vertical-offset="153" max-vertical-offset="3740">
+            <state line="13" column="0" selection-start="258" selection-end="258" vertical-scroll-proportion="-8.84" vertical-offset="0" max-vertical-offset="3910">
               <folding>
-                <marker date="1395539284344" expanded="true" signature="2281:2298" placeholder="..." />
-                <marker date="1395539284344" expanded="true" signature="2299:2498" placeholder="..." />
-                <marker date="1395539284344" expanded="false" signature="4281:4297" placeholder="..." />
+                <marker date="1395652225867" expanded="true" signature="2445:2462" placeholder="..." />
+                <marker date="1395652225867" expanded="true" signature="2463:2662" placeholder="..." />
+                <marker date="1395652225867" expanded="true" signature="4413:4429" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shade_module.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/scripts/shade_module.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="50" selection-start="791" selection-end="791" vertical-scroll-proportion="-0.32568148" vertical-offset="669" max-vertical-offset="4760">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -81,7 +86,7 @@
       <file leaf-file-name="tooltip.tpl.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/DL_libs/ng-popover/tooltip.tpl.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="102">
+            <state line="0" column="8" selection-start="8" selection-end="8" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="102">
               <folding />
             </state>
           </provider>
@@ -90,8 +95,15 @@
       <file leaf-file-name="shade.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/XML/shade.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="30" selection-start="0" selection-end="1023" vertical-scroll-proportion="0.0" vertical-offset="13" max-vertical-offset="748">
-              <folding />
+            <state line="50" column="11" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.0" vertical-offset="149" max-vertical-offset="952">
+              <folding>
+                <marker date="1395559188159" expanded="true" signature="6:1252" placeholder="..." />
+                <marker date="1395559188159" expanded="true" signature="168:463" placeholder="..." />
+                <marker date="1395559188159" expanded="true" signature="295:443" placeholder="..." />
+                <marker date="1395559188159" expanded="true" signature="585:881" placeholder="..." />
+                <marker date="1395559188159" expanded="true" signature="712:861" placeholder="..." />
+                <marker date="1395559188159" expanded="true" signature="900:1216" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -117,30 +129,8 @@
       <file leaf-file-name="shadeHandlers.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="22" selection-start="977" selection-end="977" vertical-scroll-proportion="-9.18" vertical-offset="153" max-vertical-offset="4250">
+            <state line="50" column="52" selection-start="1392" selection-end="1392" vertical-scroll-proportion="-8.84" vertical-offset="408" max-vertical-offset="4250">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="angular.min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/DL_libs/angular.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="124" selection-start="38899" selection-end="38906" vertical-scroll-proportion="-8.2" vertical-offset="1172" max-vertical-offset="3536">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="angular-resource.min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/DL_libs/angular-resource.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="3278" selection-end="3278" vertical-scroll-proportion="-8.84" vertical-offset="0" max-vertical-offset="323">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -203,17 +193,18 @@
         <option value="$PROJECT_DIR$/public/scripts/services/ShadeServices/Grid.js" />
         <option value="$PROJECT_DIR$/public/scripts/services/shadeDictionary.js" />
         <option value="$PROJECT_DIR$/public/scripts/services/shadeHandlers.js" />
-        <option value="$PROJECT_DIR$/public/scripts/shade_module.js" />
         <option value="$PROJECT_DIR$/public/scripts/directives/editor.coffee" />
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/public/DL_libs/angular-resource.min.js" />
         <option value="$PROJECT_DIR$/public/views/index_DL.jade" />
-        <option value="$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js" />
         <option value="$PROJECT_DIR$/public/scripts/graph-dev/compiler.js" />
-        <option value="$PROJECT_DIR$/public/DL_libs/ng-popover/popover.js" />
-        <option value="$PROJECT_DIR$/public/DL_libs/ng-popover/tooltip.js" />
         <option value="$PROJECT_DIR$/public/XML/shade.xml" />
+        <option value="$PROJECT_DIR$/public/DL_libs/ng-popover/popover.js" />
+        <option value="$PROJECT_DIR$/public/DL_libs/ng-popover/tooltip.tpl.html" />
+        <option value="$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js" />
+        <option value="$PROJECT_DIR$/public/DL_libs/ng-popover/tooltip.js" />
         <option value="$PROJECT_DIR$/public/scripts/shade_module.coffee" />
+        <option value="$PROJECT_DIR$/public/scripts/shade_module.js" />
       </list>
     </option>
   </component>
@@ -334,6 +325,28 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DL-Shade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shade_module.coffee" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -551,13 +564,33 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.320304" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.4997367" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32739422" sideWeight="0.4997367" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.16612378" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24920736" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.209584" sideWeight="0.6277955" order="0" side_tool="false" content_ui="combo" />
@@ -606,7 +639,7 @@
           <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="52" />
+      <option name="time" value="54" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -622,7 +655,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/controllers/ShadeCtrl.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee">
@@ -747,13 +782,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/shade_module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="12" selection-start="599" selection-end="599" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3893">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/services/shadeDictionary.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="30" selection-start="820" selection-end="820" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
@@ -819,13 +847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/node-handlers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="60" selection-start="1510" selection-end="1526" vertical-scroll-proportion="-8.36" vertical-offset="828" max-vertical-offset="3043">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="653">
@@ -858,7 +879,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="81" column="124" selection-start="38899" selection-end="38906" vertical-scroll-proportion="-8.2" vertical-offset="1172" max-vertical-offset="3536">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -867,7 +888,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="0" selection-start="3278" selection-end="3278" vertical-scroll-proportion="-8.84" vertical-offset="0" max-vertical-offset="323">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -893,13 +914,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/DL_libs/ng-popover/tooltip.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="16575">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/styles/dropdown">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="0" selection-start="392" selection-end="392" vertical-scroll-proportion="0.15973154" vertical-offset="0" max-vertical-offset="745">
@@ -914,42 +928,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/node-handlers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="60" selection-start="1510" selection-end="1526" vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="3043">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/XML/shade.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="30" selection-start="0" selection-end="1023" vertical-scroll-proportion="0.0" vertical-offset="13" max-vertical-offset="748">
+        <state line="50" column="11" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.0" vertical-offset="149" max-vertical-offset="952">
+          <folding>
+            <marker date="1395559188159" expanded="true" signature="6:1252" placeholder="..." />
+            <marker date="1395559188159" expanded="true" signature="168:463" placeholder="..." />
+            <marker date="1395559188159" expanded="true" signature="295:443" placeholder="..." />
+            <marker date="1395559188159" expanded="true" signature="585:881" placeholder="..." />
+            <marker date="1395559188159" expanded="true" signature="712:861" placeholder="..." />
+            <marker date="1395559188159" expanded="true" signature="900:1216" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/DL_libs/ng-popover/tooltip.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="8" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="709">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="22" selection-start="977" selection-end="977" vertical-scroll-proportion="-9.18" vertical-offset="153" max-vertical-offset="4250">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/DL_libs/ng-popover/popover.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="30" selection-start="2431" selection-end="2439" vertical-scroll-proportion="-27.8" vertical-offset="716" max-vertical-offset="1734">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/DL_libs/ng-popover/tooltip.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="43" selection-start="339" selection-end="339" vertical-scroll-proportion="0.20326087" vertical-offset="0" max-vertical-offset="7514">
+        <state line="50" column="52" selection-start="1392" selection-end="1392" vertical-scroll-proportion="-8.84" vertical-offset="408" max-vertical-offset="4250">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/shade_module.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="23" selection-start="1420" selection-end="1420" vertical-scroll-proportion="0.81408453" vertical-offset="153" max-vertical-offset="3740">
+        <state line="13" column="0" selection-start="258" selection-end="258" vertical-scroll-proportion="-8.84" vertical-offset="0" max-vertical-offset="3910">
           <folding>
-            <marker date="1395539284344" expanded="true" signature="2281:2298" placeholder="..." />
-            <marker date="1395539284344" expanded="true" signature="2299:2498" placeholder="..." />
-            <marker date="1395539284344" expanded="false" signature="4281:4297" placeholder="..." />
+            <marker date="1395652225867" expanded="true" signature="2445:2462" placeholder="..." />
+            <marker date="1395652225867" expanded="true" signature="2463:2662" placeholder="..." />
+            <marker date="1395652225867" expanded="true" signature="4413:4429" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/DL_libs/ng-popover/popover.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="29" selection-start="41" selection-end="44" vertical-scroll-proportion="-1.36" vertical-offset="0" max-vertical-offset="1734">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/DL_libs/ng-popover/tooltip.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="404" column="60" selection-start="13100" selection-end="13108" vertical-scroll-proportion="2.9380436" vertical-offset="4165" max-vertical-offset="7718">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/shade_module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="50" selection-start="791" selection-end="791" vertical-scroll-proportion="-0.32568148" vertical-offset="669" max-vertical-offset="4760">
+          <folding />
         </state>
       </provider>
     </entry>

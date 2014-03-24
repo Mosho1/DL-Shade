@@ -8,6 +8,7 @@ angular.module('mgcrea.ngStrap.tooltip', ['ngAnimate', 'mgcrea.ngStrap.helpers.d
       animation: 'am-fade',
       prefixClass: 'tooltip',
       container: false,
+      afterContainer: true,
       placement: 'top',
       template: 'DL_libs/ng-popover/tooltip.tpl.html',
       contentTemplate: false,
@@ -107,7 +108,11 @@ angular.module('mgcrea.ngStrap.tooltip', ['ngAnimate', 'mgcrea.ngStrap.helpers.d
           if(options.container === 'self') {
             tipContainer = element;
           } else if(options.container) {
-            tipContainer = findElement(options.container);
+                if (options.afterContainer) {
+                    tipContainer = angular.element(findElement(options.container)[0].parentNode);
+                } else {
+                    tipContainer = findElement(options.container);
+                }
           }
 
           // Options: trigger
@@ -247,7 +252,8 @@ angular.module('mgcrea.ngStrap.tooltip', ['ngAnimate', 'mgcrea.ngStrap.helpers.d
         };
 
         $customTooltip.toggle = function() {
-          $customTooltip.$isShown ? $customTooltip.leave() : $customTooltip.enter();
+          if (options.trigger === 'manual')
+            $customTooltip.$isShown ? $customTooltip.leave() : $customTooltip.enter();
         };
 
         $customTooltip.focus = function() {
@@ -368,8 +374,14 @@ angular.module('mgcrea.ngStrap.tooltip', ['ngAnimate', 'mgcrea.ngStrap.helpers.d
         return angular.element((element || document).querySelectorAll(query));
       }
 
+      function templateString(template) {
+          if (angular.isString(template))
+            return template;
+      }
+
+
       function fetchTemplate(template) {
-        return $q.when($templateCache.get(template) || $http.get(template))
+        return $q.when($templateCache.get(template) || templateString(template) || $http.get(template))
         .then(function(res) {
           if(angular.isObject(res)) {
             $templateCache.put(template, res.data);
@@ -394,7 +406,7 @@ angular.module('mgcrea.ngStrap.tooltip', ['ngAnimate', 'mgcrea.ngStrap.helpers.d
 
         // Directive options
         var options = {scope: scope};
-        angular.forEach(['template', 'contentTemplate', 'placement', 'container', 'delay', 'trigger', 'varTrigger', 'keyboard', 'html', 'animation', 'type'], function(key) {
+        angular.forEach(['template', 'contentTemplate', 'placement', 'container', 'afterContainer', 'delay', 'trigger', 'keyboard', 'html', 'animation', 'type'], function(key) {
           if(angular.isDefined(attr[key])) options[key] = attr[key];
         });
 
