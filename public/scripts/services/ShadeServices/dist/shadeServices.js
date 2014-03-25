@@ -74,14 +74,16 @@ module.exports = function (grid) {
         },
 
         makeCol = function (node) {
-            that.openElement('div', 'span', {}, 'height:100%; width:' + (widths[++colCount - 1] || widths[widths.length - 1]) + 'px; ');
+            var width = widths.length ? ('width:' + (widths[++colCount - 1] || widths[widths.length - 1]) + 'px; ') : '';
+            that.openElement('div', 'mycol', {}, width);
             that.nodeHandlers.Node(node);
             that.closeElement();
         },
 
         makeRow = function (nodes) {
+            var height = heights.length ? ('height:' + (heights[++rowCount - 1] || heights[heights.length - 1]) + 'px; ') : '';
             colCount = 0;
-            that.openElement('div', 'row', {}, 'width:100%; height:' + (heights[++rowCount - 1] || heights[heights.length - 1]) + 'px; ');
+            that.openElement('div', 'myrow', {}, height);
             _.each(nodes, makeCol);
             that.closeElement();
         },
@@ -110,17 +112,21 @@ module.exports = function (grid) {
             }
         },
 
-        modes = ['Span', 'Rows', 'Cols', 'ColWidth', 'RowHeight',  'Xy'];
+        modes = ['ColWidth', 'RowHeight', 'Span', 'Rows', 'Cols', 'Xy'];
 
     modes.forEach(function (mode) {
         handleMode(mode);
     });
-
-    makeGrid[flow]();
-
+    if (span[1] > 0) {
+        that.openElement('div', 'mygrid', grid, '');
+        makeGrid[flow]();
+        that.closeElement();
+    }
 }
 },{}],3:[function(require,module,exports){
 module.exports = function (styles) {
+
+    var that = this;
     //parses styles. A bit messy, but gets the job done concisely and shouldn't be too hard to follow with the comments.
     var parsedStyles = styles.replace(/[^!-~]/g, "") //remove unneeded characters
         .split('}') //split lines into array
@@ -142,8 +148,8 @@ module.exports = function (styles) {
         })
         .filter(function (elm) {return elm; }) //remove garbage (undefined or otherwise falsey elements)
         .forEach(function (elm) { //for each of the parsed and organized classes
-            var styles = _.reduce(elm[1], ShadeStyles.handleStyles, ''); //parse the styles using our handlers
-            this.addStyles(elm[0], styles); //add styles to string to be added to the HTML output
+            var styles = _.reduce(elm[1], that.handleStyles, ''); //parse the styles using our handlers
+            that.addStyles(elm[0], styles); //add styles to string to be added to the HTML output
         });
 }
 },{}],4:[function(require,module,exports){
@@ -154,6 +160,7 @@ angular.module('ShadeServices', [])
         this.openElement = ShadeElements.openElement;
         this.closeElement = ShadeElements.closeElement;
         this.addStyles = ShadeStyles.addStyles;
+        this.handleStyles = ShadeStyles.handleStyles;
         var that = this;
 
         this.CbHandlers = {
@@ -192,7 +199,17 @@ angular.module('ShadeServices', [])
             },
 
             'NumEdit': function (node) {
-                that.openElement('num-edit', '', node);
+                that.openElement('input', 'num-edit', node);
+                that.closeElement();
+            },
+
+            'CheckBox': function (node) {
+                that.openElement('input', '', node, '', 'type="checkbox"');
+                that.closeElement();
+            },
+
+            'RadioButton': function (node) {
+                that.openElement('input', '', node, '', 'type="radio"');
                 that.closeElement();
             },
 
@@ -278,7 +295,9 @@ angular.module('ShadeServices', [])
 
         this.styleNameHandlers = {
             'Width': '',
-            'Height': ''
+            'Height': '',
+            'Fg': 'color',
+            'Bg': 'background-color'
 
         };
 
@@ -351,15 +370,15 @@ angular.module('ShadeServices', [])
         this.openElement = function (elmName, className, node, customStyles, customAttr, content) {
 
             var nativeStyles = _.reduce(node, ShadeStyles.handleStyles, ''),
-                nativeClass = nativeStyles || customStyles ? "class" + classCount : null,
+                nativeClass = ((nativeStyles || customStyles) ? "class" + ++classCount : '');
                 cur = currentElement.nodes.push({
                     'elmName': elmName,
-                    'nativeClass': nativeClass,
+                    'nativeClass': nativeClass + (node.Style ? (' ' + node.Style) : ''),
                     'className' : className,
                     'node': node,
                     'customStyles': customStyles,
                     'customAttr': customAttr,
-                    'content': content,
+                    'content': content || node.Text,
                     'nodes': [],
                     'parent': currentElement
 
@@ -370,7 +389,7 @@ angular.module('ShadeServices', [])
 
             currentElement = currentElement.nodes[cur - 1];
 
-            classCount++;
+
 
         };
 

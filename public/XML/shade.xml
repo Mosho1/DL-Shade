@@ -1,51 +1,39 @@
-﻿<Shade>
+﻿
+<Shade>
+    <Styles>
+        s1 {Bg:Gray;Fg:White;VAlign:Top;HAlign:Left}
+    </Styles>
     <Node>
         <UI>Grid</UI>
-        <Cols>2</Cols>
-        <RowHeight>100, 200</RowHeight>
-        <ColWidth>400</ColWidth>
+        <Styles>
+            <Name>s2</Name>
+            <Bg>Green</Bg>
+            <Fg>Blue</Fg>
+            <VAlign>Bottom</VAlign>
+            <HAlign>Right</HAlign>
+        </Styles>
+        <Span>2,2</Span>
+        <Style>s1</Style>
+        <ColWidth>100</ColWidth>
         <Sub>
             <Node>
-                <UI>Button</UI>
-                <Text>sumfuk</Text>
-                <Name>button1</Name>
-
-                <Cb>
-                    <Fn>SHOWPOPUP</Fn>
-                    <Stat>pop, button1</Stat>
-                    <Event>Click</Event>
-                </Cb>
+                <UI>Label</UI>
+                <Text>This inherits the style set on the Grid</Text>
             </Node>
             <Node>
-                <UI>Popup</UI>
-                <Name>pop</Name>
+                <UI>Label</UI>
+                <Style>s2</Style>
+                <Text>This overrides the inherited style</Text>
             </Node>
             <Node>
-                <UI>Button</UI>
-                <Text>sumfuk2</Text>
-                <Name>button2</Name>
-                <Cb>
-                    <Fn>SHOWPOPUP</Fn>
-                    <Stat>pop2, button1</Stat>
-                    <Event>Click</Event>
-                </Cb>
+                <UI>Label</UI>
+                <Fg>Pink</Fg>
+                <Text>This only overrides the Fg color</Text>
             </Node>
             <Node>
-                <UI>Popup</UI>
-                <Name>pop2</Name>
-
-                <Sub>
-                    <Node>
-                        <UI>Button</UI>
-                        <Text>aawfwaf</Text>
-                        <Name>awd</Name>
-                    </Node>
-
-
-
-
-                </Sub>
+                <UI>Label</UI>
+                <Text>Inherits everything</Text>
             </Node>
         </Sub>
     </Node>
-</Shade>   
+</Shade>

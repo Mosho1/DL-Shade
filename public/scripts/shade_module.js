@@ -50,20 +50,24 @@
             })).join('') + '" ';
           });
         }
-        return '<button ' + toAppend + ' ng-transclude></button>';
+        return '<button ' + toAppend + 'ng-transclude></button>';
       },
       link: function(scope) {
         return scope.popup = function(id, elm) {
-          var popup;
+          var clone, popup;
           popup = angular.element('#' + id);
           if (popup.attr('container') !== '#' + elm) {
-            popup.attr({
+            popup.triggerHandler('leave');
+            clone = popup.clone();
+            popup.after(clone).remove();
+            clone.children().removeAttr('ng-transclude');
+            clone.attr({
               'container': '#' + elm,
               'bs-popover': '',
               'trigger': 'manual',
-              'template': popup.html()
+              'template': clone.html()
             });
-            $compile(popup)(scope);
+            popup = $compile(clone)(scope);
           }
           $timeout((function() {
             return popup.triggerHandler('popup');
@@ -87,9 +91,9 @@
         };
       }
     };
-  }).directive('numEdit', function() {
+  }).directive('vtext', function() {
     return {
-      restrict: 'E',
+      restrict: 'EAC',
       replace: true,
       scope: true,
       template: '<div><input type="text" ng-model="vars[vtext].model"></div>',

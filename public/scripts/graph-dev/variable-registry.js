@@ -87,7 +87,7 @@ VariableRegistry.prototype = {
 };
 
 var VariableEntry = function(entry) {
-    
+
     this.initialise.apply(this, arguments);
     
     if (!entry) {
@@ -108,8 +108,8 @@ var VariableEntry = function(entry) {
         this.dependedOnBy = entry.dependedOnBy || [];
     }
 
-   
-        
+
+
 };
 VariableEntry.prototype = {
 

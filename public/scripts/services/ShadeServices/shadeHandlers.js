@@ -5,6 +5,7 @@ angular.module('ShadeServices', [])
         this.openElement = ShadeElements.openElement;
         this.closeElement = ShadeElements.closeElement;
         this.addStyles = ShadeStyles.addStyles;
+        this.handleStyles = ShadeStyles.handleStyles;
         var that = this;
 
         this.CbHandlers = {
@@ -43,7 +44,17 @@ angular.module('ShadeServices', [])
             },
 
             'NumEdit': function (node) {
-                that.openElement('num-edit', '', node);
+                that.openElement('input', 'num-edit', node);
+                that.closeElement();
+            },
+
+            'CheckBox': function (node) {
+                that.openElement('input', '', node, '', 'type="checkbox"');
+                that.closeElement();
+            },
+
+            'RadioButton': function (node) {
+                that.openElement('input', '', node, '', 'type="radio"');
                 that.closeElement();
             },
 
@@ -129,7 +140,9 @@ angular.module('ShadeServices', [])
 
         this.styleNameHandlers = {
             'Width': '',
-            'Height': ''
+            'Height': '',
+            'Fg': 'color',
+            'Bg': 'background-color'
 
         };
 
@@ -202,15 +215,15 @@ angular.module('ShadeServices', [])
         this.openElement = function (elmName, className, node, customStyles, customAttr, content) {
 
             var nativeStyles = _.reduce(node, ShadeStyles.handleStyles, ''),
-                nativeClass = nativeStyles || customStyles ? "class" + classCount : null,
+                nativeClass = ((nativeStyles || customStyles) ? "class" + ++classCount : '');
                 cur = currentElement.nodes.push({
                     'elmName': elmName,
-                    'nativeClass': nativeClass,
+                    'nativeClass': nativeClass + (node.Style ? (' ' + node.Style) : ''),
                     'className' : className,
                     'node': node,
                     'customStyles': customStyles,
                     'customAttr': customAttr,
-                    'content': content,
+                    'content': content || node.Text,
                     'nodes': [],
                     'parent': currentElement
 
@@ -221,7 +234,7 @@ angular.module('ShadeServices', [])
 
             currentElement = currentElement.nodes[cur - 1];
 
-            classCount++;
+
 
         };
 

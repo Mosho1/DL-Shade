@@ -126,6 +126,7 @@ angular.module('mgcrea.ngStrap.tooltip', ['ngAnimate', 'mgcrea.ngStrap.helpers.d
               trigger !== 'hover' && element.on(isTouch ? 'touchstart' : 'mousedown', $customTooltip.$onFocusElementMouseDown);
             } else {
                 element.on('popup', function(){$timeout($customTooltip.toggle)});
+                element.on('leave',  function(){$timeout($customTooltip.leave)})
             }
 
           });
@@ -151,7 +152,9 @@ angular.module('mgcrea.ngStrap.tooltip', ['ngAnimate', 'mgcrea.ngStrap.helpers.d
               element.off(trigger === 'hover' ? 'mouseenter' : 'focus', $customTooltip.enter);
               element.off(trigger === 'hover' ? 'mouseleave' : 'blur', $customTooltip.leave);
               trigger !== 'hover' && element.off(isTouch ? 'touchstart' : 'mousedown', $customTooltip.$onFocusElementMouseDown);
-            } else { element.off('popup', $customTooltip.toggle); }
+            } else { element.off('popup', $customTooltip.toggle);
+                     element.off('leave', $customTooltip.leave)
+            }
           }
 
           // Remove element

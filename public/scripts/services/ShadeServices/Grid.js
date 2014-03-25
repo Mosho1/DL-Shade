@@ -48,14 +48,16 @@ module.exports = function (grid) {
         },
 
         makeCol = function (node) {
-            that.openElement('div', 'span', {}, 'height:100%; width:' + (widths[++colCount - 1] || widths[widths.length - 1]) + 'px; ');
+            var width = widths.length ? ('width:' + (widths[++colCount - 1] || widths[widths.length - 1]) + 'px; ') : '';
+            that.openElement('div', 'mycol', {}, width);
             that.nodeHandlers.Node(node);
             that.closeElement();
         },
 
         makeRow = function (nodes) {
+            var height = heights.length ? ('height:' + (heights[++rowCount - 1] || heights[heights.length - 1]) + 'px; ') : '';
             colCount = 0;
-            that.openElement('div', 'row', {}, 'width:100%; height:' + (heights[++rowCount - 1] || heights[heights.length - 1]) + 'px; ');
+            that.openElement('div', 'myrow', {}, height);
             _.each(nodes, makeCol);
             that.closeElement();
         },
@@ -84,12 +86,14 @@ module.exports = function (grid) {
             }
         },
 
-        modes = ['Span', 'Rows', 'Cols', 'ColWidth', 'RowHeight',  'Xy'];
+        modes = ['ColWidth', 'RowHeight', 'Span', 'Rows', 'Cols', 'Xy'];
 
     modes.forEach(function (mode) {
         handleMode(mode);
     });
-
-    makeGrid[flow]();
-
+    if (span[1] > 0) {
+        that.openElement('div', 'mygrid', grid, '');
+        makeGrid[flow]();
+        that.closeElement();
+    }
 }

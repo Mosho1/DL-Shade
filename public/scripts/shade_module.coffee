@@ -9,8 +9,9 @@
 ###
 
 
-angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover'])
 
+
+angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover'])
 
 .directive 'btn', ($compile, $timeout, $templateCache) ->
     restrict: 'C'
@@ -40,19 +41,24 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover'])
           toAppend += events[name] + '"' + (_.map cb, (el) ->
             handlers[el[0]] el[1], el[2]).join('') + '" '
 
-      '<button ' + toAppend + ' ng-transclude></button>'
+      '<button ' + toAppend + 'ng-transclude></button>'
     link: (scope) ->
       scope.popup = (id, elm) ->
         popup = angular.element('#' + id)
         unless popup.attr('container') is '#' + elm
-          popup.attr({
+          popup.triggerHandler('leave')
+          clone = popup.clone()
+          popup.after(clone).remove()
+          clone.children().removeAttr('ng-transclude')
+          clone.attr({
             'container': '#' + elm,
             'bs-popover': ''
             'trigger': 'manual'
-            'template': popup.html()
-          });
-          $compile(popup)(scope)
+            'template': clone.html()
+          })
+          popup = $compile(clone)(scope)
         $timeout((() -> popup.triggerHandler('popup')),50)
+
         return
 
 .directive 'testDl', () ->
@@ -69,8 +75,8 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover'])
       scope.unsetDLVar = () ->
         scope.graph.unset(scope.variable,Number(scope.toSet))
 
-  .directive 'numEdit', () ->
-    restrict: 'E'
+  .directive 'vtext', () ->
+    restrict: 'EAC'
     replace: true
     scope: true
     template: '<div><input type="text" ng-model="vars[vtext].model"></div>'

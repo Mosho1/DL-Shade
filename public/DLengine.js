@@ -38,9 +38,9 @@ var compiler = require("../src/compiler"),
 	   response.end(JSON.stringify(_graph));
 	});
 
-	app.get("/", function(request, response) {
-	  response.render('index_DL.jade');
-	});
+app.get("/", function(request, response) {
+    response.render('index_DL.jade');
+});
 
 
 

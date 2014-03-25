@@ -1,0 +1,18 @@
+.mycol {
+    display:table-cell;
+
+
+}
+
+.myrow {
+    display:table-row;
+
+
+
+}
+
+.mygrid {
+    display:table;
+
+
+}
