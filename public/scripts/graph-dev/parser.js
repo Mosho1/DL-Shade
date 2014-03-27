@@ -74,8 +74,8 @@
 var parser = (function(){
     var parser = {trace: function trace(){},
         yy: {},
-        symbols_: {"error":2,"program":3,"EOF":4,"body":5,"line":6,"TERMINATOR":7,"PRINT":8,"expr":9,"classdef":10,"assignment":11,"ifblocks":12,"IF":13,"(":14,")":15,"block":16,"ELSE":17,"elseifs":18,"{":19,"}":20,"VAR":21,"IDENTIFIER":22,"ASSIGN":23,"VAL":24,"MATH":25,"COMPARE":26,"BOOLOP":27,"TERNARY":28,":":29,"closure":30,"instantiation":31,"variablecall":32,"type":33,"namespace":34,"$":35,"parameters":36,"parameter":37,",":38,"arguments":39,"FUN":40,"CLASS":41,"classbody":42,"classline":43,"method":44,"PUBLIC":45,"NEW":46,"objectref":47,".":48,"LONG":49,"DOUBLE":50,"STRING":51,"BOOLEAN":52,"csv":53,"NULL":54,"$accept":0,"$end":1},
-        terminals_: {2:"error",4:"EOF",7:"TERMINATOR",8:"PRINT",13:"IF",14:"(",15:")",17:"ELSE",19:"{",20:"}",21:"VAR",22:"IDENTIFIER",23:"ASSIGN",24:"VAL",25:"MATH",26:"COMPARE",27:"BOOLOP",28:"TERNARY",29:":",35:"$",38:",",40:"FUN",41:"CLASS",45:"PUBLIC",46:"NEW",48:".",49:"LONG",50:"DOUBLE",51:"STRING",52:"BOOLEAN",54:"NULL"},
+        symbols_: {"error":2,"program":3,"EOF":4,"body":5,"line":6,"TERMINATOR":7,"PRINT":8,"expr":9,"classdef":10,"assignment":11,"ifblocks":12,"IF":13,"(":14,")":15,"block":16,"ELSE":17,"elseifs":18,"{":19,"}":20,"VAR":21,"IDENTIFIER":22,"ASSIGN":23,"VAL":24,"MATH":25,"COMPARE":26,"BOOLOP":27,"TERNARY":28,":":29,"closure":30,"instantiation":31,"variablecall":32,"type":33,"namespace":34,"$cx":35,"parameters":36,"parameter":37,",":38,"arguments":39,"FUN":40,"CLASS":41,"classbody":42,"classline":43,"method":44,"PUBLIC":45,"NEW":46,"objectref":47,".":48,"LONG":49,"DOUBLE":50,"STRING":51,"BOOLEAN":52,"csv":53,"NULL":54,"$accept":0,"$end":1},
+        terminals_: {2:"error",4:"EOF",7:"TERMINATOR",8:"PRINT",13:"IF",14:"(",15:")",17:"ELSE",19:"{",20:"}",21:"VAR",22:"IDENTIFIER",23:"ASSIGN",24:"VAL",25:"MATH",26:"COMPARE",27:"BOOLOP",28:"TERNARY",29:":",35:"$cx",38:",",40:"FUN",41:"CLASS",45:"PUBLIC",46:"NEW",48:".",49:"LONG",50:"DOUBLE",51:"STRING",52:"BOOLEAN",54:"NULL"},
         productions_: [0,[3,1],[3,2],[5,1],[5,3],[5,2],[5,1],[6,2],[6,1],[6,1],[6,1],[6,1],[12,5],[12,7],[12,6],[12,8],[18,6],[18,7],[16,2],[16,3],[11,4],[11,4],[11,3],[9,3],[9,3],[9,3],[9,3],[9,5],[9,1],[9,1],[9,1],[9,1],[9,1],[34,2],[36,1],[36,3],[37,3],[37,4],[37,4],[39,1],[39,3],[30,6],[30,7],[10,5],[42,1],[42,3],[42,2],[43,1],[44,8],[44,9],[31,4],[32,3],[32,4],[32,1],[47,1],[47,3],[33,1],[33,1],[33,1],[33,1],[33,3],[33,1],[53,1],[53,3]],
         performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */
                                           /**/) {
@@ -337,4 +337,12 @@ var parser = (function(){
 })();
 
 
-exports.parser = parser;
+if (typeof require !== 'undefined' && typeof exports !== 'undefined') {
+    exports.parser = parser;
+    exports.Parser = parser.Parser;
+    exports.parse = function () { return parser.parse.apply(parser, arguments); };
+    exports.main = function commonjsMain(args){if(!args[1]){console.log("Usage: "+args[0]+" FILE");process.exit(1)}var source=require("fs").readFileSync(require("path").normalize(args[1]),"utf8");return exports.parser.parse(source)};
+    if (typeof module !== 'undefined' && require.main === module) {
+        exports.main(process.argv.slice(1));
+    }
+}

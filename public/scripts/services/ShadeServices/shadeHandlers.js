@@ -62,6 +62,10 @@ angular.module('ShadeServices', [])
                 that.openElement('popup', '', node, 'display:none;');
                 _.each(((angular.isArray(node.Sub) ? node.Sub : {Node: node.Sub}) || {Node: {}}).Node, that.handleNodes);
                 that.closeElement();
+            },
+
+            'Unknown': function (node) {
+                console.log("can't find control - " + node.UI)
             }
 
 
@@ -80,10 +84,10 @@ angular.module('ShadeServices', [])
                 }
 
                 var controlBlock = node.Cb ? 'control-block="' + _.reduce(node.Cb.length ? node.Cb : [node.Cb], handleCb, '') + '" ' : '';
-                that.UIHandlers[node.UI].call(that, node, controlBlock);
+                (that.UIHandlers[node.UI] || that.UIHandlers.Unknown).call(that, node, controlBlock);
             },
-            'Unknown': function (node) {
-                console.log("can't recognize tag <" + node + ">.");
+            'Unknown': function (node, index) {
+                console.log("can't recognize tag <" + index + ">.");
             }
         };
 
@@ -92,7 +96,7 @@ angular.module('ShadeServices', [])
                 _.each(node, that.handleNodes.bind({index: index}));
             } else {
                 var handlers = that.nodeHandlers;
-                (handlers[index] || handlers[this.index] || handlers.Unknown)(node);
+                (handlers[index] || handlers[this.index] || handlers.Unknown)(node, index);
             }
         };
 

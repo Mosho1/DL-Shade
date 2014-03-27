@@ -5,7 +5,8 @@ var CalcHandlers = function(that){
         vars : that,
 
        getVariableValue: function(name){
-            return this.vars[name].setValue ? this.vars[name].setValue : this.vars[name].value
+            _name = name.join('.');
+            return this.vars[_name].setValue ? this.vars[_name].setValue : this.vars[_name].value
         },
 
        createArray: function(arr){

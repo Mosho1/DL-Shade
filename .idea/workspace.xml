@@ -2,29 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15758fa3-0dc6-4239-9815-36387ae5d86d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/styles/grid.css" />
       <change type="DELETED" beforePath="C:\Users\SR71042\Documents\GitHub\DependencyLanguage\public\DL_libs\bootstrap\css\bootstrap-responsive.css" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\SR71042\Documents\GitHub\DependencyLanguage\public\DL_libs\bootstrap\css\bootstrap-responsive.min.css" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\SR71042\Documents\GitHub\DependencyLanguage\public\DL_libs\bootstrap\img\glyphicons-halflings-white.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\SR71042\Documents\GitHub\DependencyLanguage\public\DL_libs\bootstrap\img\glyphicons-halflings.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/DLengine.js" afterPath="$PROJECT_DIR$/public/DLengine.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/ShadeServices/Grid.js" afterPath="$PROJECT_DIR$/public/scripts/services/ShadeServices/Grid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/ShadeServices/Styles.js" afterPath="$PROJECT_DIR$/public/scripts/services/ShadeServices/Styles.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/DL_libs/bootstrap/css/bootstrap.css" afterPath="$PROJECT_DIR$/public/DL_libs/bootstrap/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/DL_libs/bootstrap/js/bootstrap.js" afterPath="$PROJECT_DIR$/public/DL_libs/bootstrap/js/bootstrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/DL_libs/bootstrap/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/public/DL_libs/bootstrap/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/DL_libs/bootstrap/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/public/DL_libs/bootstrap/js/bootstrap.min.js" />
+      <change type="DELETED" beforePath="C:\Users\SR71042\Documents\GitHub\DependencyLanguage\public\scripts\services\ShadeServices\Button.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/ShadeServices/DropDown.js" afterPath="$PROJECT_DIR$/public/scripts/services/ShadeServices/DropDown.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/bund.js" afterPath="$PROJECT_DIR$/public/bund.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/calc-handlers.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/calc-handlers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/compiler.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/compiler.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/grammar.jison" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/grammar.jison" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/dist/graph-text-dev.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/dist/graph-text-dev.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/index_DL.jade" afterPath="$PROJECT_DIR$/public/views/index_DL.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/lexer.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/lexer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/parser.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/parser.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/XML/shade.xml" afterPath="$PROJECT_DIR$/public/XML/shade.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js" afterPath="$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/ShadeServices/dist/shadeServices.js" afterPath="$PROJECT_DIR$/public/scripts/services/ShadeServices/dist/shadeServices.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/shade_module.coffee" afterPath="$PROJECT_DIR$/public/scripts/shade_module.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/shade_module.js" afterPath="$PROJECT_DIR$/public/scripts/shade_module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/DL_libs/ng-popover/tooltip.js" afterPath="$PROJECT_DIR$/public/DL_libs/ng-popover/tooltip.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DependencyLanguage.iws" />
@@ -39,12 +32,12 @@
     <file path="/variable-registry.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395765405481" ignored="false" />
     <file path="/shadeServices.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395195987979" ignored="false" />
     <file path="/dl-example.txt" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395085162785" ignored="false" />
-    <file path="/shade_module.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395681957157" ignored="false" />
+    <file path="/shade_module.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395867927466" ignored="false" />
     <file path="/index_DL.jade" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395746713302" ignored="false" />
     <file path="/app.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395420057053" ignored="false" />
     <file path="/DLCtrl.coffee" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395175817677" ignored="false" />
     <file path="/shade.xml" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395195283494" ignored="false" />
-    <file path="/shadeHandlers.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395684365553" ignored="false" />
+    <file path="/shadeHandlers.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395875281096" ignored="false" />
     <file path="/Grid.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395754611451" ignored="false" />
     <file path="/testdl.html" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395416043761" ignored="false" />
     <file path="/shade_module.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395669851954" ignored="false" />
@@ -53,6 +46,10 @@
     <file path="/grid.css" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395753077968" ignored="false" />
     <file path="/compiler.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395764430259" ignored="false" />
     <file path="/ast-validator.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395765970661" ignored="false" />
+    <file path="/bund.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395865193686" ignored="false" />
+    <file path="/grammar.jison" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395872106849" ignored="false" />
+    <file path="/calc-handlers.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395873384942" ignored="false" />
+    <file path="/DropDown.js" changelist="15758fa3-0dc6-4239-9815-36387ae5d86d" time="1395874534976" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,84 +69,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="shadeHandlers.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="shadeHandlers.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="35" selection-start="600" selection-end="600" vertical-scroll-proportion="0.39688715">
+            <state line="89" column="59" selection-start="2769" selection-end="2769" vertical-scroll-proportion="-15.68">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="js-compiler.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/js-compiler.js">
+      <file leaf-file-name="shade_module.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/shade_module.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="28" selection-start="942" selection-end="942" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="graph-text.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/graph-text.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="9" selection-start="253" selection-end="258" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nodes.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/nodes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="39" selection-start="472" selection-end="472" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lexer.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/lexer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="173" column="45" selection-start="3522" selection-end="3522" vertical-scroll-proportion="0.0">
+            <state line="183" column="56" selection-start="5713" selection-end="5713" vertical-scroll-proportion="-21.08">
               <folding>
-                <element signature="n#!!doc" expanded="true" />
+                <marker date="1395872173173" expanded="true" signature="2618:2635" placeholder="..." />
+                <marker date="1395872173173" expanded="true" signature="2636:2835" placeholder="..." />
+                <marker date="1395872173173" expanded="true" signature="2816:2828" placeholder="{...}" />
+                <marker date="1395872173173" expanded="true" signature="4586:4602" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Styles.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/Styles.js">
+      <file leaf-file-name="Grid.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/Grid.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="24" column="30" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DLengine.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/DLengine.js">
+      <file leaf-file-name="grammar.jison" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/grammar.jison">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="34" selection-start="1029" selection-end="1033" vertical-scroll-proportion="-21.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index_DL.jade" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/index_DL.jade">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="24" selection-start="724" selection-end="724" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="variable-registry.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="111" column="28" selection-start="2710" selection-end="2710" vertical-scroll-proportion="0.0">
+            <state line="75" column="14" selection-start="0" selection-end="3932" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -158,7 +113,52 @@
       <file leaf-file-name="parser.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/parser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="89" column="44" selection-start="4259" selection-end="4259" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="calc-handlers.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/calc-handlers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="90" selection-start="269" selection-end="269" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DropDown.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/DropDown.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="61" selection-start="688" selection-end="688" vertical-scroll-proportion="-7.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shade.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/XML/shade.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="405" column="0" selection-start="14171" selection-end="14171" vertical-scroll-proportion="0.96907216">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="compiler.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/compiler.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="22" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lexer.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/lexer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="216" column="44" selection-start="4761" selection-end="4761" vertical-scroll-proportion="-4.08">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -184,22 +184,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/scripts/app.coffee" />
-        <option value="$PROJECT_DIR$/public/DL_libs/ng-popover/tooltip.js" />
-        <option value="$PROJECT_DIR$/public/scripts/shade_module.js" />
-        <option value="$PROJECT_DIR$/public/scripts/shade_module.coffee" />
-        <option value="$PROJECT_DIR$/public/scripts/services/ShadeServices/Styles.js" />
-        <option value="$PROJECT_DIR$/public/XML/shade.xml" />
-        <option value="$PROJECT_DIR$/public/DL_libs/bootstrap/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/public/views/index_DL.jade" />
-        <option value="$PROJECT_DIR$/public/styles/grid.css" />
         <option value="$PROJECT_DIR$/public/scripts/services/ShadeServices/Grid.js" />
-        <option value="$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js" />
         <option value="$PROJECT_DIR$/src/parser.js" />
-        <option value="$PROJECT_DIR$/public/scripts/graph-dev/compiler.js" />
         <option value="$PROJECT_DIR$/public/scripts/graph-dev/ast-validator.js" />
-        <option value="$PROJECT_DIR$/public/DLengine.js" />
         <option value="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" />
+        <option value="$PROJECT_DIR$/public/DLengine.js" />
+        <option value="$PROJECT_DIR$/public/bund.js" />
+        <option value="$PROJECT_DIR$/public/scripts/ng_template_shd.js" />
+        <option value="$PROJECT_DIR$/public/scripts/graph-dev/lexer.js" />
+        <option value="$PROJECT_DIR$/public/scripts/graph-dev/grammar.jison" />
+        <option value="$PROJECT_DIR$/public/scripts/shade_module.coffee" />
+        <option value="$PROJECT_DIR$/public/scripts/graph-dev/compiler.js" />
+        <option value="$PROJECT_DIR$/public/scripts/graph-dev/parser.js" />
+        <option value="$PROJECT_DIR$/public/scripts/graph-dev/calc-handlers.js" />
+        <option value="$PROJECT_DIR$/public/scripts/services/ShadeServices/DropDown.js" />
+        <option value="$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js" />
+        <option value="$PROJECT_DIR$/public/XML/shade.xml" />
       </list>
     </option>
   </component>
@@ -244,6 +244,11 @@
             <id>XPath</id>
           </State>
         </expanded-state>
+        <selected-state>
+          <State>
+            <id>CoffeeScript</id>
+          </State>
+        </selected-state>
       </profile-state>
     </entry>
   </component>
@@ -303,6 +308,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="XML" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -390,6 +413,50 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="graph-dev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -398,7 +465,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="settings" />
+    <property name="options.lastSelected" value="appearance" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
@@ -517,11 +584,11 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32922733" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24920736" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16487001" sideWeight="0.7525968" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2474032" sideWeight="0.49841473" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16487001" sideWeight="0.6779981" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2474032" sideWeight="0.49841473" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2474032" sideWeight="0.5009512" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32294616" sideWeight="0.49904883" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32200187" sideWeight="0.5009512" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32200187" sideWeight="0.49904883" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -618,123 +685,121 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/js-compiler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="43" selection-start="720" selection-end="723" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/compiler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="3" selection-start="845" selection-end="863" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/node-handlers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="28" selection-start="1479" selection-end="1494" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="17" selection-start="531" selection-end="531" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/ast-validator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="216" column="21" selection-start="7425" selection-end="7425" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/dist/graph-text-dev.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="33" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1395768171085" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1395768171085" expanded="true" signature="-1:-1" placeholder="[...]" />
-            <marker date="1395768171085" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1395768171085" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/js-compiler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="28" selection-start="942" selection-end="942" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/graph-text.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="9" selection-start="253" selection-end="258" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/parser.js">
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/shadeTemplate.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/nodes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="39" selection-start="472" selection-end="472" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/lexer.js">
+    <entry file="file://$PROJECT_DIR$/public/scripts/shade-example.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="173" column="45" selection-start="3522" selection-end="3522" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/DLengine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="34" selection-start="1029" selection-end="1033" vertical-scroll-proportion="-21.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/index_DL.jade">
+    <entry file="file://$PROJECT_DIR$/public/scripts/dl-example.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="24" selection-start="724" selection-end="724" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js">
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeHandlers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="111" column="28" selection-start="2710" selection-end="2710" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/Styles.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="5" column="30" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/ng_template_shd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="28" selection-start="739" selection-end="739" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/shade_module.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="183" column="56" selection-start="5713" selection-end="5713" vertical-scroll-proportion="-21.08">
+          <folding>
+            <marker date="1395872173173" expanded="true" signature="2618:2635" placeholder="..." />
+            <marker date="1395872173173" expanded="true" signature="2636:2835" placeholder="..." />
+            <marker date="1395872173173" expanded="true" signature="2816:2828" placeholder="{...}" />
+            <marker date="1395872173173" expanded="true" signature="4586:4602" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/compiler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="22" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/lexer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="216" column="44" selection-start="4761" selection-end="4761" vertical-scroll-proportion="-4.08">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/grammar.jison">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="14" selection-start="0" selection-end="3932" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/parser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="44" selection-start="4259" selection-end="4259" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/calc-handlers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="90" selection-start="269" selection-end="269" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/Grid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="30" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/DropDown.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="61" selection-start="688" selection-end="688" vertical-scroll-proportion="-7.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="35" selection-start="600" selection-end="600" vertical-scroll-proportion="0.39688715">
+        <state line="89" column="59" selection-start="2769" selection-end="2769" vertical-scroll-proportion="-15.68">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/XML/shade.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="405" column="0" selection-start="14171" selection-end="14171" vertical-scroll-proportion="0.96907216">
           <folding />
         </state>
       </provider>

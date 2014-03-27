@@ -1,4 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+
+},{}],2:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -23,7 +25,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -78,14 +80,242 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
+(function (process){
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+// resolves . and .. elements in a path array with directory names there
+// must be no slashes, empty elements, or device names (c:\) in the array
+// (so also no leading and trailing slashes - it does not distinguish
+// relative and absolute paths)
+function normalizeArray(parts, allowAboveRoot) {
+  // if the path tries to go above the root, `up` ends up > 0
+  var up = 0;
+  for (var i = parts.length - 1; i >= 0; i--) {
+    var last = parts[i];
+    if (last === '.') {
+      parts.splice(i, 1);
+    } else if (last === '..') {
+      parts.splice(i, 1);
+      up++;
+    } else if (up) {
+      parts.splice(i, 1);
+      up--;
+    }
+  }
+
+  // if the path is allowed to go above the root, restore leading ..s
+  if (allowAboveRoot) {
+    for (; up--; up) {
+      parts.unshift('..');
+    }
+  }
+
+  return parts;
+}
+
+// Split a filename into [root, dir, basename, ext], unix version
+// 'root' is just a slash, or nothing.
+var splitPathRe =
+    /^(\/?|)([\s\S]*?)((?:\.{1,2}|[^\/]+?|)(\.[^.\/]*|))(?:[\/]*)$/;
+var splitPath = function(filename) {
+  return splitPathRe.exec(filename).slice(1);
+};
+
+// path.resolve([from ...], to)
+// posix version
+exports.resolve = function() {
+  var resolvedPath = '',
+      resolvedAbsolute = false;
+
+  for (var i = arguments.length - 1; i >= -1 && !resolvedAbsolute; i--) {
+    var path = (i >= 0) ? arguments[i] : process.cwd();
+
+    // Skip empty and invalid entries
+    if (typeof path !== 'string') {
+      throw new TypeError('Arguments to path.resolve must be strings');
+    } else if (!path) {
+      continue;
+    }
+
+    resolvedPath = path + '/' + resolvedPath;
+    resolvedAbsolute = path.charAt(0) === '/';
+  }
+
+  // At this point the path should be resolved to a full absolute path, but
+  // handle relative paths to be safe (might happen when process.cwd() fails)
+
+  // Normalize the path
+  resolvedPath = normalizeArray(filter(resolvedPath.split('/'), function(p) {
+    return !!p;
+  }), !resolvedAbsolute).join('/');
+
+  return ((resolvedAbsolute ? '/' : '') + resolvedPath) || '.';
+};
+
+// path.normalize(path)
+// posix version
+exports.normalize = function(path) {
+  var isAbsolute = exports.isAbsolute(path),
+      trailingSlash = substr(path, -1) === '/';
+
+  // Normalize the path
+  path = normalizeArray(filter(path.split('/'), function(p) {
+    return !!p;
+  }), !isAbsolute).join('/');
+
+  if (!path && !isAbsolute) {
+    path = '.';
+  }
+  if (path && trailingSlash) {
+    path += '/';
+  }
+
+  return (isAbsolute ? '/' : '') + path;
+};
+
+// posix version
+exports.isAbsolute = function(path) {
+  return path.charAt(0) === '/';
+};
+
+// posix version
+exports.join = function() {
+  var paths = Array.prototype.slice.call(arguments, 0);
+  return exports.normalize(filter(paths, function(p, index) {
+    if (typeof p !== 'string') {
+      throw new TypeError('Arguments to path.join must be strings');
+    }
+    return p;
+  }).join('/'));
+};
+
+
+// path.relative(from, to)
+// posix version
+exports.relative = function(from, to) {
+  from = exports.resolve(from).substr(1);
+  to = exports.resolve(to).substr(1);
+
+  function trim(arr) {
+    var start = 0;
+    for (; start < arr.length; start++) {
+      if (arr[start] !== '') break;
+    }
+
+    var end = arr.length - 1;
+    for (; end >= 0; end--) {
+      if (arr[end] !== '') break;
+    }
+
+    if (start > end) return [];
+    return arr.slice(start, end - start + 1);
+  }
+
+  var fromParts = trim(from.split('/'));
+  var toParts = trim(to.split('/'));
+
+  var length = Math.min(fromParts.length, toParts.length);
+  var samePartsLength = length;
+  for (var i = 0; i < length; i++) {
+    if (fromParts[i] !== toParts[i]) {
+      samePartsLength = i;
+      break;
+    }
+  }
+
+  var outputParts = [];
+  for (var i = samePartsLength; i < fromParts.length; i++) {
+    outputParts.push('..');
+  }
+
+  outputParts = outputParts.concat(toParts.slice(samePartsLength));
+
+  return outputParts.join('/');
+};
+
+exports.sep = '/';
+exports.delimiter = ':';
+
+exports.dirname = function(path) {
+  var result = splitPath(path),
+      root = result[0],
+      dir = result[1];
+
+  if (!root && !dir) {
+    // No dirname whatsoever
+    return '.';
+  }
+
+  if (dir) {
+    // It has a dirname, strip trailing slash
+    dir = dir.substr(0, dir.length - 1);
+  }
+
+  return root + dir;
+};
+
+
+exports.basename = function(path, ext) {
+  var f = splitPath(path)[2];
+  // TODO: make this comparison case-insensitive on windows?
+  if (ext && f.substr(-1 * ext.length) === ext) {
+    f = f.substr(0, f.length - ext.length);
+  }
+  return f;
+};
+
+
+exports.extname = function(path) {
+  return splitPath(path)[3];
+};
+
+function filter (xs, f) {
+    if (xs.filter) return xs.filter(f);
+    var res = [];
+    for (var i = 0; i < xs.length; i++) {
+        if (f(xs[i], i, xs)) res.push(xs[i]);
+    }
+    return res;
+}
+
+// String.prototype.substr - negative index don't work in IE8
+var substr = 'ab'.substr(-1) === 'b'
+    ? function (str, start, len) { return str.substr(start, len) }
+    : function (str, start, len) {
+        if (start < 0) start = str.length + start;
+        return str.substr(start, len);
+    }
+;
+
+}).call(this,require("c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
+},{"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3}],5:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],4:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -675,7 +905,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require("c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":3,"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":2,"inherits":1}],5:[function(require,module,exports){
+},{"./support/isBuffer":5,"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3,"inherits":2}],7:[function(require,module,exports){
 var ScopeManager = require('./scope-manager').ScopeManager,
     util = require("util"),
     functions = require('./functions'); //Built-in functions
@@ -903,7 +1133,7 @@ exports.validate = function(ast) {
     return validator.validate(ast);
 };
 
-},{"./functions":9,"./scope-manager":17,"util":4}],6:[function(require,module,exports){
+},{"./functions":11,"./scope-manager":19,"util":6}],8:[function(require,module,exports){
 var f = require('./functions');
 
 var CalcHandlers = function(that){
@@ -911,7 +1141,8 @@ var CalcHandlers = function(that){
         vars : that,
 
        getVariableValue: function(name){
-            return this.vars[name].setValue ? this.vars[name].setValue : this.vars[name].value
+            _name = name.join('.');
+            return this.vars[_name].setValue ? this.vars[_name].setValue : this.vars[_name].value
         },
 
        createArray: function(arr){
@@ -929,7 +1160,7 @@ var CalcHandlers = function(that){
 };
 
 module.exports = CalcHandlers;
-},{"./functions":9}],7:[function(require,module,exports){
+},{"./functions":11}],9:[function(require,module,exports){
 /* parser generated by jison 0.4.13 */
 /*
   Returns a Parser object of the following structure:
@@ -1330,7 +1561,7 @@ return new Parser;
 })();
 
 exports.parser = parser;
-},{}],8:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 var parser       = require('./parser').parser,
     nodes        = require('./nodes'),
     lexer        = require('./lexer'),
@@ -1368,6 +1599,7 @@ exports.parser = parser;
 exports.compile = function(code) {
     var tokens = lexer.tokenise(code);
     //tokens = rewriter.rewrite(tokens);
+    console.log(tokens);
     var ast = parser.parse(tokens);
     console.log(ast);
     /*var valid = astValidator.validate(ast);
@@ -1380,7 +1612,7 @@ exports.compile = function(code) {
 
     return js;
 };
-},{"./ast-validator":5,"./js-compiler":11,"./lexer":12,"./nodes":14,"./parser":15,"./rewriter":16}],9:[function(require,module,exports){
+},{"./ast-validator":7,"./js-compiler":13,"./lexer":14,"./nodes":16,"./parser":17,"./rewriter":18}],11:[function(require,module,exports){
 
 var f = {
     a2l: function(arr, delim) {
@@ -1410,7 +1642,7 @@ module.exports = f;
 
 
 
-},{}],10:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 (function (global){
 ﻿
 
@@ -1457,7 +1689,7 @@ global.DL.createGraph = function (data) { return new Graph(data); };
 global.DL.tokens = require('./lexer').tokenise;
 global.DL.builtInFunctions = Object.keys(require('./functions')).map(function (elm) { return "f." + elm; });
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./compiler":8,"./functions":9,"./lexer":12,"./variable-registry.js":19}],11:[function(require,module,exports){
+},{"./compiler":10,"./functions":11,"./lexer":14,"./variable-registry.js":21}],13:[function(require,module,exports){
 var ScopeManager = require('./scope-manager').ScopeManager,
     VariableRegistry = require('./variable-registry.js').VariableRegistry,
     VariableEntry = require('./variable-registry.js').VariableEntry,
@@ -1499,7 +1731,7 @@ exports.compile = function(ast) {
 
 
 
-},{"./node-handlers":13,"./scope-manager":17,"./variable-registry.js":19}],12:[function(require,module,exports){
+},{"./node-handlers":15,"./scope-manager":19,"./variable-registry.js":21}],14:[function(require,module,exports){
 /*!
  DLengine lexer
 
@@ -1544,7 +1776,7 @@ var SYNTAX = [
     ':',
     '?',
     "@",
-    "$"
+    "$cx"
 ];
 
 var LITERALS = {
@@ -1855,7 +2087,7 @@ exports.tokenise = function(code) {
     var lexer = new Lexer();
     return lexer.tokenise(code);
 };
-},{}],13:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 //parser sends here after a node has been classified
 var  f = require('util').format;
 
@@ -2030,7 +2262,7 @@ var NodeHandlers = {
 };
 
 module.exports = NodeHandlers;
-},{"util":4}],14:[function(require,module,exports){
+},{"util":6}],16:[function(require,module,exports){
 //parser sends here after a node has been classified
 var Nodes = {
 
@@ -2204,8 +2436,9 @@ var Nodes = {
 };
 
 module.exports = Nodes;
-},{}],15:[function(require,module,exports){
-/* parser generated by jison 0.4.13 */
+},{}],17:[function(require,module,exports){
+(function (process){
+﻿/* parser generated by jison 0.4.13 */
 /*
  Returns a Parser object of the following structure:
 
@@ -2281,8 +2514,8 @@ module.exports = Nodes;
 var parser = (function(){
     var parser = {trace: function trace(){},
         yy: {},
-        symbols_: {"error":2,"program":3,"EOF":4,"body":5,"line":6,"TERMINATOR":7,"PRINT":8,"expr":9,"classdef":10,"assignment":11,"ifblocks":12,"IF":13,"(":14,")":15,"block":16,"ELSE":17,"elseifs":18,"{":19,"}":20,"VAR":21,"IDENTIFIER":22,"ASSIGN":23,"VAL":24,"MATH":25,"COMPARE":26,"BOOLOP":27,"TERNARY":28,":":29,"closure":30,"instantiation":31,"variablecall":32,"type":33,"namespace":34,"$":35,"parameters":36,"parameter":37,",":38,"arguments":39,"FUN":40,"CLASS":41,"classbody":42,"classline":43,"method":44,"PUBLIC":45,"NEW":46,"objectref":47,".":48,"LONG":49,"DOUBLE":50,"STRING":51,"BOOLEAN":52,"csv":53,"NULL":54,"$accept":0,"$end":1},
-        terminals_: {2:"error",4:"EOF",7:"TERMINATOR",8:"PRINT",13:"IF",14:"(",15:")",17:"ELSE",19:"{",20:"}",21:"VAR",22:"IDENTIFIER",23:"ASSIGN",24:"VAL",25:"MATH",26:"COMPARE",27:"BOOLOP",28:"TERNARY",29:":",35:"$",38:",",40:"FUN",41:"CLASS",45:"PUBLIC",46:"NEW",48:".",49:"LONG",50:"DOUBLE",51:"STRING",52:"BOOLEAN",54:"NULL"},
+        symbols_: {"error":2,"program":3,"EOF":4,"body":5,"line":6,"TERMINATOR":7,"PRINT":8,"expr":9,"classdef":10,"assignment":11,"ifblocks":12,"IF":13,"(":14,")":15,"block":16,"ELSE":17,"elseifs":18,"{":19,"}":20,"VAR":21,"IDENTIFIER":22,"ASSIGN":23,"VAL":24,"MATH":25,"COMPARE":26,"BOOLOP":27,"TERNARY":28,":":29,"closure":30,"instantiation":31,"variablecall":32,"type":33,"namespace":34,"$cx":35,"parameters":36,"parameter":37,",":38,"arguments":39,"FUN":40,"CLASS":41,"classbody":42,"classline":43,"method":44,"PUBLIC":45,"NEW":46,"objectref":47,".":48,"LONG":49,"DOUBLE":50,"STRING":51,"BOOLEAN":52,"csv":53,"NULL":54,"$accept":0,"$end":1},
+        terminals_: {2:"error",4:"EOF",7:"TERMINATOR",8:"PRINT",13:"IF",14:"(",15:")",17:"ELSE",19:"{",20:"}",21:"VAR",22:"IDENTIFIER",23:"ASSIGN",24:"VAL",25:"MATH",26:"COMPARE",27:"BOOLOP",28:"TERNARY",29:":",35:"$cx",38:",",40:"FUN",41:"CLASS",45:"PUBLIC",46:"NEW",48:".",49:"LONG",50:"DOUBLE",51:"STRING",52:"BOOLEAN",54:"NULL"},
         productions_: [0,[3,1],[3,2],[5,1],[5,3],[5,2],[5,1],[6,2],[6,1],[6,1],[6,1],[6,1],[12,5],[12,7],[12,6],[12,8],[18,6],[18,7],[16,2],[16,3],[11,4],[11,4],[11,3],[9,3],[9,3],[9,3],[9,3],[9,5],[9,1],[9,1],[9,1],[9,1],[9,1],[34,2],[36,1],[36,3],[37,3],[37,4],[37,4],[39,1],[39,3],[30,6],[30,7],[10,5],[42,1],[42,3],[42,2],[43,1],[44,8],[44,9],[31,4],[32,3],[32,4],[32,1],[47,1],[47,3],[33,1],[33,1],[33,1],[33,1],[33,3],[33,1],[53,1],[53,3]],
         performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */
                                           /**/) {
@@ -2544,8 +2777,17 @@ var parser = (function(){
 })();
 
 
-exports.parser = parser;
-},{}],16:[function(require,module,exports){
+if (typeof require !== 'undefined' && typeof exports !== 'undefined') {
+    exports.parser = parser;
+    exports.Parser = parser.Parser;
+    exports.parse = function () { return parser.parse.apply(parser, arguments); };
+    exports.main = function commonjsMain(args){if(!args[1]){console.log("Usage: "+args[0]+" FILE");process.exit(1)}var source=require("fs").readFileSync(require("path").normalize(args[1]),"utf8");return exports.parser.parse(source)};
+    if (typeof module !== 'undefined' && require.main === module) {
+        exports.main(process.argv.slice(1));
+    }
+}
+}).call(this,require("c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
+},{"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3,"fs":1,"path":4}],18:[function(require,module,exports){
 
 var Rewriter = function() {
     this.initialise.apply(this, arguments);
@@ -2594,7 +2836,7 @@ exports.rewrite = function(tokens)
     var rewriter = new Rewriter(tokens);
     return rewriter.rewrite();
 }
-},{}],17:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 (function (process){
 
 
@@ -2779,7 +3021,7 @@ Scope.prototype = {
 
 exports.ScopeManager = ScopeManager;
 }).call(this,require("c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
-},{"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":2}],18:[function(require,module,exports){
+},{"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3}],20:[function(require,module,exports){
 // Generated by CoffeeScript 1.7.1
 (function() {
   module.exports = {
@@ -2811,7 +3053,7 @@ exports.ScopeManager = ScopeManager;
 
 //# sourceMappingURL=tools.map
 
-},{}],19:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 var parser = require('./calculator').parser,
     CalcHandlers = require('./calc-handlers');
 
@@ -3009,4 +3251,4 @@ function tsort(edges) {
 }
 exports.VariableEntry = VariableEntry;
 exports.VariableRegistry = VariableRegistry;
-},{"./calc-handlers":6,"./calculator":7,"./tools":18}]},{},[10])
+},{"./calc-handlers":8,"./calculator":9,"./tools":20}]},{},[12])

@@ -42,7 +42,7 @@ var SYNTAX = [
     ':',
     '?',
     "@",
-    "$"
+    "$cx"
 ];
 
 var LITERALS = {

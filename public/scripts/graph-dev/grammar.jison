@@ -75,7 +75,7 @@ expr
     ;
 
 namespace
-    : '$' IDENTIFIER -> new yy.Namespace($2)
+    : '$cx' IDENTIFIER -> new yy.Namespace($2)
     ;
 
 parameters
