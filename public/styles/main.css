@@ -273,7 +273,7 @@ html, body {
   background: -o-linear-gradient(top, #e6ffe6 0%, #78b578 53%, #38a038 100%);
   background: -ms-linear-gradient(top, #e6ffe6 0%, #78b578 53%, #38a038 100%);
   background: linear-gradient(to bottom, #e6ffe6 0%, #78b578 53%, #38a038 100%);
-  overflow: hidden;
+  overflow: none;
   padding: 0;
   z-index: 6;
   -moz-transition: all 0.25s ease;

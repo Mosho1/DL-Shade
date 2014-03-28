@@ -113,20 +113,10 @@
     return {
       restrict: 'A',
       link: function(scope, elm, attr) {
-        var tabs;
-        tabs = (function() {
-          var it;
-          it = scope.$$childTail;
-          while (!it.tabs || !it.tabs.length) {
-            it = it.$$prevSibling;
-          }
-          return it.tabs;
-        })();
         return scope.$watch('vars["' + attr.vActiveTabIndex + '"].model', function(vactive) {
-          console.log(actives);
           vactive = Number(vactive);
-          if (angular.isDefined(tabs[vactive])) {
-            return _.each(tabs, function(tab, ind) {
+          if (angular.isDefined(scope.tabs[vactive])) {
+            return _.each(scope.tabs, function(tab, ind) {
               tab.active = false;
               if (ind === vactive) {
                 return tab.active = true;
