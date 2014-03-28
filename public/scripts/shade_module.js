@@ -7,10 +7,16 @@
     link:
       pre: (scope, elm, attr) ->
         $templateCache.put attr.id, elm.html()
+
+  .directive 'popup', () ->
+    restrict: 'E'
+    transclude: true
+    scope: false
+    template: '<div class="popupt" ng-transclude/>'
  */
 
 (function() {
-  angular.module('ShadeApp', ['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover']).directive('btn', function($compile, $timeout, $templateCache) {
+  angular.module('ShadeApp', ['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 'ui.bootstrap']).directive('btn', function($compile, $timeout, $templateCache) {
     return {
       restrict: 'C',
       replace: true,
@@ -45,7 +51,7 @@
             }
           };
           _.each(cbs, function(cb, name) {
-            return toAppend += events[name] + '"' + (_.map(cb, function(el) {
+            return toAppend += (events[name] || events.Click) + '"' + (_.map(cb, function(el) {
               return handlers[el[0]](el[1], el[2]);
             })).join('') + '" ';
           });
@@ -65,7 +71,7 @@
               'container': '#' + elm,
               'bs-popover': '',
               'trigger': 'manual',
-              'template': clone.html()
+              'template': angular.element('<div />').append(angular.element('<div />').append(angular.element('<div class="popupt"/>').append(clone.children()))).html()
             });
             popup = $compile(clone)(scope);
           }
@@ -82,7 +88,7 @@
       scope: true,
       templateUrl: 'directive-templates/testdl.html',
       link: function(scope, elm, attrs) {
-        scope.variable = attrs.vdl;
+        scope.variable = attrs.vDL;
         scope.setDLVar = function() {
           return scope.graph.set(scope.variable, Number(scope.toSet));
         };
@@ -91,23 +97,50 @@
         };
       }
     };
-  }).directive('vtext', function() {
+  }).directive('vText', function() {
     return {
       restrict: 'EAC',
       replace: true,
       scope: true,
-      template: '<div><input type="text" ng-model="vars[vtext].model"></div>',
+      template: '<div><input type="text" ng-model="vars[vText].model"></div>',
       link: {
         pre: function(scope, elm, attr) {
-          return scope.vtext = attr.vtext;
+          return scope.vText = attr.vText;
         }
+      }
+    };
+  }).directive('vActiveTabIndex', function() {
+    return {
+      restrict: 'A',
+      link: function(scope, elm, attr) {
+        var tabs;
+        tabs = (function() {
+          var it;
+          it = scope.$$childTail;
+          while (!it.tabs || !it.tabs.length) {
+            it = it.$$prevSibling;
+          }
+          return it.tabs;
+        })();
+        return scope.$watch('vars["' + attr.vActiveTabIndex + '"].model', function(vactive) {
+          console.log(actives);
+          vactive = Number(vactive);
+          if (angular.isDefined(tabs[vactive])) {
+            return _.each(tabs, function(tab, ind) {
+              tab.active = false;
+              if (ind === vactive) {
+                return tab.active = true;
+              }
+            });
+          }
+        });
       }
     };
   }).directive('dropDown', function($rootScope, ngGridFlexibleHeightPlugin) {
     return {
       restrict: 'E',
       scope: true,
-      template: '<ul class="dropdown" ng-click="dropdown($event,ghide)" style="overflow: hidden;">{{selected}}</div> <div class="gridStyle" ng-grid="gridOptions" ng-class="{hide:ghide}" ng-click="select($event)" ></div> <style>.gridStyle.ng-scope {float:left}</style>',
+      template: '<ul class="dropdown" ng-click="dropdown($event,ghide)"><div class="selectedItems">{{selected}}</div> <div class="gridStyle" ng-grid="gridOptions" ng-class="{hide:ghide}" ng-click="select($event)" ></div></ul>',
       link: {
         pre: function(scope, elm, attr) {
           var header, items;
@@ -121,11 +154,11 @@
               return obj;
             }), {});
           });
-          scope.selected = ["click me"];
+          scope.selected = ["Click me"];
           scope.gridOptions = {
             data: 'myData',
             selectedItems: scope.selected,
-            multiSelect: false,
+            multiSelect: !!attr.multiSelect,
             plugins: [
               new ngGridFlexibleHeightPlugin({
                 maxHeight: 300
@@ -145,9 +178,11 @@
           $rootScope.$on('bg_click', function() {
             return scope.dropdown();
           });
-          return scope.$watchCollection('selected', function() {
-            return scope.ghide = true;
-          });
+          if (!attr.multiSelect) {
+            return scope.$watchCollection('selected', function() {
+              return scope.ghide = true;
+            });
+          }
         }
       }
     };

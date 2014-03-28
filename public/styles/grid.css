@@ -16,3 +16,23 @@
 
 
 }
+
+.hide {
+    display: none;
+
+}
+
+.dropdown .ngGrid {
+    position:absolute;
+    z-index:1;
+}
+
+.popupt {
+    position:absolute;
+    z-index:1;
+}
+
+.dropdown .selectedItems {
+   overflow:auto;
+
+}

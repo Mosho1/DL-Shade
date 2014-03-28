@@ -1,405 +1,47 @@
 ﻿<Shade>
     <Node>
-        <UI>Grid</UI>
-        <Span>20,2</Span>
+        <UI>TabSet</UI>
+        <TabStripPlacement>Bottom</TabStripPlacement>
+        <vActiveTabIndex>x</vActiveTabIndex>
         <Sub>
             <Node>
-                <UI>Label</UI>
-                <Text>Label</Text>
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Fg>White</Fg>
-                <Bg>Green</Bg>
-                <Text>This is a green Label with white text</Text>
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Text>Grid</Text>
-            </Node>
-            <Node>
-                <UI>Grid</UI>
-                <Span>2,4</Span>
-                <ShowGridLines>True</ShowGridLines>
-                <Sub>
-                    <Node>
-                        <UI>Label</UI>
-                        <Text>Column 1</Text>
-                        <Xy>0,0</Xy>
-                    </Node>
-                    <Node>
-                        <UI>Label</UI>
-                        <Text>Column 3</Text>
-                        <Xy>0,2</Xy>
-                    </Node>
-                    <Node>
-                        <UI>Label</UI>
-                        <Text>Row 2</Text>
-                        <Xy>1,1</Xy>
-                    </Node>
-                </Sub>
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Text>ComboDropDown control</Text>
-            </Node>
-            <Node>
-                <UI>DropDown</UI>
-                <SelectedCol>Header1</SelectedCol>
-                <AllowDummy>N</AllowDummy>
-                <vSelected>SampleTest.ComboDefaultText</vSelected>
-                <Height>25</Height>
-                <Items>Header1|Header2|Header3;;Col1Row1Val|Col2Row1Val|Col3Row1Val;;Col1Row2|Col2Row2|Col3Row2</Items>
-
-                <Cols>
-                    <Col>
-                        <Name>Header1</Name>
-                        <vSelectPath>SampleTest.ComboSelectPath</vSelectPath>
-                        <DisplayOnSelect>Y</DisplayOnSelect>
-                    </Col>
-                </Cols>
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Text>Multi-Select ComboBox control</Text>
-            </Node>
-            <Node>
-                <UI>MultiSelComboBox</UI>
-                <Height>25</Height>
-                <DisplayValue>Header2</DisplayValue>
-                <SplitMark>,</SplitMark>
-                <Header>Y</Header>
-                <Items>Header1|Header2|Header3;;Col1Row1Val|Col2Row1Val|Col3Row1Val;;Col1Row2|Col2Row2|Col3Row2</Items>
-            </Node>
-
-            <Node>
-                <UI>Label</UI>
-                <Text>Listbox control</Text>
-            </Node>
-            <Node>
-                <UI>ListBox</UI>
-                <Sub>
-                    <Node>
-                        <UI>ListItem</UI>
-                        <Text>First Item</Text>
-                    </Node>
-                    <Node>
-                        <UI>ListItem</UI>
-                        <Text>Second Item</Text>
-                        <IsSelected>True</IsSelected>
-                    </Node>
-                    <Node>
-                        <UI>ListItem</UI>
-                        <Text>Third Item</Text>
-                    </Node>
-
-                </Sub>
-
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Text>Tabs and TabSet</Text>
-            </Node>
-            <Node>
-                <UI>TabSet</UI>
-                <TabStripPlacement>Bottom</TabStripPlacement>
-                <vActiveTabIndex>SampleTest.myTabSetIndex</vActiveTabIndex>
-                <Sub>
-                    <Node>
-                        <UI>Tab</UI>
-                        <Text>Standard</Text>
-                        <Sub>
-                            <Node>
-                                <UI>Button</UI>
-                                <Text>Change active item to 1</Text>
-                                <Cb>
-                                    <Fn>SETDLVARIABLE</Fn>
-                                    <Stat>SampleTest.myTabSetIndex,1</Stat>
-                                </Cb>
-                            </Node>
-                        </Sub>
-                    </Node>
-                    <Node>
-                        <UI>Tab</UI>
-                        <Text>Text Tag</Text>
-                        <Sub>
-                            <Node>
-                                <UI>Button</UI>
-                                <Text>Change active item to 0</Text>
-                                <Cb>
-                                    <Fn>SETDLVARIABLE</Fn>
-                                    <Stat>SampleTest.myTabSetIndex,0</Stat>
-                                </Cb>
-                            </Node>
-                        </Sub>
-                    </Node>
-                    <Node>
-                        <UI>Tab</UI>
-                        <Text>Instead Of</Text>
-                    </Node>
-                    <Node>
-                        <UI>Tab</UI>
-                        <Text>Caption</Text>
-                    </Node>
-                </Sub>
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Text>TextBox and text alignment</Text>
-            </Node>
-            <Node>
-                <UI>TextBox</UI>
-                <Height>25</Height>
-                <VAlign>Top</VAlign>
-                <TextAlignment>Right</TextAlignment>
-                <Text>Remember the capital 'B'</Text>
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Text>Button (With Popup)</Text>
-            </Node>
-            <Node>
-                <UI>Grid</UI>
-                <Span>1,3</Span>
+                <UI>Tab</UI>
+                <Text>Standard</Text>
                 <Sub>
                     <Node>
                         <UI>Button</UI>
-                        <Name>myButton1</Name>
-                        <Height>25</Height>
-                        <Width>150</Width>
-                        <VAlign>Top</VAlign>
-                        <HAlign>Left</HAlign>
-                        <IsEnabled>True</IsEnabled>
-                        <Text>Don't Push Me</Text>
+                        <Text>Change active item to 1</Text>
                         <Cb>
-                            <Fn>SHOWPOPUP</Fn>
-                            <Event>Click</Event>
-                            <Stat>myPopup,myButton1</Stat>
+                            <Fn>SETDLVARIABLE</Fn>
+                            <Stat>x, 1</Stat>
                         </Cb>
                     </Node>
-                    <Node>
-                        <UI>Button</UI>
-                        <Name>myButton2</Name>
-                        <Height>25</Height>
-                        <Width>150</Width>
-                        <VAlign>Bottom</VAlign>
-                        <HAlign>Right</HAlign>
-                        <Text>Push Me</Text>
-                    </Node>
-                    <Node>
-                        <UI>Popup</UI>
-                        <Name>myPopup</Name>
-                        <IsOpen>Y</IsOpen>
-                        <StaysOpen>N</StaysOpen>
-                        <Placement>B</Placement>
-                        <PlacementTarget>myButton2</PlacementTarget>
-                        <Sub>
-                            <Node>
-                                <UI>Button</UI>
-                                <Text>Button on Popup</Text>
-                            </Node>
-                        </Sub>
-                    </Node>
                 </Sub>
             </Node>
             <Node>
-                <UI>Label</UI>
-                <Text>Image</Text>
-            </Node>
-            <Node>
-                <UI>Grid</UI>
-                <Span>1,2</Span>
-                <Sub>
-                    <Node>
-                        <UI>Image</UI>
-                        <Height>100</Height>
-                        <Width>100</Width>
-                        <Source>http://twkdv01.nam.nsroot.net:9988/Samples/image.jpg</Source>
-                    </Node>
-                    <Node>
-                        <UI>Image</UI>
-                        <Height>100</Height>
-                        <Width>100</Width>
-                        <Source>http://twkdv01.nam.nsroot.net:9988/Samples/animated.gif</Source>
-                    </Node>
-                </Sub>
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Text>Radio Buttons</Text>
-            </Node>
-            <Node>
-                <UI>Grid</UI>
-                <Span>1,2</Span>
-                <Sub>
-                    <Node>
-                        <UI>RadioButton</UI>
-                        <Text>first</Text>
-                    </Node>
-                    <Node>
-                        <UI>RadioButton</UI>
-                        <Text>second</Text>
-                    </Node>
-                </Sub>
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Text>Check Boxes</Text>
-            </Node>
-            <Node>
-                <UI>Grid</UI>
-                <Span>1,2</Span>
-                <Sub>
-                    <Node>
-                        <UI>CheckBox</UI>
-                        <Text>Select One</Text>
-                    </Node>
-                    <Node>
-                        <UI>CheckBox</UI>
-                        <Text>Or Both</Text>
-                    </Node>
-                </Sub>
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Text>Date Picker</Text>
-            </Node>
-            <Node>
-                <UI>DatePicker</UI>
-                <Height>25</Height>
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Text>Time Picker</Text>
-            </Node>
-            <Node>
-                <UI>TimePicker</UI>
-                <Bg>White</Bg>
-                <Fg>Black</Fg>
-                <vText>SampleTest.currentTime</vText>
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Text>DateTime Picker</Text>
-            </Node>
-            <Node>
-                <UI>DateTimePicker</UI>
-                <AutoCloseCalendar>true</AutoCloseCalendar>
-                <FormatString>yyyy-MMM-dd hh:mm:ss tt</FormatString>
-                <vDateText>SampleTest.MyDateText</vDateText>
-                <Watermark>Enter/Select Your DateTime</Watermark>
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Text>Borders and Colors</Text>
-            </Node>
-            <Node>
-                <UI>TextBox</UI>
-                <Text>Green text, yellow border</Text>
-                <Fg>Green</Fg>
-                <BorderBrush>#FFFFFF00</BorderBrush>
-                <BorderThickness>3</BorderThickness>
-                <Background>Transparent</Background>
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Text>Control span</Text>
-            </Node>
-            <Node>
-                <UI>Grid</UI>
-                <Span>2,2</Span>
+                <UI>Tab</UI>
+                <Text>Text Tag</Text>
                 <Sub>
                     <Node>
                         <UI>Button</UI>
-                        <Text>Spanned button</Text>
-                        <CSpan>2</CSpan>
-                    </Node>
-                    <Node>
-                        <UI>Label</UI>
-                        <Text>blue</Text>
-                        <Fg>White</Fg>
-                        <Bg>Blue</Bg>
-                        <Xy>1,0</Xy>
-                    </Node>
-                    <Node>
-                        <UI>Label</UI>
-                        <Text>green</Text>
-                        <Fg>White</Fg>
-                        <Bg>Green</Bg>
-                        <Xy>1,1</Xy>
+                        <Text>Change active item to 0</Text>
+                        <Cb>
+                            <Fn>SETDLVARIABLE</Fn>
+                            <Stat>x, 0</Stat>
+                        </Cb>
                     </Node>
                 </Sub>
             </Node>
             <Node>
-                <UI>Label</UI>
-                <Text>Scroll Viewer</Text>
+                <UI>Tab</UI>
+                <Text>Instead Of</Text>
             </Node>
             <Node>
-                <UI>ScrollViewer</UI>
-                <Sub>
-                    <Node>
-                        <UI>TextBox</UI>
-                        <Text>Default behavior is to have the scrollviewer be vertical and on the right, which can be overridden.  Default behavior for textbox text is to wrap, which can also be overridden.</Text>
-                        <TextWrapping>Wrap</TextWrapping>
-                        <Background>Transparent</Background>
-                    </Node>
-                </Sub>
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Text>NumericUpDown Control</Text>
-            </Node>
-            <Node>
-                <UI>NumericUpDown</UI>
-                <FormatString>$#,###.00</FormatString>
-                <Maximum>100</Maximum>
-                <Minimum>20</Minimum>
-                <DefaultValue>25.23</DefaultValue>
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Text>Record Control</Text>
-            </Node>
-            <Node>
-                <UI>Button</UI>
-                <Width>50</Width>
-                <Height>50</Height>
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Text>Gradient Brush</Text>
-            </Node>
-            <Node>
-                <UI>Grid</UI>
-                <Span>1,4</Span>
-                <ShowGridLines>True</ShowGridLines>
-                <Sub>
-                    <Node>
-                        <UI>Label</UI>
-                        <Text>Linear 1</Text>
-                        <Bg>linear(red;blue;yellow,0;0.5;1)</Bg>
-                        <Xy>0,0</Xy>
-                    </Node>
-                    <Node>
-                        <UI>Label</UI>
-                        <Text>Linear 2</Text>
-                        <Bg>linear(red;blue;yellow)</Bg>
-                        <Xy>0,1</Xy>
-                    </Node>
-                    <Node>
-                        <UI>Label</UI>
-                        <Text>Radial 1</Text>
-                        <Bg>radial(red;blue;yellow,0;0.5;1)</Bg>
-                        <Xy>0,2</Xy>
-                    </Node>
-                    <Node>
-                        <UI>Label</UI>
-                        <Text>Radial 1</Text>
-                        <Bg>radial(red;blue;yellow)</Bg>
-                        <Xy>0,3</Xy>
-                    </Node>
-                </Sub>
+                <UI>Tab</UI>
+                <Text>Caption</Text>
             </Node>
         </Sub>
     </Node>
+    <Node><UI>NumEdit</UI><vText>x</vText></Node>
+    <Node><UI>TestDL</UI><vDL>x</vDL></Node>
 </Shade>

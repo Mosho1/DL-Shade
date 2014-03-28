@@ -238,5 +238,3 @@
   });
 
 }).call(this);
-
-//# sourceMappingURL=split-panel.map

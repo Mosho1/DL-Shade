@@ -35,9 +35,7 @@ exports.parser = parser;
 exports.compile = function(code) {
     var tokens = lexer.tokenise(code);
     //tokens = rewriter.rewrite(tokens);
-    console.log(tokens);
     var ast = parser.parse(tokens);
-    console.log(ast);
     /*var valid = astValidator.validate(ast);
 3
     if (!valid) {

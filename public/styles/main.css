@@ -81,12 +81,12 @@ html, body {
   opacity: 0;
 }
 
-/* line 61, ../sass/main.sass */
+/* line 61, ../sass/main.sass
 .ace_scrollbar {
   display: none !important;
   width: 0;
 }
-
+*/
 /* line 65, ../sass/main.sass */
 .render-panel {
   height: 100%;
@@ -273,7 +273,7 @@ html, body {
   background: -o-linear-gradient(top, #e6ffe6 0%, #78b578 53%, #38a038 100%);
   background: -ms-linear-gradient(top, #e6ffe6 0%, #78b578 53%, #38a038 100%);
   background: linear-gradient(to bottom, #e6ffe6 0%, #78b578 53%, #38a038 100%);
-  overflow: none;
+  overflow: hidden;
   padding: 0;
   z-index: 6;
   -moz-transition: all 0.25s ease;

@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-module.exports = function (node) {
+module.exports = function (node, multiSelect) {
 
     var items = node.Items.replace(/\s/g, '').split(/;+/),
         options = {},
@@ -25,7 +25,7 @@ module.exports = function (node) {
         }
         }(node.Cols))
 
-    this.openElement('drop-down', '', node, '', "header=" + items[0] + " items=" + items[1] + " options=" + options);
+    this.openElement('drop-down', '', node, '', "multi-select = " + !!multiSelect + " header=" + items[0] + " items=" + items[1] + " options=" + options);
     this.closeElement();
 
 }
@@ -167,14 +167,17 @@ angular.module('ShadeServices', [])
         this.closeElement = ShadeElements.closeElement;
         this.addStyles = ShadeStyles.addStyles;
         this.handleStyles = ShadeStyles.handleStyles;
-        var that = this;
+        var that = this,
+            handleSub = function (node) {
+                _.each(((angular.isArray(node.Sub) ? node.Sub : {Node: node.Sub}) || {Node: {}}).Node, that.handleNodes);
+            }
 
         this.CbHandlers = {
             'SETDLVARIABLE': function (cb) {
-                return cb.Event + ',setDL,' + cb.Stat;
+                return cb.Event + ',setDL,' + cb.Stat.toLowerCase();
             },
             'SHOWPOPUP': function (cb) {
-                return cb.Event + ',popup,' + cb.Stat;
+                return cb.Event + ',popup,' + cb.Stat.toLowerCase();
 
             }
 
@@ -185,27 +188,9 @@ angular.module('ShadeServices', [])
         };
 
         this.UIHandlers = {
-            'Grid': require('./Grid'),
-
-            DropDown: require('./DropDown'),
 
             Button: function (node, cb) {
                 that.openElement('button', 'btn btn-default', node, '', cb, node.Text);
-                that.closeElement();
-            },
-
-            'TestDL': function (node) {
-                that.openElement('test-dl', '', node);
-                that.closeElement();
-            },
-
-            'Label': function (node) {
-                that.openElement('div', '', node);
-                that.closeElement();
-            },
-
-            'NumEdit': function (node) {
-                that.openElement('input', 'num-edit', node);
                 that.closeElement();
             },
 
@@ -214,14 +199,58 @@ angular.module('ShadeServices', [])
                 that.closeElement();
             },
 
-            'RadioButton': function (node) {
-                that.openElement('input', '', node, '', 'type="radio"');
+            'DropDown': require('./DropDown'),
+
+            'Grid': require('./Grid'),
+
+            'Label': function (node) {
+                that.openElement('div', '', node);
+                that.closeElement();
+            },
+
+            'ListBox': function (node) {
+                that.openElement('select', '', node, '', 'multiple');
+                handleSub(node);
+                that.closeElement();
+            },
+
+            'ListItem' : function (node) {
+                that.openElement('option', '', node);
+                that.closeElement();
+            },
+
+            'MultiSelComboBox': _.partialRight(require('./DropDown'), true),
+
+            'NumEdit': function (node) {
+                that.openElement('input', 'num-edit', node);
                 that.closeElement();
             },
 
             'Popup': function (node) {
                 that.openElement('popup', '', node, 'display:none;');
-                _.each(((angular.isArray(node.Sub) ? node.Sub : {Node: node.Sub}) || {Node: {}}).Node, that.handleNodes);
+                handleSub(node);
+                that.closeElement();
+            },
+
+            'RadioButton': function (node) {
+                that.openElement('input', '', node, '', 'type="radio"');
+                that.closeElement();
+            },
+
+            'TabSet': function (node) {
+                that.openElement('tabset', '', node);
+                handleSub(node);
+                that.closeElement();
+            },
+
+            'Tab': function (node) {
+                that.openElement('tab', '', node, '', 'heading="' + node.Text + '"', '');
+                handleSub(node);
+                that.closeElement();
+            },
+
+            'TestDL': function (node) {
+                that.openElement('test-dl', '', node);
                 that.closeElement();
             },
 
@@ -251,6 +280,7 @@ angular.module('ShadeServices', [])
                 console.log("can't recognize tag <" + index + ">.");
             }
         };
+
 
         this.handleNodes = function (node, index) {
             if (angular.isArray(node)) {
@@ -296,6 +326,7 @@ angular.module('ShadeServices', [])
             'vDL': '',
             'vText': '',
             'Name': 'id',
+            'vActiveTabIndex': ''
 
         };
 
@@ -312,8 +343,8 @@ angular.module('ShadeServices', [])
         };
 
         this.styleValueHandlers = {
-            'width': function (width) { return width + "px"; },
-            'height': function (height) { return height + "px"; }
+            'Width': function (width) { return width + "px"; },
+            'Height': function (height) { return height + "px"; }
         };
 
 
@@ -388,7 +419,7 @@ angular.module('ShadeServices', [])
                     'node': node,
                     'customStyles': customStyles,
                     'customAttr': customAttr,
-                    'content': content || node.Text,
+                    'content': angular.isDefined(content) ? content : node.Text,
                     'nodes': [],
                     'parent': currentElement
 

@@ -6,12 +6,19 @@
     link:
       pre: (scope, elm, attr) ->
         $templateCache.put attr.id, elm.html()
+
+  .directive 'popup', () ->
+    restrict: 'E'
+    transclude: true
+    scope: false
+    template: '<div class="popupt" ng-transclude/>'
+
 ###
 
 
 
 
-angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover'])
+angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 'ui.bootstrap'])
 
 .directive 'btn', ($compile, $timeout, $templateCache) ->
     restrict: 'C'
@@ -38,7 +45,7 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover'])
             "popup('" + popup + "','" + location + "')"
 
         _.each cbs, (cb, name) ->
-          toAppend += events[name] + '"' + (_.map cb, (el) ->
+          toAppend += (events[name] || events.Click) + '"' + (_.map cb, (el) ->
             handlers[el[0]] el[1], el[2]).join('') + '" '
 
       '<button ' + toAppend + 'ng-transclude></button>'
@@ -54,7 +61,7 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover'])
             'container': '#' + elm,
             'bs-popover': ''
             'trigger': 'manual'
-            'template': clone.html()
+            'template': angular.element('<div />').append(angular.element('<div />').append(angular.element('<div class="popupt"/>').append(clone.children()))).html()
           })
           popup = $compile(clone)(scope)
         $timeout((() -> popup.triggerHandler('popup')),50)
@@ -68,32 +75,52 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover'])
     templateUrl: 'directive-templates/testdl.html'
     link: (scope, elm, attrs) ->
 
-      scope.variable = attrs.vdl
+      scope.variable = attrs.vDL
 
       scope.setDLVar = () ->
         scope.graph.set(scope.variable,Number(scope.toSet))
       scope.unsetDLVar = () ->
         scope.graph.unset(scope.variable,Number(scope.toSet))
 
-  .directive 'vtext', () ->
+  .directive 'vText', () ->
     restrict: 'EAC'
     replace: true
     scope: true
-    template: '<div><input type="text" ng-model="vars[vtext].model"></div>'
+    template: '<div><input type="text" ng-model="vars[vText].model"></div>'
     link:
       pre: (scope, elm, attr) ->
-        scope.vtext = attr.vtext
+        scope.vText = attr.vText
+
+
+  .directive 'vActiveTabIndex', () ->
+    restrict: 'A'
+    link: (scope, elm, attr) ->
+        tabs = do () ->
+          it = scope.$$childTail
+          while (!it.tabs || !it.tabs.length)
+            it = it.$$prevSibling
+          return it.tabs
+
+        scope.$watch 'vars["' + attr.vActiveTabIndex + '"].model', (vactive) ->
+          console.log(actives)
+          vactive = Number(vactive)
+          if angular.isDefined tabs[vactive]
+            _.each tabs, (tab, ind) ->
+              tab.active = false
+              if ind is vactive
+                tab.active = true
+
+
+
+
 
   .directive 'dropDown', ($rootScope, ngGridFlexibleHeightPlugin) ->
     restrict: 'E'
     scope: true
-    template: '<ul class="dropdown" ng-click="dropdown($event,ghide)" style="overflow: hidden;">{{selected}}</div>
-               <div class="gridStyle" ng-grid="gridOptions" ng-class="{hide:ghide}" ng-click="select($event)" ></div>
-               <style>.gridStyle.ng-scope {float:left}</style>'
+    template: '<ul class="dropdown" ng-click="dropdown($event,ghide)"><div class="selectedItems">{{selected}}</div>
+               <div class="gridStyle" ng-grid="gridOptions" ng-class="{hide:ghide}" ng-click="select($event)" ></div></ul>'
     link:
       pre: (scope, elm, attr) ->
-
-
         header = attr.header.split('|')
         items = attr.items.split(',')
           .map (elm) ->
@@ -103,11 +130,11 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover'])
              obj[header[ind]] = el
              return obj)
              ,{}
-        scope.selected = ["click me"]
+        scope.selected = ["Click me"]
         scope.gridOptions =
           data: 'myData'
           selectedItems: scope.selected,
-          multiSelect: false
+          multiSelect: !!attr.multiSelect
           plugins: [new ngGridFlexibleHeightPlugin({maxHeight:300})]
           enableSorting: false
           rowHeight: 27
@@ -125,8 +152,9 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover'])
         $rootScope.$on 'bg_click', ->
           scope.dropdown()
 
-        scope.$watchCollection 'selected', ->
-          scope.ghide = true
+        unless !!attr.multiSelect
+          scope.$watchCollection 'selected', ->
+            scope.ghide = true
 
   .directive 'renderPanel', ($compile, $rootScope, shadeTemplate) ->
     restrict: 'E'

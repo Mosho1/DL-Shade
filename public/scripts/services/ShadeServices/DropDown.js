@@ -1,4 +1,4 @@
-module.exports = function (node) {
+module.exports = function (node, multiSelect) {
 
     var items = node.Items.replace(/\s/g, '').split(/;+/),
         options = {},
@@ -24,7 +24,7 @@ module.exports = function (node) {
         }
         }(node.Cols))
 
-    this.openElement('drop-down', '', node, '', "header=" + items[0] + " items=" + items[1] + " options=" + options);
+    this.openElement('drop-down', '', node, '', "multi-select = " + !!multiSelect + " header=" + items[0] + " items=" + items[1] + " options=" + options);
     this.closeElement();
 
 }

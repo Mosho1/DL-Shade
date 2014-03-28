@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('DLApp', ['ShadeApp', 'ui.bootstrap'])
+angular.module('DLApp', ['ShadeApp'])
 
 .config(['$httpProvider', ($httpProvider) ->
   $httpProvider.defaults.useXDomain = true
@@ -28,3 +28,7 @@ _.position = (elm) ->
     p.y += elm.offsetTop
   p
 
+
+String::toDash = ->
+  @replace /([A-Z])/g, ($1) ->
+    "-" + $1.toLowerCase()

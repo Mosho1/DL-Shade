@@ -20,11 +20,10 @@ VariableRegistry.prototype = {
         var _entry = new VariableEntry(entry), _this = this;
         _.observe(_entry, 'model', 2, {
             set: function (value) {
-                _entry.set(value);
-                _this.evaluate(_entry.name);
+                _this.set(_entry.name, value);
             },
             get: function () {
-                return _entry.get();
+                return _this.get(_entry.name);
             }
         });
         this.variables[entry.name] = _entry.concat(this.variables[entry.name] || {});
