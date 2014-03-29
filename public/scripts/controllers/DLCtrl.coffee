@@ -97,10 +97,13 @@ angular.module('DLApp')
 
 
   $scope.styles =
-  active: 'testDL'
+  active: 'control'
   sheets:
-    testDL:
+    basics:
       source: 'XML/shade.xml'
+      native: true
+    control:
+      source: 'XML/control.xml'
       native: true
   external: ''
   editor: ''

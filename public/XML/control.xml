@@ -1,0 +1,16 @@
+﻿<Shade>
+    <Node>
+        <UI>Grid</UI>
+        <Span>1, 2</Span>
+        <Sub>
+            <Node>
+                <UI>RadioButton</UI>
+                <Text>first</Text>
+            </Node>
+            <Node>
+                <UI>RadioButton</UI>
+                <Text>second</Text>
+            </Node>
+        </Sub>
+    </Node>
+</Shade>

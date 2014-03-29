@@ -102,7 +102,7 @@
       restrict: 'EAC',
       replace: true,
       scope: true,
-      template: '<div><input type="text" ng-model="vars[vText].model"></div>',
+      template: '<input ng-model="vars[vText].model">',
       link: {
         pre: function(scope, elm, attr) {
           return scope.vText = attr.vText;

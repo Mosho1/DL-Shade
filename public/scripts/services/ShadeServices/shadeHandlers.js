@@ -4,8 +4,10 @@ angular.module('ShadeServices', [])
 
         this.openElement = ShadeElements.openElement;
         this.closeElement = ShadeElements.closeElement;
+        this.getCurrent = ShadeElements.getCurrent;
         this.addStyles = ShadeStyles.addStyles;
         this.handleStyles = ShadeStyles.handleStyles;
+
         var that = this,
             handleSub = function (node) {
                 _.each(((angular.isArray(node.Sub) ? node.Sub : {Node: node.Sub}) || {Node: {}}).Node, that.handleNodes);
@@ -61,7 +63,7 @@ angular.module('ShadeServices', [])
             'MultiSelComboBox': _.partialRight(require('./DropDown'), true),
 
             'NumEdit': function (node) {
-                that.openElement('input', 'num-edit', node);
+                that.openElement('input', '', node, '', 'type="text"');
                 that.closeElement();
             },
 
@@ -72,7 +74,8 @@ angular.module('ShadeServices', [])
             },
 
             'RadioButton': function (node) {
-                that.openElement('input', '', node, '', 'type="radio"');
+                var cur = that.getCurrent();
+                that.openElement('input', '', node, '', 'type="radio" v-text="x" ng-value="' + cur.id + '"');
                 that.closeElement();
             },
 
@@ -242,6 +245,7 @@ angular.module('ShadeServices', [])
     .service('ShadeElements', function (ShadeStyles) {
 
         var classCount = 0,
+            elmId = 0,
             elements = [],
             currentElement = {'nodes': elements};
 
@@ -260,7 +264,8 @@ angular.module('ShadeServices', [])
                     'customAttr': customAttr,
                     'content': angular.isDefined(content) ? content : node.Text,
                     'nodes': [],
-                    'parent': currentElement
+                    'parent': currentElement,
+                    'id': ++elmId
 
                 });
             if (customStyles || nativeStyles) {
@@ -277,12 +282,17 @@ angular.module('ShadeServices', [])
             currentElement = currentElement.parent;
         };
 
+        this.getCurrent = function () {
+            return currentElement;
+        }
+
         this.getElements = function () {
             return elements;
         };
 
         this.init = function () {
             classCount = 0;
+            elmId = 0;
             elements = [];
             currentElement = {'nodes': elements};
         };

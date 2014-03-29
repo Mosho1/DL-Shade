@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15758fa3-0dc6-4239-9815-36387ae5d86d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/XML/control.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee" afterPath="$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/controllers/DLCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/controllers/DLCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/XML/shade.xml" afterPath="$PROJECT_DIR$/public/XML/shade.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js" afterPath="$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/ShadeServices/dist/shadeServices.js" afterPath="$PROJECT_DIR$/public/scripts/services/ShadeServices/dist/shadeServices.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/shade_module.coffee" afterPath="$PROJECT_DIR$/public/scripts/shade_module.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/shade_module.js" afterPath="$PROJECT_DIR$/public/scripts/shade_module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/DL_libs/ui-bootstrap-tpls-0.10.0.js" afterPath="$PROJECT_DIR$/public/DL_libs/ui-bootstrap-tpls-0.10.0.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DependencyLanguage.iws" />
@@ -44,8 +47,22 @@
           <file leaf-file-name="shade.xml" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/XML/shade.xml">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="26" column="48" selection-start="842" selection-end="842" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
-                  <folding />
+                <state line="404" column="8" selection-start="14170" selection-end="14170" vertical-scroll-proportion="0.0" vertical-offset="6051" max-vertical-offset="6970">
+                  <folding>
+                    <marker date="1396072970862" expanded="true" signature="6:14169" placeholder="..." />
+                    <marker date="1396072970862" expanded="true" signature="17:14160" placeholder="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="control.xml" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/XML/control.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="14" column="11" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+                  <folding>
+                    <marker date="1396073240924" expanded="true" signature="6:338" placeholder="..." />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -61,19 +78,19 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/styles/main.css">
+          <file leaf-file-name="DLCtrl.coffee" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="275" column="17" selection-start="6229" selection-end="6229" vertical-scroll-proportion="-15.12" vertical-offset="4297" max-vertical-offset="5797">
+                <state line="101" column="10" selection-start="3056" selection-end="3056" vertical-scroll-proportion="0.0" vertical-offset="1224" max-vertical-offset="3315">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="DLCtrl.coffee" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee">
+          <file leaf-file-name="shadeHandlers.js" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="13" column="3" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3264">
+                <state line="72" column="36" selection-start="2259" selection-end="2259" vertical-scroll-proportion="0.47724476" vertical-offset="836" max-vertical-offset="5236">
                   <folding />
                 </state>
               </provider>
@@ -97,10 +114,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ui-bootstrap-tpls-0.10.0.js" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="ui-bootstrap-tpls-0.10.0.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/DL_libs/ui-bootstrap-tpls-0.10.0.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="2571" column="30" selection-start="84981" selection-end="84981" vertical-scroll-proportion="0.35406092" vertical-offset="43428" max-vertical-offset="62696">
+                <state line="2571" column="30" selection-start="84981" selection-end="84981" vertical-scroll-proportion="-5.58" vertical-offset="43428" max-vertical-offset="62696">
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
                     <marker date="1396072631975" expanded="true" signature="116440:116451" placeholder="..." />
@@ -108,15 +125,6 @@
                     <marker date="1396072631975" expanded="true" signature="123882:123893" placeholder="..." />
                     <marker date="1396072631975" expanded="true" signature="124226:124237" placeholder="..." />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="_mixins.css" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/styles/_mixins.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -146,10 +154,10 @@
           <file leaf-file-name="shade_module.coffee" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/scripts/shade_module.coffee">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="94" column="33" selection-start="2774" selection-end="2774" vertical-scroll-proportion="0.32733813" vertical-offset="1325" max-vertical-offset="4420">
+                <state line="88" column="51" selection-start="2638" selection-end="2638" vertical-scroll-proportion="0.31294963" vertical-offset="1235" max-vertical-offset="4420">
                   <folding>
-                    <marker date="1396070803208" expanded="true" signature="3433:3601" placeholder="..." />
-                    <marker date="1396070803208" expanded="true" signature="5401:5417" placeholder="..." />
+                    <marker date="1396076314472" expanded="true" signature="3410:3578" placeholder="..." />
+                    <marker date="1396076314472" expanded="true" signature="5378:5394" placeholder="..." />
                   </folding>
                 </state>
               </provider>
@@ -210,14 +218,15 @@
         <option value="$PROJECT_DIR$/public/styles/main.css" />
         <option value="$PROJECT_DIR$/public/views/index_DL.jade" />
         <option value="$PROJECT_DIR$/public/scripts/graph-dev/compiler.js" />
-        <option value="$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js" />
         <option value="$PROJECT_DIR$/public/scripts/app.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/ng_template_shd.js" />
         <option value="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" />
+        <option value="$PROJECT_DIR$/public/DL_libs/ui-bootstrap-tpls-0.10.0.js" />
         <option value="$PROJECT_DIR$/public/XML/shade.xml" />
+        <option value="$PROJECT_DIR$/public/XML/control.xml" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/shade_module.coffee" />
-        <option value="$PROJECT_DIR$/public/DL_libs/ui-bootstrap-tpls-0.10.0.js" />
+        <option value="$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js" />
       </list>
     </option>
   </component>
@@ -528,11 +537,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\XML" />
       <recent name="C:\Users\SR71042\Documents\GitHub\DependencyLanguage\public\DL_libs\ng-popover" />
       <recent name="I:\stavrosbackup\DependencyLanguage\public\scripts" />
       <recent name="I:\stavrosbackup\DependencyLanguage\public\csscripts\services" />
       <recent name="I:\stavrosbackup\DependencyLanguage\src\client-src-2" />
-      <recent name="I:\stavrosbackup\DependencyLanguage\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\DL_libs" />
@@ -728,13 +737,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/parser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5865">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="0" selection-start="600" selection-end="600" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="4471" />
@@ -975,13 +977,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="213" column="47" selection-start="5983" selection-end="5994" vertical-scroll-proportion="0.52671754" vertical-offset="3345" max-vertical-offset="5066">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/dl-example.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="562">
@@ -1017,20 +1012,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/XML/shade.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="48" selection-start="842" selection-end="842" vertical-scroll-proportion="0.0" vertical-offset="33" max-vertical-offset="884">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="3" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3264">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/DL_libs/ui-bootstrap-0.10.0.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="58344">
@@ -1040,19 +1021,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/shade_module.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="33" selection-start="2774" selection-end="2774" vertical-scroll-proportion="0.32733813" vertical-offset="1325" max-vertical-offset="4420">
-          <folding>
-            <marker date="1396070803208" expanded="true" signature="3433:3601" placeholder="..." />
-            <marker date="1396070803208" expanded="true" signature="5401:5417" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/DL_libs/ui-bootstrap-tpls-0.10.0.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2571" column="30" selection-start="84981" selection-end="84981" vertical-scroll-proportion="0.35406092" vertical-offset="43428" max-vertical-offset="62696">
+        <state line="2571" column="30" selection-start="84981" selection-end="84981" vertical-scroll-proportion="-5.58" vertical-offset="43428" max-vertical-offset="62696">
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <marker date="1396072631975" expanded="true" signature="116440:116451" placeholder="..." />
@@ -1060,6 +1031,49 @@
             <marker date="1396072631975" expanded="true" signature="123882:123893" placeholder="..." />
             <marker date="1396072631975" expanded="true" signature="124226:124237" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/XML/shade.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="404" column="8" selection-start="14170" selection-end="14170" vertical-scroll-proportion="0.0" vertical-offset="6051" max-vertical-offset="6970">
+          <folding>
+            <marker date="1396072970862" expanded="true" signature="6:14169" placeholder="..." />
+            <marker date="1396072970862" expanded="true" signature="17:14160" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/XML/control.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="11" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <folding>
+            <marker date="1396073240924" expanded="true" signature="6:338" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="10" selection-start="3056" selection-end="3056" vertical-scroll-proportion="0.0" vertical-offset="1224" max-vertical-offset="3315">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/shade_module.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="51" selection-start="2638" selection-end="2638" vertical-scroll-proportion="0.31294963" vertical-offset="1235" max-vertical-offset="4420">
+          <folding>
+            <marker date="1396076314472" expanded="true" signature="3410:3578" placeholder="..." />
+            <marker date="1396076314472" expanded="true" signature="5378:5394" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="36" selection-start="2259" selection-end="2259" vertical-scroll-proportion="0.47724476" vertical-offset="836" max-vertical-offset="5236">
+          <folding />
         </state>
       </provider>
     </entry>

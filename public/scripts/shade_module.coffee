@@ -86,7 +86,7 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 
     restrict: 'EAC'
     replace: true
     scope: true
-    template: '<div><input type="text" ng-model="vars[vText].model"></div>'
+    template: '<input ng-model="vars[vText].model">'
     link:
       pre: (scope, elm, attr) ->
         scope.vText = attr.vText
