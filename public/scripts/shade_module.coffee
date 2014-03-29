@@ -95,13 +95,16 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 
   .directive 'vActiveTabIndex', () ->
     restrict: 'A'
     link: (scope, elm, attr) ->
-        scope.$watch 'vars["' + attr.vActiveTabIndex + '"].model', (vactive) ->
+        scope.vactive = attr.vActiveTabIndex
+        scope.$watch 'vars[vactive].model', (vactive) ->
           vactive = Number(vactive)
           if angular.isDefined scope.tabs[vactive]
             _.each scope.tabs, (tab, ind) ->
               tab.active = false
               if ind is vactive
                 tab.active = true
+        scope.$watch 'active', (active) ->
+          scope.vars[scope.vactive].model = active
 
 
 

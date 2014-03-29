@@ -2576,6 +2576,10 @@ angular.module('ui.bootstrap.tabs', [])
     tab.active = true;
   };
 
+  ctrl.setActive = function(tab) {
+     $scope.active = tabs.indexOf(tab);
+  }
+
   ctrl.addTab = function addTab(tab) {
     tabs.push(tab);
     if (tabs.length === 1 || tab.active) {
@@ -2778,6 +2782,7 @@ angular.module('ui.bootstrap.tabs', [])
         scope.select = function() {
           if ( ! scope.disabled ) {
             scope.active = true;
+            tabsetCtrl.setActive(scope)
           }
         };
 

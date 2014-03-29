@@ -11,7 +11,7 @@ Features:\n
 -Graph or table presentation of the graph\n
 -Click 'Run' above or alt+R */\n
 \n
-x=1;\n
+x=0;\n
 y=2;\n
 z=f.avg(x,y,6);";
 

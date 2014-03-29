@@ -113,7 +113,8 @@
     return {
       restrict: 'A',
       link: function(scope, elm, attr) {
-        return scope.$watch('vars["' + attr.vActiveTabIndex + '"].model', function(vactive) {
+        scope.vactive = attr.vActiveTabIndex;
+        scope.$watch('vars[vactive].model', function(vactive) {
           vactive = Number(vactive);
           if (angular.isDefined(scope.tabs[vactive])) {
             return _.each(scope.tabs, function(tab, ind) {
@@ -123,6 +124,9 @@
               }
             });
           }
+        });
+        return scope.$watch('active', function(active) {
+          return scope.vars[scope.vactive].model = active;
         });
       }
     };
