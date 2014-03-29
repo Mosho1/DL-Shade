@@ -20,7 +20,7 @@ angular.module('DLApp')
 
     body = document.getElementsByTagName("body")[0]
     body.addEventListener 'click', (e) ->
-      _.kill_event(e)
+      #_.kill_event(e) TODO: find possible bugs, this causes checkboxes not to work etc.
       $rootScope.$broadcast 'bg_click'
     $(document).keyup (e) ->
       $rootScope.$broadcast 'bg_click' if e.keyCode is 27 # esc

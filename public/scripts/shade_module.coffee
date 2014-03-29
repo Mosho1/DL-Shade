@@ -86,10 +86,29 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 
     restrict: 'EAC'
     replace: true
     scope: true
-    template: '<input ng-model="vars[vText].model">'
+    template: (elm) -> '<' + elm[0].localName + ' ng-model="vars[vText].model">'
     link:
       pre: (scope, elm, attr) ->
         scope.vText = attr.vText
+
+  .directive 'datePicker', () ->
+    restrict: 'AC'
+    scope: true
+    template: '<div class="well well-sm" ng-model="vars[vText].model"><datepicker></datepicker></div>'
+    link:
+      pre: (scope, elm, attr) ->
+        scope.vText = attr.datePicker
+
+  .directive 'timePicker', ($compile) ->
+    restrict: 'EA'
+    replace: false
+    scope: false
+    compile: (tElm, tAttr) ->
+      timePickerElement = angular.element('<timepicker />').attr(_.omit(tAttr, (val, key) ->
+        (key is 'vText') or (/^\$.?/.test(key))
+      ))
+      tElm.append(timePickerElement)
+
 
 
   .directive 'vActiveTabIndex', () ->

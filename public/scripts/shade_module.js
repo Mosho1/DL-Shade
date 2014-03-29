@@ -102,11 +102,37 @@
       restrict: 'EAC',
       replace: true,
       scope: true,
-      template: '<input ng-model="vars[vText].model">',
+      template: function(elm) {
+        return '<' + elm[0].localName + ' ng-model="vars[vText].model">';
+      },
       link: {
         pre: function(scope, elm, attr) {
           return scope.vText = attr.vText;
         }
+      }
+    };
+  }).directive('datePicker', function() {
+    return {
+      restrict: 'AC',
+      scope: true,
+      template: '<div class="well well-sm" ng-model="vars[vText].model"><datepicker></datepicker></div>',
+      link: {
+        pre: function(scope, elm, attr) {
+          return scope.vText = attr.datePicker;
+        }
+      }
+    };
+  }).directive('timePicker', function($compile) {
+    return {
+      restrict: 'EA',
+      replace: false,
+      scope: false,
+      compile: function(tElm, tAttr) {
+        var timePickerElement;
+        timePickerElement = angular.element('<timepicker />').attr(_.omit(tAttr, function(val, key) {
+          return (key === 'vText') || (/^\$.?/.test(key));
+        }));
+        return tElm.append(timePickerElement);
       }
     };
   }).directive('vActiveTabIndex', function() {

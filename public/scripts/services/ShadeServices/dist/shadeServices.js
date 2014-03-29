@@ -201,6 +201,12 @@ angular.module('ShadeServices', [])
                 that.closeElement();
             },
 
+            'DatePicker': function (node) {
+                that.openElement('input', '', node, '', 'type="text" datepicker-popup');
+                that.closeElement();
+
+            },
+
             'DropDown': require('./DropDown'),
 
             'Grid': require('./Grid'),
@@ -235,8 +241,9 @@ angular.module('ShadeServices', [])
             },
 
             'RadioButton': function (node) {
-                var cur = that.getCurrent();
-                that.openElement('input', '', node, '', 'type="radio" v-text="x" ng-value="' + cur.id + '"');
+                var cur = that.getCurrent(),
+                    value = node.Value ? '' : ' value="' + node.Text +'"';
+                that.openElement('input', '', node, '', 'type="radio"' + value);
                 that.closeElement();
             },
 
@@ -257,9 +264,16 @@ angular.module('ShadeServices', [])
                 that.closeElement();
             },
 
+            'TimePicker': function (node) {
+                that.openElement('time-picker', '', node, 'display:inline-block;');
+                that.closeElement();
+            },
+
             'Unknown': function (node) {
                 console.log("can't find control - " + node.UI)
             }
+
+
 
 
         };

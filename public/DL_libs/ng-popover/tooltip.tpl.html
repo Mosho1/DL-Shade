@@ -1,1 +1,6 @@
-<button></button>
+Object.defineProperty(String.prototype, "contains", {
+    get: function myProperty() {
+        return (function {
+			console.log(this);
+    }).bind(this);
+});

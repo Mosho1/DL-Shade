@@ -103,7 +103,7 @@
             <Node>
                 <UI>TabSet</UI>
                 <TabStripPlacement>Bottom</TabStripPlacement>
-                <vActiveTabIndex>SampleTest.myTabSetIndex</vActiveTabIndex>
+                <vActiveTabIndex>x</vActiveTabIndex>
                 <Sub>
                     <Node>
                         <UI>Tab</UI>
@@ -114,7 +114,7 @@
                                 <Text>Change active item to 1</Text>
                                 <Cb>
                                     <Fn>SETDLVARIABLE</Fn>
-                                    <Stat>SampleTest.myTabSetIndex,1</Stat>
+                                    <Stat>x,1</Stat>
                                 </Cb>
                             </Node>
                         </Sub>
@@ -128,7 +128,7 @@
                                 <Text>Change active item to 0</Text>
                                 <Cb>
                                     <Fn>SETDLVARIABLE</Fn>
-                                    <Stat>SampleTest.myTabSetIndex,0</Stat>
+                                    <Stat>x,0</Stat>
                                 </Cb>
                             </Node>
                         </Sub>
@@ -235,10 +235,12 @@
                     <Node>
                         <UI>RadioButton</UI>
                         <Text>first</Text>
+                        <vText>x</vText>
                     </Node>
                     <Node>
                         <UI>RadioButton</UI>
                         <Text>second</Text>
+                        <vText>x</vText>
                     </Node>
                 </Sub>
             </Node>
@@ -253,10 +255,12 @@
                     <Node>
                         <UI>CheckBox</UI>
                         <Text>Select One</Text>
+                        <vText>x</vText>
                     </Node>
                     <Node>
                         <UI>CheckBox</UI>
                         <Text>Or Both</Text>
+                        <vText>y</vText>
                     </Node>
                 </Sub>
             </Node>
@@ -266,6 +270,7 @@
             </Node>
             <Node>
                 <UI>DatePicker</UI>
+                <vText>x</vText>
                 <Height>25</Height>
             </Node>
             <Node>
@@ -276,7 +281,7 @@
                 <UI>TimePicker</UI>
                 <Bg>White</Bg>
                 <Fg>Black</Fg>
-                <vText>SampleTest.currentTime</vText>
+                <vText>x</vText>
             </Node>
             <Node>
                 <UI>Label</UI>
@@ -286,7 +291,7 @@
                 <UI>DateTimePicker</UI>
                 <AutoCloseCalendar>true</AutoCloseCalendar>
                 <FormatString>yyyy-MMM-dd hh:mm:ss tt</FormatString>
-                <vDateText>SampleTest.MyDateText</vDateText>
+                <vText>x</vText>
                 <Watermark>Enter/Select Your DateTime</Watermark>
             </Node>
             <Node>

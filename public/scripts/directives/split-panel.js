@@ -33,7 +33,6 @@
         };
         body = document.getElementsByTagName("body")[0];
         body.addEventListener('click', function(e) {
-          _.kill_event(e);
           return $rootScope.$broadcast('bg_click');
         });
         $(document).keyup(function(e) {
