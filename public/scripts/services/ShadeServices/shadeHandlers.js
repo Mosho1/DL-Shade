@@ -13,6 +13,7 @@ angular.module('ShadeServices', [])
                 _.each(((angular.isArray(node.Sub) ? node.Sub : {Node: node.Sub}) || {Node: {}}).Node, that.handleNodes);
             }
 
+        //control-block handlers
         this.CbHandlers = {
             'SETDLVARIABLE': function (cb) {
                 return cb.Event + ',setDL,' + cb.Stat.toLowerCase();
@@ -103,6 +104,11 @@ angular.module('ShadeServices', [])
                 that.closeElement();
             },
 
+            'TextBox': function (node) {
+                that.openElement('input', '', node, '', 'type="text" placeholder="' + node.Text + '"', '');
+                that.closeElement();
+            },
+
             'TimePicker': function (node) {
                 that.openElement('time-picker', '', node, 'display:inline-block;');
                 that.closeElement();
@@ -175,14 +181,15 @@ angular.module('ShadeServices', [])
 
     })
 
-
+    //translations from shade attributes and styles to HTML
     .service('ShadeStaticHandlers', function() {
 
         this.attrNameHandlers = {
             'vDL': '',
             'vText': '',
             'Name': 'id',
-            'vActiveTabIndex': ''
+            'vActiveTabIndex': '',
+            'CSpan': 'colspan'
 
         };
 
@@ -210,6 +217,7 @@ angular.module('ShadeServices', [])
 
     })
 
+    //responsible for creating a global string of styles for elements to be appended to a <style> tag
     .service('ShadeStyles', function (ShadeStaticHandlers) {
 
         var styleNames = ShadeStaticHandlers.styleNameHandlers,
@@ -255,7 +263,8 @@ angular.module('ShadeServices', [])
 
     })
 
-
+    //creates an object describing an HTML page's element hierarchy.
+    // This is later fed to the template that generates the HTML
     .service('ShadeElements', function (ShadeStyles) {
 
         var classCount = 0,

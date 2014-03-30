@@ -1,21 +1,4 @@
-.mycol {
-    display:table-cell;
-
-
-}
-
-.myrow {
-    display:table-row;
-
-
-
-}
-
-.mygrid {
-    display:table;
-
-
-}
+table,th,td {border: 1px solid black;}
 
 .hide {
     display: none;
@@ -35,4 +18,15 @@
 .dropdown .selectedItems {
    overflow:auto;
 
+}
+
+/*
+.class10::-webkit-input-placeholder { /* WebKit browsers
+    color:    red;
+} TODO: use these for placeholder colors
+*/
+
+.test1 {
+
+    -webkit-column-span:all;
 }

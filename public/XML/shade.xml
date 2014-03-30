@@ -407,4 +407,22 @@
             </Node>
         </Sub>
     </Node>
+    <Node>
+        <UI>Grid</UI>
+        <Span>3,1</Span>
+        <Sub>
+            <Node>
+                <UI>Label</UI>
+                <Height>50</Height>
+            </Node>
+            <Node>
+                <UI>Label</UI>
+                <Text>***DL variable 'x':***</Text>
+            </Node>
+            <Node>
+                <UI>NumEdit</UI>
+                <vText>x</vText>
+            </Node>
+        </Sub>
+    </Node>
 </Shade>

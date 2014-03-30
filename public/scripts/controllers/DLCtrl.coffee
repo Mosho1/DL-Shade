@@ -133,8 +133,13 @@ angular.module('DLApp')
       $rootScope.$broadcast('Run')
     )
 
-  $document.ready(() ->
-    setTimeout $scope.DLrun, 100)
+  $document.ready () ->
+    setTimeout $scope.DLrun, 100
+    setTimeout $scope.DLrun, 300
+    #without doing it twice, the gylphicons on the
+    # timepicker don't show immediately.
+    # this only happens in the 'basics' shade example.
+    # TODO: figure out why.
 
   $scope.$watch 'styles.active', () ->
     if $scope.styles.active of $scope.styles.sheets

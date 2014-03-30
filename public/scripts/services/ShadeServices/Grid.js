@@ -44,20 +44,31 @@ module.exports = function (grid) {
                     }
                     return arr;
                 }());
+            },
+            'CSpan' : function () {
+                //create a map for the nodes according to CSpan elements
+                var cspan, i = 0;
+                while (i < nodes.length) {
+                    cspan = +nodes[i].CSpan || 1;
+                    [].splice.apply(nodes, [i, 0].concat(new Array(cspan).join('0').split('')));
+                    i += cspan;
+                }
             }
         },
 
         makeCol = function (node) {
-            var width = widths.length ? ('width:' + (widths[++colCount - 1] || widths[widths.length - 1]) + 'px; ') : '';
-            that.openElement('div', 'mycol', {}, width);
-            that.nodeHandlers.Node(node);
-            that.closeElement();
+            if (angular.isObject(node)) {
+                var width = widths.length ? ('width:' + (widths[++colCount - 1] || widths[widths.length - 1]) + 'px; ') : '';
+                that.openElement('td', '', {}, width, node.CSpan ? 'colspan="' + node.CSpan +'"' : ''); //TODO: add functionality to separate node attributes from the node object when they don't belong in the element
+                that.nodeHandlers.Node(_.omit(node, 'CSpan'));
+                that.closeElement();
+            }
         },
 
         makeRow = function (nodes) {
             var height = heights.length ? ('height:' + (heights[++rowCount - 1] || heights[heights.length - 1]) + 'px; ') : '';
             colCount = 0;
-            that.openElement('div', 'myrow', {}, height);
+            that.openElement('tr', '', {}, height);
             _.each(nodes, makeCol);
             that.closeElement();
         },
@@ -81,18 +92,20 @@ module.exports = function (grid) {
 
         handleMode = function (mode) {
             //check if parameters for each mode exist in grid (or nodes for 'Xy')
-            if (grid[mode] || (mode === 'Xy' && _.every(nodes, 'Xy'))) {
+            if (grid[mode]
+                    || (mode === 'Xy' && _.every(nodes, 'Xy'))
+                    || (mode === 'CSpan' && _.some(nodes, 'CSpan'))) {
                 modeHandlers[mode]();
             }
         },
 
-        modes = ['ColWidth', 'RowHeight', 'Span', 'Rows', 'Cols', 'Xy'];
+        modes = ['ColWidth', 'RowHeight', 'Span', 'Rows', 'Cols', 'Xy', 'CSpan'];
 
     modes.forEach(function (mode) {
         handleMode(mode);
     });
     if (span[1] > 0) {
-        that.openElement('div', 'mygrid', grid, '');
+        that.openElement('table', '', grid, '');
         makeGrid[flow]();
         that.closeElement();
     }

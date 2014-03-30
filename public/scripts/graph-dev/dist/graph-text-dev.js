@@ -3049,8 +3049,6 @@ exports.ScopeManager = ScopeManager;
 
 }).call(this);
 
-//# sourceMappingURL=tools.map
-
 },{}],21:[function(require,module,exports){
 var parser = require('./calculator').parser,
     CalcHandlers = require('./calc-handlers');

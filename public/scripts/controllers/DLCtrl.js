@@ -195,7 +195,8 @@
       });
     };
     $document.ready(function() {
-      return setTimeout($scope.DLrun, 100);
+      setTimeout($scope.DLrun, 100);
+      return setTimeout($scope.DLrun, 300);
     });
     $scope.$watch('styles.active', function() {
       var styles;

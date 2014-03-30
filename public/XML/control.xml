@@ -1,6 +1,8 @@
 ﻿<Shade>
     <Node>
         <UI>TimePicker</UI>
+        <Bg>White</Bg>
+        <Fg>Black</Fg>
         <vText>x</vText>
     </Node>
     <Node><UI>NumEdit</UI><vText>x</vText></Node>
