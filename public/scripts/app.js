@@ -44,4 +44,20 @@
     });
   };
 
+  _.toDash = function(str) {
+    return str.replace(/([A-Z])/g, function($1) {
+      return "-" + $1.toLowerCase();
+    });
+  };
+
+  _.mapKeys = function(object, callback, thisArg) {
+    var result;
+    result = {};
+    callback = _.createCallback(callback, thisArg, 3);
+    _.forOwn(object, function(value, key, object) {
+      result[callback(value, key, object)] = value;
+    });
+    return result;
+  };
+
 }).call(this);

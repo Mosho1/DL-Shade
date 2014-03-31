@@ -1,4 +1,4 @@
-module.exports = function (node, multiSelect) {
+module.exports = function (node, wat, multiSelect) { //TODO: wat
 
     var items = node.Items.replace(/\s/g, '').split(/;+/),
         options = {},

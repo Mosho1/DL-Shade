@@ -360,6 +360,7 @@
                 <Maximum>100</Maximum>
                 <Minimum>20</Minimum>
                 <DefaultValue>25.23</DefaultValue>
+                <vText>x</vText>
             </Node>
             <Node>
                 <UI>Label</UI>

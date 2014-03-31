@@ -190,11 +190,15 @@ angular.module('ShadeServices', [])
     .service('ShadeStaticHandlers', function() {
 
         this.attrNameHandlers = {
-            'vDL': '',
-            'vText': '',
-            'Name': 'id',
-            'vActiveTabIndex': '',
-            'CSpan': 'colspan'
+            vDL: '',
+            vText: '',
+            Name: 'id',
+            vActiveTabIndex: '',
+            CSpan: 'colspan',
+            DefaultValue: 'dvalue',
+            Maximum: 'max',
+            Minimum: 'min',
+            FormatString: 'format'
 
         };
 
@@ -203,16 +207,16 @@ angular.module('ShadeServices', [])
         };
 
         this.styleNameHandlers = {
-            'Width': '',
-            'Height': '',
-            'Fg': 'color',
-            'Bg': 'background-color'
+            Width: '',
+            Height: '',
+            Fg: 'color',
+            Bg: 'background-color'
 
         };
 
         this.styleValueHandlers = {
-            'Width': function (width) { return width + "px"; },
-            'Height': function (height) { return height + "px"; }
+            Width: function (width) { return width + "px"; },
+            Height: function (height) { return height + "px"; }
         };
 
 

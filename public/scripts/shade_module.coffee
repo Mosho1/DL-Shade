@@ -20,6 +20,32 @@
 
 angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 'ui.bootstrap'])
 
+.service 'format', ->
+  (input, str) ->
+    output = [
+      []
+      []
+    ]
+    input = input.toString().split(".").map((elm) -> elm.split "")
+    appendLeft = str.slice(0, str.indexOf("#"))
+    str = str.replace(/\s/g,'').slice(str.indexOf("#")).split(".")
+    str[1] = str[1].replace(/,/g, "")
+    str = str.map((elm) -> elm.split "")
+
+    j = -1
+    i = 0
+    while i < str[1].length
+      output[1].push ((if str[1][i] is "#" then input[1][++j] or "" else str[1][i] or ""))
+      i++
+
+    j = input[0].length
+    i = str[0].length - 1
+    while i >= 0
+      output[0].unshift ((if str[0][i] is "#" then input[0][--j] or "" else str[0][i] or ""))
+      i--
+    appendLeft + output[0].join("") + "." + output[1].join("")
+
+
 .directive 'btn', ($compile, $timeout, $templateCache) ->
     restrict: 'C'
     replace: true
@@ -91,23 +117,69 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 
       pre: (scope, elm, attr) ->
         scope.vText = attr.vText
 
-  .directive 'numUpDown', () ->
+  #TODO: add mouse hold control
+  .directive 'numUpDown', ($timeout, format) ->
     restrict: 'E'
+    scope: false
     require: '?ngModel'
     compile: (tElm, tAttr) ->
-      upButton = angular.element('<button class="btn btn-default" ng-click="increase()" />').append '<span class="glyphicon glyphicon-chevron-up" />'
-      downButton = angular.element('<button class="btn btn-default" ng-click="decrease()" />').append '<span class="glyphicon glyphicon-chevron-down" />'
+      upButton = angular.element('<button class="btn btn-default" ng-mousedown="increase()" ng-mouseup="stop()" />').append '<span class="glyphicon glyphicon-chevron-up" />'
+      downButton = angular.element('<button class="btn btn-default" ng-mousedown="decrease()" ng-mouseup="stop()"  />').append '<span class="glyphicon glyphicon-chevron-down" />'
       upDownControl = angular.element('<div class="btn-group-vertical" />').append upButton, downButton
-      input = angular.element '<input style="width:90%" class="form-control" type="text" v-text="' + tAttr.vText + '" />'
+      inputAttrs = _.pick tAttr, (val, key) ->
+        ['vText', 'dvalue'].indexOf(key) > -1
+      inputAttrs = _.mapKeys inputAttrs, (val, key) ->
+        key.toDash()
+      input = angular.element('<input style="width:90%" class="form-control" type="text" />').attr inputAttrs
       numUpDownElement = angular.element('<div class="input-group" />').append input, upDownControl
       tElm.append(numUpDownElement)
       (scope, elm, attr, ngModel) ->
+        test = null
+        step = 1
+        minVal = +attr.min
+        maxVal = +attr.max
+        formatStr = attr.format
+        timeout = 300
+        mtimeout = 30
+        cto = null
+
+        if angular.isDefined(ngModel)
+          ngModel
+          ngModel.$formatters.push (value) ->
+            if isNaN(value)
+              return ''
+            else
+              test = value = format(value, formatStr)
+              ngModel.$render()
+          ngModel.$render = () ->
+            console.log(test)
+            elm.children().find('input').addClass(test)
+
+
+
+
+
+
+        updateModel = (value) ->
+          if scope.vars and angular.isNumber value
+            scope.vars[scope.vText].model = (if value > maxVal then maxVal else (if value < minVal then minVal else value))
+
+        $timeout () ->
+            updateModel +attr.dvalue
+
         scope.increase = () ->
-          ngModel.$modelValue = 2
+          timeout -= 30  if timeout > mtimeout
+          $timeout () -> updateModel scope.vars[scope.vText].model + step
+          cto = setTimeout(scope.increase, timeout)
 
         scope.decrease = () ->
-          ngModel.$modelValue--
+          timeout -= 30  if timeout > mtimeout
+          $timeout () -> updateModel scope.vars[scope.vText].model - step
+          cto = setTimeout(scope.decrease, timeout)
 
+        scope.stop = () ->
+          clearTimeout cto
+          timeout = 300
 
 
   .directive 'datePicker', () ->
@@ -168,7 +240,7 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 
         scope.gridOptions =
           data: 'myData'
           selectedItems: scope.selected,
-          multiSelect: !!attr.multiSelect
+          multiSelect: attr.multiSelect is 'true'
           plugins: [new ngGridFlexibleHeightPlugin({maxHeight:300})]
           enableSorting: false
           rowHeight: 27

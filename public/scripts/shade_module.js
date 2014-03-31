@@ -16,7 +16,34 @@
  */
 
 (function() {
-  angular.module('ShadeApp', ['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 'ui.bootstrap']).directive('btn', function($compile, $timeout, $templateCache) {
+  angular.module('ShadeApp', ['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 'ui.bootstrap']).service('format', function() {
+    return function(input, str) {
+      var appendLeft, i, j, output;
+      output = [[], []];
+      input = input.toString().split(".").map(function(elm) {
+        return elm.split("");
+      });
+      appendLeft = str.slice(0, str.indexOf("#"));
+      str = str.replace(/\s/g, '').slice(str.indexOf("#")).split(".");
+      str[1] = str[1].replace(/,/g, "");
+      str = str.map(function(elm) {
+        return elm.split("");
+      });
+      j = -1;
+      i = 0;
+      while (i < str[1].length) {
+        output[1].push((str[1][i] === "#" ? input[1][++j] || "" : str[1][i] || ""));
+        i++;
+      }
+      j = input[0].length;
+      i = str[0].length - 1;
+      while (i >= 0) {
+        output[0].unshift((str[0][i] === "#" ? input[0][--j] || "" : str[0][i] || ""));
+        i--;
+      }
+      return appendLeft + output[0].join("") + "." + output[1].join("");
+    };
+  }).directive('btn', function($compile, $timeout, $templateCache) {
     return {
       restrict: 'C',
       replace: true,
@@ -111,24 +138,79 @@
         }
       }
     };
-  }).directive('numUpDown', function() {
+  }).directive('numUpDown', function($timeout, format) {
     return {
       restrict: 'E',
+      scope: false,
       require: '?ngModel',
       compile: function(tElm, tAttr) {
-        var downButton, input, numUpDownElement, upButton, upDownControl;
-        upButton = angular.element('<button class="btn btn-default" ng-click="increase()" />').append('<span class="glyphicon glyphicon-chevron-up" />');
-        downButton = angular.element('<button class="btn btn-default" ng-click="decrease()" />').append('<span class="glyphicon glyphicon-chevron-down" />');
+        var downButton, input, inputAttrs, numUpDownElement, upButton, upDownControl;
+        upButton = angular.element('<button class="btn btn-default" ng-mousedown="increase()" ng-mouseup="stop()" />').append('<span class="glyphicon glyphicon-chevron-up" />');
+        downButton = angular.element('<button class="btn btn-default" ng-mousedown="decrease()" ng-mouseup="stop()"  />').append('<span class="glyphicon glyphicon-chevron-down" />');
         upDownControl = angular.element('<div class="btn-group-vertical" />').append(upButton, downButton);
-        input = angular.element('<input style="width:90%" class="form-control" type="text" v-text="' + tAttr.vText + '" />');
+        inputAttrs = _.pick(tAttr, function(val, key) {
+          return ['vText', 'dvalue'].indexOf(key) > -1;
+        });
+        inputAttrs = _.mapKeys(inputAttrs, function(val, key) {
+          return key.toDash();
+        });
+        input = angular.element('<input style="width:90%" class="form-control" type="text" />').attr(inputAttrs);
         numUpDownElement = angular.element('<div class="input-group" />').append(input, upDownControl);
         tElm.append(numUpDownElement);
         return function(scope, elm, attr, ngModel) {
-          scope.increase = function() {
-            return ngModel.$modelValue = 2;
+          var cto, formatStr, maxVal, minVal, mtimeout, step, test, timeout, updateModel;
+          test = null;
+          step = 1;
+          minVal = +attr.min;
+          maxVal = +attr.max;
+          formatStr = attr.format;
+          timeout = 300;
+          mtimeout = 30;
+          cto = null;
+          if (angular.isDefined(ngModel)) {
+            ngModel;
+            ngModel.$formatters.push(function(value) {
+              if (isNaN(value)) {
+                return '';
+              } else {
+                test = value = format(value, formatStr);
+                return ngModel.$render();
+              }
+            });
+            ngModel.$render = function() {
+              console.log(test);
+              return elm.children().find('input').addClass(test);
+            };
+          }
+          updateModel = function(value) {
+            if (scope.vars && angular.isNumber(value)) {
+              return scope.vars[scope.vText].model = (value > maxVal ? maxVal : (value < minVal ? minVal : value));
+            }
           };
-          return scope.decrease = function() {
-            return ngModel.$modelValue--;
+          $timeout(function() {
+            return updateModel(+attr.dvalue);
+          });
+          scope.increase = function() {
+            if (timeout > mtimeout) {
+              timeout -= 30;
+            }
+            $timeout(function() {
+              return updateModel(scope.vars[scope.vText].model + step);
+            });
+            return cto = setTimeout(scope.increase, timeout);
+          };
+          scope.decrease = function() {
+            if (timeout > mtimeout) {
+              timeout -= 30;
+            }
+            $timeout(function() {
+              return updateModel(scope.vars[scope.vText].model - step);
+            });
+            return cto = setTimeout(scope.decrease, timeout);
+          };
+          return scope.stop = function() {
+            clearTimeout(cto);
+            return timeout = 300;
           };
         };
       }
@@ -200,7 +282,7 @@
           scope.gridOptions = {
             data: 'myData',
             selectedItems: scope.selected,
-            multiSelect: !!attr.multiSelect,
+            multiSelect: attr.multiSelect === 'true',
             plugins: [
               new ngGridFlexibleHeightPlugin({
                 maxHeight: 300

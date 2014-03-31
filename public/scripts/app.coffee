@@ -32,3 +32,16 @@ _.position = (elm) ->
 String::toDash = ->
   @replace /([A-Z])/g, ($1) ->
     "-" + $1.toLowerCase()
+
+_.toDash = (str) ->
+  str.replace /([A-Z])/g, ($1) ->
+    "-" + $1.toLowerCase()
+
+_.mapKeys = (object, callback, thisArg) ->
+  result = {}
+  callback = _.createCallback(callback, thisArg, 3)
+  _.forOwn object, (value, key, object) ->
+    result[callback(value, key, object)] = value
+    return
+
+  result
