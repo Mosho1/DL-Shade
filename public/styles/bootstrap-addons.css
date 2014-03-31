@@ -1,0 +1,33 @@
+
+.input-group .btn-group-vertical .btn {
+    height: 17.5px !important;
+    padding: 0px 4px !important;
+    font-size: 10px !important;
+    line-height: 1 !important;
+    border-radius: 0px !important;
+    border-left: none !important;
+}
+
+.input-group-lg .btn-group-vertical .btn {
+    height: 23px !important;
+    padding: 3px 5px !important;
+    font-size: 12px !important;
+}
+
+.input-group-sm .btn-group-vertical .btn {
+    height: 15.5px !important;
+    padding: 0px 3px !important;
+    font-size: 8px !important;
+}
+
+.input-group .btn-group-vertical .btn .glyphicon-chevron-up {
+    margin-left:0.5px;
+}
+
+.input-group-lg .btn-group-vertical .btn .glyphicon-chevron-up {
+    margin-left:1px;
+}
+
+.input-group-sm .btn-group-vertical .btn .glyphicon-chevron-up {
+    margin-left:0.5px;
+}

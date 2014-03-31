@@ -111,6 +111,28 @@
         }
       }
     };
+  }).directive('numUpDown', function() {
+    return {
+      restrict: 'E',
+      require: '?ngModel',
+      compile: function(tElm, tAttr) {
+        var downButton, input, numUpDownElement, upButton, upDownControl;
+        upButton = angular.element('<button class="btn btn-default" ng-click="increase()" />').append('<span class="glyphicon glyphicon-chevron-up" />');
+        downButton = angular.element('<button class="btn btn-default" ng-click="decrease()" />').append('<span class="glyphicon glyphicon-chevron-down" />');
+        upDownControl = angular.element('<div class="btn-group-vertical" />').append(upButton, downButton);
+        input = angular.element('<input style="width:90%" class="form-control" type="text" v-text="' + tAttr.vText + '" />');
+        numUpDownElement = angular.element('<div class="input-group" />').append(input, upDownControl);
+        tElm.append(numUpDownElement);
+        return function(scope, elm, attr, ngModel) {
+          scope.increase = function() {
+            return ngModel.$modelValue = 2;
+          };
+          return scope.decrease = function() {
+            return ngModel.$modelValue--;
+          };
+        };
+      }
+    };
   }).directive('datePicker', function() {
     return {
       restrict: 'AC',

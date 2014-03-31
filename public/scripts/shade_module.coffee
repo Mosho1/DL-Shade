@@ -91,6 +91,25 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 
       pre: (scope, elm, attr) ->
         scope.vText = attr.vText
 
+  .directive 'numUpDown', () ->
+    restrict: 'E'
+    require: '?ngModel'
+    compile: (tElm, tAttr) ->
+      upButton = angular.element('<button class="btn btn-default" ng-click="increase()" />').append '<span class="glyphicon glyphicon-chevron-up" />'
+      downButton = angular.element('<button class="btn btn-default" ng-click="decrease()" />').append '<span class="glyphicon glyphicon-chevron-down" />'
+      upDownControl = angular.element('<div class="btn-group-vertical" />').append upButton, downButton
+      input = angular.element '<input style="width:90%" class="form-control" type="text" v-text="' + tAttr.vText + '" />'
+      numUpDownElement = angular.element('<div class="input-group" />').append input, upDownControl
+      tElm.append(numUpDownElement)
+      (scope, elm, attr, ngModel) ->
+        scope.increase = () ->
+          ngModel.$modelValue = 2
+
+        scope.decrease = () ->
+          ngModel.$modelValue--
+
+
+
   .directive 'datePicker', () ->
     restrict: 'AC'
     scope: true

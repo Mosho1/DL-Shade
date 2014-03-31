@@ -1,8 +1,10 @@
 ﻿<Shade>
     <Node>
-        <UI>TimePicker</UI>
-        <Bg>White</Bg>
-        <Fg>Black</Fg>
+        <UI>NumericUpDown</UI>
+        <FormatString>$#, ###.00</FormatString>
+        <Maximum>100</Maximum>
+        <Minimum>20</Minimum>
+        <DefaultValue>25.23</DefaultValue>
         <vText>x</vText>
     </Node>
     <Node><UI>NumEdit</UI><vText>x</vText></Node>

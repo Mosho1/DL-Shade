@@ -42,79 +42,84 @@ angular.module('ShadeServices', [])
             },
 
             'DatePicker': function (node) {
-                that.openElement('input', '', node, '', 'type="text" datepicker-popup');
+                that.openElement('input', '', node, '', 'type="text" datepicker-popup close-on-date-selection="false"');
                 that.closeElement();
 
             },
 
-            'DropDown': require('./DropDown'),
+            DropDown: require('./DropDown'),
 
-            'Grid': require('./Grid'),
+            Grid: require('./Grid'),
 
-            'Label': function (node) {
+            Label: function (node) {
                 that.openElement('div', '', node);
                 that.closeElement();
             },
 
-            'ListBox': function (node) {
+            ListBox: function (node) {
                 that.openElement('select', '', node, '', 'multiple');
                 handleSub(node);
                 that.closeElement();
             },
 
-            'ListItem' : function (node) {
+            ListItem : function (node) {
                 that.openElement('option', '', node);
                 that.closeElement();
             },
 
-            'MultiSelComboBox': _.partialRight(require('./DropDown'), true),
+            MultiSelComboBox: _.partialRight(require('./DropDown'), true),
 
-            'NumEdit': function (node) {
+            NumEdit: function (node) {
                 that.openElement('input', '', node, '', 'type="text"');
                 that.closeElement();
             },
 
-            'Popup': function (node) {
+            NumericUpDown: function (node) {
+                that.openElement('num-up-down', '', node);
+                that.closeElement();
+            },
+
+            Popup: function (node) {
                 that.openElement('popup', '', node, 'display:none;');
                 handleSub(node);
                 that.closeElement();
             },
 
-            'RadioButton': function (node) {
+            RadioButton: function (node) {
                 var cur = that.getCurrent(),
                     value = node.Value ? '' : ' value="' + node.Text +'"';
                 that.openElement('input', '', node, '', 'type="radio"' + value);
                 that.closeElement();
             },
 
-            'TabSet': function (node) {
+            TabSet: function (node) {
                 that.openElement('tabset', '', node);
                 handleSub(node);
                 that.closeElement();
             },
 
-            'Tab': function (node) {
+            Tab: function (node) {
                 that.openElement('tab', '', node, '', 'heading="' + node.Text + '"', '');
                 handleSub(node);
                 that.closeElement();
             },
 
-            'TestDL': function (node) {
+            TestDL: function (node) {
                 that.openElement('test-dl', '', node);
                 that.closeElement();
             },
 
-            'TextBox': function (node) {
+            TextBox: function (node) {
                 that.openElement('input', '', node, '', 'type="text" placeholder="' + node.Text + '"', '');
                 that.closeElement();
             },
 
-            'TimePicker': function (node) {
+            TimePicker: function (node) {
                 that.openElement('time-picker', '', node, 'display:inline-block;');
                 that.closeElement();
             },
 
-            'Unknown': function (node) {
+            Unknown: function (node) {
                 console.log("can't find control - " + node.UI)
             }
 

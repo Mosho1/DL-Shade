@@ -3447,6 +3447,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .input-group-btn:last-child > .btn-group {
   margin-left: -1px;
 }
+
 .nav {
   padding-left: 0;
   margin-bottom: 0;
