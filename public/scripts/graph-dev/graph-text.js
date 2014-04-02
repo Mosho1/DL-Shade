@@ -5,10 +5,9 @@ var compiler = require('./compiler'),
 
 //Graph class. Holds the variable registry, currently has no distinctive methods and merely provides an interface for the registry.
 
-var Graph = function(data) {
+var Graph = function (data) {
     this.initialise.apply(this, arguments);
-    this.variables = (typeof data === 'string') ? compiler.compile(data) : {};
-    this.variables.sortDependencies();
+    this.variables = (typeof data === 'string') ? compiler.compile(data).sortDependencies() : {};
 
 };
 Graph.prototype = {
@@ -17,8 +16,8 @@ Graph.prototype = {
         _.bindAll(this);
     },
 
-    set: function(name,value) {
-        this.variables.set(name,value);
+    set: function (name, value) {
+        this.variables.set(name, value);
     },
 
     unset: function (name) {
@@ -38,7 +37,8 @@ Graph.prototype = {
 
 };
 
-global.DL = {};
+//exposed API
+global.DL = global.DL  || {};
 global.DL.createGraph = function (data) { return new Graph(data); };
 global.DL.tokens = require('./lexer').tokenise;
 global.DL.builtInFunctions = Object.keys(require('./functions')).map(function (elm) { return "f." + elm; });

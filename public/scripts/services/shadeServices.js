@@ -1,284 +1,117 @@
-angular.module('ShadeApp')
+format = function(){return '12.34'};
 
-    .value('ShadeDictionary', {
-        //dictionary for attribute names
-        'attrNameHandlers' : {
-            'vDL': '',
-            'vText': 'vtext',
-        },
+angular.module('app', [])
 
-        //dictionary for attribute values
-        'attrValueHandlers' : {
-
-        },
-
-        //dictionary for style names
-        'styleNameHandlers' : {
-            'width': '',
-            'height': ''
-
-        },
-
-        //dictionary for style values
-        'styleValueHandlers' : {
-            'width': function (width) { return width + "px"; },
-            'height': function (height) { return height + "px"; }
-        }
-
-    })
-
-    .service('ShadeParser', function (ShadeDictionary) {
-        var styleNames = ShadeDictionary.styleNameHandlers,
-            styleValues = ShadeDictionary.styleValueHandlers;
-
-        this.parse = function (shd) {
-
-            var gstyles = "", //styles will be appended to this variable as they are created, to be later appended to the HTML ouput of this template
-                classCount = 0,
-                elements = [],
-                currentElement = {'nodes': elements},
-
-                addStyles = function (className, styles) {
-                    if (className && styles) {
-                        gstyles += "." + className + " { " + styles + "}\n";
-                    }
-                },
-
-                handleStyles = function (styles, value, style) {
-                    var stval, type;
-                    if (value && styleNames.hasOwnProperty(style)) {
-                        styles += (styleNames[style] || style) + ': ';
-                        type = typeof (stval = (styleValues[value] || styleValues[style]));
-                        if (type === 'undefined') {
-                            styles += value;
-                        } else if (type === 'function') {
-                            styles += stval(value);
-                        } else {
-                            styles += stval;
-                        }
-                        styles += " !important;";
-                    }
-
-                    return styles;
-
-
-
-                },
-
-            //wrappers for creating HTML elements. Creates enumerated CSS classes for each element with style(s).
-                openElement = function (elmName, className, node, customStyles, customAttr, content) {
-
-                    var nativeStyles = _.reduce(node, handleStyles, '');
-                    var nativeClass = nativeStyles || customStyles ? "class" + classCount : null;
-                    var cur = currentElement.nodes.push({
-                        'elmName': elmName,
-                        'nativeClass': nativeClass,
-                        'className' : className,
-                        'node': node,
-                        'customStyles': customStyles,
-                        'customAttr': customAttr,
-                        'content': content,
-                        'nodes': [],
-                        'parent': currentElement
-
-                    });
-                    if (customStyles || nativeStyles) {
-                        addStyles(nativeClass, (customStyles || '') + (nativeStyles || ''));
-                    }
-
-                    currentElement = currentElement.nodes[cur - 1];
-
-                    classCount++;
-
-                },
-
-                closeElement = function () {
-                    currentElement = currentElement.parent;
-                },
-
-                UIHandlers = {
-                    'Grid': function (grid) {
-                        var span = [],
-                            widths = [],
-                            heights = [],
-                            colCount = 0,
-                            rowCount = 0,
-                            nodes = grid.Sub.Node,
-                            flow = grid.Flow || "LToR",
-
-                            modeHandlers = {
-                                'Span': function () {
-                                    span = grid.Span.split(',');
-                                    span = span.map(Math.floor);
-                                },
-                                'Rows': function () {
-                                    span = [grid.Rows, nodes.length / grid.Rows];
-                                    flow = 'TToB';
-                                },
-                                'Cols': function () {
-                                    span = [nodes.length / grid.Cols, grid.Cols];
-                                },
-                                'ColWidth': function () {
-                                    widths = grid.ColWidth.match(/[^ ,]+/g);
-                                    span[1] = Math.max(span[1], widths.length);
-                                },
-                                'RowHeight': function () {
-                                    heights = grid.RowHeight.match(/[^ ,]+/g);
-                                    span[0] = Math.max(span[0], heights.length);
-                                },
-                                'Xy' : function () {
-                                    //create a map for the nodes according to Xy elements
-                                    var gridMap = _.map(nodes, function (node, index) {
-                                        return [node.Xy.match(/[^ ,]+/g).reduce(function (prev, cur) {
-                                            return +prev * span[1] + +cur;
-                                        })].concat(index);
-                                    }).sort(function (a, b) { return a[0] - b[0]; });
-
-                                    nodes = (function () {
-                                        var arr = [], i;
-                                        for (i = 0; i < span[0] * span[1]; i++) {
-                                            arr.push((gridMap[0] || [-1])[0] === i ? nodes[gridMap.shift()[1]] : {'UI': 'Label'});
-                                        }
-                                        return arr;
-                                    }());
-                                }
-                            },
-
-                            makeCol = function (node) {
-                                openElement('div', 'span', {}, 'height:100%; width:' + (widths[++colCount - 1] || widths[widths.length - 1]) + 'px; ');
-                                UIHandlers[node.UI](node);
-                                closeElement();
-                            },
-
-                            makeRow = function (nodes) {
-                                colCount = 0;
-                                openElement('div', 'row', {}, 'width:100%; height:' + (heights[++rowCount - 1] || heights[heights.length - 1]) + 'px; ');
-                                _.each(nodes, makeCol);
-                                closeElement();
-                            },
-
-                        // span[1] is number of cols. For each type of flow we have a loop to create appropriate rows.
-                            makeGrid = {
-                                'TToB' : function () {
-                                    var i, filterFunction = function (elm, ind) {return ind % span[1] === i; };
-
-                                    for (i = 0; i < span[1]; i++) {
-                                        makeRow(nodes.filter(filterFunction));
-                                    }
-                                },
-                                'LToR' : function () {
-                                    var i;
-                                    for (i = 0; i < nodes.length; i += span[1]) {
-                                        makeRow(nodes.slice(i, i + span[1]));
-                                    }
-                                }
-                            },
-
-                            handleMode = function (mode) {
-                                //check if parameters for each mode exist in grid (or nodes for 'Xy')
-                                if (grid[mode] || (mode === 'Xy' && _.every(nodes, 'Xy'))) {
-                                    modeHandlers[mode]();
-                                }
-                            },
-
-                            modes = ['Span', 'Rows', 'Cols', 'ColWidth', 'RowHeight',  'Xy'];
-
-                        modes.forEach(function (mode) {
-                            handleMode(mode);
-                        });
-
-                        makeGrid[flow]();
-
-                    },
-
-                    'TestDL': function (node) {
-                        openElement('test-dl', '', node, '');
-                        closeElement();
-                    },
-
-                    'Label': function (node) {
-                        openElement('div', '', node, '');
-                        closeElement();
-                    },
-
-                    'NumEdit': function (node) {
-                        openElement('num-edit', '', node, '');
-                        closeElement();
-                    },
-
-                    DropDown: function (node) {
-
-                        var items = node.Items.replace(/\s/g, '').split(/;+/),
-                            options = {};
-                        items = [items[0], items.slice(1).join(',')];
-
-                        if (node.Cols && node.Cols.Col) {
-                            node.Cols.Col.forEach(function (col) {
-                                options[col.Name] = _.transform(_.omit(col, 'Name'), function (str, val, opt) {
-                                    str.push(opt.charAt(0) + '=' + val);
-                                }, []);
-                            });
-
-                            options = (function (items, opts) {
-                                return items.map(function (item) {
-                                    return opts[item].join('&');
-                                }).join('|');
-                            }(items[0].split('|'), options));
-                        }
-
-                        openElement('drop-down', '', node, '', "header=" + items[0] + " items=" + items[1] + " options=" + options);
-                        closeElement();
-
-                    }
-                },
-
-                nodeHandlers = {
-                    'Styles': function (styles) {
-                        //parses styles. A bit messy, but gets the job done concisely and shouldn't be too hard to follow with the comments.
-                        var parsedStyles = styles.replace(/[^!-~]/g, "") //remove unneeded characters
-                            .split('}') //split lines into array
-                            .map(function (elm) {
-                                return elm.split('{');
-                            }) //split each line into an array: [name,styles]
-                            .map(function (elm) {
-                                if (elm[1]) { //if element has styles
-                                    return [elm[0], (elm[1].split(';')//split styles into an array: ["styleName:styleValue" x <number of styles>]
-                                        .map(function (elm) {
-                                            return elm.split(':');
-                                        }) //split each "styleName:styleValue" pair into an array [styleName,styleValue]
-                                        .reduce(function (obj, val, ind) { //reduce the style array into an object where each style is a field.
-                                            obj[val[0]] = val[1]; // obj = {styleName: styleValue}
-                                            return obj;
-                                        }, {})
-                                        )];
-                                }
-                            })
-                            .filter(function (elm) {return elm; }) //remove garbage (undefined or otherwise falsey elements)
-                            .forEach(function (elm) { //for each of the parsed and organized classes
-                                var styles = _.reduce(elm[1], handleStyles, ''); //parse the styles using our handlers
-                                addStyles(elm[0], styles); //add styles to string to be added to the HTML output
-                            });
-                    },
-
-                    'Node': function (node) {
-                        UIHandlers[node.UI](node);
-                    },
-                    'Unknown': function (node) {
-                        console.log("can't recognize tag <" + node +">.");
-                    }
-                },
-
-                handleNodes = function (node, index) {
-                    (nodeHandlers[index] || nodeHandlers['Unknown'])(node);
-                };
-
-            if (shd) {
-                _.each(shd.Shade, handleNodes);
-                return {'styles': gstyles, 'elements': elements};
+    .directive('vText', function() {
+        return {
+            restrict: 'EAC',
+            replace: true,
+            scope: true,
+            template: function(elm) {
+                return '<div />';
+            },
+            link: {
+                pre: function(scope, elm, attr) {
+                    return scope.vText = attr.vText;
+                }
             }
-
-        }
-
-        return this;
-
+        };
     })
+
+    .directive('numUpDown', function($timeout) {
+        return {
+            restrict: 'E',
+            scope: false,
+            require: '?ngModel',
+            compile: function(tElm, tAttr) {
+                var downButton, input, inputAttrs, numUpDownElement, upButton, upDownControl;
+                upButton = angular.element('<button class="btn btn-default" ng-mousedown="increase()" ng-mouseup="stop()" />').append('<span class="glyphicon glyphicon-chevron-up" />');
+                downButton = angular.element('<button class="btn btn-default" ng-mousedown="decrease()" ng-mouseup="stop()"  />').append('<span class="glyphicon glyphicon-chevron-down" />');
+                upDownControl = angular.element('<div class="btn-group-vertical" />').append(upButton, downButton);
+                inputAttrs = _.pick(tAttr, function(val, key) {
+                    return ['vText', 'dvalue'].indexOf(key) > -1;
+                });
+                inputAttrs = _.mapKeys(inputAttrs, function(val, key) {
+                    return key.toDash();
+                });
+                input = angular.element('<input style="width:90%" class="form-control" type="text" />').attr(inputAttrs);
+                numUpDownElement = angular.element('<div class="input-group" />').append(input, upDownControl);
+                tElm.append(numUpDownElement);
+                return function(scope, elm, attr, ngModel) {
+                    var cto, formatStr, maxVal, minVal, mtimeout, step, test, timeout, updateModel;
+                    test = null;
+                    step = 1;
+                    minVal = +attr.min;
+                    maxVal = +attr.max;
+                    formatStr = attr.format;
+                    timeout = 300;
+                    mtimeout = 30;
+                    cto = null;
+                    if (angular.isDefined(ngModel)) {
+                        ngModel;
+                        ngModel.$formatters.push(function(value) {
+                            if (isNaN(value)) {
+                                return '';
+                            } else {
+                                test = value = format(value, formatStr);
+                                return ngModel.$render();
+                            }
+                        });
+                        ngModel.$render = function() {
+                            console.log(test);
+                            return elm.children().find('input').addClass(test);
+                        };
+                    }
+                    updateModel = function(value) {
+                        if (scope.vars && angular.isNumber(value)) {
+                            return scope.vars[scope.vText].model = (value > maxVal ? maxVal : (value < minVal ? minVal : value));
+                        }
+                    };
+                    $timeout(function() {
+                        return updateModel(+attr.dvalue);
+                    });
+                    scope.increase = function() {
+                        if (timeout > mtimeout) {
+                            timeout -= 30;
+                        }
+                        $timeout(function() {
+                            return updateModel(scope.vars[scope.vText].model + step);
+                        });
+                        return cto = setTimeout(scope.increase, timeout);
+                    };
+                    scope.decrease = function() {
+                        if (timeout > mtimeout) {
+                            timeout -= 30;
+                        }
+                        $timeout(function() {
+                            return updateModel(scope.vars[scope.vText].model - step);
+                        });
+                        return cto = setTimeout(scope.decrease, timeout);
+                    };
+                    return scope.stop = function() {
+                        clearTimeout(cto);
+                        return timeout = 300;
+                    };
+                };
+            }
+        };
+    });
+
+
+String.prototype.toDash = function() {
+    return this.replace(/([A-Z])/g, function($1) {
+        return "-" + $1.toLowerCase();
+    });
+};
+
+_ = _ || {};
+_.mapKeys = function(object, callback, thisArg) {
+    var result;
+    result = {};
+    callback = _.createCallback(callback, thisArg, 3);
+    _.forOwn(object, function(value, key, object) {
+        result[callback(value, key, object)] = value;
+    });
+    return result;
+};
+

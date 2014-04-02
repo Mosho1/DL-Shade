@@ -6,7 +6,7 @@ _.observe = require('./tools').observe;
 
 //variable registry which holds each variable in an entry
 
-var VariableRegistry = function() {
+var VariableRegistry = function () {
     this.initialise.apply(this, arguments);
     this.variables = {};
 };
@@ -66,6 +66,7 @@ VariableRegistry.prototype = {
         this.edges = this.getEdges();
         //topological sort
 		this.sorted = tsort(this.edges);
+        return this;
 	},
 
 

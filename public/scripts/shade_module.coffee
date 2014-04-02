@@ -21,29 +21,38 @@
 angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 'ui.bootstrap'])
 
 .service 'format', ->
+
+  insertions =
+    #: ''
+    0: '0'
+
   (input, str) ->
-    output = [
-      []
-      []
-    ]
-    input = input.toString().split(".").map((elm) -> elm.split "")
-    appendLeft = str.slice(0, str.indexOf("#"))
-    str = str.replace(/\s/g,'').slice(str.indexOf("#")).split(".")
-    str[1] = str[1].replace(/,/g, "")
-    str = str.map((elm) -> elm.split "")
+    if angular.isNumber(input)
+      output = [
+        []
+        []
+      ]
+      input = input.toString().split(".").map((elm) -> elm.split "")
+      DelimOpt = /#+,+#+.*\./.test(str)
+      str = str.replace(/\s|,/g,'')
+      appendIndex = Math.min(str.indexOf("#"),str.indexOf("0"))
+      appendLeft = str.slice(0, appendIndex)
+      str = str.slice(appendIndex).split(".").map((elm) -> elm.split "")
 
-    j = -1
-    i = 0
-    while i < str[1].length
-      output[1].push ((if str[1][i] is "#" then input[1][++j] or "" else str[1][i] or ""))
-      i++
+      j = -1
+      i = 0
+      while str[1] and input[1] and i < str[1].length
+        output[1].push ((if /[#0]/.test(str[1][i]) then input[1][++j] or insertions[str[1][i]] else str[1][i] or ""))
+        i++
 
-    j = input[0].length
-    i = str[0].length - 1
-    while i >= 0
-      output[0].unshift ((if str[0][i] is "#" then input[0][--j] or "" else str[0][i] or ""))
-      i--
-    appendLeft + output[0].join("") + "." + output[1].join("")
+      j = input[0].length
+      i = str[0].length - 1
+      k = 0
+      while Math.max(j, i) >= 0
+        output[0].unshift ((if i < 0 or /[#0]/.test(str[0][i]) then input[0][--j] or insertions[str[0][i]] else str[0][i] or ""))
+        i--
+
+      appendLeft + output[0].join("") + (if output[1].length then ("." + output[1].join("")) else "")
 
 
 .directive 'btn', ($compile, $timeout, $templateCache) ->
@@ -108,7 +117,7 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 
       scope.unsetDLVar = () ->
         scope.graph.unset(scope.variable,Number(scope.toSet))
 
-  .directive 'vText', () ->
+.directive 'vText', () ->
     restrict: 'EAC'
     replace: true
     scope: true
@@ -117,23 +126,42 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 
       pre: (scope, elm, attr) ->
         scope.vText = attr.vText
 
-  #TODO: add mouse hold control
+
+.directive 'format', (format) ->
+    restrict: 'A'
+    require: '?ngModel'
+    link:
+      pre: (scope, elm, attr, ngModel) ->
+        formatStr = attr.format
+        if angular.isDefined ngModel
+          ngModel.$formatters.push (value) ->
+            if angular.isNumber value
+               value = format value, formatStr
+          ngModel.$parsers.unshift (value) ->
+            if isNaN value
+              value = ngModel.$modelValue
+            +value
+          elm.on 'blur', () ->
+            if isNaN elm.val()
+              elm.val format +ngModel.$modelValue, formatStr
+            else
+              elm.val format +elm.val(), formatStr
+
   .directive 'numUpDown', ($timeout, format) ->
     restrict: 'E'
     scope: false
-    require: '?ngModel'
     compile: (tElm, tAttr) ->
-      upButton = angular.element('<button class="btn btn-default" ng-mousedown="increase()" ng-mouseup="stop()" />').append '<span class="glyphicon glyphicon-chevron-up" />'
-      downButton = angular.element('<button class="btn btn-default" ng-mousedown="decrease()" ng-mouseup="stop()"  />').append '<span class="glyphicon glyphicon-chevron-down" />'
+      upButton = angular.element('<button class="btn btn-default" ng-mousedown="increase()" ng-mouseup="stop()" ng-mouseout="stop()" />').append '<span class="glyphicon glyphicon-chevron-up" />'
+      downButton = angular.element('<button class="btn btn-default" ng-mousedown="decrease()" ng-mouseup="stop()" ng-mouseout="stop()" />').append '<span class="glyphicon glyphicon-chevron-down" />'
       upDownControl = angular.element('<div class="btn-group-vertical" />').append upButton, downButton
       inputAttrs = _.pick tAttr, (val, key) ->
-        ['vText', 'dvalue'].indexOf(key) > -1
+        ['vText', 'dvalue', 'format'].indexOf(key) > -1
       inputAttrs = _.mapKeys inputAttrs, (val, key) ->
         key.toDash()
       input = angular.element('<input style="width:90%" class="form-control" type="text" />').attr inputAttrs
       numUpDownElement = angular.element('<div class="input-group" />').append input, upDownControl
       tElm.append(numUpDownElement)
-      (scope, elm, attr, ngModel) ->
+      (scope, elm, attr) ->
         test = null
         step = 1
         minVal = +attr.min
@@ -142,22 +170,6 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 
         timeout = 300
         mtimeout = 30
         cto = null
-
-        if angular.isDefined(ngModel)
-          ngModel
-          ngModel.$formatters.push (value) ->
-            if isNaN(value)
-              return ''
-            else
-              test = value = format(value, formatStr)
-              ngModel.$render()
-          ngModel.$render = () ->
-            console.log(test)
-            elm.children().find('input').addClass(test)
-
-
-
-
 
 
         updateModel = (value) ->
@@ -249,6 +261,7 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 
 
         scope.ghide = true
         scope.dropdown = ($event,state) ->
+          $rootScope.$broadcast 'bg_click' if state
           _.kill_event($event)
           scope.ghide = !state
 
@@ -258,7 +271,7 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 
         $rootScope.$on 'bg_click', ->
           scope.dropdown()
 
-        unless !!attr.multiSelect
+        if attr.multiSelect is 'false'
           scope.$watchCollection 'selected', ->
             scope.ghide = true
 
