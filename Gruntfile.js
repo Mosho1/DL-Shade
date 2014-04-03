@@ -107,17 +107,18 @@ module.exports = function(grunt) {
                 tasks: ['concat:set4']
             },
             uglify1: {
-                files: ['public/dist/libs.js'],
+                files: ['public/dist/js/libs.js'],
                 tasks: ['uglify:set1']
             },
             uglify2: {
-                files: ['public/dist/script.js'],
+                files: ['public/dist/js/script.js'],
                 tasks: ['uglify:set2']
             }
         },
         concurrent: {
             options: {
-                logConcurrentOutput: true
+                logConcurrentOutput: true,
+                limit: 8
             },
             watch: ['watch:browserify1', 'watch:browserify2', 'watch:concat1', 'watch:concat2', 'watch:concat3', 'watch:concat4', 'watch:uglify2']
         },

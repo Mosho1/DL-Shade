@@ -7,6 +7,7 @@ _.observe = require('./tools').observe;
 //variable registry which holds each variable in an entry
 
 var VariableRegistry = function () {
+
     this.initialise.apply(this, arguments);
     this.variables = {};
 };
@@ -16,9 +17,10 @@ VariableRegistry.prototype = {
         _.bindAll(this);
     },
 
+    //TODO: refactor (and tests)
     addToEntry: function (entry) {
         var _entry = new VariableEntry(entry), _this = this;
-        _.observe(_entry, 'model', 2, {
+        _.observe(_entry, 'model', 42, {
             set: function (value) {
                 _this.set(_entry.name, value);
             },
@@ -27,8 +29,6 @@ VariableRegistry.prototype = {
             }
         });
         this.variables[entry.name] = _entry.concat(this.variables[entry.name] || {});
-
-
     },
 
     set: function (name, value) {
@@ -52,6 +52,7 @@ VariableRegistry.prototype = {
     },
 
     //resolve each variable's value according to its expression
+    //TODO: refactor (and tests), refactor CalcHandlers to not be outside the object
     evaluate: function (changed) {
         parser.yy = CalcHandlers(this.variables);
         var start = changed ? this.sorted.indexOf(changed) + 1 : 0;

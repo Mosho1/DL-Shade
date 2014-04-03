@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+<testsuite name="lexer-test" errors="0" tests="1" failures="1" time="0.004" timestamp="2014-04-03T17:45:58">
+  <testcase classname="lexer-test" name="should lex DL code" time="0.001"><failure type="expect" message="Expected [ [ &amp;apos;IDENTIFIER&amp;apos;, &amp;apos;x&amp;apos;, 0 ], [ &amp;apos;ASSIGN&amp;apos;, &amp;apos;=&amp;apos;, 0 ], [ &amp;apos;LONG&amp;apos;, &amp;apos;1&amp;apos;, 0 ], [ &amp;apos;TERMINATOR&amp;apos;, &amp;apos;;&amp;apos;, 0 ], [ &amp;apos;EOF&amp;apos;, &amp;apos;&amp;apos;, 0 ] ] to be null.">Error: Expected [ [ &amp;apos;IDENTIFIER&amp;apos;, &amp;apos;x&amp;apos;, 0 ], [ &amp;apos;ASSIGN&amp;apos;, &amp;apos;=&amp;apos;, 0 ], [ &amp;apos;LONG&amp;apos;, &amp;apos;1&amp;apos;, 0 ], [ &amp;apos;TERMINATOR&amp;apos;, &amp;apos;;&amp;apos;, 0 ], [ &amp;apos;EOF&amp;apos;, &amp;apos;&amp;apos;, 0 ] ] to be null.
+    at new jasmine.ExpectationResult (c:\Users\SR71042\Documents\GitHub\DependencyLanguage\node_modules\grunt-jasmine-node\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:114:32)
+    at null.toBeNull (c:\Users\SR71042\Documents\GitHub\DependencyLanguage\node_modules\grunt-jasmine-node\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1235:29)
+    at null.&amp;lt;anonymous&amp;gt; (c:\Users\SR71042\Documents\GitHub\DependencyLanguage\jasmine\spec\node\lexerSpec.js:10:35)
+    at jasmine.Block.execute (c:\Users\SR71042\Documents\GitHub\DependencyLanguage\node_modules\grunt-jasmine-node\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1064:17)
+    at jasmine.Queue.next_ (c:\Users\SR71042\Documents\GitHub\DependencyLanguage\node_modules\grunt-jasmine-node\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2096:31)
+    at jasmine.Queue.start (c:\Users\SR71042\Documents\GitHub\DependencyLanguage\node_modules\grunt-jasmine-node\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2049:8)
+    at jasmine.Spec.execute (c:\Users\SR71042\Documents\GitHub\DependencyLanguage\node_modules\grunt-jasmine-node\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2376:14)
+    at jasmine.Queue.next_ (c:\Users\SR71042\Documents\GitHub\DependencyLanguage\node_modules\grunt-jasmine-node\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2096:31)
+    at jasmine.Queue.start (c:\Users\SR71042\Documents\GitHub\DependencyLanguage\node_modules\grunt-jasmine-node\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2049:8)
+    at jasmine.Suite.execute (c:\Users\SR71042\Documents\GitHub\DependencyLanguage\node_modules\grunt-jasmine-node\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2521:14)</failure></testcase>
+</testsuite>
+</testsuites>

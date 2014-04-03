@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-<<<<<<< HEAD
-<testsuite name="VariableEntry" errors="0" tests="5" failures="0" time="0.002" timestamp="2014-04-02T23:17:29">
-  <testcase classname="VariableEntry" name="should create an empty entry" time="0"></testcase>
+<testsuite name="VariableEntry" errors="0" tests="7" failures="0" time="0.003" timestamp="2014-04-03T17:45:58">
+  <testcase classname="VariableEntry" name="should create an empty entry" time="0.001"></testcase>
   <testcase classname="VariableEntry" name="should create an entry" time="0"></testcase>
   <testcase classname="VariableEntry" name="should set, get, and unset entry value" time="0"></testcase>
-  <testcase classname="VariableEntry" name="should concatenate two entries" time="0"></testcase>
-  <testcase classname="VariableEntry" name="should leave entry unchanged by concatenating a blank entry" time="0"></testcase>
-=======
-<testsuite name="VariableEntry" errors="0" tests="4" failures="0" time="0.002" timestamp="2014-04-02T23:09:04">
-  <testcase classname="VariableEntry" name="should create an empty entry" time="0.001"></testcase>
-  <testcase classname="VariableEntry" name="should create an entry" time="0.001"></testcase>
+  <testcase classname="VariableEntry" name="should concatenate two entries" time="0.001"></testcase>
   <testcase classname="VariableEntry" name="should set, get, and unset entry value" time="0"></testcase>
-  <testcase classname="VariableEntry" name="should concatenate two entries" time="0"></testcase>
->>>>>>> c5e4bd7f48570192b29b115a3d8859c216d1d452
+  <testcase classname="VariableEntry" name="should concatenate two entries" time="0.001"></testcase>
+  <testcase classname="VariableEntry" name="should leave entry unchanged by concatenating a blank entry" time="0"></testcase>
 </testsuite>
 </testsuites>

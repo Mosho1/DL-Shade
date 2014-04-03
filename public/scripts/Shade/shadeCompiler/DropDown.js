@@ -7,11 +7,7 @@ module.exports = function (node, wat, multiSelect) { //TODO: wat
                 str.push(opt.charAt(0) + '=' + val);
             }, []);
         };
-
     items = [items[0], items.slice(1).join(',')];
-
-
-
     (function (c) {
         if (c && c.Col) {
             c.Col.length ? _.each(c.Col, handleCol) : handleCol(c.Col);

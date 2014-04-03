@@ -2,11 +2,14 @@
  * Created by Mosho on 4/2/14.
  */
 
+VariableEntry = require('../../../public/scripts/graph-dev/variable-registry.js').VariableEntry;
+VariableRegistry = require('../../../public/scripts/graph-dev/variable-registry.js').VariableRegistry;
+CalcHandlers = require('../../../public/scripts/graph-dev/calc-handlers.js');
+parser = require('../../../public/scripts/graph-dev/calculator.js').parser;
+_ = require('underscore');
 
 
 describe("VariableEntry", function () {
-    _ = require('underscore');
-    VariableEntry = require('../../../public/scripts/graph-dev/variable-registry.js').VariableEntry;
     it("should create an empty entry", function () {
         var entry = new VariableEntry();
         expect(entry.name).toEqual('');
@@ -112,6 +115,57 @@ describe("VariableEntry", function () {
         expect(entry.dependsOn).toEqual(['b', 'c']);
         expect(entry.dependedOnBy).toEqual(['k']);
 
+    });
+
+});
+
+describe("VariableRegistry", function () {
+    var entry, registry = null;
+
+    beforeEach(function () {
+        entry = {
+            name: 'x',
+            value: 1,
+            set: function () {},
+            unset: function () {},
+            get: function () {}
+        };
+
+        registry = new VariableRegistry();
+        registry.variables[entry.name] = entry;
+        // registry.sorted = ['x', 'y', 'z'];
+
+
+
+        spyOn(entry, 'set');
+        spyOn(entry, 'get');
+        spyOn(entry, 'unset');
+        spyOn(registry, 'evaluate');
+        spyOn(global, 'CalcHandlers');
+
+
+        registry.set('x', 2);
+        registry.set('y', 2);
+        registry.get('x');
+        registry.get('y');
+        registry.unset('x');
+        registry.unset('y');
+        registry.evaluate();
+
+
+
+    });
+
+    it("tracks that the spy was called", function () {
+        expect(entry.set.calls.length).toBe(1);
+        expect(registry.evaluate.calls.length).toBe(2);
+        expect(entry.get.calls.length).toBe(1);
+        expect(entry.unset.calls.length).toBe(1);
+    });
+
+    it("tracks all the arguments of its calls", function () {
+        expect(entry.set).toHaveBeenCalledWith(2);
+        expect(registry.evaluate).toHaveBeenCalledWith('x');
     });
 
 });

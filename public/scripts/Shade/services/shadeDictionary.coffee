@@ -1,4 +1,6 @@
-angular.module("ShadeApp").service("ShadeIdentifiers", (ShadeStaticHandlers, ShadeHandlers) ->
+angular.module("ShadeApp")
+
+.service("ShadeIdentifiers", (ShadeStaticHandlers, ShadeHandlers) ->
   sh = ShadeStaticHandlers
   sw = ShadeHandlers
   ((key, an, av, sn, sv, c, cb, mn) ->
@@ -30,6 +32,8 @@ angular.module("ShadeApp").service("ShadeIdentifiers", (ShadeStaticHandlers, Sha
       type: ""
       keys: key(mn or {})
   ) Object.keys, sh.attrNameHandlers, sh.attrValueHandlers, sh.styleNameHandlers, sh.styleValueHandlers, sw.UIHandlers, sw.CbHandlers, sw.nodeHandlers
-).service "ShadeAttrDictionary", (ShadeStaticHandlers) ->
+)
+
+.service "ShadeAttrDictionary", (ShadeStaticHandlers) ->
   attrNameHandlers: ShadeStaticHandlers.attrNameHandlers
   attrValueHandlers: ShadeStaticHandlers.attrValueHandlers
