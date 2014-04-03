@@ -60,6 +60,27 @@ module.exports = function(grunt) {
             }
 
         },
+
+        uglify: {
+            set1: {
+                options: {
+                    sourceMap: true
+                },
+                files: {
+                    'public/dist/libs.min.js': ['public/dist/js/libs.js']
+                }
+            },
+            set2: {
+                options: {
+                    sourceMap: true,
+                    mangle: false
+                },
+                files: {
+                    'public/dist/script.min.js': ['public/dist/js/script.js']
+                }
+            }
+        },
+
         watch: {
             browserify1: {
                 files: ['public/scripts/Shade/shadeCompiler/*.js'],
@@ -84,13 +105,21 @@ module.exports = function(grunt) {
             concat4: {
                 files: ['<%= concat.set4.src %>'],
                 tasks: ['concat:set4']
+            },
+            uglify1: {
+                files: ['public/dist/libs.js'],
+                tasks: ['uglify:set1']
+            },
+            uglify2: {
+                files: ['public/dist/script.js'],
+                tasks: ['uglify:set2']
             }
         },
         concurrent: {
             options: {
                 logConcurrentOutput: true
             },
-            watch: ['watch:browserify1', 'watch:browserify2', 'watch:concat1', 'watch:concat2', 'watch:concat3', 'watch:concat4']
+            watch: ['watch:browserify1', 'watch:browserify2', 'watch:concat1', 'watch:concat2', 'watch:concat3', 'watch:concat4', 'watch:uglify2']
         },
         jasmine_node: {
             options: {
@@ -110,14 +139,14 @@ module.exports = function(grunt) {
         }
     });
 
-    //grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-jasmine-node');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-concurrent');
 
-    grunt.registerTask('default', ['browserify', 'concat']);
+    grunt.registerTask('default', ['browserify', 'concat', 'uglify']);
     grunt.registerTask('test', ['jasmine_node']);
     grunt.registerTask('wat', ['concurrent:watch']);
 
