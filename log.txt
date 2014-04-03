@@ -1,6 +1,0 @@
-Change log:
-
-
-3/5/2014: finished grid with <Xy> support
-3/10/2014: finished barebone shade parser - need to add tag names and values
-3/13/2014: added autocompletion to editors
