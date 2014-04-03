@@ -1138,11 +1138,10 @@ var f = require('./functions');
 
 var CalcHandlers = function(that){
     return{
-        vars : that,
 
        getVariableValue: function(name){
             _name = name.join('.');
-            return this.vars[_name].setValue ? this.vars[_name].setValue : this.vars[_name].value
+            return (that && that[_name]) ? (that[_name].setValue ? that[_name].setValue : that[_name].value) : null;
         },
 
        createArray: function(arr){
@@ -1153,7 +1152,7 @@ var CalcHandlers = function(that){
         },
 
         callFunction: function(name,args){
-          return f[name[1]](args);
+          return f[name[1]].apply(null, args);
         }
     };
     
@@ -1610,23 +1609,21 @@ exports.compile = function (code) {
 },{"./ast-validator":7,"./js-compiler":13,"./lexer":14,"./nodes":16,"./parser":17,"./rewriter":18}],11:[function(require,module,exports){
 
 var f = {
-    a2l: function(arr, delim) {
+    a2l: function (arr, delim) {
         return arr.join(delim);
     },
 
-    abs: function(num) {
+    abs: function (num) {
         return Math.abs(num);
     },
 
-    avg: function() {
-        var avg=0, num=0, len=arguments[0].length;
-        for (var i = 0; i < arguments[0].length; i++) {
-            num = Number(arguments[0][i]);
-            if (num) //if argument is valid add to avg calculation
-                    avg+=num;
-            else len--; //if argument is invalid, ignore it
+    avg: function () {
+        var i, avg = 0, num = 0, len = arguments.length;
+        for (i = 0; i < arguments.length; i++) {
+            num = Number(arguments[i]);
+            !isNaN(num) ? avg += num : len--;
         }
-        return avg/len;            
+        return avg / len;
     }
 }
 
@@ -3134,11 +3131,11 @@ VariableRegistry.prototype = {
 
 };
 
-var VariableEntry = function(entry) {
+var VariableEntry = function() {
 
     this.initialise.apply(this, arguments);
     
-    if (!entry) {
+    if (!arguments.length) {
         this.name = "";
         this.expr = "";
         this.value = null;
@@ -3146,14 +3143,21 @@ var VariableEntry = function(entry) {
         this.dependsOn = [];
         this.dependedOnBy = [];
     }
-    else
-    {
+    else if(_.isObject(arguments[0])) {
+        var entry = arguments[0];
         this.name = entry.name || "";
         this.expr = entry.expr || "";
-        this.value = entry.value ||null;
-		this.setValue = entry.setValue || null;
+        this.value = entry.value === 0 ? 0 : (entry.value || null);
+		this.setValue = entry.setValue === 0 ? 0 : (entry.setValue || null);
         this.dependsOn = entry.dependsOn || [];
         this.dependedOnBy = entry.dependedOnBy || [];
+    } else {
+        this.name = arguments[0] || "";
+        this.expr = arguments[1] || "";
+        this.value = arguments[2] === 0 ? 0 : (arguments[2] || null);
+        this.setValue = arguments[3] === 0 ? 0 : (arguments[3] || null);
+        this.dependsOn = arguments[4] || [];
+        this.dependedOnBy = arguments[5] || [];
     }
 
 
@@ -3166,13 +3170,14 @@ VariableEntry.prototype = {
         _.bindAll(this);
     },
 
+    //maybe have this not change `this`?
     concat: function(entry) 
     {
         if(entry) {
                 this.name = entry.name ? entry.name : this.name;
                 this.expr = entry.expr ? entry.expr : this.expr;
-                this.value = entry.value ? entry.value : this.value;
-				this.setValue = entry.setValue ? entry.setValue : this.setValue;
+                this.value = entry.value === 0 ? 0 : (entry.value || this.value);
+				this.setValue = entry.setValue === 0 ? 0 : (entry.setValue || this.setValue);
                 this.dependsOn = this.dependsOn.concat(entry.dependsOn || []);
                 this.dependedOnBy = this.dependedOnBy.concat(entry.dependedOnBy || []);
         }
@@ -3182,6 +3187,7 @@ VariableEntry.prototype = {
     set: function(value)
     {
         this.setValue = value;
+        return this;
     },
 
     get: function()
@@ -3192,6 +3198,7 @@ VariableEntry.prototype = {
     unset: function()
     {
         this.setValue = null;
+        return this;
     }
     
     

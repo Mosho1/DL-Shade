@@ -2,11 +2,10 @@
 
 var CalcHandlers = function(that){
     return{
-        vars : that,
 
        getVariableValue: function(name){
             _name = name.join('.');
-            return this.vars[_name].setValue ? this.vars[_name].setValue : this.vars[_name].value
+            return (that && that[_name]) ? (that[_name].setValue ? that[_name].setValue : that[_name].value) : null;
         },
 
        createArray: function(arr){
@@ -17,7 +16,7 @@ var CalcHandlers = function(that){
         },
 
         callFunction: function(name,args){
-          return f[name[1]](args);
+          return f[name[1]].apply(null, args);
         }
     };
     
