@@ -3077,17 +3077,23 @@ VariableRegistry.prototype = {
     },
 
     set: function (name, value) {
-        this.variables[name].set(value);
-        this.evaluate(name);
+        if (this.variables[name]) {
+            this.variables[name].set(value);
+            this.evaluate(name);
+        }
     },
 
     get: function (name) {
-        return this.variables[name].get();
+        if (this.variables[name]) {
+            return this.variables[name].get();
+        }
 
     },
 
     unset: function (name, value) {
-        this.variables[name].unset();
+        if (this.variables[name]) {
+            this.variables[name].unset();
+        }
     },
 
     //resolve each variable's value according to its expression
@@ -3134,7 +3140,8 @@ VariableRegistry.prototype = {
 var VariableEntry = function() {
 
     this.initialise.apply(this, arguments);
-    
+
+    //no arguments, blank entry
     if (!arguments.length) {
         this.name = "";
         this.expr = "";
@@ -3143,7 +3150,7 @@ var VariableEntry = function() {
         this.dependsOn = [];
         this.dependedOnBy = [];
     }
-    else if(_.isObject(arguments[0])) {
+    else if(_.isObject(arguments[0])) { //1 object argument, create entry from object
         var entry = arguments[0];
         this.name = entry.name || "";
         this.expr = entry.expr || "";
@@ -3151,7 +3158,7 @@ var VariableEntry = function() {
 		this.setValue = entry.setValue === 0 ? 0 : (entry.setValue || null);
         this.dependsOn = entry.dependsOn || [];
         this.dependedOnBy = entry.dependedOnBy || [];
-    } else {
+    } else { //otherwise create new entry from first 6 arguments
         this.name = arguments[0] || "";
         this.expr = arguments[1] || "";
         this.value = arguments[2] === 0 ? 0 : (arguments[2] || null);

@@ -48,8 +48,7 @@ describe("VariableEntry", function () {
         expect(entry.setValue).toEqual(null);
         expect(entry.dependsOn).toEqual(['b', 'c']);
         expect(entry.dependedOnBy).toEqual([]);
-<<<<<<< HEAD
-=======
+
     });
 
     it("should set, get, and unset entry value", function () {
@@ -71,7 +70,6 @@ describe("VariableEntry", function () {
         expect(entry1.dependsOn).toEqual(['k', 'p']);
         expect(entry1.dependedOnBy).toEqual(['c', 'b']);
 
->>>>>>> c5e4bd7f48570192b29b115a3d8859c216d1d452
     });
 
     it("should set, get, and unset entry value", function () {
