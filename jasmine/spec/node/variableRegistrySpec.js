@@ -48,6 +48,30 @@ describe("VariableEntry", function () {
         expect(entry.setValue).toEqual(null);
         expect(entry.dependsOn).toEqual(['b', 'c']);
         expect(entry.dependedOnBy).toEqual([]);
+<<<<<<< HEAD
+=======
+    });
+
+    it("should set, get, and unset entry value", function () {
+        var entry = new VariableEntry('', '', 1);
+        expect(entry.get()).toEqual(1);
+        expect(entry.set(5).get()).toEqual(5);
+        expect(entry.unset().get()).toEqual(1);
+
+    });
+
+    it("should concatenate two entries", function () {
+        var entry1 = new VariableEntry('', '', 1, '', ['k', 'p']);
+        var entry2 = new VariableEntry('a', 'c - b', 0, 0, null, ['c', 'b']);
+        entry1.concat(entry2);
+        expect(entry1.name).toEqual('a');
+        expect(entry1.expr).toEqual('c - b');
+        expect(entry1.value).toEqual(0);
+        expect(entry1.setValue).toEqual(0);
+        expect(entry1.dependsOn).toEqual(['k', 'p']);
+        expect(entry1.dependedOnBy).toEqual(['c', 'b']);
+
+>>>>>>> c5e4bd7f48570192b29b115a3d8859c216d1d452
     });
 
     it("should set, get, and unset entry value", function () {

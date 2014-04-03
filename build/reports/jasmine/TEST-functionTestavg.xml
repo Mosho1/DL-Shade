@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
+<<<<<<< HEAD
 <testsuite name="functionTest-avg" errors="0" tests="1" failures="0" time="0.001" timestamp="2014-04-02T23:17:29">
   <testcase classname="functionTest-avg" name="should compute the average of values" time="0.001"></testcase>
+=======
+<testsuite name="functionTest-avg" errors="0" tests="1" failures="0" time="0" timestamp="2014-04-02T23:09:04">
+  <testcase classname="functionTest-avg" name="should compute the average of values" time="0"></testcase>
+>>>>>>> c5e4bd7f48570192b29b115a3d8859c216d1d452
 </testsuite>
 </testsuites>
