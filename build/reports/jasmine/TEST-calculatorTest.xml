@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+<testsuite name="calculatorTest" errors="0" tests="2" failures="0" time="0.007" timestamp="2014-04-02T23:09:04">
+  <testcase classname="calculatorTest" name="should parse expressions without variables" time="0.006"></testcase>
+  <testcase classname="calculatorTest" name="should parse expressions with variables" time="0.001"></testcase>
+</testsuite>
+</testsuites>

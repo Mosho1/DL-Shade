@@ -19,10 +19,8 @@ describe('calculatorTest', function() {
         expect(parser.parse("'a + b'")).toEqual("a + b");
         expect(parser.parse("a / b")).toBeNaN();
         expect(parser.parse("f.avg(1,2,3)")).toEqual(2);
+        expect(parser.parse("{1,2,3}")).toEqual([1, 2, 3]);
     });
-});
-
-describe('calculatorTest2', function () {
 
     var variables = {
         a: {value: 1},
@@ -36,5 +34,6 @@ describe('calculatorTest2', function () {
         expect(parser.parse("'a + b'")).toEqual("a + b");
         expect(parser.parse("a / b")).toEqual(0.5);
         expect(parser.parse("f.avg(a,b,3)")).toEqual(2);
+        expect(parser.parse("{a,b,3}")).toEqual([1, 2, 3]);
     });
 });

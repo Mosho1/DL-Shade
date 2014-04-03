@@ -5,32 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15758fa3-0dc6-4239-9815-36387ae5d86d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jasmine/spec/variableRegistrySpec.js" />
-      <change type="DELETED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\DL_libs\jasmine-2.0.0\spec\HelloWorldSpec.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\DL_libs\jasmine-2.0.0\src\HelloWorld.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\scripts\graph-dev\graph-text-dev.js" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\DL_libs\jasmine\SpecRunner.html" afterPath="$PROJECT_DIR$/jasmine/SpecRunner.html" />
-      <change type="MOVED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\DL_libs\jasmine\lib\jasmine-2.0.0\boot.js" afterPath="$PROJECT_DIR$/jasmine/lib/jasmine-2.0.0/boot.js" />
-      <change type="MOVED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\DL_libs\jasmine\lib\jasmine-2.0.0\console.js" afterPath="$PROJECT_DIR$/jasmine/lib/jasmine-2.0.0/console.js" />
-      <change type="MOVED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\DL_libs\jasmine\lib\jasmine-2.0.0\jasmine-html.js" afterPath="$PROJECT_DIR$/jasmine/lib/jasmine-2.0.0/jasmine-html.js" />
-      <change type="MOVED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\DL_libs\jasmine\lib\jasmine-2.0.0\jasmine.css" afterPath="$PROJECT_DIR$/jasmine/lib/jasmine-2.0.0/jasmine.css" />
-      <change type="MOVED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\DL_libs\jasmine\lib\jasmine-2.0.0\jasmine.js" afterPath="$PROJECT_DIR$/jasmine/lib/jasmine-2.0.0/jasmine.js" />
-      <change type="MOVED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\DL_libs\jasmine\lib\jasmine-2.0.0\jasmine_favicon.png" afterPath="$PROJECT_DIR$/jasmine/lib/jasmine-2.0.0/jasmine_favicon.png" />
-      <change type="MOVED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\DL_libs\jasmine\spec\HelloWorldSpec.js" afterPath="$PROJECT_DIR$/jasmine/spec/HelloWorldSpec.js" />
-      <change type="MOVED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\DL_libs\jasmine\spec\functions.js" afterPath="$PROJECT_DIR$/jasmine/spec/functions.js" />
-      <change type="MOVED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\DL_libs\jasmine\src\HelloWorld.js" afterPath="$PROJECT_DIR$/jasmine/src/HelloWorld.js" />
-      <change type="MOVED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\DL_libs\jasmine\src\functions.js" afterPath="$PROJECT_DIR$/jasmine/src/functions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/app.js" afterPath="$PROJECT_DIR$/public/scripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/compiler.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/compiler.js" />
+      <change type="DELETED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\jasmine\spec\HelloWorldSpec.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\jasmine\spec\functions.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/calc-handlers.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/calc-handlers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jasmine/spec/node/calculatorSpec.js" afterPath="$PROJECT_DIR$/jasmine/spec/node/calculatorSpec.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jasmine/spec/node/functionSpec.js" afterPath="$PROJECT_DIR$/jasmine/spec/node/functionSpec.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/functions.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/functions.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/dist/graph-text-dev.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/dist/graph-text-dev.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/graph-text.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/graph-text.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLinters/jslint.xml" afterPath="$PROJECT_DIR$/.idea/jsLinters/jslint.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/node-handlers.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/node-handlers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/shadeServices.js" afterPath="$PROJECT_DIR$/public/scripts/services/shadeServices.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/ShadeServices/dist/shadeServices.js" afterPath="$PROJECT_DIR$/public/scripts/services/ShadeServices/dist/shadeServices.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/shade_module.coffee" afterPath="$PROJECT_DIR$/public/scripts/shade_module.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/shade_module.js" afterPath="$PROJECT_DIR$/public/scripts/shade_module.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jasmine/spec/node/variableRegistrySpec.js" afterPath="$PROJECT_DIR$/jasmine/spec/node/variableRegistrySpec.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DependencyLanguage.iws" />
@@ -56,7 +40,7 @@
             <file leaf-file-name="variable-registry.js" pinned="false" current="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="13" column="0" selection-start="346" selection-end="346" vertical-scroll-proportion="0.2378902" vertical-offset="0" max-vertical-offset="3434">
+                  <state line="124" column="24" selection-start="3249" selection-end="3249" vertical-scroll-proportion="0.5586283" vertical-offset="1603" max-vertical-offset="3587">
                     <folding />
                   </state>
                 </provider>
@@ -87,16 +71,16 @@
       <file leaf-file-name="calc-handlers.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/calc-handlers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+            <state line="18" column="46" selection-start="575" selection-end="575" vertical-scroll-proportion="-6.12" vertical-offset="0" max-vertical-offset="510">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="graph-text.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/graph-text.js">
+      <file leaf-file-name="node-handlers.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/node-handlers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="13" selection-start="807" selection-end="807" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
+            <state line="78" column="0" selection-start="2161" selection-end="2161" vertical-scroll-proportion="-18.6" vertical-offset="861" max-vertical-offset="3026">
               <folding />
             </state>
           </provider>
@@ -105,8 +89,20 @@
       <file leaf-file-name="graph-text-dev.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/dist/graph-text-dev.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="17" selection-start="1995" selection-end="1995" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="55267">
-              <folding />
+            <state line="61" column="0" selection-start="2166" selection-end="2166" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="55369">
+              <folding>
+                <marker date="1396494057910" expanded="true" signature="57546:58038" placeholder="[...]" />
+                <marker date="1396494057910" expanded="true" signature="57579:58034" placeholder="{...}" />
+                <marker date="1396494057910" expanded="true" signature="57469:58005" placeholder="{...}" />
+                <marker date="1396494057910" expanded="true" signature="57760:58003" placeholder="{...}" />
+                <marker date="1396494057910" expanded="true" signature="57798:57971" placeholder="{...}" />
+                <marker date="1396494057910" expanded="true" signature="111128:111876" placeholder="{...}" />
+                <marker date="1396494057910" expanded="true" signature="111138:111430" placeholder="{...}" />
+                <marker date="1396494057910" expanded="true" signature="111496:111819" placeholder="{...}" />
+                <marker date="1396494057910" expanded="true" signature="112536:112565" placeholder="{...}" />
+                <marker date="1396494057910" expanded="true" signature="112591:112668" placeholder="{...}" />
+                <marker date="1396494057910" expanded="true" signature="112696:112748" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,19 +116,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="variableRegistrySpec.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/jasmine/spec/variableRegistrySpec.js">
+      <file leaf-file-name="Gruntfile.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gruntfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="3" selection-start="446" selection-end="446" vertical-scroll-proportion="0.24232456" vertical-offset="0" max-vertical-offset="912">
+            <state line="20" column="22" selection-start="683" selection-end="683" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="functions.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jasmine/spec/functions.js">
+      <file leaf-file-name="calculatorSpec.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jasmine/spec/node/calculatorSpec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
+            <state line="25" column="22" selection-start="1053" selection-end="1053" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="748">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="variableRegistrySpec.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/jasmine/spec/node/variableRegistrySpec.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="59" column="0" selection-start="2052" selection-end="2052" vertical-scroll-proportion="0.627193" vertical-offset="431" max-vertical-offset="1343">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="functionSpec.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jasmine/spec/node/functionSpec.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="46" selection-start="693" selection-end="693" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
               <folding />
             </state>
           </provider>
@@ -141,16 +155,7 @@
       <file leaf-file-name="functions.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/functions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="compiler.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/compiler.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="1" selection-start="881" selection-end="881" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
+            <state line="26" column="0" selection-start="433" selection-end="433" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
               <folding />
             </state>
           </provider>
@@ -205,9 +210,15 @@
         <option value="$PROJECT_DIR$/public/scripts/graph-dev/graph-text.js" />
         <option value="$PROJECT_DIR$/public/scripts/graph-dev/node-handlers.js" />
         <option value="$PROJECT_DIR$/public/scripts/graph-dev/compiler.js" />
-        <option value="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" />
         <option value="$PROJECT_DIR$/jasmine/SpecRunner.html" />
         <option value="$PROJECT_DIR$/jasmine/spec/variableRegistrySpec.js" />
+        <option value="$PROJECT_DIR$/public/scripts/graph-dev/calc-handlers.js" />
+        <option value="$PROJECT_DIR$/public/scripts/graph-dev/functions.js" />
+        <option value="$PROJECT_DIR$/Gruntfile.js" />
+        <option value="$PROJECT_DIR$/jasmine/spec/node/calculatorSpec.js" />
+        <option value="$PROJECT_DIR$/jasmine/spec/node/functionSpec.js" />
+        <option value="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" />
+        <option value="$PROJECT_DIR$/jasmine/spec/node/variableRegistrySpec.js" />
       </list>
     </option>
   </component>
@@ -398,38 +409,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DependencyLanguage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DL-Shade" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="requirejs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DependencyLanguage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DL-Shade" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="jasmine" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -449,6 +428,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="spec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -618,19 +601,19 @@
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15924276" sideWeight="0.49921012" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24647123" sideWeight="0.49841473" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32182628" sideWeight="0.5013165" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32922733" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24920736" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32182628" sideWeight="0.5013165" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850778" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24907847" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16113745" sideWeight="0.7525968" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.164297" sideWeight="0.7525968" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32182628" sideWeight="0.4986835" order="2" side_tool="false" content_ui="tabs" />
@@ -672,20 +655,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/Styles.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/DL_libs/ng-grid/ng-grid.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="394" column="24" selection-start="8307" selection-end="8307" vertical-scroll-proportion="-10.16" vertical-offset="6444" max-vertical-offset="7565">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/services/ShadeServices/DropDown.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="70" selection-start="851" selection-end="851" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
@@ -936,13 +905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/node-handlers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="29" selection-start="363" selection-end="363" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3026">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/rewriter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="13" selection-start="819" selection-end="819" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
@@ -964,16 +926,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/functions.js">
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/compiler.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="872">
+        <state line="36" column="1" selection-start="881" selection-end="881" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/compiler.js">
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/graph-text.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="1" selection-start="881" selection-end="881" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
+        <state line="39" column="13" selection-start="807" selection-end="807" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jasmine/lib/jasmine-2.0.0/boot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="152" column="0" selection-start="5250" selection-end="5425" vertical-scroll-proportion="0.4349277" vertical-offset="2193" max-vertical-offset="3179">
           <folding />
         </state>
       </provider>
@@ -987,48 +956,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/calc-handlers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="872">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/graph-text.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="13" selection-start="807" selection-end="807" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/dist/graph-text-dev.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="17" selection-start="1995" selection-end="1995" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="55318">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jasmine/spec/functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="912">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="346" selection-end="346" vertical-scroll-proportion="0.2378902" vertical-offset="0" max-vertical-offset="3434">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jasmine/lib/jasmine-2.0.0/boot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="0" selection-start="5250" selection-end="5425" vertical-scroll-proportion="0.4349277" vertical-offset="2193" max-vertical-offset="3179">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jasmine/SpecRunner.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="27" selection-start="504" selection-end="504" vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="527">
@@ -1036,9 +963,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jasmine/spec/variableRegistrySpec.js">
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/dist/graph-text-dev.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="3" selection-start="446" selection-end="446" vertical-scroll-proportion="0.24232456" vertical-offset="0" max-vertical-offset="912">
+        <state line="61" column="0" selection-start="2166" selection-end="2166" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="55369">
+          <folding>
+            <marker date="1396494057910" expanded="true" signature="57546:58038" placeholder="[...]" />
+            <marker date="1396494057910" expanded="true" signature="57579:58034" placeholder="{...}" />
+            <marker date="1396494057910" expanded="true" signature="57469:58005" placeholder="{...}" />
+            <marker date="1396494057910" expanded="true" signature="57760:58003" placeholder="{...}" />
+            <marker date="1396494057910" expanded="true" signature="57798:57971" placeholder="{...}" />
+            <marker date="1396494057910" expanded="true" signature="111128:111876" placeholder="{...}" />
+            <marker date="1396494057910" expanded="true" signature="111138:111430" placeholder="{...}" />
+            <marker date="1396494057910" expanded="true" signature="111496:111819" placeholder="{...}" />
+            <marker date="1396494057910" expanded="true" signature="112536:112565" placeholder="{...}" />
+            <marker date="1396494057910" expanded="true" signature="112591:112668" placeholder="{...}" />
+            <marker date="1396494057910" expanded="true" signature="112696:112748" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="433" selection-end="433" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="22" selection-start="683" selection-end="683" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jasmine/spec/node/calculatorSpec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="22" selection-start="1053" selection-end="1053" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="748">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jasmine/spec/node/functionSpec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="46" selection-start="693" selection-end="693" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/calc-handlers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="46" selection-start="575" selection-end="575" vertical-scroll-proportion="-6.12" vertical-offset="0" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/node-handlers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="0" selection-start="2161" selection-end="2161" vertical-scroll-proportion="-18.6" vertical-offset="861" max-vertical-offset="3026">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="24" selection-start="3249" selection-end="3249" vertical-scroll-proportion="0.5586283" vertical-offset="1603" max-vertical-offset="3587">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jasmine/spec/node/variableRegistrySpec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="0" selection-start="2052" selection-end="2052" vertical-scroll-proportion="0.627193" vertical-offset="431" max-vertical-offset="1343">
           <folding />
         </state>
       </provider>
