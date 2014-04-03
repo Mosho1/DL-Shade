@@ -1,8 +1,6 @@
 var ScopeManager = require('./scope-manager').ScopeManager,
-    util = require("util"),
+    f = require("util").format,
     functions = require('./functions'); //Built-in functions
-
-var f = util.format;
 
 var AstValidator = function() {
     this.scopeManager = new ScopeManager();
