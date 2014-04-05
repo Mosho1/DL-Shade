@@ -35,7 +35,7 @@ angular.module('ShadeApp')
         _.kill_event($event)
 
       scope.$on 'bg_click', (event)->
-        scope.dropdown() unless event.currentScope is scope
+        scope.dropdown()
 
       if attr.multiSelect is 'false'
         scope.$watchCollection 'selected', ->

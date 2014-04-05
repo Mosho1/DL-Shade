@@ -39,9 +39,7 @@
             return _.kill_event($event);
           };
           scope.$on('bg_click', function(event) {
-            if (event.currentScope !== scope) {
-              return scope.dropdown();
-            }
+            return scope.dropdown();
           });
           if (attr.multiSelect === 'false') {
             return scope.$watchCollection('selected', function() {
