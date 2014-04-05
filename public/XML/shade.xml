@@ -49,6 +49,7 @@
                 <AllowDummy>N</AllowDummy>
                 <vSelected>SampleTest.ComboDefaultText</vSelected>
                 <Height>25</Height>
+                <Width>150</Width>
                 <Items>Header1|Header2|Header3;;Col1Row1Val|Col2Row1Val|Col3Row1Val;;Col1Row2|Col2Row2|Col3Row2</Items>
 
                 <Cols>

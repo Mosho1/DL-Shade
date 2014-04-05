@@ -5,7 +5,7 @@
       restrict: 'E',
       replace: true,
       scope: true,
-      template: '<ul class="dropdown" ng-click="dropdown($event,ghide)"><span class="selectedItems">{{selected|selectedArray}}</span><span class="glyphicon glyphicon-chevron-down"></span> <div class="gridStyle" ng-grid="gridOptions" ng-class="{hide:ghide}" ng-click="select($event)" ng-animate></div></ul>',
+      template: '<table class="dropdown" ng-click="dropdown($event,ghide)"><tr class="selected"><td class="selectedItems">{{selected|selectedArray}}</td><td class="glyphicon glyphicon-chevron-down"></td></tr> <tr class="gridStyle" ng-grid="gridOptions" ng-class="{hide:ghide}" ng-click="select($event)" ng-animate></tr></table>',
       link: {
         pre: function(scope, elm, attr) {
           var header, items;

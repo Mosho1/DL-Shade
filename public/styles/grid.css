@@ -1,4 +1,4 @@
-table,th,td {border: 1px solid black;}
+/*table,th,td {border: 1px solid black;}*/
 
 .hide {
     display: none;
@@ -15,15 +15,32 @@ table,th,td {border: 1px solid black;}
     z-index:1;
 }
 
+
+
 .dropdown .selectedItems {
+   top: 3px;
+   left:4px;
    overflow:hidden;
    cursor:pointer;
-   display:inline-block;
+   position:absolute;
 }
 
-.dropdown .selectedItems .glyphicon {
-    display:inline-block;
-    float:left;
+.dropdown{
+    min-width: 50px;
+    width: 250px;
+}
+
+.dropdown .glyphicon {
+   float:right;
+   right: 5px;
+   top: 5px;
+   width: 10px;
+}
+
+.dropdown .selected {
+    height: 100%;
+    border:solid;
+    border-width: 1px;
 }
 
 /*

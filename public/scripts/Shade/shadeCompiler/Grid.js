@@ -65,6 +65,7 @@ var that = {},
 
     makeCol = function (node) {
         if (angular.isObject(node)) {
+            var colCount = this.colCount;
             var widths = this.widths;
             var width = widths.length ? ('width:' + (widths[++colCount - 1] || widths[widths.length - 1]) + 'px; ') : '';
 
@@ -74,12 +75,12 @@ var that = {},
         }
     },
 
-    makeRow = function (nodes, heights, widths) {
+    makeRow = function (nodes, heights, widths, rowCount) {
         var height = heights.length ? ('height:' + (heights[++rowCount - 1] || heights[heights.length - 1]) + 'px; ') : '';
         colCount = 0;
 
         that.openElement('tr', '', {}, height);
-        _.each(nodes, makeCol, {widths: widths});
+        _.each(nodes, makeCol, {widths: widths, colCount: colCount});
         that.closeElement();
     },
 
@@ -94,20 +95,21 @@ var that = {},
             }
         },
         'LToR' : function (grid, heights, widths, span) {
+            var rowCount = 0;
             var i, nodes = grid.Sub.Node;
             for (i = 0; i < nodes.length; i += span[1]) {
-                makeRow(nodes.slice(i, i + span[1]), heights, widths);
+                makeRow(nodes.slice(i, i + span[1]), heights, widths, rowCount);
             }
         }
     },
 
-    handleMode = function (mode) {
+    handleMode = function (mode, data) {
         nodes = this.Sub.Node;
         //check if parameters for each mode exist in grid (or nodes for 'Xy')
         if (this[mode]
                 || (mode === 'Xy' && _.every(nodes, 'Xy'))
                 || (mode === 'CSpan' && _.some(nodes, 'CSpan'))) {
-            return modeHandlers[mode](this);
+            return modeHandlers[mode](this, data.span);
         }
     },
 
@@ -124,7 +126,7 @@ module.exports = function (grid) {
         data = {grid: grid, heights: '', widths: '', span: []};
 
         _.each(modes, function (mode) {
-            _.extend(data, handleMode.call(grid, mode));
+            _.extend(data, handleMode.call(grid, mode, data));
         });
 
         if (data.span[1] > 0) {
