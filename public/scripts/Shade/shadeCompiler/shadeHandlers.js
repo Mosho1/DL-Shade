@@ -158,7 +158,7 @@ angular.module('ShadeServices', [])
             }
         };
 
-    return this;
+        return this;
 
 
 
@@ -287,19 +287,19 @@ angular.module('ShadeServices', [])
 
             var nativeStyles = _.reduce(node, ShadeStyles.handleStyles, ''),
                 nativeClass = ((nativeStyles || customStyles) ? "class" + ++classCount : '');
-                cur = currentElement.nodes.push({
-                    'elmName': elmName,
-                    'nativeClass': nativeClass + (node.Style ? (' ' + node.Style) : ''),
-                    'className' : className,
-                    'node': node,
-                    'customStyles': customStyles,
-                    'customAttr': customAttr,
-                    'content': angular.isDefined(content) ? content : node.Text,
-                    'nodes': [],
-                    'parent': currentElement,
-                    'id': ++elmId
+            cur = currentElement.nodes.push({
+                'elmName': elmName,
+                'nativeClass': nativeClass + (node.Style ? (' ' + node.Style) : ''),
+                'className' : className,
+                'node': node,
+                'customStyles': customStyles,
+                'customAttr': customAttr,
+                'content': angular.isDefined(content) ? content : node.Text,
+                'nodes': [],
+                'parent': currentElement,
+                'id': ++elmId
 
-                });
+            });
             if (customStyles || nativeStyles) {
                 ShadeStyles.addStyles(nativeClass, (customStyles || '') + (nativeStyles || ''));
             }

@@ -3040,6 +3040,8 @@ exports.ScopeManager = ScopeManager;
 
 }).call(this);
 
+
+
 },{}],21:[function(require,module,exports){
 var parser = require('./calculator').parser,
     CalcHandlers = require('./calc-handlers');
@@ -3050,6 +3052,7 @@ _.observe = require('./tools').observe;
 //variable registry which holds each variable in an entry
 
 var VariableRegistry = function () {
+
     this.initialise.apply(this, arguments);
     this.variables = {};
 };
@@ -3059,9 +3062,15 @@ VariableRegistry.prototype = {
         _.bindAll(this);
     },
 
+    //TODO: refactor (and tests)
     addToEntry: function (entry) {
+        var _entry = this.createEntry(entry);
+        this.variables[entry.name] = _entry.concat(this.variables[entry.name] || {});
+    },
+
+    createEntry: function (entry) {
         var _entry = new VariableEntry(entry), _this = this;
-        _.observe(_entry, 'model', 2, {
+        _.observe(_entry, 'model', 42, {
             set: function (value) {
                 _this.set(_entry.name, value);
             },
@@ -3069,9 +3078,7 @@ VariableRegistry.prototype = {
                 return _this.get(_entry.name);
             }
         });
-        this.variables[entry.name] = _entry.concat(this.variables[entry.name] || {});
-
-
+        return _entry;
     },
 
     set: function (name, value) {
@@ -3095,47 +3102,48 @@ VariableRegistry.prototype = {
     },
 
     //resolve each variable's value according to its expression
+    //TODO: refactor (and tests), refactor CalcHandlers to not be outside the object
     evaluate: function (changed) {
-        parser.yy = CalcHandlers(this.variables);
-        var start = changed ? this.sorted.indexOf(changed) + 1 : 0;
-        for (var i = 0; i< this.sorted.length-start; i++){
-			var entry = this.variables[this.sorted[start+i]];
-			if (entry.hasOwnProperty('dependsOn')) {
-				var value = parser.parse(entry.expr);
-				this.variables[this.sorted[start+i]].value = value
-			}
-		}
+        parser.yy = new CalcHandlers(this.variables);
+        var val, i, entry, start = changed ? this.sorted.indexOf(changed) + 1 : 0;
+        for (i = 0; i < this.sorted.length - start; i++) {
+            entry = this.get(this.sorted[start + i]);
+            if (entry) {
+                val = parser.parse(entry.expr);
+                entry.evaluate(val);
+            }
+        }
 
         return this;
-	},
+    },
 
-	sortDependencies: function()
-	{
+    sortDependencies: function () {
         //resolve dependencies
         this.edges = this.getEdges();
         //topological sort
-		this.sorted = tsort(this.edges);
+        this.sorted = tsort(this.edges);
         return this;
-	},
+    },
 
-
-	
     //get graph edges (source->target) from dependencies 
-	getEdges: function()
-	{
-		var edges = [];
-		for (var v in this.variables) {
-			var entry = this.variables[v];
-			if (entry.hasOwnProperty('dependedOnBy'))
-				for (var i=0; i<entry.dependedOnBy.length;i++)
-					edges.push([v,entry.dependedOnBy[i]]);
-		}
-		return edges;
-	}
+    getEdges: function () {
+        var entry, i, v, edges = [];
+        for (v in this.variables) {
+            entry = this.variables[v];
+            if (entry.hasOwnProperty('dependedOnBy')) {
+                for (i = 0; i < entry.dependedOnBy.length; i++) {
+                    edges.push([v, entry.dependedOnBy[i]]);
+                }
+            }
+        }
+        return edges;
+    }
 
 };
 
-var VariableEntry = function() {
+var VariableEntry = function () {
+
+    var args = arguments, entry = args[0];
 
     this.initialise.apply(this, arguments);
 
@@ -3144,81 +3152,74 @@ var VariableEntry = function() {
         this.name = "";
         this.expr = "";
         this.value = null;
-		this.setValue = null;
+        this.setValue = null;
         this.dependsOn = [];
         this.dependedOnBy = [];
-    }
-    else if(_.isObject(arguments[0])) { //1 object argument, create entry from object
-        var entry = arguments[0];
+    } else if (_.isObject(entry)) { //1 object argument, create entry from object
         this.name = entry.name || "";
         this.expr = entry.expr || "";
         this.value = entry.value === 0 ? 0 : (entry.value || null);
-		this.setValue = entry.setValue === 0 ? 0 : (entry.setValue || null);
+        this.setValue = entry.setValue === 0 ? 0 : (entry.setValue || null);
         this.dependsOn = entry.dependsOn || [];
         this.dependedOnBy = entry.dependedOnBy || [];
     } else { //otherwise create new entry from first 6 arguments
-        this.name = arguments[0] || "";
-        this.expr = arguments[1] || "";
-        this.value = arguments[2] === 0 ? 0 : (arguments[2] || null);
-        this.setValue = arguments[3] === 0 ? 0 : (arguments[3] || null);
-        this.dependsOn = arguments[4] || [];
-        this.dependedOnBy = arguments[5] || [];
+        this.name = args[0] || "";
+        this.expr = args[1] || "";
+        this.value = args[2] === 0 ? 0 : (args[2] || null);
+        this.setValue = args[3] === 0 ? 0 : (args[3] || null);
+        this.dependsOn = args[4] || [];
+        this.dependedOnBy = args[5] || [];
     }
-
-
-
 };
 VariableEntry.prototype = {
 
-    initialise: function()
-    {
+    initialise: function () {
         _.bindAll(this);
     },
 
     //maybe have this not change `this`?
-    concat: function(entry) 
-    {
-        if(entry) {
-                this.name = entry.name ? entry.name : this.name;
-                this.expr = entry.expr ? entry.expr : this.expr;
-                this.value = entry.value === 0 ? 0 : (entry.value || this.value);
-				this.setValue = entry.setValue === 0 ? 0 : (entry.setValue || this.setValue);
-                this.dependsOn = this.dependsOn.concat(entry.dependsOn || []);
-                this.dependedOnBy = this.dependedOnBy.concat(entry.dependedOnBy || []);
+    concat: function (entry) {
+        if (entry) {
+            this.name = entry.name || this.name;
+            this.expr = entry.expr || this.expr;
+            this.value = entry.value === 0 ? 0 : (entry.value || this.value);
+            this.setValue = entry.setValue === 0 ? 0 : (entry.setValue || this.setValue);
+            this.dependsOn = this.dependsOn.concat(entry.dependsOn || []);
+            this.dependedOnBy = this.dependedOnBy.concat(entry.dependedOnBy || []);
         }
         return this;
     },
 
-    set: function(value)
-    {
+    evaluate: function (value) {
+        this.value = value;
+        return this;
+    },
+
+    set: function (value) {
         this.setValue = value;
         return this;
     },
 
-    get: function()
-    {
-        return _.isNull(this.setValue) ? this.value : this.setValue;
+    get: function () {
+        return (_.isNull(this.setValue) || _.isUndefined(this.setValue)) ? this.value : this.setValue;
     },
 
-    unset: function()
-    {
+    unset: function () {
         this.setValue = null;
         return this;
     }
-    
-    
 };
 
 function tsort(edges) {
-  var nodes   = {}, // hash: stringified id of the node => { id: id, afters: lisf of ids }
-      sorted  = [], // sorted list of IDs ( returned value )
-      visited = {}; // hash: id of already visited node => true
- 
-  var Node = function(id) {
-    this.id = id;
-    this.afters = [];
-  }
- 
+    var nodes   = {}, // hash: stringified id of the node => { id: id, afters: lisf of ids }
+        sorted  = [], // sorted list of IDs ( returned value )
+        visited = {}, // hash: id of already visited node => true
+
+        Node = function (id) {
+            this.id = id;
+            this.afters = [];
+        }
+
   // 1. build data structures
   edges.forEach(function(v) {
     var from = v[0], to = v[1];

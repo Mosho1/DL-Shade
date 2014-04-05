@@ -1,147 +1,218 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+
+var handleCol = function (col) {
+        this[col.Name] = _.transform(_.omit(col, 'Name'), function (str, val, opt) {
+            str.push(opt.charAt(0) + '=' + val);
+        }, []);
+    },
+
+    getOptions = function (c) {
+        var opts = {};
+        if (c.Col.length) {
+            _.each(c.Col, handleCol, opts);
+        } else {
+            handleCol.call(opts, c.Col);
+        }
+        return opts;
+    },
+
+    getHeaderAndItems = function (node) {
+        var items = node.Items.replace(/\s/g, '').split(/;+/);
+        return {
+            header: items[0],
+            items: items.slice(1).join(',')
+        };
+    },
+
+    makeOptionString = function (items, opts) {
+        return items.map(function (item) {
+            return (opts[item] || []).join('&');
+        }).join('|');
+    },
+
+    makeOptions = function (c, items) {
+        if (c && c.Col) {
+            var options = getOptions(c);
+            return makeOptionString(items.split('|'), options);
+        }
+    },
+
+    createPropertyString = function (options) {
+        return _.map(options, function (option, key) {
+            return key + '=' + option;
+        }).join(' ');
+    };
+
 module.exports = function (node, wat, multiSelect) { //TODO: wat
 
-    var items = node.Items.replace(/\s/g, '').split(/;+/),
-        options = {},
-        handleCol = function (col) {
-            options[col.Name] = _.transform(_.omit(col, 'Name'), function (str, val, opt) {
-                str.push(opt.charAt(0) + '=' + val);
-            }, []);
-        };
+    var parts = getHeaderAndItems(node),
+        options = makeOptions(node.Cols, parts.items);
 
-    items = [items[0], items.slice(1).join(',')];
+    var propertyString = createPropertyString({
+        'multi-select': !!multiSelect,
+        'header': parts.header,
+        'items': parts.items,
+        'options': options
+    });
 
-
-
-    (function (c) {
-        if (c && c.Col) {
-            c.Col.length ? _.each(c.Col, handleCol) : handleCol(c.Col);
-
-            options = (function (items, opts) {
-                return items.map(function (item) {
-                    return (opts[item] || []).join('&');
-                }).join('|');
-            }(items[0].split('|'), options));
-        }
-        }(node.Cols))
-
-    this.openElement('drop-down', '', node, '', "multi-select = " + !!multiSelect + " header=" + items[0] + " items=" + items[1] + " options=" + options);
+    this.openElement('drop-down', '', node, '', propertyString);
     this.closeElement();
+};
 
-}
+module.exports.test = {
+    handleCol: handleCol,
+    getOptions: getOptions,
+    getHeaderAndItems: getHeaderAndItems,
+    makeOptionString: makeOptionString,
+    makeOptions: makeOptions,
+    createPropertyString: createPropertyString
+};
 },{}],2:[function(require,module,exports){
+var that = {},
+
+    modeHandlers =  {
+        'Span': function (grid) {
+            span = grid.Span.split(',');
+            span = span.map(Math.floor);
+
+            return {'span': span};
+        },
+        'Rows': function (grid) {
+            span = [grid.Rows, grid.Sub.Node.length / Number(grid.Rows)];
+            flow = 'TToB';
+
+            return {'span': span};
+        },
+        'Cols': function (grid) {
+            span = [grid.Sub.Node.length / grid.Cols, Number(grid.Cols)];
+
+            return {'span': span};
+        },
+        'ColWidth': function (grid, span) {
+            widths = grid.ColWidth.match(/[^ ,]+/g);
+            span[1] = Math.max(span[1], widths.length);
+
+            return {'span': span, 'widths': widths};
+        },
+        'RowHeight': function (grid, span) {
+            heights = grid.RowHeight.match(/[^ ,]+/g);
+            span[0] = Math.max(span[0], heights.length);
+
+            return {'span': span, 'heights': heights};
+        },
+        'Xy' : function (grid) {
+            var nodes = grid.Sub.Node;
+            //create a map for the nodes according to Xy elements
+            var gridMap = _.map(nodes, function (node, index) {
+                return [node.Xy.match(/[^ ,]+/g).reduce(function (prev, cur) {
+                    return +prev * span[1] + +cur;
+                })].concat(index);
+            }).sort(function (a, b) { return a[0] - b[0]; });
+
+            nodes = (function () {
+                var arr = [], i;
+                for (i = 0; i < span[0] * span[1]; i++) {
+                    arr.push((gridMap[0] || [-1])[0] === i ? nodes[gridMap.shift()[1]] : {'UI': 'Label'});
+                }
+                return arr;
+            }());
+
+            return {'grid': grid};
+        },
+        'CSpan' : function (grid) {
+            var nodes = grid.Sub.Node;
+            //create a map for the nodes according to CSpan elements
+            var cspan, i = 0;
+            while (i < nodes.length) {
+                cspan = +nodes[i].CSpan || 1;
+                [].splice.apply(nodes, [i, 0].concat(new Array(cspan).join('0').split('')));
+                i += cspan;
+            }
+
+            return {'grid': grid};
+        }
+    },
+
+    makeCol = function (node) {
+        if (angular.isObject(node)) {
+            var widths = this.widths;
+            var width = widths.length ? ('width:' + (widths[++colCount - 1] || widths[widths.length - 1]) + 'px; ') : '';
+
+            that.openElement('td', '', {}, width, node.CSpan ? 'colspan="' + node.CSpan +'"' : ''); //TODO: add functionality to separate node attributes from the node object when they don't belong in the element
+            that.nodeHandlers.Node(_.omit(node, 'CSpan'));
+            that.closeElement();
+        }
+    },
+
+    makeRow = function (nodes, heights, widths) {
+        var height = heights.length ? ('height:' + (heights[++rowCount - 1] || heights[heights.length - 1]) + 'px; ') : '';
+        colCount = 0;
+
+        that.openElement('tr', '', {}, height);
+        _.each(nodes, makeCol, {widths: widths});
+        that.closeElement();
+    },
+
+// span[1] is number of cols. For each type of flow we have a loop to create appropriate rows.
+    makeGrid =  {
+        'TToB' : function (grid, heights, widths, span) {
+            var i, filterFunction = function (elm, ind) {return ind % span[1] === i; },
+                nodes = grid.Sub.Node;
+
+            for (i = 0; i < span[1]; i++) {
+                makeRow(nodes.filter(filterFunction), heights, widths);
+            }
+        },
+        'LToR' : function (grid, heights, widths, span) {
+            var i, nodes = grid.Sub.Node;
+            for (i = 0; i < nodes.length; i += span[1]) {
+                makeRow(nodes.slice(i, i + span[1]), heights, widths);
+            }
+        }
+    },
+
+    handleMode = function (mode) {
+        nodes = this.Sub.Node;
+        //check if parameters for each mode exist in grid (or nodes for 'Xy')
+        if (this[mode]
+                || (mode === 'Xy' && _.every(nodes, 'Xy'))
+                || (mode === 'CSpan' && _.some(nodes, 'CSpan'))) {
+            return modeHandlers[mode](this);
+        }
+    },
+
+    modes = ['ColWidth', 'RowHeight', 'Span', 'Rows', 'Cols', 'Xy', 'CSpan'];
+
 module.exports = function (grid) {
 
-    var that = this,
-        span = [],
-        widths = [],
-        heights = [],
-        colCount = 0,
-        rowCount = 0,
-        nodes = grid.Sub.Node,
-        flow = grid.Flow || "LToR",
+    that = this;
 
-        modeHandlers = {
-            'Span': function () {
-                span = grid.Span.split(',');
-                span = span.map(Math.floor);
-            },
-            'Rows': function () {
-                span = [grid.Rows, nodes.length / Number(grid.Rows)];
-                flow = 'TToB';
-            },
-            'Cols': function () {
-                span = [nodes.length / grid.Cols, Number(grid.Cols)];
-            },
-            'ColWidth': function () {
-                widths = grid.ColWidth.match(/[^ ,]+/g);
-                span[1] = Math.max(span[1], widths.length);
-            },
-            'RowHeight': function () {
-                heights = grid.RowHeight.match(/[^ ,]+/g);
-                span[0] = Math.max(span[0], heights.length);
-            },
-            'Xy' : function () {
-                //create a map for the nodes according to Xy elements
-                var gridMap = _.map(nodes, function (node, index) {
-                    return [node.Xy.match(/[^ ,]+/g).reduce(function (prev, cur) {
-                        return +prev * span[1] + +cur;
-                    })].concat(index);
-                }).sort(function (a, b) { return a[0] - b[0]; });
+    if (_.isObject(grid)) {
 
-                nodes = (function () {
-                    var arr = [], i;
-                    for (i = 0; i < span[0] * span[1]; i++) {
-                        arr.push((gridMap[0] || [-1])[0] === i ? nodes[gridMap.shift()[1]] : {'UI': 'Label'});
-                    }
-                    return arr;
-                }());
-            },
-            'CSpan' : function () {
-                //create a map for the nodes according to CSpan elements
-                var cspan, i = 0;
-                while (i < nodes.length) {
-                    cspan = +nodes[i].CSpan || 1;
-                    [].splice.apply(nodes, [i, 0].concat(new Array(cspan).join('0').split('')));
-                    i += cspan;
-                }
-            }
-        },
+        var flow = grid.Flow || "LToR";
 
-        makeCol = function (node) {
-            if (angular.isObject(node)) {
-                var width = widths.length ? ('width:' + (widths[++colCount - 1] || widths[widths.length - 1]) + 'px; ') : '';
-                that.openElement('td', '', {}, width, node.CSpan ? 'colspan="' + node.CSpan +'"' : ''); //TODO: add functionality to separate node attributes from the node object when they don't belong in the element
-                that.nodeHandlers.Node(_.omit(node, 'CSpan'));
-                that.closeElement();
-            }
-        },
+        data = {grid: grid, heights: '', widths: '', span: []};
 
-        makeRow = function (nodes) {
-            var height = heights.length ? ('height:' + (heights[++rowCount - 1] || heights[heights.length - 1]) + 'px; ') : '';
-            colCount = 0;
-            that.openElement('tr', '', {}, height);
-            _.each(nodes, makeCol);
+        _.each(modes, function (mode) {
+            _.extend(data, handleMode.call(grid, mode));
+        });
+
+        if (data.span[1] > 0) {
+            that.openElement('table', '', grid, '');
+            makeGrid[flow](data.grid, data.heights, data.widths, data.span);
             that.closeElement();
-        },
-
-    // span[1] is number of cols. For each type of flow we have a loop to create appropriate rows.
-        makeGrid = {
-            'TToB' : function () {
-                var i, filterFunction = function (elm, ind) {return ind % span[1] === i; };
-
-                for (i = 0; i < span[1]; i++) {
-                    makeRow(nodes.filter(filterFunction));
-                }
-            },
-            'LToR' : function () {
-                var i;
-                for (i = 0; i < nodes.length; i += span[1]) {
-                    makeRow(nodes.slice(i, i + span[1]));
-                }
-            }
-        },
-
-        handleMode = function (mode) {
-            //check if parameters for each mode exist in grid (or nodes for 'Xy')
-            if (grid[mode]
-                    || (mode === 'Xy' && _.every(nodes, 'Xy'))
-                    || (mode === 'CSpan' && _.some(nodes, 'CSpan'))) {
-                modeHandlers[mode]();
-            }
-        },
-
-        modes = ['ColWidth', 'RowHeight', 'Span', 'Rows', 'Cols', 'Xy', 'CSpan'];
-
-    modes.forEach(function (mode) {
-        handleMode(mode);
-    });
-    if (span[1] > 0) {
-        that.openElement('table', '', grid, '');
-        makeGrid[flow]();
-        that.closeElement();
+        }
     }
-}
+
+};
+
+module.exports.test = {
+    modeHandlers: modeHandlers,
+    makeCol: makeCol,
+    makeRow: makeRow,
+    makeGrid: makeGrid,
+    handleMode: handleMode
+};
 },{}],3:[function(require,module,exports){
 module.exports = function (styles) {
 
@@ -332,7 +403,7 @@ angular.module('ShadeServices', [])
             }
         };
 
-    return this;
+        return this;
 
 
 
@@ -461,19 +532,19 @@ angular.module('ShadeServices', [])
 
             var nativeStyles = _.reduce(node, ShadeStyles.handleStyles, ''),
                 nativeClass = ((nativeStyles || customStyles) ? "class" + ++classCount : '');
-                cur = currentElement.nodes.push({
-                    'elmName': elmName,
-                    'nativeClass': nativeClass + (node.Style ? (' ' + node.Style) : ''),
-                    'className' : className,
-                    'node': node,
-                    'customStyles': customStyles,
-                    'customAttr': customAttr,
-                    'content': angular.isDefined(content) ? content : node.Text,
-                    'nodes': [],
-                    'parent': currentElement,
-                    'id': ++elmId
+            cur = currentElement.nodes.push({
+                'elmName': elmName,
+                'nativeClass': nativeClass + (node.Style ? (' ' + node.Style) : ''),
+                'className' : className,
+                'node': node,
+                'customStyles': customStyles,
+                'customAttr': customAttr,
+                'content': angular.isDefined(content) ? content : node.Text,
+                'nodes': [],
+                'parent': currentElement,
+                'id': ++elmId
 
-                });
+            });
             if (customStyles || nativeStyles) {
                 ShadeStyles.addStyles(nativeClass, (customStyles || '') + (nativeStyles || ''));
             }

@@ -20,7 +20,7 @@ module.exports = function(grunt) {
             },
             set1: {
                 src: ['public/scripts/Shade/shade_module.js', 'public/scripts/Shade/controllers/*.js', 'public/scripts/Shade/directives/*.js',
-                      'public/scripts/Shade/factories/*.js', 'public/scripts/Shade/filters/*.js', 'public/scripts/Shade/services/*.js'],
+                    'public/scripts/Shade/factories/*.js', 'public/scripts/Shade/filters/*.js', 'public/scripts/Shade/services/*.js'],
                 dest: 'public/dist/js/shade-module.js'
             },
             set2: {
@@ -147,7 +147,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-concurrent');
 
-    grunt.registerTask('default', ['browserify', 'concat', 'uglify']);
+    grunt.registerTask('default', ['browserify', 'concat', 'uglify:set2']);
+    grunt.registerTask('all', ['browserify', 'concat', 'uglify']);
+    grunt.registerTask('lib', ['uglify:set1']);
     grunt.registerTask('test', ['jasmine_node']);
     grunt.registerTask('wat', ['concurrent:watch']);
 

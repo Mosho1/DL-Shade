@@ -5,7 +5,7 @@ angular.module('ShadeApp')
   replace: true
   scope: false
   transclude: true
-  template: (elm, attr) ->
+  template: (elm, attr) -> #TODO: maybe replace this with compile, not sure why
     toAppend = ''
     if (attr.controlBlock)
       cbs = do ->

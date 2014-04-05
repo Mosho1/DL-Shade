@@ -1,34 +1,25 @@
-var that = {},
+openElement = null;
+closeElement = null;
 
-    modeHandlers =  {
+var modeHandlers = {
         'Span': function (grid) {
             span = grid.Span.split(',');
             span = span.map(Math.floor);
-
-            return {'span': span};
         },
         'Rows': function (grid) {
-            span = [grid.Rows, grid.Sub.Node.length / Number(grid.Rows)];
+            span = [grid.Rows, nodes.length / Number(grid.Rows)];
             flow = 'TToB';
-
-            return {'span': span};
         },
         'Cols': function (grid) {
-            span = [grid.Sub.Node.length / grid.Cols, Number(grid.Cols)];
-
-            return {'span': span};
+            span = [nodes.length / grid.Cols, Number(grid.Cols)];
         },
-        'ColWidth': function (grid, span) {
+        'ColWidth': function (grid) {
             widths = grid.ColWidth.match(/[^ ,]+/g);
             span[1] = Math.max(span[1], widths.length);
-
-            return {'span': span, 'widths': widths};
         },
-        'RowHeight': function (grid, span) {
+        'RowHeight': function (grid) {
             heights = grid.RowHeight.match(/[^ ,]+/g);
             span[0] = Math.max(span[0], heights.length);
-
-            return {'span': span, 'heights': heights};
         },
         'Xy' : function (grid) {
             var nodes = grid.Sub.Node;
@@ -39,15 +30,13 @@ var that = {},
                 })].concat(index);
             }).sort(function (a, b) { return a[0] - b[0]; });
 
-            nodes = (function () {
+            return nodes = (function () {
                 var arr = [], i;
                 for (i = 0; i < span[0] * span[1]; i++) {
                     arr.push((gridMap[0] || [-1])[0] === i ? nodes[gridMap.shift()[1]] : {'UI': 'Label'});
                 }
                 return arr;
             }());
-
-            return {'grid': grid};
         },
         'CSpan' : function (grid) {
             var nodes = grid.Sub.Node;
@@ -59,87 +48,80 @@ var that = {},
                 i += cspan;
             }
 
-            return {'grid': grid};
+            return nodes;
         }
     },
 
     makeCol = function (node) {
+        var widths = this.widths;
         if (angular.isObject(node)) {
-            var widths = this.widths;
             var width = widths.length ? ('width:' + (widths[++colCount - 1] || widths[widths.length - 1]) + 'px; ') : '';
-
             that.openElement('td', '', {}, width, node.CSpan ? 'colspan="' + node.CSpan +'"' : ''); //TODO: add functionality to separate node attributes from the node object when they don't belong in the element
             that.nodeHandlers.Node(_.omit(node, 'CSpan'));
             that.closeElement();
         }
     },
 
-    makeRow = function (nodes, heights, widths) {
+    makeRow = function (nodes) {
+        var heights = this.heights;
         var height = heights.length ? ('height:' + (heights[++rowCount - 1] || heights[heights.length - 1]) + 'px; ') : '';
         colCount = 0;
-
-        that.openElement('tr', '', {}, height);
-        _.each(nodes, makeCol, {widths: widths});
-        that.closeElement();
+        openElement('tr', '', {}, height);
+        _.each(nodes, makeCol);
+        closeElement();
     },
 
 // span[1] is number of cols. For each type of flow we have a loop to create appropriate rows.
-    makeGrid =  {
-        'TToB' : function (grid, heights, widths, span) {
-            var i, filterFunction = function (elm, ind) {return ind % span[1] === i; },
-                nodes = grid.Sub.Node;
+    makeGrid = {
+        'TToB' : function (nodes) {
+            var i, filterFunction = function (elm, ind) {return ind % span[1] === i; };
 
             for (i = 0; i < span[1]; i++) {
-                makeRow(nodes.filter(filterFunction), heights, widths);
+                ret.makeRow(nodes.filter(filterFunction));
             }
         },
-        'LToR' : function (grid, heights, widths, span) {
-            var i, nodes = grid.Sub.Node;
+        'LToR' : function (nodes) {
+            var i;
             for (i = 0; i < nodes.length; i += span[1]) {
-                makeRow(nodes.slice(i, i + span[1]), heights, widths);
+                ret.makeRow(nodes.slice(i, i + span[1]));
             }
         }
     },
 
-    handleMode = function (mode) {
-        nodes = this.Sub.Node;
+    handleMode = function (mode, grid) {
+        var nodes = grid.Sub.Node;
         //check if parameters for each mode exist in grid (or nodes for 'Xy')
-        if (this[mode]
+        if (grid[mode]
                 || (mode === 'Xy' && _.every(nodes, 'Xy'))
                 || (mode === 'CSpan' && _.some(nodes, 'CSpan'))) {
-            return modeHandlers[mode](this);
+            ret.modeHandlers[mode](grid);
         }
     },
 
-    modes = ['ColWidth', 'RowHeight', 'Span', 'Rows', 'Cols', 'Xy', 'CSpan'];
+    gridElm = function (gridObj) {
+        openElement = this.openElement;
+        closeElement = this.closeElement.
+        grid = gridObj;
+        nodes = grid.Sub.Node;
+        flow = grid.Flow || "LToR";
+        rowCount = 0;
+        span = [];
+        widths = [];
+        heights = [];
+        that = this;
 
-module.exports = function (grid) {
+        modes = ['ColWidth', 'RowHeight', 'Span', 'Rows', 'Cols', 'Xy', 'CSpan'];
 
-    that = this;
-
-    if (_.isObject(grid)) {
-
-        var flow = grid.Flow || "LToR";
-
-        data = {grid: grid, heights: '', widths: '', span: []};
-
-        _.each(modes, function (mode) {
-            _.extend(data, handleMode.call(grid, mode));
+        modes.forEach(function (mode) {
+            ret.handleMode(mode);
         });
-
-        if (data.span[1] > 0) {
+        if (span[1] > 0) {
             that.openElement('table', '', grid, '');
-            makeGrid[flow](data.grid, data.heights, data.widths, data.span);
+            ret.makeGrid[flow]();
             that.closeElement();
         }
-    }
 
-};
+    };
 
-module.exports.test = {
-    modeHandlers: modeHandlers,
-    makeCol: makeCol,
-    makeRow: makeRow,
-    makeGrid: makeGrid,
-    handleMode: handleMode
-};
+exports = {}
+

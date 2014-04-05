@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/public/scripts/Shade/services/format.coffee" line="15" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="15758fa3-0dc6-4239-9815-36387ae5d86d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jasmine/spec/node/lexerSpec.js" />
-      <change type="DELETED" beforePath="C:\Users\SR71042\Documents\GitHub\DependencyLanguage\npm-debug.log" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\SR71042\Documents\GitHub\DependencyLanguage\public\scripts\Shade\dist\shadeCompiler.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\SR71042\Documents\GitHub\DependencyLanguage\public\scripts\Shade\dist\shade_module.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\SR71042\Documents\GitHub\DependencyLanguage\public\scripts\Shade\shadeCompiler\dist\shadeServices.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/wip/Grid2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/directive-templates/numUpDown.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.coffee" afterPath="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/DropDown.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/DropDown.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/Grid.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/Grid.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/reports/jasmine/TEST-VariableEntry.xml" afterPath="$PROJECT_DIR$/build/reports/jasmine/TEST-VariableEntry.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/reports/jasmine/TEST-calculatorTest.xml" afterPath="$PROJECT_DIR$/build/reports/jasmine/TEST-calculatorTest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/reports/jasmine/TEST-functionTesta2l.xml" afterPath="$PROJECT_DIR$/build/reports/jasmine/TEST-functionTesta2l.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/reports/jasmine/TEST-functionTestavg.xml" afterPath="$PROJECT_DIR$/build/reports/jasmine/TEST-functionTestavg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/directives/button.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/directives/button.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/directives/button.coffee" afterPath="$PROJECT_DIR$/public/scripts/Shade/directives/button.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/directives/dropDown.coffee" afterPath="$PROJECT_DIR$/public/scripts/Shade/directives/dropDown.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/directives/dropDown.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/directives/dropDown.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/directives/format.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/directives/format.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/editor-module.js" afterPath="$PROJECT_DIR$/public/dist/js/editor-module.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/services/format.coffee" afterPath="$PROJECT_DIR$/public/scripts/Shade/services/format.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/services/format.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/services/format.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/factories/ngGridPlugin.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/factories/ngGridPlugin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/directives/numUpDown.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/directives/numUpDown.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/directives/renderPanel.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/directives/renderPanel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/services/shadeDictionary.coffee" afterPath="$PROJECT_DIR$/public/scripts/Shade/services/shadeDictionary.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/services/shadeDictionary.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/services/shadeDictionary.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/services/shadeTemplate.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/services/shadeTemplate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/shade_module.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/shade_module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/tools.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/tools.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/graph-text-dev.js" afterPath="$PROJECT_DIR$/public/dist/js/graph-text-dev.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/grid.css" afterPath="$PROJECT_DIR$/public/styles/grid.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/index_DL.jade" afterPath="$PROJECT_DIR$/public/views/index_DL.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/libs.min.js" afterPath="$PROJECT_DIR$/public/dist/libs.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/libs.min.map" afterPath="$PROJECT_DIR$/public/dist/libs.min.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/script.js" afterPath="$PROJECT_DIR$/public/dist/js/script.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/script.min.js" afterPath="$PROJECT_DIR$/public/dist/script.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/script.min.map" afterPath="$PROJECT_DIR$/public/dist/script.min.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/shade-compiler.js" afterPath="$PROJECT_DIR$/public/dist/js/shade-compiler.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/shade-module.js" afterPath="$PROJECT_DIR$/public/dist/js/shade-module.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/shadeHandlers.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/shadeHandlers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jasmine/spec/node/variableRegistrySpec.js" afterPath="$PROJECT_DIR$/jasmine/spec/node/variableRegistrySpec.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DependencyLanguage.iws" />
@@ -44,185 +48,103 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="variable-registry.js" pinned="false" current="true" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.789823" vertical-offset="306" max-vertical-offset="3740">
-                    <caret line="60" column="17" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="index_DL.jade" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/public/views/index_DL.jade">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="-24.44" vertical-offset="1378" max-vertical-offset="2482">
-                    <caret line="117" column="38" selection-start-line="117" selection-start-column="38" selection-end-line="117" selection-end-column="38" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="variableRegistrySpec.js" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/jasmine/spec/node/variableRegistrySpec.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0" vertical-offset="2121" max-vertical-offset="3009">
-                    <caret line="162" column="49" selection-start-line="162" selection-start-column="49" selection-end-line="162" selection-end-column="49" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="TEST-VariableRegistry.xml" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/build/reports/jasmine/TEST-VariableRegistry.xml">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
-                    <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="lexerSpec.js" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/jasmine/spec/node/lexerSpec.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
-                    <caret line="6" column="42" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="lexer.js" pinned="false" current="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/lexer.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.24887387" vertical-offset="0" max-vertical-offset="6052">
-                    <caret line="17" column="72" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="DependencyLanguage" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="calculator.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/calculator.js">
+      <file leaf-file-name="Gruntfile.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gruntfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6885">
-              <caret line="6" column="16" selection-start-line="6" selection-start-column="3" selection-end-line="14" selection-end-column="14" />
+            <state line="47" column="38" selection-start="2343" selection-end="2343" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2737">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="calc-handlers.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/calc-handlers.js">
+      <file leaf-file-name="render_graph.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/Editor/directives/render_graph.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-              <caret line="14" column="59" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="graph-text.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/graph-text.js">
+      <file leaf-file-name="button.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/button.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
-              <caret line="26" column="101" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+            <state line="31" column="18" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ast-validator.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/ast-validator.js">
+      <file leaf-file-name="dropDown.coffee" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/dropDown.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="3910">
-              <caret line="2" column="60" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
+            <state line="40" column="14" selection-start="1289" selection-end="1289" vertical-scroll-proportion="0.9327846" vertical-offset="0" max-vertical-offset="799">
+              <folding>
+                <marker date="1396614924852" expanded="true" signature="202:382" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DLCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="257" column="11" selection-start="8438" selection-end="8438" vertical-scroll-proportion="0.0" vertical-offset="4063" max-vertical-offset="4845">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpecRunner.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jasmine/SpecRunner.html">
+      <file leaf-file-name="DLCtrl.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="527">
-              <caret line="18" column="63" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="63" />
+            <state line="97" column="0" selection-start="2997" selection-end="2997" vertical-scroll-proportion="-20.92" vertical-offset="1126" max-vertical-offset="3400">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shade-compiler.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/dist/js/shade-compiler.js">
+      <file leaf-file-name="angular.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/DL_libs/angular.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="8755">
-              <caret line="26" column="33" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state line="17" column="47" selection-start="529" selection-end="529" vertical-scroll-proportion="0.0" vertical-offset="19787" max-vertical-offset="304419">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DropDown.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/DropDown.js">
+      <file leaf-file-name="angular-animate.min.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/DL_libs/angular-animate.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.857143" vertical-offset="0" max-vertical-offset="527">
-              <caret line="8" column="31" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-              <folding />
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shadeDictionary.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/Shade/services/shadeDictionary.coffee">
+      <file leaf-file-name="angular-resource.min.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/DL_libs/angular-resource.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-              <caret line="23" column="26" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-              <folding />
+            <state line="13" column="0" selection-start="3278" selection-end="3278" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Grid.js" pinned="false" current="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/Grid.js">
+      <file leaf-file-name="index_DL.jade" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/index_DL.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.61281335" vertical-offset="1107" max-vertical-offset="1989">
-              <caret line="91" column="54" selection-start-line="0" selection-start-column="0" selection-end-line="111" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ng_template_shd.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/Shade/ng_template_shd.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
-              <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+            <state line="109" column="41" selection-start="6391" selection-end="6391" vertical-scroll-proportion="-7.0" vertical-offset="1678" max-vertical-offset="2533">
               <folding />
             </state>
           </provider>
@@ -246,10 +168,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/styles/bootstrap-addons.css" />
-        <option value="$PROJECT_DIR$/public/scripts/services/ShadeServices/shadeHandlers.js" />
-        <option value="$PROJECT_DIR$/public/XML/control.xml" />
-        <option value="$PROJECT_DIR$/public/scripts/services/shadeServices.js" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/shade_module.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/graph-dev/compiler.js" />
@@ -259,21 +177,17 @@
         <option value="$PROJECT_DIR$/public/scripts/graph-dev/functions.js" />
         <option value="$PROJECT_DIR$/jasmine/spec/node/calculatorSpec.js" />
         <option value="$PROJECT_DIR$/jasmine/spec/node/functionSpec.js" />
+        <option value="$PROJECT_DIR$/jasmine/spec/node/variableRegistrySpec.js" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/controllers/DLCtrl.js" />
-        <option value="$PROJECT_DIR$/public/scripts/Shade/services/format.coffee" />
-        <option value="$PROJECT_DIR$/public/scripts/Shade/directives/button.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/directives/renderPanel.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/factories/ngGridPlugin.coffee" />
-        <option value="$PROJECT_DIR$/public/scripts/Shade/shade_module.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/services/x2js.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/services/graph-text.coffee" />
-        <option value="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/shadeHandlers.js" />
-        <option value="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/Grid.js" />
-        <option value="$PROJECT_DIR$/public/scripts/Shade/directives/dropDown.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/graph-dev/graph-text.js" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/directives/format.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/directives/numUpDown.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/prettify.js" />
+        <option value="$PROJECT_DIR$/public/scripts/Shade/services/shadeDictionary.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/services/shadeTemplate.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/Editor/services/drawGraph.js" />
         <option value="$PROJECT_DIR$/public/dist/js/editor-module.js" />
@@ -288,31 +202,31 @@
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/a" />
+        <option value="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/Grid2.js" />
+        <option value="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/shadeHandlers.js" />
+        <option value="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/Styles.js" />
         <option value="$PROJECT_DIR$/public/views/index_DL.jade" />
-        <option value="$PROJECT_DIR$/Gruntfile.js" />
-        <option value="$PROJECT_DIR$/public/scripts/graph-dev/tools.js" />
-        <option value="$PROJECT_DIR$/build/reports/jasmine/TEST-VariableRegistry.xml" />
-        <option value="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" />
-        <option value="$PROJECT_DIR$/jasmine/spec/node/lexerSpec.js" />
-        <option value="$PROJECT_DIR$/jasmine/spec/node/variableRegistrySpec.js" />
+        <option value="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/Grid.js" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/DropDown.js" />
-        <option value="$PROJECT_DIR$/public/scripts/Shade/services/shadeDictionary.coffee" />
+        <option value="$PROJECT_DIR$/public/directive-templates/numUpDown.html" />
+        <option value="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" />
+        <option value="$PROJECT_DIR$/public/styles/grid.css" />
+        <option value="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.coffee" />
+        <option value="$PROJECT_DIR$/public/scripts/Shade/directives/dropDown.coffee" />
+        <option value="$PROJECT_DIR$/public/scripts/Shade/services/format.coffee" />
+        <option value="$PROJECT_DIR$/public/scripts/Shade/shade_module.coffee" />
+        <option value="$PROJECT_DIR$/public/scripts/Shade/directives/dropDown.js" />
+        <option value="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.js" />
+        <option value="$PROJECT_DIR$/Gruntfile.js" />
+        <option value="$PROJECT_DIR$/public/scripts/Shade/directives/button.coffee" />
       </list>
     </option>
-  </component>
-  <component name="JsGruntFileManager">
-    <gruntfiles>
-      <GruntfileState>
-        <gruntfile-path>$PROJECT_DIR$/Gruntfile.js</gruntfile-path>
-      </GruntfileState>
-    </gruntfiles>
-    <initial>false</initial>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1052" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -374,7 +288,7 @@
     <option name="STATE" value="2" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -401,7 +315,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemId" value="DL-Shade" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -411,7 +325,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemId" value="DL-Shade" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -425,7 +339,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="DL-Shade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DL-Shade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DL-Shade" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -443,7 +393,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemId" value="DL-Shade" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -465,7 +415,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemId" value="DL-Shade" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -481,7 +431,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="shadeCompiler" />
+              <option name="myItemId" value="directives" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -491,7 +441,103 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="DL-Shade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DL-Shade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directives" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DL-Shade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DLCtrl.coffee" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DL-Shade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DL_libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DL-Shade" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -509,7 +555,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemId" value="DL-Shade" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -522,6 +568,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DL-Shade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directive-templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -544,18 +608,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\SR71042\Documents\GitHub\DependencyLanguage\jasmine\spec\node" />
+      <recent name="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\directive-templates" />
+      <recent name="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\scripts\Shade\shadeCompiler" />
       <recent name="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade" />
       <recent name="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public" />
       <recent name="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\scripts\Editor" />
-      <recent name="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\scripts\Shade" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\scripts\Shade\shadeCompiler\wip" />
       <recent name="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade" />
       <recent name="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\DL_libs" />
       <recent name="I:\stavrosbackup\DependencyLanguage\public\scripts\graph-dev" />
       <recent name="I:\stavrosbackup\DependencyLanguage\public\scripts" />
-      <recent name="I:\stavrosbackup\DependencyLanguage\public\csscripts" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.Unnamed (1)">
@@ -577,13 +641,7 @@
       <option name="testName" />
       <method />
     </configuration>
-    <configuration default="true" type="CucumberJavaScriptRunConfigurationType" factoryName="Cucumber.js">
-      <option name="cucumberJsArguments" />
-      <option name="executablePath" />
-      <option name="filePath" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
       <envs />
       <method />
     </configuration>
@@ -591,7 +649,7 @@
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
-      <setting name="preferredDebugBrowser" value="Chrome" />
+      <setting name="preferredDebugBrowser" value="CHROME" />
       <method />
     </configuration>
     <configuration default="true" type="NodeJSRemoteDebug" factoryName="Node.js Remote Debug">
@@ -608,13 +666,15 @@
       <setting name="jsFile" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="public/DLengine.js" working-dir="$PROJECT_DIR$">
+      <browser start="false" url="" with-js-debugger="false" />
       <method />
     </configuration>
     <configuration default="false" name="Unnamed" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="public/DLengine.js" working-dir="$PROJECT_DIR$">
+      <browser start="false" url="" with-js-debugger="false" />
       <RunnerSettings RunnerId="NodeJS.debug" />
       <RunnerSettings RunnerId="NodeJS.run" />
       <ConfigurationWrapper RunnerId="NodeJS.debug" />
@@ -622,6 +682,7 @@
       <method />
     </configuration>
     <configuration default="false" name="Unnamed (1)" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="server.js" working-dir="$PROJECT_DIR$">
+      <browser start="false" url="" with-js-debugger="false" />
       <RunnerSettings RunnerId="NodeJS.run" />
       <ConfigurationWrapper RunnerId="NodeJS.run" />
       <method />
@@ -678,27 +739,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1052" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Grunt" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850778" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18736383" sideWeight="0.49921012" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15924276" sideWeight="0.49921012" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24907847" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13645834" sideWeight="0.7525968" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.164297" sideWeight="0.7525968" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24647123" sideWeight="0.49841473" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32182628" sideWeight="0.5013165" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3207024" sideWeight="0.4986835" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31959912" sideWeight="0.4986835" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -721,10 +781,7 @@
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
-    <option name="RECENTLY_FILTERED_USER_GROUPS">
-      <collection />
-    </option>
-    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+    <option name="RECENTLY_FILTERED_USERS">
       <collection />
     </option>
   </component>
@@ -759,112 +816,68 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/scripts/Editor/directives/split-panel.coffee">
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/calc-handlers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2397">
-          <caret line="7" column="14" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state line="18" column="46" selection-start="575" selection-end="575" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/util/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="146" column="20" selection-start="4353" selection-end="4364" vertical-scroll-proportion="-99.28" vertical-offset="0" max-vertical-offset="10064" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/tools.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="459" selection-end="459" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Editor/services/drawGraph.js">
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/ast-validator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4477" max-vertical-offset="5389">
-          <caret line="310" column="8" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
+        <state line="2" column="60" selection-start="152" selection-end="152" vertical-scroll-proportion="-1.36" vertical-offset="0" max-vertical-offset="3910" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/services/shadeTemplate.coffee">
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/node-handlers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
-          <caret line="21" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Editor/services/x2js.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="912">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Editor/services/graph-text.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="912">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Editor/directives/render_graph.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-          <caret line="17" column="37" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/rewriter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="912">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/parser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6001">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
+        <state line="20" column="29" selection-start="442" selection-end="442" vertical-scroll-proportion="-13.6" vertical-offset="0" max-vertical-offset="3026" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/directive-templates/testdl.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="289">
-          <caret line="11" column="9" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
+        <state line="11" column="9" selection-start="436" selection-end="436" vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="289" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="872">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="872" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.markdown">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="872">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="872" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="872">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="872" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/parser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1593" max-vertical-offset="3740">
-          <caret line="144" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state line="144" column="0" selection-start="3566" selection-end="3566" vertical-scroll-proportion="0.0" vertical-offset="1593" max-vertical-offset="3740">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="578" max-vertical-offset="816">
-          <caret line="34" column="3" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
-          <folding />
-        </state>
+        <state line="34" column="3" selection-start="975" selection-end="975" vertical-scroll-proportion="-23.12" vertical-offset="0" max-vertical-offset="816" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/dist/graph-text-dev.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="55505">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="55505">
           <folding />
         </state>
       </provider>
@@ -874,291 +887,410 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/dist/js/shade-module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="312" column="6" selection-start="10813" selection-end="10813" vertical-scroll-proportion="0.0" vertical-offset="8384" max-vertical-offset="8891">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/dist/js/editor-module.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="17343" max-vertical-offset="23290">
-          <caret line="468" column="22" selection-start-line="468" selection-start-column="22" selection-end-line="468" selection-end-column="22" />
-          <folding />
+        <state line="468" column="22" selection-start="15393" selection-end="15393" vertical-scroll-proportion="0.0" vertical-offset="17343" max-vertical-offset="23290">
+          <folding>
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{&quot;external&quot;: true...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{&quot;restrict&quot;: 'C'...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{&quot;col&quot;: '='...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{&quot;show&quot;: false...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{&quot;restrict&quot;: 'A'...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{&quot;restrict&quot;: 'A'...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{&quot;restrict&quot;: 'E'...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{&quot;Table&quot;: 'Graph'...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{&quot;true&quot;: false...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{&quot;restrict&quot;: 'E'...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{&quot;require&quot;: '^splitRow'...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{&quot;name&quot;: '@'...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{&quot;restrict&quot;: 'E'...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085123" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/dist/js/graph-text-dev.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="54505" max-vertical-offset="55471">
-          <caret line="3241" column="21" selection-start-line="3241" selection-start-column="21" selection-end-line="3241" selection-end-column="21" />
-          <folding />
+        <state line="3244" column="21" selection-start="114052" selection-end="114052" vertical-scroll-proportion="0.0" vertical-offset="54556" max-vertical-offset="55522">
+          <folding>
+            <marker date="1396680085099" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085099" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1396680085099" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085099" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1396680085099" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085099" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085099" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085099" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085099" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085099" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085099" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085099" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085099" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085099" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085099" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396680085099" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="799">
-          <caret line="39" column="3" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
-          <folding />
+        <state line="39" column="3" selection-start="916" selection-end="916" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="799">
+          <folding>
+            <marker date="1396512726245" expanded="true" signature="-1:-1" placeholder="{&quot;name&quot;: &quot;DLengine&quot;...}" />
+            <marker date="1396512726245" expanded="true" signature="-1:-1" placeholder="{&quot;grunt&quot;: &quot;0.4.4&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/a">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="442">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        <state line="8" column="16" selection-start="0" selection-end="706" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="442">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/index_DL.jade">
+    <entry file="file://$PROJECT_DIR$/public/DL_libs/ng-grid/GruntFile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.44" vertical-offset="1378" max-vertical-offset="2482">
-          <caret line="117" column="38" selection-start-line="117" selection-start-column="38" selection-end-line="117" selection-end-column="38" />
+        <state line="76" column="0" selection-start="3178" selection-end="3178" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5372">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/dist/js/shade-module.js">
+    <entry file="file://$PROJECT_DIR$/public/dist/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="8197" max-vertical-offset="8891">
-          <caret line="312" column="6" selection-start-line="312" selection-start-column="6" selection-end-line="312" selection-end-column="6" />
-          <folding>
-            <marker date="1396544564357" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1396544564357" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/numUpDown.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="867">
-          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-          <folding>
-            <marker date="1396544564552" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="2703">
-          <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="96101">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/shade_module.coffee">
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/wip/Grid2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21017699" vertical-offset="99" max-vertical-offset="1003">
-          <caret line="17" column="58" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/reports/jasmine/TEST-VariableRegistry.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/button.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
-          <caret line="29" column="41" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/js-compiler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="912">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jasmine/spec/node/functionSpec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="707">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jasmine/spec/node/variableRegistrySpec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2121" max-vertical-offset="3009">
-          <caret line="162" column="49" selection-start-line="162" selection-start-column="49" selection-end-line="162" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jasmine/spec/node/lexerSpec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
-          <caret line="6" column="42" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/node-handlers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3026">
-          <caret line="22" column="29" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/lexer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24887387" vertical-offset="0" max-vertical-offset="6052">
-          <caret line="17" column="72" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/nodes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3026">
-          <caret line="23" column="57" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/tools.map">
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="667">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/tools.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
-          <caret line="21" column="67" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/tools.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/scope-manager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3179">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="912">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/compiler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/calculator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6885">
-          <caret line="6" column="16" selection-start-line="6" selection-start-column="3" selection-end-line="14" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/calc-handlers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-          <caret line="14" column="59" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/ast-validator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="3910">
-          <caret line="2" column="60" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/graph-text.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
-          <caret line="26" column="101" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jasmine/SpecRunner.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="527">
-          <caret line="18" column="63" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="63" />
+        <state line="65" column="21" selection-start="2546" selection-end="2546" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2261">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/dist/js/shade-compiler.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="8755">
-          <caret line="26" column="33" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state line="580" column="0" selection-start="18503" selection-end="18503" vertical-scroll-proportion="0.0" vertical-offset="9452" max-vertical-offset="9962">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/ng_template_shd.js">
+    <entry file="file://$PROJECT_DIR$/public/scripts/app.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
-          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/Shade/services/shadeDictionary.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-          <caret line="23" column="26" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/DropDown.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.857143" vertical-offset="0" max-vertical-offset="527">
-          <caret line="8" column="31" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        <state line="39" column="0" selection-start="985" selection-end="985" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/Grid.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61281335" vertical-offset="1107" max-vertical-offset="1989">
-          <caret line="91" column="54" selection-start-line="0" selection-start-column="0" selection-end-line="111" selection-end-column="1" />
+        <state line="93" column="13" selection-start="3516" selection-end="3516" vertical-scroll-proportion="-63.24" vertical-offset="0" max-vertical-offset="2550">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/Styles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="48" selection-start="773" selection-end="773" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/services/shadeTemplate.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="564" selection-end="564" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/shadeHandlers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="205" column="0" selection-start="5977" selection-end="5977" vertical-scroll-proportion="-55.76" vertical-offset="2091" max-vertical-offset="5780">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/directive-templates/numUpDown.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="912">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/DropDown.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="568" selection-end="630" vertical-scroll-proportion="0.0" vertical-offset="159" max-vertical-offset="1241">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.789823" vertical-offset="306" max-vertical-offset="3740">
-          <caret line="60" column="17" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
+        <state line="14" column="0" selection-start="347" selection-end="347" vertical-scroll-proportion="-4.76" vertical-offset="0" max-vertical-offset="3706">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/styles/grid.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="398" selection-end="398" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/numUpDown.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="34" selection-start="1599" selection-end="1599" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
+          <folding>
+            <marker date="1396503812659" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/format.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="42" selection-start="636" selection-end="636" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/services/format.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="69" selection-start="535" selection-end="535" vertical-scroll-proportion="-10.2" vertical-offset="0" max-vertical-offset="357">
+          <folding>
+            <marker date="1396678587217" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/shade_module.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="14" selection-start="1050" selection-end="1050" vertical-scroll-proportion="0.0" vertical-offset="274" max-vertical-offset="1003">
+          <folding>
+            <marker date="1396678805243" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1396678805243" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/dropDown.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="11" selection-start="1879" selection-end="1879" vertical-scroll-proportion="0.0" vertical-offset="338" max-vertical-offset="1054">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/renderPanel.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="22" selection-start="1024" selection-end="1024" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="748">
+          <folding>
+            <marker date="1396497864229" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Editor/directives/split-panel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="34" selection-start="3318" selection-end="3318" vertical-scroll-proportion="0.0" vertical-offset="1406" max-vertical-offset="4165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Editor/directives/split-panel.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="19" selection-start="1239" selection-end="1244" vertical-scroll-proportion="-9.36" vertical-offset="548" max-vertical-offset="2397">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/dist/js/libs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="83700" selection-end="83700" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="796178">
+          <folding>
+            <marker date="1396680085156" expanded="true" signature="-1:-1" placeholder="//..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/DL_libs/angular.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="47" selection-start="529" selection-end="529" vertical-scroll-proportion="0.0" vertical-offset="2397" max-vertical-offset="304419">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/DL_libs/angular-animate.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="716">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/DL_libs/angular-resource.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="3278" selection-end="3278" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/index_DL.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="109" column="41" selection-start="6391" selection-end="6391" vertical-scroll-proportion="-7.0" vertical-offset="1678" max-vertical-offset="2533">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="257" column="11" selection-start="8438" selection-end="8438" vertical-scroll-proportion="0.0" vertical-offset="4063" max-vertical-offset="4845">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="0" selection-start="2997" selection-end="2997" vertical-scroll-proportion="-20.92" vertical-offset="1126" max-vertical-offset="3400">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="38" selection-start="2343" selection-end="2343" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2737">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Editor/directives/render_graph.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="729">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/button.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="18" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/dropDown.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="14" selection-start="1289" selection-end="1289" vertical-scroll-proportion="0.9327846" vertical-offset="0" max-vertical-offset="799">
+          <folding>
+            <marker date="1396614924852" expanded="true" signature="202:382" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
