@@ -65,7 +65,7 @@ angular.module('DLApp')
   $scope.litcoffee = {code:default_lc}
 
   $scope.test = {test:default_lc}
-
+  ###
   dndFile.init $element[0],
   dndFile.onactive   () -> $scope.$apply () -> $scope.dragover = true
   dndFile.oninactive () -> $scope.$apply () -> $scope.dragover = false
@@ -84,7 +84,7 @@ angular.module('DLApp')
           native: false
           css: e.target.result
         $scope.styles.active = name
-
+  ###
 
   $document.keyup (e) ->
     if e.altKey

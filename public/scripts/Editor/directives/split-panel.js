@@ -216,9 +216,7 @@
           }
         });
         return scope.$on('mousemoved', function(e, name) {
-          return scope.$apply(function() {
-            return scope.mouseover = name === scope.name;
-          });
+          return scope.mouseover = name === scope.name;
         });
       }
     };

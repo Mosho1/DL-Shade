@@ -13,8 +13,8 @@ angular.module('DLApp')
         insert = ->
           str = [
             str.slice(0, open)
-            '#'
-            Array(i).join('@')
+            '('
+            Array(i).join(')')
             str.slice(open)
           ].join('')
 
@@ -38,8 +38,8 @@ angular.module('DLApp')
             k = 1
             i--
 
-      indent(html,1).replace(new RegExp('#','gi'),'\n')
-                    .replace(new RegExp('@','gi'),'  ')
+      indent(html,1).replace(/\(/g,'\n')
+                    .replace(/\)/g,'  ')
 
 
 

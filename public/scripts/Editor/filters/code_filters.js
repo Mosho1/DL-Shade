@@ -14,7 +14,7 @@
         k = 0;
         open = -1;
         insert = function() {
-          return str = [str.slice(0, open), '#', Array(i).join('@'), str.slice(open)].join('');
+          return str = [str.slice(0, open), '(', Array(i).join(')'), str.slice(open)].join('');
         };
         ind = function(c) {
           return str.indexOf(c, open + i + k + 1);
@@ -41,7 +41,7 @@
           }
         }
       };
-      return indent(html, 1).replace(new RegExp('#', 'gi'), '\n').replace(new RegExp('@', 'gi'), '  ');
+      return indent(html, 1).replace(/\(/g, '\n').replace(/\)/g, '  ');
     };
   }).filter('md2html', function($interpolate, $rootScope) {
     return function(md) {

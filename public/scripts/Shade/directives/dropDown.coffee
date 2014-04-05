@@ -1,9 +1,10 @@
 angular.module('ShadeApp')
 
-.directive 'dropDown', ($timeout, $rootScope, ngGridFlexibleHeightPlugin) ->
+.directive 'dropDown', ($filter, $timeout, $rootScope, ngGridFlexibleHeightPlugin) ->
   restrict: 'E'
+  replace: true
   scope: true
-  template: '<ul class="dropdown" ng-click="dropdown($event,ghide)"><div class="selectedItems">{{selected}}</div>
+  template: '<ul class="dropdown" ng-click="dropdown($event,ghide)"><span class="selectedItems">{{selected|selectedArray}}</span><span class="glyphicon glyphicon-chevron-down"></span>
                  <div class="gridStyle" ng-grid="gridOptions" ng-class="{hide:ghide}" ng-click="select($event)" ng-animate></div></ul>'
   link:
     pre: (scope, elm, attr) ->
@@ -29,14 +30,20 @@ angular.module('ShadeApp')
 
       scope.ghide = true
       scope.dropdown = ($event,state) ->
+        $rootScope.$broadcast 'fade' if state
+        _.kill_event($event)
         scope.ghide = !state
 
       scope.select = ($event) ->
         _.kill_event($event)
 
-      scope.$on 'bg_click', (event)->
+      scope.$on 'bg_click', ()->
         scope.dropdown()
 
-      if attr.multiSelect is 'false'
-        scope.$watchCollection 'selected', ->
+      scope.$on 'fade', ()->
+        scope.dropdown()
+
+
+      scope.$watchCollection 'selected', ->
+        if attr.multiSelect is 'false'
           scope.ghide = true

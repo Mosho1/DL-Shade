@@ -16,8 +16,14 @@ table,th,td {border: 1px solid black;}
 }
 
 .dropdown .selectedItems {
-   overflow:auto;
+   overflow:hidden;
+   cursor:pointer;
+   display:inline-block;
+}
 
+.dropdown .selectedItems .glyphicon {
+    display:inline-block;
+    float:left;
 }
 
 /*

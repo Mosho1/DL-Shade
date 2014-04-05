@@ -121,7 +121,7 @@ angular.module('DLApp')
       unless scope.mouseover
         $rootScope.$broadcast 'mousemoved', scope.name
     scope.$on 'mousemoved', (e, name) ->
-      scope.$apply -> scope.mouseover = name is scope.name
+       scope.mouseover = name is scope.name
 
 
 

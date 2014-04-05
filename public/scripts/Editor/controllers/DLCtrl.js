@@ -98,46 +98,27 @@
     $scope.test = {
       test: default_lc
     };
-    dndFile.init($element[0], dndFile.onactive(function() {
-      return $scope.$apply(function() {
-        return $scope.dragover = true;
-      });
-    }));
-    dndFile.oninactive(function() {
-      return $scope.$apply(function() {
-        return $scope.dragover = false;
-      });
-    });
-    $element[0].addEventListener('mousemove', function() {
-      return $scope.$apply(function() {
-        return $scope.dragover = false;
-      });
-    });
-    dndFile.ondrop((function(e) {
-      return $scope.$apply(function() {
-        return $scope.dragover = false;
-      });
-    }), false);
-    dndFile.onfileload(function(e) {
-      return $scope.$apply(function() {
-        var i, name, _ref;
-        if ((_ref = e.fileExt) === 'md' || _ref === 'litcoffee') {
-          return $scope.litcoffee = e.target.result;
-        } else if (e.fileExt === 'css') {
-          name = e.fileName;
-          i = 0;
-          while (name in $scope.styles.sheets) {
-            name = "" + e.fileName + " " + (++i);
-          }
-          $scope.styles.sheets[name] = {
-            source: 'dragged file',
-            "native": false,
+
+    /*
+    dndFile.init $element[0],
+    dndFile.onactive   () -> $scope.$apply () -> $scope.dragover = true
+    dndFile.oninactive () -> $scope.$apply () -> $scope.dragover = false
+    $element[0].addEventListener 'mousemove', () -> $scope.$apply () -> $scope.dragover = false
+    dndFile.ondrop ((e) -> $scope.$apply () -> $scope.dragover = false), false
+    dndFile.onfileload (e) ->
+      $scope.$apply () ->
+        if e.fileExt in ['md', 'litcoffee']
+          $scope.litcoffee = e.target.result
+        else if e.fileExt is 'css'
+          name = e.fileName
+          i = 0
+          name = "#{e.fileName} #{++i}" while name of $scope.styles.sheets
+          $scope.styles.sheets[name] =
+            source: 'dragged file'
+            native: false
             css: e.target.result
-          };
-          return $scope.styles.active = name;
-        }
-      });
-    });
+          $scope.styles.active = name
+     */
     $document.keyup(function(e) {
       var col;
       if (e.altKey) {
