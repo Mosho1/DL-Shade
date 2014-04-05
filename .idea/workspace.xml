@@ -5,33 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15758fa3-0dc6-4239-9815-36387ae5d86d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/wip/Grid2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/directive-templates/numUpDown.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.coffee" afterPath="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/DropDown.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/DropDown.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/Grid.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/Grid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/directives/button.coffee" afterPath="$PROJECT_DIR$/public/scripts/Shade/directives/button.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/directives/dropDown.coffee" afterPath="$PROJECT_DIR$/public/scripts/Shade/directives/dropDown.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/directives/dropDown.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/directives/dropDown.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/editor-module.js" afterPath="$PROJECT_DIR$/public/dist/js/editor-module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/services/format.coffee" afterPath="$PROJECT_DIR$/public/scripts/Shade/services/format.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/services/format.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/services/format.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/graph-text-dev.js" afterPath="$PROJECT_DIR$/public/dist/js/graph-text-dev.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/grid.css" afterPath="$PROJECT_DIR$/public/styles/grid.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/index_DL.jade" afterPath="$PROJECT_DIR$/public/views/index_DL.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/libs.min.js" afterPath="$PROJECT_DIR$/public/dist/libs.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/libs.min.map" afterPath="$PROJECT_DIR$/public/dist/libs.min.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/script.js" afterPath="$PROJECT_DIR$/public/dist/js/script.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/script.min.js" afterPath="$PROJECT_DIR$/public/dist/script.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/script.min.map" afterPath="$PROJECT_DIR$/public/dist/script.min.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/shade-compiler.js" afterPath="$PROJECT_DIR$/public/dist/js/shade-compiler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/shade-module.js" afterPath="$PROJECT_DIR$/public/dist/js/shade-module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/shadeHandlers.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/shadeHandlers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Procfile" afterPath="$PROJECT_DIR$/Procfile" />
     </list>
     <ignored path="DependencyLanguage.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -81,13 +55,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dropDown.coffee" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="dropDown.coffee" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/dropDown.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="14" selection-start="1289" selection-end="1289" vertical-scroll-proportion="0.9327846" vertical-offset="0" max-vertical-offset="799">
+            <state line="40" column="14" selection-start="1289" selection-end="1289" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
               <folding>
                 <marker date="1396614924852" expanded="true" signature="202:382" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Procfile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Procfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="19" selection-start="19" selection-end="19" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="729">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="3" selection-start="975" selection-end="975" vertical-scroll-proportion="0.0" vertical-offset="87" max-vertical-offset="816">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -106,26 +98,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="97" column="0" selection-start="2997" selection-end="2997" vertical-scroll-proportion="-20.92" vertical-offset="1126" max-vertical-offset="3400">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="angular.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/DL_libs/angular.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="47" selection-start="529" selection-end="529" vertical-scroll-proportion="0.0" vertical-offset="19787" max-vertical-offset="304419">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="angular-animate.min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/DL_libs/angular-animate.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -168,7 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/scripts/controllers/DLCtrl.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/shade_module.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/graph-dev/compiler.js" />
         <option value="$PROJECT_DIR$/jasmine/SpecRunner.html" />
@@ -219,6 +190,7 @@
         <option value="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.js" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/directives/button.coffee" />
+        <option value="$PROJECT_DIR$/Procfile" />
       </list>
     </option>
   </component>
@@ -848,11 +820,6 @@
         <state line="11" column="9" selection-start="436" selection-end="436" vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="289" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Procfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="872" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.markdown">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="872" />
@@ -868,11 +835,6 @@
         <state line="144" column="0" selection-start="3566" selection-end="3566" vertical-scroll-proportion="0.0" vertical-offset="1593" max-vertical-offset="3740">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="3" selection-start="975" selection-end="975" vertical-scroll-proportion="-23.12" vertical-offset="0" max-vertical-offset="816" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/dist/graph-text-dev.js">
@@ -1287,10 +1249,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/dropDown.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="14" selection-start="1289" selection-end="1289" vertical-scroll-proportion="0.9327846" vertical-offset="0" max-vertical-offset="799">
+        <state line="40" column="14" selection-start="1289" selection-end="1289" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
           <folding>
             <marker date="1396614924852" expanded="true" signature="202:382" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="3" selection-start="975" selection-end="975" vertical-scroll-proportion="0.0" vertical-offset="87" max-vertical-offset="816">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="19" selection-start="19" selection-end="19" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="729">
+          <folding />
         </state>
       </provider>
     </entry>
