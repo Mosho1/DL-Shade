@@ -1,11 +1,60 @@
 ﻿<Shade>
     <Node>
-        <UI>NumericUpDown</UI>
-        <FormatString>$#, ###.00</FormatString>
-        <Maximum>100</Maximum>
-        <Minimum>20</Minimum>
-        <DefaultValue>25.23</DefaultValue>
-        <vText>x</vText>
+        <UI>Label</UI>
+        <Text>Radio Buttons</Text>
     </Node>
-    <Node><UI>NumEdit</UI><vText>x</vText></Node>
+    <Node>
+        <UI>Grid</UI>
+        <Span>1,2</Span>
+        <Sub>
+            <Node>
+                <UI>RadioButton</UI>
+                <Text>first</Text>
+                <vText>x</vText>
+            </Node>
+            <Node>
+                <UI>RadioButton</UI>
+                <Text>second</Text>
+                <vText>x</vText>
+            </Node>
+        </Sub>
+    </Node>
+    <Node>
+        <UI>Label</UI>
+        <Text>Check Boxes</Text>
+    </Node>
+    <Node>
+        <UI>Grid</UI>
+        <Span>1,2</Span>
+        <Sub>
+            <Node>
+                <UI>CheckBox</UI>
+                <Text>Select One</Text>
+                <vText>x</vText>
+            </Node>
+            <Node>
+                <UI>CheckBox</UI>
+                <Text>Or Both</Text>
+                <vText>y</vText>
+            </Node>
+        </Sub>
+    </Node>
+    <Node>
+        <UI>Grid</UI>
+        <Span>3, 1</Span>
+        <Sub>
+            <Node>
+                <UI>Label</UI>
+                <Height>50</Height>
+            </Node>
+            <Node>
+                <UI>Label</UI>
+                <Text>***DL variable 'x':***</Text>
+            </Node>
+            <Node>
+                <UI>NumEdit</UI>
+                <vText>x</vText>
+            </Node>
+        </Sub>
+    </Node>
 </Shade>

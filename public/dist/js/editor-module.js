@@ -68,120 +68,13 @@
 
   default_lc = "/* Welcome to Dependency Language in JavaScript!\n Features:\n -Supported Formats:\n Numbers, Strings, arrays\n -Namespaces (format: '$ns') -Built-in Functions:\n f.abs, f.avg\n -Themes for the editor\n -Graph or table presentation of the graph\n -Click 'Run' above or alt+R */\n \n x=0;\n y=2;\n z=f.avg(x,y,6);";
 
-  angular.module('DLApp').service('dndFile', function($rootScope) {
-    var allowed_file_exts, default_drop, load_first_file_matching;
-    allowed_file_exts = /\.(md|litcoffee|css)$/;
-    load_first_file_matching = (function(_this) {
-      return function(files, regexp) {
-        var mdfile, reader;
-        if (mdfile = (function() {
-          var f, _i, _len;
-          for (_i = 0, _len = files.length; _i < _len; _i++) {
-            f = files[_i];
-            if (regexp.test(f.name)) {
-              return f;
-            }
-          }
-        })()) {
-          reader = new FileReader();
-          reader.onload = function(e) {
-            e.fileName = mdfile.name.replace(regexp, '');
-            e.fileExt = mdfile.name.match(regexp)[1];
-            return _this.callbacks.fileload(e);
-          };
-          return reader.readAsText(mdfile);
-        }
-      };
-    })(this);
-    default_drop = (function(_this) {
-      return function(e) {
-        var files;
-        files = e.dataTransfer.files;
-        if (files.length) {
-          load_first_file_matching(files, /\.(md|litcoffee)$/);
-          return load_first_file_matching(files, /\.(css)$/);
-        }
-      };
-    })(this);
-    this.callbacks = {
-      active: function(e) {},
-      inactive: function(e) {},
-      fileload: function(e) {},
-      drop: function(e) {},
-      default_drop: default_drop
-    };
-    return {
-      init: (function(_this) {
-        return function(elm) {
-          elm.addEventListener("dragenter", function(e) {
-            _.kill_event(e);
-            return _this.callbacks.active(e);
-          });
-          elm.addEventListener("dragover", function(e) {
-            _.kill_event(e);
-            return _this.callbacks.active(e);
-          });
-          elm.addEventListener("dragexit", function(e) {
-            _.kill_event(e);
-            return _this.callbacks.inactive(e);
-          });
-          return elm.addEventListener("drop", function(e) {
-            _.kill_event(e);
-            _this.callbacks.drop(e);
-            return _this.callbacks.default_drop(e);
-          });
-        };
-      })(this),
-      onactive: (function(_this) {
-        return function(cb) {
-          return _this.callbacks.active = cb;
-        };
-      })(this),
-      oninactive: (function(_this) {
-        return function(cb) {
-          return _this.callbacks.inactive = cb;
-        };
-      })(this),
-      onfileload: (function(_this) {
-        return function(cb) {
-          return _this.callbacks.fileload = cb;
-        };
-      })(this),
-      ondrop: (function(_this) {
-        return function(cb, replace_default) {
-          _this.callbacks.drop = cb;
-          return _this.callbacks.default_drop = replace_default ? (function() {}) : default_drop;
-        };
-      })(this)
-    };
-  }).controller('DLCtrl', function($scope, $rootScope, $http, $filter, $element, $document, dndFile, Graph, graphService) {
+  angular.module('DLApp').controller('DLCtrl', function($scope, $rootScope, $http, $filter, $element, $document, $timeout, Graph, graphService) {
     $scope.litcoffee = {
       code: default_lc
     };
     $scope.test = {
       test: default_lc
     };
-
-    /*
-    dndFile.init $element[0],
-    dndFile.onactive   () -> $scope.$apply () -> $scope.dragover = true
-    dndFile.oninactive () -> $scope.$apply () -> $scope.dragover = false
-    $element[0].addEventListener 'mousemove', () -> $scope.$apply () -> $scope.dragover = false
-    dndFile.ondrop ((e) -> $scope.$apply () -> $scope.dragover = false), false
-    dndFile.onfileload (e) ->
-      $scope.$apply () ->
-        if e.fileExt in ['md', 'litcoffee']
-          $scope.litcoffee = e.target.result
-        else if e.fileExt is 'css'
-          name = e.fileName
-          i = 0
-          name = "#{e.fileName} #{++i}" while name of $scope.styles.sheets
-          $scope.styles.sheets[name] =
-            source: 'dragged file'
-            native: false
-            css: e.target.result
-          $scope.styles.active = name
-     */
     $document.keyup(function(e) {
       var col;
       if (e.altKey) {
@@ -194,7 +87,7 @@
       }
     });
     $scope.styles = {
-      active: 'basics',
+      active: 'control',
       sheets: {
         basics: {
           source: 'XML/shade.xml',
@@ -235,12 +128,11 @@
       }
       return Graph.getGraph($scope.litcoffee.code, $scope.styles, function(graph) {
         $scope.graph = graph.evaluate();
-        return $rootScope.$broadcast('Run');
+        return $rootScope.$broadcast("Run");
       });
     };
     $document.ready(function() {
-      setTimeout($scope.DLrun, 100);
-      return setTimeout($scope.DLrun, 300);
+      return $timeout($scope.DLrun, 100);
     });
     $scope.$watch('styles.active', function() {
       var styles;
@@ -657,7 +549,7 @@
         };
       }
     };
-  }).directive('resizablePanel', function($rootScope) {
+  }).directive('resizablePanel', function($rootScope, $timeout) {
     return {
       require: '^splitRow',
       restrict: 'E',
@@ -694,7 +586,9 @@
           }
         });
         return scope.$on('mousemoved', function(e, name) {
-          return scope.mouseover = name === scope.name;
+          return $timeout(function() {
+            return scope.mouseover = name === scope.name;
+          });
         });
       }
     };

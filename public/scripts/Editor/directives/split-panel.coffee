@@ -90,7 +90,7 @@ angular.module('DLApp')
 
     return
 
-.directive 'resizablePanel', ($rootScope) ->
+.directive 'resizablePanel', ($rootScope, $timeout) ->
   require: '^splitRow'
   restrict: 'E'
   transclude: true
@@ -121,7 +121,7 @@ angular.module('DLApp')
       unless scope.mouseover
         $rootScope.$broadcast 'mousemoved', scope.name
     scope.$on 'mousemoved', (e, name) ->
-       scope.mouseover = name is scope.name
+      $timeout () -> scope.mouseover = name is scope.name
 
 
 

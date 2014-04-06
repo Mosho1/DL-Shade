@@ -100,7 +100,7 @@ var that = {},
 
             return {'span': span, 'heights': heights};
         },
-        'Xy' : function (grid) {
+        'Xy' : function (grid, span) {
             var nodes = grid.Sub.Node;
             //create a map for the nodes according to Xy elements
             var gridMap = _.map(nodes, function (node, index) {
@@ -109,7 +109,7 @@ var that = {},
                 })].concat(index);
             }).sort(function (a, b) { return a[0] - b[0]; });
 
-            nodes = (function () {
+            grid.Sub.Node = (function () {
                 var arr = [], i;
                 for (i = 0; i < span[0] * span[1]; i++) {
                     arr.push((gridMap[0] || [-1])[0] === i ? nodes[gridMap.shift()[1]] : {'UI': 'Label'});
@@ -262,20 +262,16 @@ angular.module('ShadeServices', [])
 
         //control-block handlers
         this.CbHandlers = {
-            'SETDLVARIABLE': function (cb) {
+            SETDLVARIABLE: function (cb) {
                 return cb.Event + ',setDL,' + cb.Stat.toLowerCase();
             },
-            'SHOWPOPUP': function (cb) {
+            SHOWPOPUP: function (cb) {
                 return cb.Event + ',popup,' + cb.Stat.toLowerCase();
 
             }
 
-
-
-
-
         };
-
+        //TODO: change arguments to handlers below from array to an object
         this.UIHandlers = {
 
             Button: function (node, cb) {
@@ -283,13 +279,14 @@ angular.module('ShadeServices', [])
                 that.closeElement();
             },
 
-            'CheckBox': function (node) {
-                that.openElement('input', '', node, '', 'type="checkbox"');
+            CheckBox: function (node) {
+                var attrs = node.Value ? '' : ' label="' + node.Text + '"';
+                that.openElement('check-box', '', node, '', attrs);
                 that.closeElement();
             },
 
-            'DatePicker': function (node) {
-                that.openElement('input', '', node, '', 'type="text" datepicker-popup close-on-date-selection="false"');
+            DatePicker: function (node) {
+                that.openElement('shd-date-picker', '', node, '');
                 that.closeElement();
 
             },
@@ -304,7 +301,7 @@ angular.module('ShadeServices', [])
             },
 
             ListBox: function (node) {
-                that.openElement('select', '', node, '', 'multiple');
+                that.openElement('list-box', '', node);
                 handleSub(node);
                 that.closeElement();
             },
@@ -317,7 +314,7 @@ angular.module('ShadeServices', [])
             MultiSelComboBox: _.partialRight(require('./DropDown'), true),
 
             NumEdit: function (node) {
-                that.openElement('input', '', node, '', 'type="text"');
+                that.openElement('num-edit', '', node);
                 that.closeElement();
             },
 
@@ -333,9 +330,8 @@ angular.module('ShadeServices', [])
             },
 
             RadioButton: function (node) {
-                var cur = that.getCurrent(),
-                    value = node.Value ? '' : ' value="' + node.Text +'"';
-                that.openElement('input', '', node, '', 'type="radio"' + value);
+                var attrs = node.Value ? '' : ' value="' + node.Text +'" label="' + node.Text + '"';
+                that.openElement('radio-button', '', node, '', attrs);
                 that.closeElement();
             },
 
@@ -357,7 +353,7 @@ angular.module('ShadeServices', [])
             },
 
             TextBox: function (node) {
-                that.openElement('input', '', node, '', 'type="text" placeholder="' + node.Text + '"', '');
+                that.openElement('input', '', node, '', 'placeholder="' + node.Text + '"', '');
                 that.closeElement();
             },
 
@@ -379,9 +375,9 @@ angular.module('ShadeServices', [])
 
 
         this.nodeHandlers = {
-            'Styles': require('./Styles').bind(that),
+            Styles: require('./Styles').bind(that),
 
-            'Node': function (node) {
+            Node: function (node) {
 
                 var handleCb = function (result, Cb) {
                     return result += (result ? ';' : '') + that.CbHandlers[Cb.Fn](Cb);
@@ -390,7 +386,7 @@ angular.module('ShadeServices', [])
                 var controlBlock = node.Cb ? 'control-block="' + _.reduce(node.Cb.length ? node.Cb : [node.Cb], handleCb, '') + '" ' : '';
                 (that.UIHandlers[node.UI] || that.UIHandlers.Unknown).call(that, node, controlBlock);
             },
-            'Unknown': function (node, index) {
+            Unknown: function (node, index) {
                 console.log("can't recognize tag <" + index + ">.");
             }
         };
@@ -424,7 +420,10 @@ angular.module('ShadeServices', [])
                 ShadeElements.init();
 
                 _.each(shd.Shade, ShadeHandlers.handleNodes);
-                return {'styles': ShadeStyles.getStyles(), 'elements': ShadeElements.getElements()};
+                return {
+                    styles: ShadeStyles.getStyles(),
+                    elements: ShadeElements.getElements()
+                };
             }
 
         }
@@ -526,25 +525,26 @@ angular.module('ShadeServices', [])
         var classCount = 0,
             elmId = 0,
             elements = [],
-            currentElement = {'nodes': elements};
+            currentElement = {nodes: elements};
 
 
         //wrappers for creating HTML elements. Creates enumerated CSS classes for each element with style(s).
-        this.openElement = function (elmName, className, node, customStyles, customAttr, content) {
+        this.openElement = function (elmName, className, node, customStyles, customAttr, content, close) {
 
             var nativeStyles = _.reduce(node, ShadeStyles.handleStyles, ''),
                 nativeClass = ((nativeStyles || customStyles) ? "class" + ++classCount : '');
             cur = currentElement.nodes.push({
-                'elmName': elmName,
-                'nativeClass': nativeClass + (node.Style ? (' ' + node.Style) : ''),
+                elmName: elmName,
+                nativeClass: nativeClass + (node.Style ? (' ' + node.Style) : ''),
                 'className' : className,
-                'node': node,
-                'customStyles': customStyles,
-                'customAttr': customAttr,
-                'content': angular.isDefined(content) ? content : node.Text,
-                'nodes': [],
-                'parent': currentElement,
-                'id': ++elmId
+                node: node,
+                customStyles: customStyles,
+                customAttr: customAttr,
+                content: angular.isDefined(content) ? content : node.Text,
+                nodes: [],
+                parent: currentElement,
+                id: ++elmId,
+                close: _.isUndefined(close)
 
             });
             if (customStyles || nativeStyles) {
@@ -573,7 +573,7 @@ angular.module('ShadeServices', [])
             classCount = 0;
             elmId = 0;
             elements = [];
-            currentElement = {'nodes': elements};
+            currentElement = {nodes: elements};
         };
 
         return this;

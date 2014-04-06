@@ -18,6 +18,7 @@ angular.module('ShadeApp')
         obj
       events =
         Click: 'ng-click='
+        default: 'ng-click='
       handlers =
         setDL: (name ,val) ->
           'vars[&quot;' + name + '&quot;].model=' + val + ';'
@@ -25,7 +26,7 @@ angular.module('ShadeApp')
           "popup('" + popup + "','" + location + "')"
 
       _.each cbs, (cb, name) ->
-        toAppend += (events[name] || events.Click) + '"' + (_.map cb, (el) ->
+        toAppend += (events[name] || events.default) + '"' + (_.map cb, (el) ->
           handlers[el[0]] el[1], el[2]).join('') + '" '
 
     '<button ' + toAppend + 'ng-transclude></button>'

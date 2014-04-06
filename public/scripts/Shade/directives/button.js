@@ -24,7 +24,8 @@
             return obj;
           })();
           events = {
-            Click: 'ng-click='
+            Click: 'ng-click=',
+            "default": 'ng-click='
           };
           handlers = {
             setDL: function(name, val) {
@@ -35,7 +36,7 @@
             }
           };
           _.each(cbs, function(cb, name) {
-            return toAppend += (events[name] || events.Click) + '"' + (_.map(cb, function(el) {
+            return toAppend += (events[name] || events["default"]) + '"' + (_.map(cb, function(el) {
               return handlers[el[0]](el[1], el[2]);
             })).join('') + '" ';
           });

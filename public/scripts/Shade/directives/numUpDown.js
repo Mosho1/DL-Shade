@@ -4,60 +4,40 @@
     return {
       restrict: 'E',
       scope: false,
-      compile: function(tElm, tAttr) {
-        var downButton, input, inputAttrs, numUpDownElement, upButton, upDownControl;
-        upButton = angular.element('<button class="btn btn-default" ng-mousedown="increase()" ng-mouseup="stop()" ng-mouseout="stop()" />').append('<span class="glyphicon glyphicon-chevron-up" />');
-        downButton = angular.element('<button class="btn btn-default" ng-mousedown="decrease()" ng-mouseup="stop()" ng-mouseout="stop()" />').append('<span class="glyphicon glyphicon-chevron-down" />');
-        upDownControl = angular.element('<div class="btn-group-vertical" />').append(upButton, downButton);
-        inputAttrs = _.pick(tAttr, function(val, key) {
-          return ['vText', 'dvalue', 'format'].indexOf(key) > -1;
+      template: '<div class="input-group">' + '<input style="width:90%" class="form-control" type="text" ng-model="vars[vText].model"/>' + '<div class="btn-group-vertical">' + '<button class="btn btn-default" ng-mousedown="increase()" ng-mouseup="stop()" ng-mouseout="stop()">' + '<span class="glyphicon glyphicon-chevron-up" />' + '</button>' + '<button class="btn btn-default" ng-mousedown="decrease()" ng-mouseup="stop()" ng-mouseout="stop()">' + '<span class="glyphicon glyphicon-chevron-down" />' + '</button>' + '</div>' + '</div>',
+      link: function(scope, elm, attr) {
+        var change, cto, formatStr, maxVal, minVal, mtimeout, step, test, timeout, updateModel;
+        scope.vText = attr.vText;
+        test = null;
+        step = 1;
+        minVal = +attr.min;
+        maxVal = +attr.max;
+        formatStr = attr.format;
+        timeout = 300;
+        mtimeout = 30;
+        cto = null;
+        updateModel = function(value) {
+          if (scope.vars && angular.isNumber(value)) {
+            return scope.vars[scope.vText].model = (value > maxVal ? maxVal : (value < minVal ? minVal : value));
+          }
+        };
+        $timeout(function() {
+          return updateModel(+attr.dvalue);
         });
-        inputAttrs = _.mapKeys(inputAttrs, function(val, key) {
-          return key.toDash();
-        });
-        input = angular.element('<input style="width:90%" class="form-control" type="text" />').attr(inputAttrs);
-        numUpDownElement = angular.element('<div class="input-group" />').append(input, upDownControl);
-        tElm.append(numUpDownElement);
-        return function(scope, elm, attr) {
-          var cto, formatStr, maxVal, minVal, mtimeout, step, test, timeout, updateModel;
-          test = null;
-          step = 1;
-          minVal = +attr.min;
-          maxVal = +attr.max;
-          formatStr = attr.format;
-          timeout = 300;
-          mtimeout = 30;
-          cto = null;
-          updateModel = function(value) {
-            if (scope.vars && angular.isNumber(value)) {
-              return scope.vars[scope.vText].model = (value > maxVal ? maxVal : (value < minVal ? minVal : value));
-            }
-          };
+        change = function(d) {
+          if (timeout > mtimeout) {
+            timeout -= 30;
+          }
           $timeout(function() {
-            return updateModel(+attr.dvalue);
+            return updateModel(scope.vars[scope.vText].model + d);
           });
-          scope.increase = function() {
-            if (timeout > mtimeout) {
-              timeout -= 30;
-            }
-            $timeout(function() {
-              return updateModel(scope.vars[scope.vText].model + step);
-            });
-            return cto = setTimeout(scope.increase, timeout);
-          };
-          scope.decrease = function() {
-            if (timeout > mtimeout) {
-              timeout -= 30;
-            }
-            $timeout(function() {
-              return updateModel(scope.vars[scope.vText].model - step);
-            });
-            return cto = setTimeout(scope.decrease, timeout);
-          };
-          return scope.stop = function() {
-            clearTimeout(cto);
-            return timeout = 300;
-          };
+          return cto = setTimeout(scope.change, timeout, d);
+        };
+        scope.increase = _.partial(change, 1);
+        scope.decrease = _.partial(change, -1);
+        return scope.stop = function() {
+          clearTimeout(cto);
+          return timeout = 300;
         };
       }
     };

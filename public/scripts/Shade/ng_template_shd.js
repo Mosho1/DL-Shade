@@ -6,14 +6,14 @@ var handleAttributes = function (value, attr) {
     
 
     //wrappers for creating HTML elements. Creates enumerated CSS classes for each element with style(s).
-    openElement = function (elmName, nativeClass, className, node, customStyles, customAttr, content, nodes) {
+    openElement = function (elmName, nativeClass, className, node, customStyles, customAttr, content, nodes, close) {
 
         %><<%=elmName%><%
         if (className || nativeClass) {
             %> class = "<%=className%> <%=nativeClass%>"<%
         }
         %> <%=customAttr%><%
-        _.each(node, handleAttributes)%>><% 
+        _.each(node, handleAttributes)%><%=close?'':' /'%>><%
         %><%=content%><%
         _.each(nodes, handleElement);
 
@@ -31,9 +31,11 @@ var handleAttributes = function (value, attr) {
                     elm.customStyles,
                     elm.customAttr,
                     elm.content,
-                    elm.nodes);
-
-        closeElement(elm.elmName);
+                    elm.nodes,
+                    elm.close);
+        if (elm.close) {
+            closeElement(elm.elmName);
+        }
     };
 
 if (shd) {

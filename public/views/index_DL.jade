@@ -73,14 +73,14 @@ html.no-js
                 render-graph
               resizable-panel#css_col(name='Shade Editor', show='show')
                 .menu.panel-menu(ng-class='{show:col("Shade Editor").mouseover}', col='col')
-                  span.menu-title Theme ?
+                  span.menu-title Theme ▾
                   ul.menu-items
                       li.menu-item(ng-repeat='theme in themes', ng-click='setTheme(theme)') {{theme}}
                   span.hide-button(ng-click='col("Shade Editor").show=false', title='Hide Shade Editor panel.') X
                 div(ace-editor='ace-editor', shade-editor, mode='xml', ng-model='styles.sheets[styles.active].css')
               resizable-panel#html_col(name='Output HTML', show='show')
                 .menu.panel-menu(ng-class='{show:col("Output HTML").mouseover}', col='col')
-                  span.menu-title Theme ?
+                  span.menu-title Theme ▾
                   ul.menu-items
                       li.menu-item(ng-repeat='theme in themes.list', ng-click='themes.selected=theme', theme="theme") {{theme}}
                   span.hide-button(ng-click='col("Output HTML").show=false', title='Hide Output HTML panel.') X
@@ -129,6 +129,8 @@ html.no-js
     //script(src='dist/libs.min.js')
 
     script(src='dist/js/libs.js')
+    script(src='DL_libs/ace/src-noconflict/ace.js')
+    script(src='DL_libs/ace/src-noconflict/ext-language_tools.js')
     //
         script(src='dist/js/graph-text-dev.js')
         script(src='dist/js/shade-compiler.js')

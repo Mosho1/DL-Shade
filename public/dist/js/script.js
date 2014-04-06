@@ -3358,7 +3358,7 @@ var that = {},
 
             return {'span': span, 'heights': heights};
         },
-        'Xy' : function (grid) {
+        'Xy' : function (grid, span) {
             var nodes = grid.Sub.Node;
             //create a map for the nodes according to Xy elements
             var gridMap = _.map(nodes, function (node, index) {
@@ -3367,7 +3367,7 @@ var that = {},
                 })].concat(index);
             }).sort(function (a, b) { return a[0] - b[0]; });
 
-            nodes = (function () {
+            grid.Sub.Node = (function () {
                 var arr = [], i;
                 for (i = 0; i < span[0] * span[1]; i++) {
                     arr.push((gridMap[0] || [-1])[0] === i ? nodes[gridMap.shift()[1]] : {'UI': 'Label'});
@@ -3520,20 +3520,16 @@ angular.module('ShadeServices', [])
 
         //control-block handlers
         this.CbHandlers = {
-            'SETDLVARIABLE': function (cb) {
+            SETDLVARIABLE: function (cb) {
                 return cb.Event + ',setDL,' + cb.Stat.toLowerCase();
             },
-            'SHOWPOPUP': function (cb) {
+            SHOWPOPUP: function (cb) {
                 return cb.Event + ',popup,' + cb.Stat.toLowerCase();
 
             }
 
-
-
-
-
         };
-
+        //TODO: change arguments to handlers below from array to an object
         this.UIHandlers = {
 
             Button: function (node, cb) {
@@ -3541,13 +3537,14 @@ angular.module('ShadeServices', [])
                 that.closeElement();
             },
 
-            'CheckBox': function (node) {
-                that.openElement('input', '', node, '', 'type="checkbox"');
+            CheckBox: function (node) {
+                var attrs = node.Value ? '' : ' label="' + node.Text + '"';
+                that.openElement('check-box', '', node, '', attrs);
                 that.closeElement();
             },
 
-            'DatePicker': function (node) {
-                that.openElement('input', '', node, '', 'type="text" datepicker-popup close-on-date-selection="false"');
+            DatePicker: function (node) {
+                that.openElement('shd-date-picker', '', node, '');
                 that.closeElement();
 
             },
@@ -3562,7 +3559,7 @@ angular.module('ShadeServices', [])
             },
 
             ListBox: function (node) {
-                that.openElement('select', '', node, '', 'multiple');
+                that.openElement('list-box', '', node);
                 handleSub(node);
                 that.closeElement();
             },
@@ -3575,7 +3572,7 @@ angular.module('ShadeServices', [])
             MultiSelComboBox: _.partialRight(require('./DropDown'), true),
 
             NumEdit: function (node) {
-                that.openElement('input', '', node, '', 'type="text"');
+                that.openElement('num-edit', '', node);
                 that.closeElement();
             },
 
@@ -3591,9 +3588,8 @@ angular.module('ShadeServices', [])
             },
 
             RadioButton: function (node) {
-                var cur = that.getCurrent(),
-                    value = node.Value ? '' : ' value="' + node.Text +'"';
-                that.openElement('input', '', node, '', 'type="radio"' + value);
+                var attrs = node.Value ? '' : ' value="' + node.Text +'" label="' + node.Text + '"';
+                that.openElement('radio-button', '', node, '', attrs);
                 that.closeElement();
             },
 
@@ -3615,7 +3611,7 @@ angular.module('ShadeServices', [])
             },
 
             TextBox: function (node) {
-                that.openElement('input', '', node, '', 'type="text" placeholder="' + node.Text + '"', '');
+                that.openElement('input', '', node, '', 'placeholder="' + node.Text + '"', '');
                 that.closeElement();
             },
 
@@ -3637,9 +3633,9 @@ angular.module('ShadeServices', [])
 
 
         this.nodeHandlers = {
-            'Styles': require('./Styles').bind(that),
+            Styles: require('./Styles').bind(that),
 
-            'Node': function (node) {
+            Node: function (node) {
 
                 var handleCb = function (result, Cb) {
                     return result += (result ? ';' : '') + that.CbHandlers[Cb.Fn](Cb);
@@ -3648,7 +3644,7 @@ angular.module('ShadeServices', [])
                 var controlBlock = node.Cb ? 'control-block="' + _.reduce(node.Cb.length ? node.Cb : [node.Cb], handleCb, '') + '" ' : '';
                 (that.UIHandlers[node.UI] || that.UIHandlers.Unknown).call(that, node, controlBlock);
             },
-            'Unknown': function (node, index) {
+            Unknown: function (node, index) {
                 console.log("can't recognize tag <" + index + ">.");
             }
         };
@@ -3682,7 +3678,10 @@ angular.module('ShadeServices', [])
                 ShadeElements.init();
 
                 _.each(shd.Shade, ShadeHandlers.handleNodes);
-                return {'styles': ShadeStyles.getStyles(), 'elements': ShadeElements.getElements()};
+                return {
+                    styles: ShadeStyles.getStyles(),
+                    elements: ShadeElements.getElements()
+                };
             }
 
         }
@@ -3784,25 +3783,26 @@ angular.module('ShadeServices', [])
         var classCount = 0,
             elmId = 0,
             elements = [],
-            currentElement = {'nodes': elements};
+            currentElement = {nodes: elements};
 
 
         //wrappers for creating HTML elements. Creates enumerated CSS classes for each element with style(s).
-        this.openElement = function (elmName, className, node, customStyles, customAttr, content) {
+        this.openElement = function (elmName, className, node, customStyles, customAttr, content, close) {
 
             var nativeStyles = _.reduce(node, ShadeStyles.handleStyles, ''),
                 nativeClass = ((nativeStyles || customStyles) ? "class" + ++classCount : '');
             cur = currentElement.nodes.push({
-                'elmName': elmName,
-                'nativeClass': nativeClass + (node.Style ? (' ' + node.Style) : ''),
+                elmName: elmName,
+                nativeClass: nativeClass + (node.Style ? (' ' + node.Style) : ''),
                 'className' : className,
-                'node': node,
-                'customStyles': customStyles,
-                'customAttr': customAttr,
-                'content': angular.isDefined(content) ? content : node.Text,
-                'nodes': [],
-                'parent': currentElement,
-                'id': ++elmId
+                node: node,
+                customStyles: customStyles,
+                customAttr: customAttr,
+                content: angular.isDefined(content) ? content : node.Text,
+                nodes: [],
+                parent: currentElement,
+                id: ++elmId,
+                close: _.isUndefined(close)
 
             });
             if (customStyles || nativeStyles) {
@@ -3831,7 +3831,7 @@ angular.module('ShadeServices', [])
             classCount = 0;
             elmId = 0;
             elements = [];
-            currentElement = {'nodes': elements};
+            currentElement = {nodes: elements};
         };
 
         return this;
@@ -3840,45 +3840,7 @@ angular.module('ShadeServices', [])
 
 },{"./DropDown":1,"./Grid":2,"./Styles":3}]},{},[4]);// Generated by CoffeeScript 1.7.1
 (function() {
-  angular.module('ShadeApp', ['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 'ui.bootstrap']).directive('vText', function() {
-    return {
-      restrict: 'EAC',
-      replace: true,
-      scope: true,
-      template: function(elm) {
-        return '<' + elm[0].localName + ' ng-model="vars[vText].model">';
-      },
-      link: {
-        pre: function(scope, elm, attr) {
-          return scope.vText = attr.vText;
-        }
-      }
-    };
-  }).directive('datePicker', function() {
-    return {
-      restrict: 'AC',
-      scope: true,
-      template: '<div class="well well-sm" ng-model="vars[vText].model"><datepicker></datepicker></div>',
-      link: {
-        pre: function(scope, elm, attr) {
-          return scope.vText = attr.datePicker;
-        }
-      }
-    };
-  }).directive('timePicker', function($compile) {
-    return {
-      restrict: 'EA',
-      replace: false,
-      scope: false,
-      compile: function(tElm, tAttr) {
-        var timePickerElement;
-        timePickerElement = angular.element('<timepicker />').attr(_.omit(tAttr, function(val, key) {
-          return (key === 'vText') || (/^\$.?/.test(key));
-        }));
-        return tElm.append(timePickerElement);
-      }
-    };
-  }).directive('vActiveTabIndex', function() {
+  angular.module('ShadeApp', ['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 'ui.bootstrap']).directive('vActiveTabIndex', function() {
     return {
       restrict: 'A',
       link: function(scope, elm, attr) {
@@ -3899,7 +3861,119 @@ angular.module('ShadeServices', [])
         });
       }
     };
+  }).directive('listBox', function(vTextProvider) {
+    return new vTextProvider('<select multiple ng-transclude />');
+  }).directive('numEdit', function(vTextProvider) {
+    return new vTextProvider('<input type="text" />');
+  }).directive('radioButton', function(vTextProvider) {
+    return new vTextProvider('<input type="radio" />');
+  }).directive('checkBox', function(vTextProvider) {
+    return new vTextProvider('<input type="checkbox" />');
+  }).directive('textBox', function(vTextProvider) {
+    return new vTextProvider('<input type="text" />');
+  }).directive('shdDatePicker', function(vTextProvider) {
+    return new vTextProvider('<input type="text" datepicker-popup close-on-date-selection="false" />');
+  }).directive('timePicker', function(vTextProvider) {
+    return new vTextProvider('<div><timepicker /></div>');
+  }).factory('vTextProvider', function() {
+    return function(template) {
+      this.restrict = 'E';
+      this.transclude = !!template.match('ng-transclude');
+      this.replace = true;
+      this.scope = true;
+      this.template = template.replace(/\/?>/, function(match) {
+        return ' ng-model="vars[vText].model" ' + match;
+      });
+      this.link = function(scope, elm, attr) {
+        scope.vText = attr.vText;
+        if (attr.label) {
+          return elm.after('<span>' + attr.label + '</span>');
+        }
+      };
+    };
   });
+
+
+  /*
+    .directive 'ratatat', ($compile) ->
+        restrict: 'EA'
+        replace: false
+        scope: false
+        compile: (tElm, tAttr) ->
+          timePickerElement = angular.element('<timepicker />').attr(_.omit(tAttr, (val, key) ->
+            (key is 'vText') or (/^\$.?/.test(key))
+          ))
+          tElm.append(timePickerElement)
+  
+  
+  
+    .directive 'listBox', (vTextProvider) ->
+        new vTextProvider '<select multiple ng-model="vars[vText].model" ng-transclude />'
+  
+    .directive 'numEdit', (vTextProvider) ->
+        new vTextProvider '<input type="text" ng-model="vars[vText].model" />'
+  
+    .directive 'radioButton', (vTextProvider) ->
+        new vTextProvider '<input type="radio" ng-model="vars[vText].model" />'
+  
+    .directive 'textBox', (vTextProvider) ->
+        new vTextProvider '<input type="text" ng-model="vars[vText].model" />'
+  
+    .factory 'vTextProvider', () ->
+        (template) ->
+          @restrict = 'E'
+          @transclude = !!template.match('ng-transclude')
+          @replace = true
+          @scope = true
+          @template = template
+          @link = (scope, elm, attr) ->
+            scope.vText = attr.vText
+  
+          return
+  
+  
+    .directive 'listBox', () ->
+      restrict: 'E'
+      replace: true
+      scope: true
+      transclude: true
+      template: '<select multiple ng-model="vars[vText].model" ng-transclude />'
+      link: (scope, elm, attr) ->
+          scope.vText = attr.vText
+  
+    .directive 'numEdit', () ->
+      restrict: 'E'
+      replace: true
+      scope: true
+      template: '<input type="text" ng-model="vars[vText].model" />'
+      link: (scope, elm, attr) ->
+        scope.vText = attr.vText
+  
+    .directive 'radioButton', () ->
+      restrict: 'E'
+      replace: true
+      scope: true
+      template: '<input type="radio" ng-model="vars[vText].model" />'
+      link: (scope, elm, attr) ->
+        scope.vText = attr.vText
+  
+    .directive 'textBox', () ->
+      restrict: 'E'
+      replace: true
+      scope: true
+      template: '<input type="text" ng-model="vars[vText].model" />'
+      link: (scope, elm, attr) ->
+        scope.vText = attr.vText
+  
+  
+    .directive 'datePicker', () ->
+    restrict: 'AC'
+    scope: true
+    template: '<div class="well well-sm" ng-model="vars[vText].model"><datepicker></datepicker></div>'
+    link:
+      pre: (scope, elm, attr) ->
+        scope.vText = attr.datePicker
+   */
 
 }).call(this);
 ;// Generated by CoffeeScript 1.7.1
@@ -3928,7 +4002,8 @@ angular.module('ShadeServices', [])
             return obj;
           })();
           events = {
-            Click: 'ng-click='
+            Click: 'ng-click=',
+            "default": 'ng-click='
           };
           handlers = {
             setDL: function(name, val) {
@@ -3939,7 +4014,7 @@ angular.module('ShadeServices', [])
             }
           };
           _.each(cbs, function(cb, name) {
-            return toAppend += (events[name] || events.Click) + '"' + (_.map(cb, function(el) {
+            return toAppend += (events[name] || events["default"]) + '"' + (_.map(cb, function(el) {
               return handlers[el[0]](el[1], el[2]);
             })).join('') + '" ';
           });
@@ -4076,60 +4151,40 @@ angular.module('ShadeServices', [])
     return {
       restrict: 'E',
       scope: false,
-      compile: function(tElm, tAttr) {
-        var downButton, input, inputAttrs, numUpDownElement, upButton, upDownControl;
-        upButton = angular.element('<button class="btn btn-default" ng-mousedown="increase()" ng-mouseup="stop()" ng-mouseout="stop()" />').append('<span class="glyphicon glyphicon-chevron-up" />');
-        downButton = angular.element('<button class="btn btn-default" ng-mousedown="decrease()" ng-mouseup="stop()" ng-mouseout="stop()" />').append('<span class="glyphicon glyphicon-chevron-down" />');
-        upDownControl = angular.element('<div class="btn-group-vertical" />').append(upButton, downButton);
-        inputAttrs = _.pick(tAttr, function(val, key) {
-          return ['vText', 'dvalue', 'format'].indexOf(key) > -1;
+      template: '<div class="input-group">' + '<input style="width:90%" class="form-control" type="text" ng-model="vars[vText].model"/>' + '<div class="btn-group-vertical">' + '<button class="btn btn-default" ng-mousedown="increase()" ng-mouseup="stop()" ng-mouseout="stop()">' + '<span class="glyphicon glyphicon-chevron-up" />' + '</button>' + '<button class="btn btn-default" ng-mousedown="decrease()" ng-mouseup="stop()" ng-mouseout="stop()">' + '<span class="glyphicon glyphicon-chevron-down" />' + '</button>' + '</div>' + '</div>',
+      link: function(scope, elm, attr) {
+        var change, cto, formatStr, maxVal, minVal, mtimeout, step, test, timeout, updateModel;
+        scope.vText = attr.vText;
+        test = null;
+        step = 1;
+        minVal = +attr.min;
+        maxVal = +attr.max;
+        formatStr = attr.format;
+        timeout = 300;
+        mtimeout = 30;
+        cto = null;
+        updateModel = function(value) {
+          if (scope.vars && angular.isNumber(value)) {
+            return scope.vars[scope.vText].model = (value > maxVal ? maxVal : (value < minVal ? minVal : value));
+          }
+        };
+        $timeout(function() {
+          return updateModel(+attr.dvalue);
         });
-        inputAttrs = _.mapKeys(inputAttrs, function(val, key) {
-          return key.toDash();
-        });
-        input = angular.element('<input style="width:90%" class="form-control" type="text" />').attr(inputAttrs);
-        numUpDownElement = angular.element('<div class="input-group" />').append(input, upDownControl);
-        tElm.append(numUpDownElement);
-        return function(scope, elm, attr) {
-          var cto, formatStr, maxVal, minVal, mtimeout, step, test, timeout, updateModel;
-          test = null;
-          step = 1;
-          minVal = +attr.min;
-          maxVal = +attr.max;
-          formatStr = attr.format;
-          timeout = 300;
-          mtimeout = 30;
-          cto = null;
-          updateModel = function(value) {
-            if (scope.vars && angular.isNumber(value)) {
-              return scope.vars[scope.vText].model = (value > maxVal ? maxVal : (value < minVal ? minVal : value));
-            }
-          };
+        change = function(d) {
+          if (timeout > mtimeout) {
+            timeout -= 30;
+          }
           $timeout(function() {
-            return updateModel(+attr.dvalue);
+            return updateModel(scope.vars[scope.vText].model + d);
           });
-          scope.increase = function() {
-            if (timeout > mtimeout) {
-              timeout -= 30;
-            }
-            $timeout(function() {
-              return updateModel(scope.vars[scope.vText].model + step);
-            });
-            return cto = setTimeout(scope.increase, timeout);
-          };
-          scope.decrease = function() {
-            if (timeout > mtimeout) {
-              timeout -= 30;
-            }
-            $timeout(function() {
-              return updateModel(scope.vars[scope.vText].model - step);
-            });
-            return cto = setTimeout(scope.decrease, timeout);
-          };
-          return scope.stop = function() {
-            clearTimeout(cto);
-            return timeout = 300;
-          };
+          return cto = setTimeout(scope.change, timeout, d);
+        };
+        scope.increase = _.partial(change, 1);
+        scope.decrease = _.partial(change, -1);
+        return scope.stop = function() {
+          clearTimeout(cto);
+          return timeout = 300;
         };
       }
     };
@@ -4429,120 +4484,13 @@ angular.module('ShadeServices', [])
 
   default_lc = "/* Welcome to Dependency Language in JavaScript!\n Features:\n -Supported Formats:\n Numbers, Strings, arrays\n -Namespaces (format: '$ns') -Built-in Functions:\n f.abs, f.avg\n -Themes for the editor\n -Graph or table presentation of the graph\n -Click 'Run' above or alt+R */\n \n x=0;\n y=2;\n z=f.avg(x,y,6);";
 
-  angular.module('DLApp').service('dndFile', function($rootScope) {
-    var allowed_file_exts, default_drop, load_first_file_matching;
-    allowed_file_exts = /\.(md|litcoffee|css)$/;
-    load_first_file_matching = (function(_this) {
-      return function(files, regexp) {
-        var mdfile, reader;
-        if (mdfile = (function() {
-          var f, _i, _len;
-          for (_i = 0, _len = files.length; _i < _len; _i++) {
-            f = files[_i];
-            if (regexp.test(f.name)) {
-              return f;
-            }
-          }
-        })()) {
-          reader = new FileReader();
-          reader.onload = function(e) {
-            e.fileName = mdfile.name.replace(regexp, '');
-            e.fileExt = mdfile.name.match(regexp)[1];
-            return _this.callbacks.fileload(e);
-          };
-          return reader.readAsText(mdfile);
-        }
-      };
-    })(this);
-    default_drop = (function(_this) {
-      return function(e) {
-        var files;
-        files = e.dataTransfer.files;
-        if (files.length) {
-          load_first_file_matching(files, /\.(md|litcoffee)$/);
-          return load_first_file_matching(files, /\.(css)$/);
-        }
-      };
-    })(this);
-    this.callbacks = {
-      active: function(e) {},
-      inactive: function(e) {},
-      fileload: function(e) {},
-      drop: function(e) {},
-      default_drop: default_drop
-    };
-    return {
-      init: (function(_this) {
-        return function(elm) {
-          elm.addEventListener("dragenter", function(e) {
-            _.kill_event(e);
-            return _this.callbacks.active(e);
-          });
-          elm.addEventListener("dragover", function(e) {
-            _.kill_event(e);
-            return _this.callbacks.active(e);
-          });
-          elm.addEventListener("dragexit", function(e) {
-            _.kill_event(e);
-            return _this.callbacks.inactive(e);
-          });
-          return elm.addEventListener("drop", function(e) {
-            _.kill_event(e);
-            _this.callbacks.drop(e);
-            return _this.callbacks.default_drop(e);
-          });
-        };
-      })(this),
-      onactive: (function(_this) {
-        return function(cb) {
-          return _this.callbacks.active = cb;
-        };
-      })(this),
-      oninactive: (function(_this) {
-        return function(cb) {
-          return _this.callbacks.inactive = cb;
-        };
-      })(this),
-      onfileload: (function(_this) {
-        return function(cb) {
-          return _this.callbacks.fileload = cb;
-        };
-      })(this),
-      ondrop: (function(_this) {
-        return function(cb, replace_default) {
-          _this.callbacks.drop = cb;
-          return _this.callbacks.default_drop = replace_default ? (function() {}) : default_drop;
-        };
-      })(this)
-    };
-  }).controller('DLCtrl', function($scope, $rootScope, $http, $filter, $element, $document, dndFile, Graph, graphService) {
+  angular.module('DLApp').controller('DLCtrl', function($scope, $rootScope, $http, $filter, $element, $document, $timeout, Graph, graphService) {
     $scope.litcoffee = {
       code: default_lc
     };
     $scope.test = {
       test: default_lc
     };
-
-    /*
-    dndFile.init $element[0],
-    dndFile.onactive   () -> $scope.$apply () -> $scope.dragover = true
-    dndFile.oninactive () -> $scope.$apply () -> $scope.dragover = false
-    $element[0].addEventListener 'mousemove', () -> $scope.$apply () -> $scope.dragover = false
-    dndFile.ondrop ((e) -> $scope.$apply () -> $scope.dragover = false), false
-    dndFile.onfileload (e) ->
-      $scope.$apply () ->
-        if e.fileExt in ['md', 'litcoffee']
-          $scope.litcoffee = e.target.result
-        else if e.fileExt is 'css'
-          name = e.fileName
-          i = 0
-          name = "#{e.fileName} #{++i}" while name of $scope.styles.sheets
-          $scope.styles.sheets[name] =
-            source: 'dragged file'
-            native: false
-            css: e.target.result
-          $scope.styles.active = name
-     */
     $document.keyup(function(e) {
       var col;
       if (e.altKey) {
@@ -4555,7 +4503,7 @@ angular.module('ShadeServices', [])
       }
     });
     $scope.styles = {
-      active: 'basics',
+      active: 'control',
       sheets: {
         basics: {
           source: 'XML/shade.xml',
@@ -4596,12 +4544,11 @@ angular.module('ShadeServices', [])
       }
       return Graph.getGraph($scope.litcoffee.code, $scope.styles, function(graph) {
         $scope.graph = graph.evaluate();
-        return $rootScope.$broadcast('Run');
+        return $rootScope.$broadcast("Run");
       });
     };
     $document.ready(function() {
-      setTimeout($scope.DLrun, 100);
-      return setTimeout($scope.DLrun, 300);
+      return $timeout($scope.DLrun, 100);
     });
     $scope.$watch('styles.active', function() {
       var styles;
@@ -5018,7 +4965,7 @@ angular.module('ShadeServices', [])
         };
       }
     };
-  }).directive('resizablePanel', function($rootScope) {
+  }).directive('resizablePanel', function($rootScope, $timeout) {
     return {
       require: '^splitRow',
       restrict: 'E',
@@ -5055,7 +5002,9 @@ angular.module('ShadeServices', [])
           }
         });
         return scope.$on('mousemoved', function(e, name) {
-          return scope.mouseover = name === scope.name;
+          return $timeout(function() {
+            return scope.mouseover = name === scope.name;
+          });
         });
       }
     };

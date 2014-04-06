@@ -81,12 +81,12 @@ html, body {
   opacity: 0;
 }
 
-/* line 61, ../sass/main.sass
+/* line 61, ../sass/main.sass */
 .ace_scrollbar {
   display: none !important;
   width: 0;
 }
-*/
+
 /* line 65, ../sass/main.sass */
 .render-panel {
   height: 100%;

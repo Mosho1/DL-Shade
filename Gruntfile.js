@@ -38,8 +38,6 @@ module.exports = function(grunt) {
                     'public/DL_libs/angular-sanitize.min.js',
                     'public/DL_libs/angular-animate.min.js',
                     'public/DL_libs/google-code-prettify/src/prettify.js',
-                    'public/DL_libs/ace/src-noconflict/ace.js',
-                    'public/DL_libs/ace/src-noconflict/ext-language_tools.js',
                     'public/DL_libs/d3.v2.js',
                     'public/DL_libs/xml2json.min.js',
                     'public/DL_libs/markdown.min.js',

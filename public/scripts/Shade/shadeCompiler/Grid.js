@@ -30,7 +30,7 @@ var that = {},
 
             return {'span': span, 'heights': heights};
         },
-        'Xy' : function (grid) {
+        'Xy' : function (grid, span) {
             var nodes = grid.Sub.Node;
             //create a map for the nodes according to Xy elements
             var gridMap = _.map(nodes, function (node, index) {
@@ -39,7 +39,7 @@ var that = {},
                 })].concat(index);
             }).sort(function (a, b) { return a[0] - b[0]; });
 
-            nodes = (function () {
+            grid.Sub.Node = (function () {
                 var arr = [], i;
                 for (i = 0; i < span[0] * span[1]; i++) {
                     arr.push((gridMap[0] || [-1])[0] === i ? nodes[gridMap.shift()[1]] : {'UI': 'Label'});

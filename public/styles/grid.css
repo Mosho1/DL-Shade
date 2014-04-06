@@ -22,25 +22,31 @@
    left:4px;
    overflow:hidden;
    cursor:pointer;
-   position:absolute;
+
+
 }
 
 .dropdown{
     min-width: 50px;
     width: 250px;
+
+    
+
+
 }
 
 .dropdown .glyphicon {
    float:right;
-   right: 5px;
    top: 5px;
-   width: 10px;
+   left: 3px;
+   width: 20px;
 }
 
 .dropdown .selected {
+    width:100%;
     height: 100%;
-    border:solid;
-    border-width: 1px;
+    outline: 1px solid;
+    overflow:hidden;
 }
 
 /*

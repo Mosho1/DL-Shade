@@ -179,7 +179,7 @@
         };
       }
     };
-  }).directive('resizablePanel', function($rootScope) {
+  }).directive('resizablePanel', function($rootScope, $timeout) {
     return {
       require: '^splitRow',
       restrict: 'E',
@@ -216,7 +216,9 @@
           }
         });
         return scope.$on('mousemoved', function(e, name) {
-          return scope.mouseover = name === scope.name;
+          return $timeout(function() {
+            return scope.mouseover = name === scope.name;
+          });
         });
       }
     };

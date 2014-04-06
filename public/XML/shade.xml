@@ -79,6 +79,7 @@
             </Node>
             <Node>
                 <UI>ListBox</UI>
+                <vText>x</vText>
                 <Sub>
                     <Node>
                         <UI>ListItem</UI>
