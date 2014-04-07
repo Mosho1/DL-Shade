@@ -1,24 +1,17 @@
 ﻿<Shade>
     <Node>
         <UI>Grid</UI>
-        <Span>1,1</Span>
+        <Cols>1</Cols>
         <Sub>
             <Node>
-                <UI>Menu</UI>
-                <Sub>
-                    <Node>
-                        <UI>Item</UI>
-                        <Text>Item 1</Text>
-                        <Sub>
-                            <Node>
-                                <UI>Item</UI>
-                                <Text>Item 2</Text>
-                            </Node>
-                        </Sub>
-                    </Node>
-                </Sub>
+                <UI>Button</UI>
+                <vText>a</vText>
+                <Cb>
+                    <Fn>SETDLVARIABLE</Fn>
+                    <Stat>x, 3</Stat>
+                    <Event>Click</Event>
+                </Cb>
             </Node>
         </Sub>
     </Node>
 </Shade>
-    

@@ -3,7 +3,7 @@ angular.module('ShadeApp')
 .directive 'btn', ($compile, $timeout, $templateCache) ->
   restrict: 'C'
   replace: true
-  scope: false
+  scope: true
   transclude: true
   template: (elm, attr) -> #TODO: maybe replace this with compile, not sure why
     toAppend = ''
@@ -29,8 +29,16 @@ angular.module('ShadeApp')
         toAppend += (events[name] || events.default) + '"' + (_.map cb, (el) ->
           handlers[el[0]] el[1], el[2]).join('') + '" '
 
-    '<button ' + toAppend + 'ng-transclude></button>'
-  link: (scope) ->
+    '<button ' + toAppend + '>{{text}}</button>'
+  link: (scope, elm, attr) ->
+    if angular.isDefined attr.vText
+      scope.vText = attr.vText
+      scope.text = ''
+      scope.$watch 'vars[vText].model', (val) ->
+        scope.text = (scope.vars[scope.vText] or {model: ''}).model
+    else
+      scope.text = attr.text
+
     scope.popup = (id, elm) ->
       popup = angular.element('#' + id)
       unless popup.attr('container') is '#' + elm

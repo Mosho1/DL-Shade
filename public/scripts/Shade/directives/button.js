@@ -4,7 +4,7 @@
     return {
       restrict: 'C',
       replace: true,
-      scope: false,
+      scope: true,
       transclude: true,
       template: function(elm, attr) {
         var cbs, events, handlers, toAppend;
@@ -41,9 +41,20 @@
             })).join('') + '" ';
           });
         }
-        return '<button ' + toAppend + 'ng-transclude></button>';
+        return '<button ' + toAppend + '>{{text}}</button>';
       },
-      link: function(scope) {
+      link: function(scope, elm, attr) {
+        if (angular.isDefined(attr.vText)) {
+          scope.vText = attr.vText;
+          scope.text = '';
+          scope.$watch('vars[vText].model', function(val) {
+            return scope.text = (scope.vars[scope.vText] || {
+              model: ''
+            }).model;
+          });
+        } else {
+          scope.text = attr.text;
+        }
         return scope.popup = function(id, elm) {
           var clone, popup;
           popup = angular.element('#' + id);

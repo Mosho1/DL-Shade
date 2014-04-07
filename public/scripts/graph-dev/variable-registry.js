@@ -69,7 +69,7 @@ VariableRegistry.prototype = {
         for (i = 0; i < this.sorted.length - start; i++) {
             entry = this.get(this.sorted[start + i]);
             if (entry) {
-                val = parser.parse(entry.expr);
+                val = entry.expr ? parser.parse(entry.expr) : entry.expr;
                 entry.evaluate(val);
             }
         }
@@ -78,10 +78,20 @@ VariableRegistry.prototype = {
     },
 
     sortDependencies: function () {
+
         //resolve dependencies
         this.edges = this.getEdges();
         //topological sort
         this.sorted = tsort(this.edges);
+        var v;
+        for (v in this.variables) {
+            if (this.variables.hasOwnProperty(v)) {
+                if (this.sorted.indexOf(v) === -1) {
+                    this.sorted.unshift(v);
+                }
+            }
+        }
+
         return this;
     },
 

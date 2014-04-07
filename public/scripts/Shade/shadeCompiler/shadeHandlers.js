@@ -29,7 +29,7 @@ angular.module('ShadeServices', [])
         this.UIHandlers = {
 
             Button: function (node, cb) {
-                that.openElement('button', 'btn btn-default', node, '', cb, node.Text);
+                that.openElement('button', 'btn btn-default', node, '', cb, '');
                 that.closeElement();
             },
 
@@ -223,7 +223,8 @@ angular.module('ShadeServices', [])
             Maximum: 'max',
             Minimum: 'min',
             FormatString: 'format',
-            Source: 'src'
+            Source: 'src',
+            Text: 'text'
 
         };
 

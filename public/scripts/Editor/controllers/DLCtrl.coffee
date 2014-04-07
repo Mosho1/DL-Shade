@@ -32,7 +32,7 @@ angular.module('DLApp')
         $scope.$apply col.show = !col.show
 
   $scope.styles =
-  active: 'menu'
+  active: 'control'
   sheets:
     basics:
       source: 'XML/shade.xml'

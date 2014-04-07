@@ -135,7 +135,18 @@ module.exports = function(grunt) {
                 }
             },
             all: ['jasmine/spec/']
+        },
+        express: {
+            options: {
+                background: false
+            },
+            dev: {
+                options: {
+                    script: 'server.js'
+                }
+            }
         }
+
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -144,11 +155,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-jasmine-node');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-concurrent');
+    grunt.loadNpmTasks('grunt-express-server');
 
     grunt.registerTask('default', ['browserify', 'concat']);
     grunt.registerTask('all', ['browserify', 'concat', 'uglify']);
     grunt.registerTask('lib', ['uglify']);
     grunt.registerTask('test', ['jasmine_node']);
     grunt.registerTask('wat', ['concurrent:watch']);
+    grunt.registerTask('serve', ['express:dev']);
 
 };
