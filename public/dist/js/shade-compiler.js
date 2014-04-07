@@ -281,7 +281,7 @@ angular.module('ShadeServices', [])
         this.UIHandlers = {
 
             Button: function (node, cb) {
-                that.openElement('button', 'btn btn-default', node, '', cb, '');
+                that.openElement('shd-button', 'btn btn-default', node, '', cb, '');
                 that.closeElement();
             },
 

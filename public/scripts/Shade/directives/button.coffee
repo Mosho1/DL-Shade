@@ -1,7 +1,7 @@
 angular.module('ShadeApp')
 
-.directive 'btn', ($compile, $timeout, $templateCache) ->
-  restrict: 'C'
+.directive 'shdButton', ($compile, $timeout, $templateCache) ->
+  restrict: 'E'
   replace: true
   scope: true
   transclude: true
