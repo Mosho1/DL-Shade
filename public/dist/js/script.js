@@ -3398,9 +3398,10 @@ var that = {},
 
     makeCol = function (node) {
         if (angular.isObject(node)) {
-            var colCount = this.colCount;
-            var widths = this.widths;
-            var width = widths.length ? ('width:' + (widths[++colCount - 1] || widths[widths.length - 1]) + 'px; ') : '';
+            var colCount = this.colCount,
+                widths = this.widths,
+                lastWidth = widths[colCount++] || widths[widths.length - 1],
+                width = widths.length ? ('width:' + lastWidth + 'px; ') : '';
 
             that.openElement('td', '', {}, width, node.CSpan ? 'colspan="' + node.CSpan +'"' : ''); //TODO: add functionality to separate node attributes from the node object when they don't belong in the element
             that.nodeHandlers.Node(_.omit(node, 'CSpan'));
@@ -3409,8 +3410,9 @@ var that = {},
     },
 
     makeRow = function (nodes, heights, widths, rowCount) {
-        var height = heights.length ? ('height:' + (heights[++rowCount - 1] || heights[heights.length - 1]) + 'px; ') : '';
-        colCount = 0;
+        var lastHeight = heights[rowCount++] || heights[heights.length - 1],
+            height = heights.length ? 'height:' + lastHeight + 'px; ' : '',
+            colCount = 0;
 
         that.openElement('tr', '', {}, height);
         _.each(nodes, makeCol, {widths: widths, colCount: colCount});
@@ -3428,11 +3430,14 @@ var that = {},
             }
         },
         'LToR' : function (grid, heights, widths, span) {
-            var rowCount = 0;
-            var i, nodes = grid.Sub.Node;
+            var rowCount = 0, i,
+                nodes = grid.Sub.Node;
             for (i = 0; i < nodes.length; i += span[1]) {
                 makeRow(nodes.slice(i, i + span[1]), heights, widths, rowCount);
             }
+        },
+        'single': function (grid, heights, widths) {
+            makeRow([grid.Sub.Node], heights, widths, 0);
         }
     },
 
@@ -3454,7 +3459,7 @@ module.exports = function (grid) {
 
     if (_.isObject(grid)) {
 
-        var flow = grid.Flow || "LToR";
+        var flow = grid.Sub.Node.length ? grid.Flow || "LToR" : 'single';
 
         data = {grid: grid, heights: '', widths: '', span: []};
 
@@ -3531,7 +3536,8 @@ angular.module('ShadeServices', [])
             SHOWPOPUP: function (cb) {
                 return cb.Event + ',popup,' + cb.Stat.toLowerCase();
 
-            }
+            },
+            MESSAGE: function () {}
 
         };
         //TODO: change arguments to handlers below from array to an object
@@ -3563,6 +3569,18 @@ angular.module('ShadeServices', [])
                 that.closeElement();
             },
 
+            Item: function (node) {
+                that.openElement('li');
+                that.openElement('a', '', {}, '', 'href="#"',node.Text)
+                if (node.Sub) {
+                    that.openElement('ul');
+                    handleSub(node);
+                    that.closeElement();
+                }
+                that.closeElement();
+                that.closeElement();
+            },
+
             Label: function (node) {
                 that.openElement('div', '', node);
                 that.closeElement();
@@ -3576,6 +3594,12 @@ angular.module('ShadeServices', [])
 
             ListItem : function (node) {
                 that.openElement('option', '', node);
+                that.closeElement();
+            },
+
+            Menu : function (node) {
+                that.openElement('ul', 'menu');
+                handleSub(node);
                 that.closeElement();
             },
 
@@ -3802,7 +3826,8 @@ angular.module('ShadeServices', [])
         this.openElement = function (elmName, className, node, customStyles, customAttr, content, close) {
 
             var nativeStyles = _.reduce(node, ShadeStyles.handleStyles, ''),
-                nativeClass = ((nativeStyles || customStyles) ? "class" + ++classCount : '');
+                nativeClass = ((nativeStyles || customStyles) ? "class" + ++classCount : ''),
+                node = node || {};
             cur = currentElement.nodes.push({
                 elmName: elmName,
                 nativeClass: nativeClass + (node.Style ? (' ' + node.Style) : ''),
@@ -4448,7 +4473,7 @@ angular.module('ShadeServices', [])
       }
     });
     $scope.styles = {
-      active: 'basics',
+      active: 'control',
       sheets: {
         basics: {
           source: 'XML/shade.xml',
@@ -4456,6 +4481,10 @@ angular.module('ShadeServices', [])
         },
         control: {
           source: 'XML/control.xml',
+          "native": true
+        },
+        menu: {
+          source: 'XML/menu.xml',
           "native": true
         }
       },

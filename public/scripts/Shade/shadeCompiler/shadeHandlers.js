@@ -21,7 +21,8 @@ angular.module('ShadeServices', [])
             SHOWPOPUP: function (cb) {
                 return cb.Event + ',popup,' + cb.Stat.toLowerCase();
 
-            }
+            },
+            MESSAGE: function () {}
 
         };
         //TODO: change arguments to handlers below from array to an object
@@ -53,6 +54,18 @@ angular.module('ShadeServices', [])
                 that.closeElement();
             },
 
+            Item: function (node) {
+                that.openElement('li');
+                that.openElement('a', '', {}, '', 'href="#"',node.Text)
+                if (node.Sub) {
+                    that.openElement('ul');
+                    handleSub(node);
+                    that.closeElement();
+                }
+                that.closeElement();
+                that.closeElement();
+            },
+
             Label: function (node) {
                 that.openElement('div', '', node);
                 that.closeElement();
@@ -66,6 +79,12 @@ angular.module('ShadeServices', [])
 
             ListItem : function (node) {
                 that.openElement('option', '', node);
+                that.closeElement();
+            },
+
+            Menu : function (node) {
+                that.openElement('ul', 'menu');
+                handleSub(node);
                 that.closeElement();
             },
 
@@ -292,7 +311,8 @@ angular.module('ShadeServices', [])
         this.openElement = function (elmName, className, node, customStyles, customAttr, content, close) {
 
             var nativeStyles = _.reduce(node, ShadeStyles.handleStyles, ''),
-                nativeClass = ((nativeStyles || customStyles) ? "class" + ++classCount : '');
+                nativeClass = ((nativeStyles || customStyles) ? "class" + ++classCount : ''),
+                node = node || {};
             cur = currentElement.nodes.push({
                 elmName: elmName,
                 nativeClass: nativeClass + (node.Style ? (' ' + node.Style) : ''),

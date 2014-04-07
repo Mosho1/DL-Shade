@@ -1,27 +1,24 @@
 ﻿<Shade>
     <Node>
-        <UI>Image</UI>
-        <Height>100</Height>
-        <Width>100</Width>
-        <vText>x</vText>
-        <Source>http://i.imgur.com/oRkMeXY.jpg</Source>
-    </Node>
-    <Node>
         <UI>Grid</UI>
-        <Span>3, 1</Span>
+        <Span>1,1</Span>
         <Sub>
             <Node>
-                <UI>Label</UI>
-                <Height>50</Height>
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Text>***DL variable 'x':***</Text>
-            </Node>
-            <Node>
-                <UI>NumEdit</UI>
-                <vText>x</vText>
+                <UI>Menu</UI>
+                <Sub>
+                    <Node>
+                        <UI>Item</UI>
+                        <Text>Item 1</Text>
+                        <Sub>
+                            <Node>
+                                <UI>Item</UI>
+                                <Text>Item 2</Text>
+                            </Node>
+                        </Sub>
+                    </Node>
+                </Sub>
             </Node>
         </Sub>
     </Node>
 </Shade>
+    

@@ -1,0 +1,81 @@
+﻿<Shade>
+    <Node>
+        <UI>Grid</UI>
+        <Span>1,1</Span>
+        <Sub>
+            <Node>
+                <UI>Menu</UI>
+                <Sub>
+                    <Node>
+                        <UI>Item</UI>
+                        <Text>Item 1</Text>
+                        <Sub>
+                            <Node>
+                                <UI>Item</UI>
+                                <Text>Item 2</Text>
+                                <Cb>
+                                    <Fn>MESSAGE</Fn>
+                                    <Stat>Hello from Item 2</Stat>
+                                </Cb>
+                            </Node>
+                            <Node>
+                                <UI>Separator</UI>
+                            </Node>
+                            <Node>
+                                <UI>Item</UI>
+                                <Text>Item 3</Text>
+                                <Cb>
+                                    <Fn>MESSAGE</Fn>
+                                    <Stat>Hello from Item 3</Stat>
+                                </Cb>
+                            </Node>
+                        </Sub>
+                    </Node>
+                    <Node>
+                        <UI>Item</UI>
+                        <Text>Item 4</Text>
+                        <Cb>
+                            <Fn>MESSAGE</Fn>
+                            <Stat>Hello from Item 4</Stat>
+                        </Cb>
+                    </Node>
+                    <Node>
+                        <UI>Item</UI>
+                        <Text>Item 5</Text>
+                        <Sub>
+                            <Node>
+                                <UI>Item</UI>
+                                <Text>Item 6</Text>
+                                <Cb>
+                                    <Fn>MESSAGE</Fn>
+                                    <Stat>Hello from Item 6</Stat>
+                                </Cb>
+                            </Node>
+                            <Node>
+                                <!-- Don't do this: expanding menus are SO
+                                hard to navigate.  But you can if you must -->
+                                <UI>Item</UI>
+                                <Text>Item 7</Text>
+                                <Sub>
+                                    <Node>
+                                        <UI>Item</UI>
+                                        <Text>Item 8</Text>
+                                    </Node>
+                                    <Node>
+                                        <UI>Item</UI>
+                                        <Text>Item 9</Text>
+                                    </Node>
+                                </Sub>
+                            </Node>
+                        </Sub>
+                    </Node>
+                </Sub>
+            </Node>
+            <Node>
+                <UI>Label</UI>
+                <Text>Rest of the grid here...</Text>
+            </Node>
+        </Sub>
+    </Node>
+</Shade>
+    

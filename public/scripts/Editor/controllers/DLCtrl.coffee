@@ -32,13 +32,16 @@ angular.module('DLApp')
         $scope.$apply col.show = !col.show
 
   $scope.styles =
-  active: 'basics'
+  active: 'menu'
   sheets:
     basics:
       source: 'XML/shade.xml'
       native: true
     control:
       source: 'XML/control.xml'
+      native: true
+    menu:
+      source: 'XML/menu.xml'
       native: true
   external: ''
   editor: ''

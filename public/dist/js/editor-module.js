@@ -87,7 +87,7 @@
       }
     });
     $scope.styles = {
-      active: 'basics',
+      active: 'control',
       sheets: {
         basics: {
           source: 'XML/shade.xml',
@@ -95,6 +95,10 @@
         },
         control: {
           source: 'XML/control.xml',
+          "native": true
+        },
+        menu: {
+          source: 'XML/menu.xml',
           "native": true
         }
       },
