@@ -37,10 +37,10 @@ angular.module('ShadeApp')
     change = (d) ->
       timeout -= 30  if timeout > mtimeout
       $timeout () -> updateModel scope.vars[scope.vText].model + d
-      cto = setTimeout(scope.change, timeout, d)
+      cto = setTimeout(change, timeout, d)
 
-    scope.increase = _.partial(change,1)
-    scope.decrease = _.partial(change,-1)
+    scope.increase = _.partial(change, 1)
+    scope.decrease = _.partial(change, -1)
 
     scope.stop = () ->
       clearTimeout cto

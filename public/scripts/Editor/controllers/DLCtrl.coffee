@@ -11,7 +11,7 @@ Features:\n
 -Graph or table presentation of the graph\n
 -Click 'Run' above or alt+R */\n
 \n
-x=0;\n
+x=1;\n
 y=2;\n
 z=f.avg(x,y,6);";
 
@@ -32,7 +32,7 @@ angular.module('DLApp')
         $scope.$apply col.show = !col.show
 
   $scope.styles =
-  active: 'control'
+  active: 'basics'
   sheets:
     basics:
       source: 'XML/shade.xml'

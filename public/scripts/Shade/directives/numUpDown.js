@@ -31,7 +31,7 @@
           $timeout(function() {
             return updateModel(scope.vars[scope.vText].model + d);
           });
-          return cto = setTimeout(scope.change, timeout, d);
+          return cto = setTimeout(change, timeout, d);
         };
         scope.increase = _.partial(change, 1);
         scope.decrease = _.partial(change, -1);

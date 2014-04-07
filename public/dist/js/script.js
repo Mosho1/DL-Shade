@@ -3075,7 +3075,7 @@ VariableRegistry.prototype = {
                 _this.set(_entry.name, value);
             },
             get: function () {
-                return _this.get(_entry.name);
+                return _this.getValue(_entry.name);
             }
         });
         return _entry;
@@ -3088,10 +3088,15 @@ VariableRegistry.prototype = {
         }
     },
 
-    get: function (name) {
+    getValue: function (name) {
         if (this.variables[name]) {
             return this.variables[name].get();
         }
+
+    },
+
+    get: function (name) {
+        return this.variables[name];
 
     },
 
@@ -3538,8 +3543,8 @@ angular.module('ShadeServices', [])
             },
 
             CheckBox: function (node) {
-                var attrs = node.Value ? '' : ' label="' + node.Text + '"';
-                that.openElement('check-box', '', node, '', attrs);
+                var attrs = node.Value ? '' : 'type="checkbox" label="' + node.Text + '"';
+                that.openElement('div', 'inputs', node, '', attrs);
                 that.closeElement();
             },
 
@@ -3552,6 +3557,11 @@ angular.module('ShadeServices', [])
             DropDown: require('./DropDown'),
 
             Grid: require('./Grid'),
+
+            Image: function (node) {
+                that.openElement('shd-image', '', node, '', '', '');
+                that.closeElement();
+            },
 
             Label: function (node) {
                 that.openElement('div', '', node);
@@ -3572,7 +3582,7 @@ angular.module('ShadeServices', [])
             MultiSelComboBox: _.partialRight(require('./DropDown'), true),
 
             NumEdit: function (node) {
-                that.openElement('num-edit', '', node);
+                that.openElement('div', 'inputs', node, '', 'type="text"');
                 that.closeElement();
             },
 
@@ -3588,8 +3598,8 @@ angular.module('ShadeServices', [])
             },
 
             RadioButton: function (node) {
-                var attrs = node.Value ? '' : ' value="' + node.Text +'" label="' + node.Text + '"';
-                that.openElement('radio-button', '', node, '', attrs);
+                var attrs = node.Value ? '' : 'type="radio" value="' + node.Text +'" label="' + node.Text + '"';
+                that.openElement('div', 'inputs', node, '', attrs);
                 that.closeElement();
             },
 
@@ -3611,7 +3621,8 @@ angular.module('ShadeServices', [])
             },
 
             TextBox: function (node) {
-                that.openElement('input', '', node, '', 'placeholder="' + node.Text + '"', '');
+                var attrs = 'type="text" placeholder="' + node.Text + '"'
+                that.openElement('div', '', node, '', attrs, '');
                 that.closeElement();
             },
 
@@ -3702,7 +3713,8 @@ angular.module('ShadeServices', [])
             DefaultValue: 'dvalue',
             Maximum: 'max',
             Minimum: 'min',
-            FormatString: 'format'
+            FormatString: 'format',
+            Source: 'src'
 
         };
 
@@ -3861,23 +3873,38 @@ angular.module('ShadeServices', [])
         });
       }
     };
+  }).directive('shdImage', function($http) {
+    return {
+      restrict: 'E',
+      replace: true,
+      scope: true,
+      require: '?ngModel',
+      template: '<img ng-model="vars[vText].model" />',
+      link: function(scope, elm, attr, ngModel) {
+        scope.src = attr.src;
+        scope.vText = attr.vText;
+        if (angular.isDefined(ngModel)) {
+          return ngModel.$render = function() {
+            return $http.head(ngModel.$modelValue || 'default').success(function() {
+              return elm.attr('src', ngModel.$modelValue);
+            }).error(function() {
+              return elm.attr('src', scope.src);
+            });
+          };
+        }
+      }
+    };
   }).directive('listBox', function(vTextProvider) {
     return new vTextProvider('<select multiple ng-transclude />');
-  }).directive('numEdit', function(vTextProvider) {
-    return new vTextProvider('<input type="text" />');
-  }).directive('radioButton', function(vTextProvider) {
-    return new vTextProvider('<input type="radio" />');
-  }).directive('checkBox', function(vTextProvider) {
-    return new vTextProvider('<input type="checkbox" />');
-  }).directive('textBox', function(vTextProvider) {
-    return new vTextProvider('<input type="text" />');
+  }).directive('inputs', function(vTextProvider) {
+    return new vTextProvider('<input />');
   }).directive('shdDatePicker', function(vTextProvider) {
     return new vTextProvider('<input type="text" datepicker-popup close-on-date-selection="false" />');
   }).directive('timePicker', function(vTextProvider) {
     return new vTextProvider('<div><timepicker /></div>');
   }).factory('vTextProvider', function() {
     return function(template) {
-      this.restrict = 'E';
+      this.restrict = 'ACE';
       this.transclude = !!template.match('ng-transclude');
       this.replace = true;
       this.scope = true;
@@ -3892,88 +3919,6 @@ angular.module('ShadeServices', [])
       };
     };
   });
-
-
-  /*
-    .directive 'ratatat', ($compile) ->
-        restrict: 'EA'
-        replace: false
-        scope: false
-        compile: (tElm, tAttr) ->
-          timePickerElement = angular.element('<timepicker />').attr(_.omit(tAttr, (val, key) ->
-            (key is 'vText') or (/^\$.?/.test(key))
-          ))
-          tElm.append(timePickerElement)
-  
-  
-  
-    .directive 'listBox', (vTextProvider) ->
-        new vTextProvider '<select multiple ng-model="vars[vText].model" ng-transclude />'
-  
-    .directive 'numEdit', (vTextProvider) ->
-        new vTextProvider '<input type="text" ng-model="vars[vText].model" />'
-  
-    .directive 'radioButton', (vTextProvider) ->
-        new vTextProvider '<input type="radio" ng-model="vars[vText].model" />'
-  
-    .directive 'textBox', (vTextProvider) ->
-        new vTextProvider '<input type="text" ng-model="vars[vText].model" />'
-  
-    .factory 'vTextProvider', () ->
-        (template) ->
-          @restrict = 'E'
-          @transclude = !!template.match('ng-transclude')
-          @replace = true
-          @scope = true
-          @template = template
-          @link = (scope, elm, attr) ->
-            scope.vText = attr.vText
-  
-          return
-  
-  
-    .directive 'listBox', () ->
-      restrict: 'E'
-      replace: true
-      scope: true
-      transclude: true
-      template: '<select multiple ng-model="vars[vText].model" ng-transclude />'
-      link: (scope, elm, attr) ->
-          scope.vText = attr.vText
-  
-    .directive 'numEdit', () ->
-      restrict: 'E'
-      replace: true
-      scope: true
-      template: '<input type="text" ng-model="vars[vText].model" />'
-      link: (scope, elm, attr) ->
-        scope.vText = attr.vText
-  
-    .directive 'radioButton', () ->
-      restrict: 'E'
-      replace: true
-      scope: true
-      template: '<input type="radio" ng-model="vars[vText].model" />'
-      link: (scope, elm, attr) ->
-        scope.vText = attr.vText
-  
-    .directive 'textBox', () ->
-      restrict: 'E'
-      replace: true
-      scope: true
-      template: '<input type="text" ng-model="vars[vText].model" />'
-      link: (scope, elm, attr) ->
-        scope.vText = attr.vText
-  
-  
-    .directive 'datePicker', () ->
-    restrict: 'AC'
-    scope: true
-    template: '<div class="well well-sm" ng-model="vars[vText].model"><datepicker></datepicker></div>'
-    link:
-      pre: (scope, elm, attr) ->
-        scope.vText = attr.datePicker
-   */
 
 }).call(this);
 ;// Generated by CoffeeScript 1.7.1
@@ -4178,7 +4123,7 @@ angular.module('ShadeServices', [])
           $timeout(function() {
             return updateModel(scope.vars[scope.vText].model + d);
           });
-          return cto = setTimeout(scope.change, timeout, d);
+          return cto = setTimeout(change, timeout, d);
         };
         scope.increase = _.partial(change, 1);
         scope.decrease = _.partial(change, -1);
@@ -4393,7 +4338,7 @@ angular.module('ShadeServices', [])
   angular.module('ShadeApp').service('shadeTemplate', function($http, x2js, ShadeParser, ShadeAttrDictionary) {
     var template;
     template = function() {};
-    $http.get('/scripts/Shade/ng_template_shd.js').success(function(data) {
+    $http.get('/scripts/Shade/ng_template_shd.ejs').success(function(data) {
       _.templateSettings.variable = "shd";
       return template = _.template(data);
     }).error(function() {
@@ -4482,7 +4427,7 @@ angular.module('ShadeServices', [])
   'use strict';
   var default_lc;
 
-  default_lc = "/* Welcome to Dependency Language in JavaScript!\n Features:\n -Supported Formats:\n Numbers, Strings, arrays\n -Namespaces (format: '$ns') -Built-in Functions:\n f.abs, f.avg\n -Themes for the editor\n -Graph or table presentation of the graph\n -Click 'Run' above or alt+R */\n \n x=0;\n y=2;\n z=f.avg(x,y,6);";
+  default_lc = "/* Welcome to Dependency Language in JavaScript!\n Features:\n -Supported Formats:\n Numbers, Strings, arrays\n -Namespaces (format: '$ns') -Built-in Functions:\n f.abs, f.avg\n -Themes for the editor\n -Graph or table presentation of the graph\n -Click 'Run' above or alt+R */\n \n x=1;\n y=2;\n z=f.avg(x,y,6);";
 
   angular.module('DLApp').controller('DLCtrl', function($scope, $rootScope, $http, $filter, $element, $document, $timeout, Graph, graphService) {
     $scope.litcoffee = {
@@ -4503,7 +4448,7 @@ angular.module('ShadeServices', [])
       }
     });
     $scope.styles = {
-      active: 'control',
+      active: 'basics',
       sheets: {
         basics: {
           source: 'XML/shade.xml',

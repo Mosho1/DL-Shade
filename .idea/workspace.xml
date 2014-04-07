@@ -5,36 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15758fa3-0dc6-4239-9815-36387ae5d86d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/wip/testing.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/Shade/ng_template_shd.ejs" />
+      <change type="DELETED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\scripts\Shade\ng_template_shd.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.coffee" afterPath="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/Grid.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/Grid.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/DependencyLanguage.iml" afterPath="$PROJECT_DIR$/.idea/DependencyLanguage.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/directives/button.coffee" afterPath="$PROJECT_DIR$/public/scripts/Shade/directives/button.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/directives/button.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/directives/button.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/XML/control.xml" afterPath="$PROJECT_DIR$/public/XML/control.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/editor-module.js" afterPath="$PROJECT_DIR$/public/dist/js/editor-module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/grid.css" afterPath="$PROJECT_DIR$/public/styles/grid.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/index_DL.jade" afterPath="$PROJECT_DIR$/public/views/index_DL.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/libs.js" afterPath="$PROJECT_DIR$/public/dist/js/libs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/libs.min.js" afterPath="$PROJECT_DIR$/public/dist/libs.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/libs.min.map" afterPath="$PROJECT_DIR$/public/dist/libs.min.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/main.css" afterPath="$PROJECT_DIR$/public/styles/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/ng_template_shd.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/ng_template_shd.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/graph-text-dev.js" afterPath="$PROJECT_DIR$/public/dist/js/graph-text-dev.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/directives/numUpDown.coffee" afterPath="$PROJECT_DIR$/public/scripts/Shade/directives/numUpDown.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/directives/numUpDown.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/directives/numUpDown.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/script.js" afterPath="$PROJECT_DIR$/public/dist/js/script.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/script.min.js" afterPath="$PROJECT_DIR$/public/dist/script.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/script.min.map" afterPath="$PROJECT_DIR$/public/dist/script.min.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/shade-compiler.js" afterPath="$PROJECT_DIR$/public/dist/js/shade-compiler.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/shade-module.js" afterPath="$PROJECT_DIR$/public/dist/js/shade-module.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/XML/shade.xml" afterPath="$PROJECT_DIR$/public/XML/shade.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/shadeHandlers.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/shadeHandlers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/services/shadeTemplate.coffee" afterPath="$PROJECT_DIR$/public/scripts/Shade/services/shadeTemplate.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/services/shadeTemplate.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/services/shadeTemplate.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/shade_module.coffee" afterPath="$PROJECT_DIR$/public/scripts/Shade/shade_module.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/shade_module.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/shade_module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Editor/directives/split-panel.coffee" afterPath="$PROJECT_DIR$/public/scripts/Editor/directives/split-panel.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Editor/directives/split-panel.js" afterPath="$PROJECT_DIR$/public/scripts/Editor/directives/split-panel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" afterPath="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DependencyLanguage.iws" />
@@ -58,93 +54,100 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index_DL.jade" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/index_DL.jade">
+      <file leaf-file-name="shadeHandlers.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/shadeHandlers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="41" selection-start="4338" selection-end="4338" vertical-scroll-proportion="-7.86" vertical-offset="1001" max-vertical-offset="2567">
+            <state line="206" column="24" selection-start="6251" selection-end="6254" vertical-scroll-proportion="-9.56" vertical-offset="3024" max-vertical-offset="5899">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="split-panel.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/Editor/directives/split-panel.coffee">
+      <file leaf-file-name="ng_template_shd.ejs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/Shade/ng_template_shd.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="35" selection-start="3424" selection-end="3424" vertical-scroll-proportion="0.0" vertical-offset="1525" max-vertical-offset="2397">
+            <state line="3" column="103" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+              <folding>
+                <marker date="1396806188063" expanded="true" signature="49:221" placeholder="{...}" />
+                <marker date="1396806188063" expanded="true" signature="103:215" placeholder="{...}" />
+                <marker date="1396806188063" expanded="true" signature="368:707" placeholder="{...}" />
+                <marker date="1396806188063" expanded="true" signature="447:525" placeholder="{...}" />
+                <marker date="1396806188063" expanded="true" signature="747:782" placeholder="{...}" />
+                <marker date="1396806188063" expanded="true" signature="824:931" placeholder="{...}" />
+                <marker date="1396806188063" expanded="true" signature="875:925" placeholder="{...}" />
+                <marker date="1396806188063" expanded="true" signature="943:988" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shade_module.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/Shade/shade_module.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="24" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editor.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/Editor/directives/editor.coffee">
+      <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="44" selection-start="595" selection-end="597" vertical-scroll-proportion="-11.28" vertical-offset="75" max-vertical-offset="1802">
+            <state line="24" column="0" selection-start="695" selection-end="695" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="split-panel.sass" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/styles/split-panel.sass">
+      <file leaf-file-name="DLCtrl.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="15" selection-start="743" selection-end="744" vertical-scroll-proportion="-6.7647057" vertical-offset="403" max-vertical-offset="1224">
+            <state line="34" column="17" selection-start="780" selection-end="780" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="2227">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.sass" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/styles/main.sass">
+      <file leaf-file-name="shade.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/XML/shade.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="214" column="13" selection-start="4112" selection-end="4112" vertical-scroll-proportion="-8.764706" vertical-offset="3191" max-vertical-offset="4012">
+            <state line="3" column="25" selection-start="66" selection-end="66" vertical-scroll-proportion="0.062043797" vertical-offset="0" max-vertical-offset="7446">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/styles/main.css">
+      <file leaf-file-name="control.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/XML/control.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="30" selection-start="2121" selection-end="2121" vertical-scroll-proportion="-17.4" vertical-offset="1146" max-vertical-offset="5797">
+            <state line="6" column="46" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dropdown" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/styles/dropdown">
+      <file leaf-file-name="node-handlers.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/node-handlers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3026">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrap-addons.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/styles/bootstrap-addons.css">
+      <file leaf-file-name="variable-registry.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
+            <state line="32" column="51" selection-start="937" selection-end="937" vertical-scroll-proportion="-21.76" vertical-offset="0" max-vertical-offset="3791">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_mixins.sass" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/styles/_mixins.sass">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="714">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="boilerplate.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/styles/boilerplate.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5202">
-              <folding />
-            </state>
+      <file leaf-file-name="hr.png" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/images/hr.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -166,7 +169,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/scripts/Shade/controllers/DLCtrl.js" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/directives/renderPanel.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/factories/ngGridPlugin.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/services/x2js.coffee" />
@@ -183,14 +185,12 @@
         <option value="$PROJECT_DIR$/public/scripts/graph-dev/node-handlers.js" />
         <option value="$PROJECT_DIR$/public/DLengine.js" />
         <option value="$PROJECT_DIR$/DLengine.js" />
-        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/a" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/Grid2.js" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/Styles.js" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/DropDown.js" />
         <option value="$PROJECT_DIR$/public/directive-templates/numUpDown.html" />
-        <option value="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/services/format.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/directives/dropDown.js" />
         <option value="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.js" />
@@ -202,21 +202,24 @@
         <option value="$PROJECT_DIR$/public/styles/grid.css" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/Grid.js" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/directives/format.coffee" />
-        <option value="$PROJECT_DIR$/public/XML/control.xml" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/services/shadeTemplate.js" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/directives/button.coffee" />
-        <option value="$PROJECT_DIR$/public/scripts/Shade/services/shadeTemplate.coffee" />
-        <option value="$PROJECT_DIR$/public/scripts/Shade/ng_template_shd.js" />
-        <option value="$PROJECT_DIR$/public/scripts/Shade/shade_module.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/wip/testing.js" />
-        <option value="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/shadeHandlers.js" />
-        <option value="$PROJECT_DIR$/public/scripts/Shade/directives/numUpDown.coffee" />
-        <option value="$PROJECT_DIR$/public/XML/shade.xml" />
-        <option value="$PROJECT_DIR$/Gruntfile.js" />
-        <option value="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/Editor/directives/split-panel.coffee" />
         <option value="$PROJECT_DIR$/public/views/index_DL.jade" />
         <option value="$PROJECT_DIR$/public/styles/main.css" />
+        <option value="$PROJECT_DIR$/public/scripts/Shade/ng_template_shd.js" />
+        <option value="$PROJECT_DIR$/Gruntfile.js" />
+        <option value="$PROJECT_DIR$/public/scripts/Shade/directives/numUpDown.coffee" />
+        <option value="$PROJECT_DIR$/public/scripts/Shade/services/shadeTemplate.coffee" />
+        <option value="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" />
+        <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/public/scripts/Shade/shade_module.coffee" />
+        <option value="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/shadeHandlers.js" />
+        <option value="$PROJECT_DIR$/public/XML/control.xml" />
+        <option value="$PROJECT_DIR$/public/scripts/Shade/ng_template_shd.ejs" />
+        <option value="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.coffee" />
+        <option value="$PROJECT_DIR$/public/XML/shade.xml" />
       </list>
     </option>
   </component>
@@ -363,25 +366,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DependencyLanguage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DL-Shade" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
+              <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -400,6 +385,110 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Shade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DL-Shade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Shade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shadeCompiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DL-Shade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Shade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DL-Shade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Shade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directives" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DL-Shade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="graph-dev" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -451,6 +540,72 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DL-Shade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DLCtrl.coffee" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DL-Shade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DependencyLanguage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DL-Shade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directive-templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -466,7 +621,7 @@
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
-    <property name="SearchEverywhereHistory" value=", elm, att" />
+    <property name="SearchEverywhereHistory" value=") -&#10;, elm, att" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -678,34 +833,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/dist/js/shade-compiler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="580" column="0" selection-start="18503" selection-end="18503" vertical-scroll-proportion="0.0" vertical-offset="9452" max-vertical-offset="9962">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/directive-templates/numUpDown.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="912">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/DropDown.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="568" selection-end="630" vertical-scroll-proportion="0.0" vertical-offset="159" max-vertical-offset="1241">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="347" selection-end="347" vertical-scroll-proportion="-4.76" vertical-offset="0" max-vertical-offset="3706">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/dropDown.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="11" selection-start="1879" selection-end="1879" vertical-scroll-proportion="0.0" vertical-offset="338" max-vertical-offset="1054">
@@ -724,7 +851,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="0" selection-start="83700" selection-end="83700" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="796178">
           <folding>
-            <marker date="1396775350178" expanded="true" signature="-1:-1" placeholder="//..." />
+            <marker date="1396805805940" expanded="true" signature="-1:-1" placeholder="//..." />
           </folding>
         </state>
       </provider>
@@ -764,13 +891,6 @@
     <entry file="file://$PROJECT_DIR$/public/scripts/Editor/directives/render_graph.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="729">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="3" selection-start="975" selection-end="975" vertical-scroll-proportion="0.0" vertical-offset="87" max-vertical-offset="816">
           <folding />
         </state>
       </provider>
@@ -826,13 +946,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/format.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="48" selection-start="642" selection-end="642" vertical-scroll-proportion="-13.6" vertical-offset="0" max-vertical-offset="442">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/renderPanel.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="20" selection-start="978" selection-end="978" vertical-scroll-proportion="-16.92" vertical-offset="19" max-vertical-offset="748">
@@ -867,69 +980,69 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="4450" column="10" selection-start="154801" selection-end="154801" vertical-scroll-proportion="-33.48" vertical-offset="74813" max-vertical-offset="96424">
           <folding>
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="[...]" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{&quot;vDL&quot;: ''...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{&quot;Width&quot;: ''...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{&quot;restrict&quot;: 'A'...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1396776017513" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="[...]" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{&quot;vDL&quot;: ''...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{&quot;Width&quot;: ''...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{&quot;restrict&quot;: 'A'...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396845717366" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -948,88 +1061,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/services/shadeDictionary.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="1" selection-start="810" selection-end="810" vertical-scroll-proportion="-20.68" vertical-offset="61" max-vertical-offset="765">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/services/format.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="53" selection-start="519" selection-end="519" vertical-scroll-proportion="-10.2" vertical-offset="0" max-vertical-offset="357">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/services/shadeTemplate.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="345" selection-end="345" vertical-scroll-proportion="-8.84" vertical-offset="0" max-vertical-offset="459">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/ng_template_shd.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="10" selection-start="704" selection-end="704" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/wip/testing.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="138" column="10" selection-start="4102" selection-end="4102" vertical-scroll-proportion="0.0" vertical-offset="1974" max-vertical-offset="2805">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/shadeHandlers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="14" selection-start="764" selection-end="764" vertical-scroll-proportion="-6.46" vertical-offset="0" max-vertical-offset="5780">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/shade_module.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="36" selection-start="1122" selection-end="1122" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2312">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/numUpDown.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="22" selection-start="851" selection-end="851" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
-          <folding>
-            <marker date="1396775030933" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/XML/control.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="21" selection-start="1056" selection-end="1057" vertical-scroll-proportion="-20.96" vertical-offset="258" max-vertical-offset="1105">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/XML/shade.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="24" selection-start="2734" selection-end="2734" vertical-scroll-proportion="-14.0" vertical-offset="1027" max-vertical-offset="7412">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="74" selection-start="1876" selection-end="1876" vertical-scroll-proportion="-11.28" vertical-offset="381" max-vertical-offset="2703">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="36" selection-start="2675" selection-end="2675" vertical-scroll-proportion="0.0" vertical-offset="896" max-vertical-offset="2227">
           <folding />
         </state>
       </provider>
@@ -1106,7 +1140,135 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/styles/boilerplate.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5202">
+        <state line="20" column="6" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5202">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/format.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="9" selection-start="603" selection-end="603" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/services/shadeTemplate.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="26" selection-start="26" selection-end="26" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="729">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/services/format.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="53" selection-start="519" selection-end="519" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/numUpDown.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="12" selection-start="805" selection-end="805" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
+          <folding>
+            <marker date="1396796063715" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/directive-templates/numUpDown.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="912">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="149" column="38" selection-start="5645" selection-end="5645" vertical-scroll-proportion="0.0" vertical-offset="1831" max-vertical-offset="2703">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/services/shadeDictionary.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="1" selection-start="810" selection-end="810" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/images/hr.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/node-handlers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3026">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="51" selection-start="937" selection-end="937" vertical-scroll-proportion="-21.76" vertical-offset="0" max-vertical-offset="3791">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="695" selection-end="695" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/shadeHandlers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="206" column="24" selection-start="6251" selection-end="6254" vertical-scroll-proportion="-9.56" vertical-offset="3024" max-vertical-offset="5899">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/shade_module.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="24" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Shade/ng_template_shd.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="103" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+          <folding>
+            <marker date="1396806188063" expanded="true" signature="49:221" placeholder="{...}" />
+            <marker date="1396806188063" expanded="true" signature="103:215" placeholder="{...}" />
+            <marker date="1396806188063" expanded="true" signature="368:707" placeholder="{...}" />
+            <marker date="1396806188063" expanded="true" signature="447:525" placeholder="{...}" />
+            <marker date="1396806188063" expanded="true" signature="747:782" placeholder="{...}" />
+            <marker date="1396806188063" expanded="true" signature="824:931" placeholder="{...}" />
+            <marker date="1396806188063" expanded="true" signature="875:925" placeholder="{...}" />
+            <marker date="1396806188063" expanded="true" signature="943:988" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/XML/control.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="46" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="17" selection-start="780" selection-end="780" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="2227">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/XML/shade.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="25" selection-start="66" selection-end="66" vertical-scroll-proportion="0.062043797" vertical-offset="0" max-vertical-offset="7446">
           <folding />
         </state>
       </provider>

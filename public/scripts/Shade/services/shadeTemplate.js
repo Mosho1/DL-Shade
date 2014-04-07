@@ -3,7 +3,7 @@
   angular.module('ShadeApp').service('shadeTemplate', function($http, x2js, ShadeParser, ShadeAttrDictionary) {
     var template;
     template = function() {};
-    $http.get('/scripts/Shade/ng_template_shd.js').success(function(data) {
+    $http.get('/scripts/Shade/ng_template_shd.ejs').success(function(data) {
       _.templateSettings.variable = "shd";
       return template = _.template(data);
     }).error(function() {

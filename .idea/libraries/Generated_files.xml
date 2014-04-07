@@ -11,9 +11,9 @@
         <item url="file://$PROJECT_DIR$/public/scripts/Shade/directives/button.js" />
         <item url="file://$PROJECT_DIR$/public/scripts/Shade/services/format.js" />
         <item url="file://$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.js" />
+        <item url="file://$PROJECT_DIR$/public/scripts/Shade/shade_module.js" />
         <item url="file://$PROJECT_DIR$/public/scripts/app.js" />
         <item url="file://$PROJECT_DIR$/node_modules/grunt-browserify/node_modules/browserify/node_modules/umd/node_modules/rfile/node_modules/resolve/test/resolver/mug.js" />
-        <item url="file://$PROJECT_DIR$/public/scripts/Shade/shade_module.js" />
         <item url="file://$PROJECT_DIR$/public/scripts/Shade/services/shadeTemplate.js" />
         <item url="file://$PROJECT_DIR$/public/scripts/services/shadeTemplate.js" />
         <item url="file://$PROJECT_DIR$/public/scripts/services/graph-text.js" />

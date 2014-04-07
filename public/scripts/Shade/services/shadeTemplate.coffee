@@ -4,7 +4,7 @@ angular.module('ShadeApp')
 
   template = ->
 
-  $http.get('/scripts/Shade/ng_template_shd.js')
+  $http.get('/scripts/Shade/ng_template_shd.ejs')
   .success((data)->
       _.templateSettings.variable = "shd";
       template = _.template(data)

@@ -1,43 +1,10 @@
 ﻿<Shade>
     <Node>
-        <UI>Label</UI>
-        <Text>Radio Buttons</Text>
-    </Node>
-    <Node>
-        <UI>Grid</UI>
-        <Span>1,2</Span>
-        <Sub>
-            <Node>
-                <UI>RadioButton</UI>
-                <Text>first</Text>
-                <vText>x</vText>
-            </Node>
-            <Node>
-                <UI>RadioButton</UI>
-                <Text>second</Text>
-                <vText>x</vText>
-            </Node>
-        </Sub>
-    </Node>
-    <Node>
-        <UI>Label</UI>
-        <Text>Check Boxes</Text>
-    </Node>
-    <Node>
-        <UI>Grid</UI>
-        <Span>1,2</Span>
-        <Sub>
-            <Node>
-                <UI>CheckBox</UI>
-                <Text>Select One</Text>
-                <vText>x</vText>
-            </Node>
-            <Node>
-                <UI>CheckBox</UI>
-                <Text>Or Both</Text>
-                <vText>y</vText>
-            </Node>
-        </Sub>
+        <UI>Image</UI>
+        <Height>100</Height>
+        <Width>100</Width>
+        <vText>x</vText>
+        <Source>http://i.imgur.com/oRkMeXY.jpg</Source>
     </Node>
     <Node>
         <UI>Grid</UI>

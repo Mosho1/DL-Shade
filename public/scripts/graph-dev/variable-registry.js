@@ -30,7 +30,7 @@ VariableRegistry.prototype = {
                 _this.set(_entry.name, value);
             },
             get: function () {
-                return _this.get(_entry.name);
+                return _this.getValue(_entry.name);
             }
         });
         return _entry;
@@ -43,10 +43,15 @@ VariableRegistry.prototype = {
         }
     },
 
-    get: function (name) {
+    getValue: function (name) {
         if (this.variables[name]) {
             return this.variables[name].get();
         }
+
+    },
+
+    get: function (name) {
+        return this.variables[name];
 
     },
 

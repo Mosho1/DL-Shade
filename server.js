@@ -1,7 +1,8 @@
 
 var compiler = require("./src/compiler"),
     graph = require("./src/graph-text").Graph,
-    express = require("./node_modules/express");
+    express = require("./node_modules/express"),
+    fs = require("fs");
 
     //express.js app configuration
     var app = express();

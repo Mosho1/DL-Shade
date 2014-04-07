@@ -33,8 +33,8 @@ angular.module('ShadeServices', [])
             },
 
             CheckBox: function (node) {
-                var attrs = node.Value ? '' : ' label="' + node.Text + '"';
-                that.openElement('check-box', '', node, '', attrs);
+                var attrs = node.Value ? '' : 'type="checkbox" label="' + node.Text + '"';
+                that.openElement('div', 'inputs', node, '', attrs);
                 that.closeElement();
             },
 
@@ -47,6 +47,11 @@ angular.module('ShadeServices', [])
             DropDown: require('./DropDown'),
 
             Grid: require('./Grid'),
+
+            Image: function (node) {
+                that.openElement('shd-image', '', node, '', '', '');
+                that.closeElement();
+            },
 
             Label: function (node) {
                 that.openElement('div', '', node);
@@ -67,7 +72,7 @@ angular.module('ShadeServices', [])
             MultiSelComboBox: _.partialRight(require('./DropDown'), true),
 
             NumEdit: function (node) {
-                that.openElement('num-edit', '', node);
+                that.openElement('div', 'inputs', node, '', 'type="text"');
                 that.closeElement();
             },
 
@@ -83,8 +88,8 @@ angular.module('ShadeServices', [])
             },
 
             RadioButton: function (node) {
-                var attrs = node.Value ? '' : ' value="' + node.Text +'" label="' + node.Text + '"';
-                that.openElement('radio-button', '', node, '', attrs);
+                var attrs = node.Value ? '' : 'type="radio" value="' + node.Text +'" label="' + node.Text + '"';
+                that.openElement('div', 'inputs', node, '', attrs);
                 that.closeElement();
             },
 
@@ -106,7 +111,8 @@ angular.module('ShadeServices', [])
             },
 
             TextBox: function (node) {
-                that.openElement('input', '', node, '', 'placeholder="' + node.Text + '"', '');
+                var attrs = 'type="text" placeholder="' + node.Text + '"'
+                that.openElement('div', '', node, '', attrs, '');
                 that.closeElement();
             },
 
@@ -197,7 +203,8 @@ angular.module('ShadeServices', [])
             DefaultValue: 'dvalue',
             Maximum: 'max',
             Minimum: 'min',
-            FormatString: 'format'
+            FormatString: 'format',
+            Source: 'src'
 
         };
 

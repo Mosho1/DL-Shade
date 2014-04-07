@@ -118,7 +118,7 @@ module.exports = function(grunt) {
                 logConcurrentOutput: true,
                 limit: 8
             },
-            watch: ['watch:browserify1', 'watch:browserify2', 'watch:concat1', 'watch:concat2', 'watch:concat3', 'watch:concat4', 'watch:uglify2']
+            watch: ['watch:browserify1', 'watch:browserify2', 'watch:concat1', 'watch:concat2', 'watch:concat3', 'watch:concat4']
         },
         jasmine_node: {
             options: {
@@ -145,9 +145,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-concurrent');
 
-    grunt.registerTask('default', ['browserify', 'concat', 'uglify:set2']);
+    grunt.registerTask('default', ['browserify', 'concat']);
     grunt.registerTask('all', ['browserify', 'concat', 'uglify']);
-    grunt.registerTask('lib', ['uglify:set1']);
+    grunt.registerTask('lib', ['uglify']);
     grunt.registerTask('test', ['jasmine_node']);
     grunt.registerTask('wat', ['concurrent:watch']);
 

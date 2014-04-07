@@ -21,23 +21,38 @@
         });
       }
     };
+  }).directive('shdImage', function($http) {
+    return {
+      restrict: 'E',
+      replace: true,
+      scope: true,
+      require: '?ngModel',
+      template: '<img ng-model="vars[vText].model" />',
+      link: function(scope, elm, attr, ngModel) {
+        scope.src = attr.src;
+        scope.vText = attr.vText;
+        if (angular.isDefined(ngModel)) {
+          return ngModel.$render = function() {
+            return $http.head(ngModel.$modelValue || 'default').success(function() {
+              return elm.attr('src', ngModel.$modelValue);
+            }).error(function() {
+              return elm.attr('src', scope.src);
+            });
+          };
+        }
+      }
+    };
   }).directive('listBox', function(vTextProvider) {
     return new vTextProvider('<select multiple ng-transclude />');
-  }).directive('numEdit', function(vTextProvider) {
-    return new vTextProvider('<input type="text" />');
-  }).directive('radioButton', function(vTextProvider) {
-    return new vTextProvider('<input type="radio" />');
-  }).directive('checkBox', function(vTextProvider) {
-    return new vTextProvider('<input type="checkbox" />');
-  }).directive('textBox', function(vTextProvider) {
-    return new vTextProvider('<input type="text" />');
+  }).directive('inputs', function(vTextProvider) {
+    return new vTextProvider('<input />');
   }).directive('shdDatePicker', function(vTextProvider) {
     return new vTextProvider('<input type="text" datepicker-popup close-on-date-selection="false" />');
   }).directive('timePicker', function(vTextProvider) {
     return new vTextProvider('<div><timepicker /></div>');
   }).factory('vTextProvider', function() {
     return function(template) {
-      this.restrict = 'E';
+      this.restrict = 'ACE';
       this.transclude = !!template.match('ng-transclude');
       this.replace = true;
       this.scope = true;
@@ -52,87 +67,5 @@
       };
     };
   });
-
-
-  /*
-    .directive 'ratatat', ($compile) ->
-        restrict: 'EA'
-        replace: false
-        scope: false
-        compile: (tElm, tAttr) ->
-          timePickerElement = angular.element('<timepicker />').attr(_.omit(tAttr, (val, key) ->
-            (key is 'vText') or (/^\$.?/.test(key))
-          ))
-          tElm.append(timePickerElement)
-  
-  
-  
-    .directive 'listBox', (vTextProvider) ->
-        new vTextProvider '<select multiple ng-model="vars[vText].model" ng-transclude />'
-  
-    .directive 'numEdit', (vTextProvider) ->
-        new vTextProvider '<input type="text" ng-model="vars[vText].model" />'
-  
-    .directive 'radioButton', (vTextProvider) ->
-        new vTextProvider '<input type="radio" ng-model="vars[vText].model" />'
-  
-    .directive 'textBox', (vTextProvider) ->
-        new vTextProvider '<input type="text" ng-model="vars[vText].model" />'
-  
-    .factory 'vTextProvider', () ->
-        (template) ->
-          @restrict = 'E'
-          @transclude = !!template.match('ng-transclude')
-          @replace = true
-          @scope = true
-          @template = template
-          @link = (scope, elm, attr) ->
-            scope.vText = attr.vText
-  
-          return
-  
-  
-    .directive 'listBox', () ->
-      restrict: 'E'
-      replace: true
-      scope: true
-      transclude: true
-      template: '<select multiple ng-model="vars[vText].model" ng-transclude />'
-      link: (scope, elm, attr) ->
-          scope.vText = attr.vText
-  
-    .directive 'numEdit', () ->
-      restrict: 'E'
-      replace: true
-      scope: true
-      template: '<input type="text" ng-model="vars[vText].model" />'
-      link: (scope, elm, attr) ->
-        scope.vText = attr.vText
-  
-    .directive 'radioButton', () ->
-      restrict: 'E'
-      replace: true
-      scope: true
-      template: '<input type="radio" ng-model="vars[vText].model" />'
-      link: (scope, elm, attr) ->
-        scope.vText = attr.vText
-  
-    .directive 'textBox', () ->
-      restrict: 'E'
-      replace: true
-      scope: true
-      template: '<input type="text" ng-model="vars[vText].model" />'
-      link: (scope, elm, attr) ->
-        scope.vText = attr.vText
-  
-  
-    .directive 'datePicker', () ->
-    restrict: 'AC'
-    scope: true
-    template: '<div class="well well-sm" ng-model="vars[vText].model"><datepicker></datepicker></div>'
-    link:
-      pre: (scope, elm, attr) ->
-        scope.vText = attr.datePicker
-   */
 
 }).call(this);

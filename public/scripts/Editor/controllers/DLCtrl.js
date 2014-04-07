@@ -3,7 +3,7 @@
   'use strict';
   var default_lc;
 
-  default_lc = "/* Welcome to Dependency Language in JavaScript!\n Features:\n -Supported Formats:\n Numbers, Strings, arrays\n -Namespaces (format: '$ns') -Built-in Functions:\n f.abs, f.avg\n -Themes for the editor\n -Graph or table presentation of the graph\n -Click 'Run' above or alt+R */\n \n x=0;\n y=2;\n z=f.avg(x,y,6);";
+  default_lc = "/* Welcome to Dependency Language in JavaScript!\n Features:\n -Supported Formats:\n Numbers, Strings, arrays\n -Namespaces (format: '$ns') -Built-in Functions:\n f.abs, f.avg\n -Themes for the editor\n -Graph or table presentation of the graph\n -Click 'Run' above or alt+R */\n \n x=1;\n y=2;\n z=f.avg(x,y,6);";
 
   angular.module('DLApp').controller('DLCtrl', function($scope, $rootScope, $http, $filter, $element, $document, $timeout, Graph, graphService) {
     $scope.litcoffee = {
@@ -24,7 +24,7 @@
       }
     });
     $scope.styles = {
-      active: 'control',
+      active: 'basics',
       sheets: {
         basics: {
           source: 'XML/shade.xml',

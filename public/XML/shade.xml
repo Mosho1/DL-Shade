@@ -216,13 +216,15 @@
                         <UI>Image</UI>
                         <Height>100</Height>
                         <Width>100</Width>
-                        <Source>http://twkdv01.nam.nsroot.net:9988/Samples/image.jpg</Source>
+                        <vText>x</vText>
+                        <Source>images/2.jpg</Source>
                     </Node>
                     <Node>
                         <UI>Image</UI>
                         <Height>100</Height>
                         <Width>100</Width>
-                        <Source>http://twkdv01.nam.nsroot.net:9988/Samples/animated.gif</Source>
+                        <vText>y</vText>
+                        <Source>images/1.jpg</Source>
                     </Node>
                 </Sub>
             </Node>
