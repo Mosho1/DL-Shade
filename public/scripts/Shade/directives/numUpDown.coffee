@@ -28,6 +28,7 @@ angular.module('ShadeApp')
     cto = null
 
     updateModel = (value) ->
+      value = +value
       if scope.vars and angular.isNumber value
         scope.vars[scope.vText].model = (if value > maxVal then maxVal else (if value < minVal then minVal else value))
 

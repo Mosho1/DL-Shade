@@ -4134,6 +4134,7 @@ angular.module('ShadeServices', [])
         mtimeout = 30;
         cto = null;
         updateModel = function(value) {
+          value = +value;
           if (scope.vars && angular.isNumber(value)) {
             return scope.vars[scope.vText].model = (value > maxVal ? maxVal : (value < minVal ? minVal : value));
           }
@@ -4473,7 +4474,7 @@ angular.module('ShadeServices', [])
       }
     });
     $scope.styles = {
-      active: 'control',
+      active: 'menu',
       sheets: {
         basics: {
           source: 'XML/shade.xml',
