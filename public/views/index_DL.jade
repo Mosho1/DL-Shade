@@ -78,7 +78,7 @@ html.no-js
                       li.menu-item(ng-repeat='theme in themes', ng-click='setTheme(theme)') {{theme}}
                   span.hide-button(ng-click='col("Shade Editor").show=false', title='Hide Shade Editor panel.') X
                 div(ace-editor='ace-editor', shade-editor, mode='xml', ng-model='styles.sheets[styles.active].css')
-              resizable-panel#html_col(name='Output HTML', show='show')
+              resizable-panel#html_col(name='Output HTML')
                 .menu.panel-menu(ng-class='{show:col("Output HTML").mouseover}', col='col')
                   span.menu-title Theme ▾
                   ul.menu-items
@@ -87,7 +87,7 @@ html.no-js
                 style(type='text/css', ng-bind='themes.css | scopeCSS:"#html_div"')
                 #html_div(style='height: 100%;')
                   div(pretty-print-panel='styles.sheets[styles.active].css')
-              resizable-panel#render_col(name='Rendered Output', show='show')
+              resizable-panel#render_col(name='Rendered Output')
                 .menu.panel-menu(ng-class='{show:col("Rendered Output").mouseover}', col="col")
                   span.menu-title Theme ▾
                   ul.menu-items
