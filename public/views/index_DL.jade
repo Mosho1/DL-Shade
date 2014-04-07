@@ -57,14 +57,14 @@ html.no-js
             li.menu-item(ng-repeat='col in cols', ng-class='{active_col:col.show}', ng-click='col.show=!col.show') {{col.name}}
       div(style='position: relative; height: 100%; width: 100%;')
         split-row(ng-cloak='ng-cloak', styles="styles", graph="graph", cols="cols", col='col', litcoffee="litcoffee")
-              resizable-panel#md_col(name='DL Editor', show='show', graph="graph")
+              resizable-panel#md_col(name='DL Editor', graph="graph")
                 .menu.panel-menu(ng-class='{show:col("DL Editor").mouseover}', col='col')
                   span.menu-title Theme ▾
                   ul.menu-items
                     li.menu-item(ng-repeat='theme in themes', ng-click='setTheme(theme)') {{theme}}
                   span.hide-button(ng-click='col("DL Editor").show=false', title='Hide DL Editor panel.') X
                 div(ace-editor='ace-editor', dl-editor, mode='markdown', ng-model='litcoffee.code')
-              resizable-panel#css_col(name='Output Graph', show='show', graph="graph")
+              resizable-panel#css_col(name='Output Graph', graph="graph")
                 .menu.panel-menu(ng-class='{show:col("Output Graph").mouseover}', col='col')
                   span.menu-title Theme ▾
                   ul.menu-items
@@ -78,16 +78,16 @@ html.no-js
                       li.menu-item(ng-repeat='theme in themes', ng-click='setTheme(theme)') {{theme}}
                   span.hide-button(ng-click='col("Shade Editor").show=false', title='Hide Shade Editor panel.') X
                 div(ace-editor='ace-editor', shade-editor, mode='xml', ng-model='styles.sheets[styles.active].css')
-              resizable-panel#html_col(name='Output HTML')
+              resizable-panel#html_col(name='Output HTML', show='show')
                 .menu.panel-menu(ng-class='{show:col("Output HTML").mouseover}', col='col')
-                  span.menu-title Theme ▾
+                  span.menu-title Theme
                   ul.menu-items
                       li.menu-item(ng-repeat='theme in themes.list', ng-click='themes.selected=theme', theme="theme") {{theme}}
                   span.hide-button(ng-click='col("Output HTML").show=false', title='Hide Output HTML panel.') X
                 style(type='text/css', ng-bind='themes.css | scopeCSS:"#html_div"')
                 #html_div(style='height: 100%;')
                   div(pretty-print-panel='styles.sheets[styles.active].css')
-              resizable-panel#render_col(name='Rendered Output')
+              resizable-panel#render_col(name='Rendered Output', show='show')
                 .menu.panel-menu(ng-class='{show:col("Rendered Output").mouseover}', col="col")
                   span.menu-title Theme ▾
                   ul.menu-items
