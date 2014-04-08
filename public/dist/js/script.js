@@ -4000,20 +4000,11 @@ angular.module('ShadeServices', [])
             })).join('') + '" ';
           });
         }
-        return '<button ' + toAppend + '>{{text}}</button>';
+        return '<button ' + toAppend + '>{{vars[vText].model||text}}</button>';
       },
       link: function(scope, elm, attr) {
-        if (angular.isDefined(attr.vText)) {
-          scope.vText = attr.vText;
-          scope.text = '';
-          scope.$watch('vars[vText].model', function(val) {
-            return scope.text = (scope.vars[scope.vText] || {
-              model: ''
-            }).model;
-          });
-        } else {
-          scope.text = attr.text;
-        }
+        scope.vText = attr.vText;
+        scope.text = attr.text;
         return scope.popup = function(id, elm) {
           var clone, popup;
           popup = angular.element('#' + id);

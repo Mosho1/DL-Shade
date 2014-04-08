@@ -5,22 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15758fa3-0dc6-4239-9815-36387ae5d86d" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\scripts\services\ShadeHandlers.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\scripts\services\drawGraph.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\scripts\services\graph-text.coffee" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\scripts\services\graph-text.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\scripts\services\graph-text.map" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\scripts\services\shadeDictionary.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\scripts\services\shadeTemplate.coffee" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\scripts\services\shadeTemplate.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\scripts\services\shadeTemplate.map" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\scripts\services\x2js.coffee" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\scripts\services\x2js.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\public\scripts\services\x2js.map" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.js" />
+      <change type="DELETED" beforePath="C:\Users\Mosho\Documents\GitHub\DL-Shade2\DL-Shade\npm-debug.log" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/DependencyLanguage.iml" afterPath="$PROJECT_DIR$/.idea/DependencyLanguage.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/directives/button.coffee" afterPath="$PROJECT_DIR$/public/scripts/Shade/directives/button.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/directives/button.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/directives/button.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/shadeHandlers.js" afterPath="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/shadeHandlers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/script.js" afterPath="$PROJECT_DIR$/public/dist/js/script.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/shade-module.js" afterPath="$PROJECT_DIR$/public/dist/js/shade-module.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DependencyLanguage.iws" />
@@ -83,7 +74,7 @@
       <file leaf-file-name="button.coffee" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/button.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="0" selection-start="990" selection-end="990" vertical-scroll-proportion="0.6938776" vertical-offset="102" max-vertical-offset="1071">
+            <state line="25" column="20" selection-start="787" selection-end="787" vertical-scroll-proportion="0.56632656" vertical-offset="92" max-vertical-offset="986">
               <folding />
             </state>
           </provider>
@@ -92,7 +83,7 @@
       <file leaf-file-name="button.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/button.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="35" selection-end="35" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="1496">
+            <state line="3" column="0" selection-start="148" selection-end="148" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1343">
               <folding />
             </state>
           </provider>
@@ -192,8 +183,8 @@
         <option value="$PROJECT_DIR$/public/scripts/graph-dev/variable-registry.js" />
         <option value="$PROJECT_DIR$/public/scripts/Editor/controllers/DLCtrl.coffee" />
         <option value="$PROJECT_DIR$/public/XML/control.xml" />
-        <option value="$PROJECT_DIR$/public/scripts/Shade/directives/button.coffee" />
         <option value="$PROJECT_DIR$/public/scripts/Shade/shadeCompiler/shadeHandlers.js" />
+        <option value="$PROJECT_DIR$/public/scripts/Shade/directives/button.coffee" />
       </list>
     </option>
   </component>
@@ -942,7 +933,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/button.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="35" selection-end="35" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="1496">
+        <state line="3" column="0" selection-start="148" selection-end="148" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1343">
           <folding />
         </state>
       </provider>
@@ -991,7 +982,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/Shade/directives/button.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="990" selection-end="990" vertical-scroll-proportion="0.6938776" vertical-offset="102" max-vertical-offset="1071">
+        <state line="25" column="20" selection-start="787" selection-end="787" vertical-scroll-proportion="0.56632656" vertical-offset="92" max-vertical-offset="986">
           <folding />
         </state>
       </provider>

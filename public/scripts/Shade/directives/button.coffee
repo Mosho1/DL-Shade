@@ -29,15 +29,10 @@ angular.module('ShadeApp')
         toAppend += (events[name] || events.default) + '"' + (_.map cb, (el) ->
           handlers[el[0]] el[1], el[2]).join('') + '" '
 
-    '<button ' + toAppend + '>{{text}}</button>'
+    '<button ' + toAppend + '>{{vars[vText].model||text}}</button>'
   link: (scope, elm, attr) ->
-    if angular.isDefined attr.vText
-      scope.vText = attr.vText
-      scope.text = ''
-      scope.$watch 'vars[vText].model', (val) ->
-        scope.text = (scope.vars[scope.vText] or {model: ''}).model
-    else
-      scope.text = attr.text
+    scope.vText = attr.vText
+    scope.text = attr.text
 
     scope.popup = (id, elm) ->
       popup = angular.element('#' + id)
