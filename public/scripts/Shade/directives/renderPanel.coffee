@@ -6,11 +6,48 @@ angular.module('ShadeApp')
       vars: '='
       graph: '='
       styles: '='
-    link: (scope, elm) ->
-      $rootScope.$on 'Run', () ->
-        if scope.data = shadeTemplate.toHTML(scope.styles)
-          elm.html('<style>' + scope.data.styles + '</style>' + scope.data.body)
-          $compile(elm.contents())(scope)
+    controller: ($element, $scope) ->
+      this.render = ->
+        if $scope.data = shadeTemplate.toHTML($scope.styles)
+          $element.html('<style>' + $scope.data.styles + '</style>' + $scope.data.body)
+          $compile($element.contents())($scope)
+
+      $rootScope.$on 'Run', this.render
+
+      return
+
+.directive 'vSub', () ->
+  restrict: 'A'
+  require: '^renderPanel'
+  scope: false
+  link: (scope, elm, attr, renderPanelCtrl) ->
+    scope.vSub = attr.vSub
+    elm.removeAttr('v-sub')
+    scope.$watch 'scope.vars[scope.vSub].model', renderPanelCtrl.render
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .directive 'prettyPrintPanel', ($filter, shadeTemplate) ->

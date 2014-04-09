@@ -297,13 +297,25 @@
         graph: '=',
         styles: '='
       },
-      link: function(scope, elm) {
-        return $rootScope.$on('Run', function() {
-          if (scope.data = shadeTemplate.toHTML(scope.styles)) {
-            elm.html('<style>' + scope.data.styles + '</style>' + scope.data.body);
-            return $compile(elm.contents())(scope);
+      controller: function($element, $scope) {
+        this.render = function() {
+          if ($scope.data = shadeTemplate.toHTML($scope.styles)) {
+            $element.html('<style>' + $scope.data.styles + '</style>' + $scope.data.body);
+            return $compile($element.contents())($scope);
           }
-        });
+        };
+        $rootScope.$on('Run', this.render);
+      }
+    };
+  }).directive('vSub', function() {
+    return {
+      restrict: 'A',
+      require: '^renderPanel',
+      scope: false,
+      link: function(scope, elm, attr, renderPanelCtrl) {
+        scope.vSub = attr.vSub;
+        elm.removeAttr('v-sub');
+        return scope.$watch('scope.vars[scope.vSub].model', renderPanelCtrl.render);
       }
     };
   }).directive('prettyPrintPanel', function($filter, shadeTemplate) {

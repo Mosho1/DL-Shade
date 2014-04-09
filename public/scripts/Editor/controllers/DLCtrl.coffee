@@ -19,10 +19,13 @@ angular.module('DLApp')
 
 
 
-.controller 'DLCtrl', ($scope, $rootScope, $http, $filter, $element, $document, $timeout, Graph, graphService) ->
-  $scope.litcoffee = {code:default_lc}
+.controller 'DLCtrl', ($scope, $rootScope, $http, $filter, $element, $document, $timeout, Graph) ->
+  $scope.DLcode = {code:default_lc}
 
-  $scope.test = {test:default_lc}
+  DLpath = 'DLcode/test.txt'
+
+  $http.get(DLpath).then (response) ->
+    $scope.DLcode = {code:response.data}
 
   $document.keyup (e) ->
     if e.altKey
@@ -66,7 +69,7 @@ angular.module('DLApp')
   $scope.DLrun = (e) ->
     if e
       _.kill_event(e)
-    Graph.getGraph($scope.litcoffee.code,$scope.styles,(graph) ->
+    Graph.getGraph($scope.DLcode.code,$scope.styles,(graph) ->
       $scope.graph = graph.evaluate()
       $rootScope.$broadcast "Run")
 
