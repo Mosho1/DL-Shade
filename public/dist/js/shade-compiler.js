@@ -268,10 +268,10 @@ angular.module('ShadeServices', [])
         //control-block handlers
         this.CbHandlers = {
             SETDLVARIABLE: function (cb) {
-                return cb.Event + ',setDL,' + cb.Stat.toLowerCase();
+                return cb.Event + ',setDL,' + cb.Stat;
             },
             SHOWPOPUP: function (cb) {
-                return cb.Event + ',popup,' + cb.Stat.toLowerCase();
+                return cb.Event + ',popup,' + cb.Stat;
 
             },
             MESSAGE: function () {}
@@ -383,7 +383,7 @@ angular.module('ShadeServices', [])
 
             TextBox: function (node) {
                 var attrs = 'type="text" placeholder="' + node.Text + '"'
-                that.openElement('div', '', node, '', attrs, '');
+                that.openElement('div', 'inputs', node, '', attrs, '');
                 that.closeElement();
             },
 
@@ -476,7 +476,8 @@ angular.module('ShadeServices', [])
             Minimum: 'min',
             FormatString: 'format',
             Source: 'src',
-            Text: 'text'
+            Text: '',
+            vSub: ''
 
         };
 

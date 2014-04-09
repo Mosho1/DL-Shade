@@ -30,7 +30,7 @@ module.exports = function(grunt) {
             },
             set3: {
                 src: ['public/DL_libs/jquery-2.1.0.min.js',
-                    'public/DL_libs/angular.min.js',
+                    'public/DL_libs/angular.js',
                     'public/DL_libs/lodash.js',
                     'public/DL_libs/markdown.js',
                     'public/DL_libs/angular-resource.min.js',

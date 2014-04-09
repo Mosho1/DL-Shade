@@ -1,0 +1,19 @@
+GraphID = "";
+$cx SampleTest;
+x = 3;
+y = 3;
+a = "<Node>
+        <UI>Grid</UI>
+        <ShowGridLines>True</ShowGridLines>
+        <Xy>0,1</Xy>
+        <RowHeight>*</RowHeight>
+        <ColWidth>*</ColWidth>
+        <Sub>
+            <Node>
+                <UI>TextBox</UI>
+                <vText>SampleTest.TextBoxText</vText>
+                <Fg>Cyan</Fg>
+                <Bg>Pink</Bg>
+            </Node>
+        </Sub>
+    </Node>";

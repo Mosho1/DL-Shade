@@ -8,7 +8,7 @@ angular.module('DLApp')
     graph: '='
     cols: '='
     col: '='
-    litcoffee: '='
+    DLcode: '='
   replace: true
   template: '<div class="split-row" ng-transclude></div>'
   controller: ($scope, $element, $compile, $rootScope, $window) ->

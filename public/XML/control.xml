@@ -1,16 +1,21 @@
 ﻿<Shade>
     <Node>
         <UI>Grid</UI>
-        <Cols>1</Cols>
+        <Span>2,2</Span>
+        <ShowGridLines>True</ShowGridLines>
+        <RowHeight>*</RowHeight>
+        <ColWidth>*</ColWidth>
+        <vSub>SampleTest.a</vSub>
         <Sub>
             <Node>
-                <UI>Button</UI>
-                <vText>a</vText>
-                <Cb>
-                    <Fn>SETDLVARIABLE</Fn>
-                    <Stat>x, 3</Stat>
-                    <Event>Click</Event>
-                </Cb>
+                <UI>TextBox</UI>
+                <Xy>0,0</Xy>
+                <vText>SampleTest.x</vText>
+            </Node>
+            <Node>
+                <UI>TextBox</UI>
+                <Xy>1,0</Xy>
+                <vText>SampleTest.y</vText>
             </Node>
         </Sub>
     </Node>

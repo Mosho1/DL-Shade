@@ -57,14 +57,14 @@ html.no-js
           ul.menu-items
             li.menu-item(ng-repeat='col in cols', ng-class='{active_col:col.show}', ng-click='col.show=!col.show') {{col.name}}
       div(style='position: relative; height: 100%; width: 100%;')
-        split-row(ng-cloak='ng-cloak', styles="styles", graph="graph", cols="cols", col='col', litcoffee="litcoffee")
+        split-row(ng-cloak='ng-cloak', styles="styles", graph="graph", cols="cols", col='col', DLcode="DLcode")
               resizable-panel#md_col(name='DL Editor', graph="graph")
                 .menu.panel-menu(ng-class='{show:col("DL Editor").mouseover}', col='col')
                   span.menu-title Theme ▾
                   ul.menu-items
                     li.menu-item(ng-repeat='theme in themes', ng-click='setTheme(theme)') {{theme}}
                   span.hide-button(ng-click='col("DL Editor").show=false', title='Hide DL Editor panel.') X
-                div(ace-editor='ace-editor', dl-editor, mode='markdown', ng-model='litcoffee.code')
+                div(ace-editor='ace-editor', dl-editor, mode='markdown', ng-model='DLcode.code')
               resizable-panel#css_col(name='Output Graph', graph="graph")
                 .menu.panel-menu(ng-class='{show:col("Output Graph").mouseover}', col='col')
                   span.menu-title Theme ▾
@@ -141,6 +141,3 @@ html.no-js
     //script(src='dist/script.min.js')
 
     script(src='dist/js/script.js')
-
-
-      

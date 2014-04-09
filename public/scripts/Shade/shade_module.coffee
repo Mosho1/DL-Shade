@@ -57,4 +57,3 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 
         elm.after('<span>' + attr.label + '</span>') if attr.label #TODO: put this and the element in a parent element?
       return
 
-

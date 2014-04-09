@@ -68,13 +68,17 @@
 
   default_lc = "/* Welcome to Dependency Language in JavaScript!\n Features:\n -Supported Formats:\n Numbers, Strings, arrays\n -Namespaces (format: '$ns') -Built-in Functions:\n f.abs, f.avg\n -Themes for the editor\n -Graph or table presentation of the graph\n -Click 'Run' above or alt+R */\n \n x=1;\n y=2;\n z=f.avg(x,y,6);";
 
-  angular.module('DLApp').controller('DLCtrl', function($scope, $rootScope, $http, $filter, $element, $document, $timeout, Graph, graphService) {
-    $scope.litcoffee = {
+  angular.module('DLApp').controller('DLCtrl', function($scope, $rootScope, $http, $filter, $element, $document, $timeout, Graph) {
+    var DLpath;
+    $scope.DLcode = {
       code: default_lc
     };
-    $scope.test = {
-      test: default_lc
-    };
+    DLpath = 'DLcode/test.txt';
+    $http.get(DLpath).then(function(response) {
+      return $scope.DLcode = {
+        code: response.data
+      };
+    });
     $document.keyup(function(e) {
       var col;
       if (e.altKey) {
@@ -130,7 +134,7 @@
       if (e) {
         _.kill_event(e);
       }
-      return Graph.getGraph($scope.litcoffee.code, $scope.styles, function(graph) {
+      return Graph.getGraph($scope.DLcode.code, $scope.styles, function(graph) {
         $scope.graph = graph.evaluate();
         return $rootScope.$broadcast("Run");
       });
@@ -383,7 +387,7 @@
         graph: '=',
         cols: '=',
         col: '=',
-        litcoffee: '='
+        DLcode: '='
       },
       replace: true,
       template: '<div class="split-row" ng-transclude></div>',
