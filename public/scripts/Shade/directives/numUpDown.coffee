@@ -3,9 +3,17 @@ angular.module('ShadeApp')
 .directive 'numUpDown', ($timeout, format) ->
   restrict: 'E'
   scope: false
-  template:
+  template: (elm, attr) ->
+
+    getAttrs = () ->
+      args = arguments
+      ret = _.reduce args, (str, val) ->
+        str + val + '="' + attr[val] + '" '
+      , ''
+      ret + ''
+
     '<div class="input-group">' +
-      '<input style="width:90%" class="form-control" type="text" ng-model="vars[vText].model"/>' +
+      '<input style="width:90%" class="form-control" type="text" ng-model="vars[vText].model" dvalue="' + getAttrs('dvalue','min','max','format') + '"/>' +
       '<div class="btn-group-vertical">' +
         '<button class="btn btn-default" ng-mousedown="increase()" ng-mouseup="stop()" ng-mouseout="stop()">' +
           '<span class="glyphicon glyphicon-chevron-up" />' +

@@ -246,7 +246,18 @@
     return {
       restrict: 'E',
       scope: false,
-      template: '<div class="input-group">' + '<input style="width:90%" class="form-control" type="text" ng-model="vars[vText].model"/>' + '<div class="btn-group-vertical">' + '<button class="btn btn-default" ng-mousedown="increase()" ng-mouseup="stop()" ng-mouseout="stop()">' + '<span class="glyphicon glyphicon-chevron-up" />' + '</button>' + '<button class="btn btn-default" ng-mousedown="decrease()" ng-mouseup="stop()" ng-mouseout="stop()">' + '<span class="glyphicon glyphicon-chevron-down" />' + '</button>' + '</div>' + '</div>',
+      template: function(elm, attr) {
+        var getAttrs;
+        getAttrs = function() {
+          var args, ret;
+          args = arguments;
+          ret = _.reduce(args, function(str, val) {
+            return str + val + '="' + attr[val] + '" ';
+          }, '');
+          return ret + '';
+        };
+        return '<div class="input-group">' + '<input style="width:90%" class="form-control" type="text" ng-model="vars[vText].model" dvalue="' + getAttrs('dvalue', 'min', 'max', 'format') + '"/>' + '<div class="btn-group-vertical">' + '<button class="btn btn-default" ng-mousedown="increase()" ng-mouseup="stop()" ng-mouseout="stop()">' + '<span class="glyphicon glyphicon-chevron-up" />' + '</button>' + '<button class="btn btn-default" ng-mousedown="decrease()" ng-mouseup="stop()" ng-mouseout="stop()">' + '<span class="glyphicon glyphicon-chevron-down" />' + '</button>' + '</div>' + '</div>';
+      },
       link: function(scope, elm, attr) {
         var change, cto, formatStr, maxVal, minVal, mtimeout, step, test, timeout, updateModel;
         scope.vText = attr.vText;
