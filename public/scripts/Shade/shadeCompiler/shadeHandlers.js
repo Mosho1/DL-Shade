@@ -28,6 +28,8 @@ angular.module('ShadeServices', [])
         //TODO: change arguments to handlers below from array to an object
         this.UIHandlers = {
 
+            //openElement = function (elmName, className, node, customStyles, customAttr, content, close) {
+
             Button: function (node, cb) {
                 that.openElement('shd-button', 'btn btn-default', node, '', cb, '');
                 that.closeElement();
@@ -144,13 +146,7 @@ angular.module('ShadeServices', [])
                 console.log("can't find control - " + node.UI)
             }
 
-
-
-
         };
-
-
-
 
         this.nodeHandlers = {
             Styles: require('./Styles').bind(that),
@@ -181,16 +177,9 @@ angular.module('ShadeServices', [])
 
         return this;
 
-
-
-
     })
 
-
-
     .service('ShadeParser', function (ShadeHandlers, ShadeStyles, ShadeElements) {
-
-
 
         this.parse = function (shd) {
             if (shd) {
@@ -205,11 +194,8 @@ angular.module('ShadeServices', [])
                     elementsById: ShadeElements.getElementsById()
                 };
             }
-
         }
-
         return this;
-
     })
 
     //translations from shade attributes and styles to HTML
@@ -228,7 +214,6 @@ angular.module('ShadeServices', [])
             Source: 'src',
             Text: 'text',
             vSub: ''
-
         };
 
         this.attrValueHandlers = {
@@ -248,10 +233,7 @@ angular.module('ShadeServices', [])
             Height: function (height) { return height + "px"; }
         };
 
-
-
         return this;
-
 
     })
 
@@ -285,8 +267,6 @@ angular.module('ShadeServices', [])
 
             return styles;
 
-
-
         };
 
         this.getStyles = function () {
@@ -298,7 +278,6 @@ angular.module('ShadeServices', [])
         };
 
         return this;
-
     })
 
     //creates an object describing an HTML page's element hierarchy.

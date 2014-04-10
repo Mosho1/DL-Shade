@@ -22,7 +22,4 @@ angular.module('ShadeApp')
     styles: parsed.styles,
     elementsById: parsed.elementsById
 
-
-
-
-  return this
+  @

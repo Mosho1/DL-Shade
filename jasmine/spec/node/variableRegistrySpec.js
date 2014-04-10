@@ -120,7 +120,7 @@ describe("VariableEntry", function () {
 });
 
 describe("VariableRegistry", function () {
-    var entry, registry = null;
+    var entry, _entry, registry = null;
 
     beforeEach(function () {
         entry = {
@@ -146,8 +146,9 @@ describe("VariableRegistry", function () {
 
         registry.set('x', 2);
         registry.set('y', 2);
-        registry.get('x');
-        registry.get('y');
+        registry.getValue('x');
+        registry.getValue('y');
+        _entry = registry.get('x');
         registry.unset('x');
         registry.unset('y');
         registry.evaluate();
@@ -161,6 +162,7 @@ describe("VariableRegistry", function () {
         expect(registry.evaluate.calls.length).toBe(2);
         expect(entry.get.calls.length).toBe(1);
         expect(entry.unset.calls.length).toBe(1);
+        expect(_entry).toBe(entry);
     });
 
     it("tracks all the arguments of its calls", function () {

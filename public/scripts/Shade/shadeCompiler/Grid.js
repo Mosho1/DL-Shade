@@ -111,7 +111,7 @@ var that = {},
     handleMode = function (mode, data) {
         nodes = this.Sub.Node;
         //check if parameters for each mode exist in grid (or nodes for 'Xy')
-        if (this[mode]
+        if ((this[mode] && mode !== 'Xy' && mode !== 'CSpan') //TODO:refactor
                 || (mode === 'Xy' && _.some(nodes, 'Xy'))
                 || (mode === 'CSpan' && _.some(nodes, 'CSpan'))) {
             return modeHandlers[mode](this, data.span);

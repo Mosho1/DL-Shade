@@ -6,8 +6,7 @@ a = "<Node>
         <UI>Grid</UI>
         <ShowGridLines>True</ShowGridLines>
         <Xy>0,1</Xy>
-        <RowHeight>*</RowHeight>
-        <ColWidth>*</ColWidth>
+        <Span>1,1</Span>
         <Sub>
             <Node>
                 <UI>TextBox</UI>
