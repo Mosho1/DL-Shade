@@ -451,8 +451,10 @@ angular.module('ShadeServices', [])
 
                 _.each(shd.Shade, ShadeHandlers.handleNodes);
                 return {
+                    shade: shd.Shade,
                     styles: ShadeStyles.getStyles(),
-                    elements: ShadeElements.getElements()
+                    elements: ShadeElements.getElements(),
+                    elementsById: ShadeElements.getElementsById()
                 };
             }
 
@@ -476,7 +478,7 @@ angular.module('ShadeServices', [])
             Minimum: 'min',
             FormatString: 'format',
             Source: 'src',
-            Text: '',
+            Text: 'text',
             vSub: ''
 
         };
@@ -555,14 +557,20 @@ angular.module('ShadeServices', [])
     // This is later fed to the template that generates the HTML
     .service('ShadeElements', function (ShadeStyles) {
 
+
         var classCount = 0,
             elmId = 0,
             elements = [],
+            elementsById = [],
             currentElement = {nodes: elements};
-
 
         //wrappers for creating HTML elements. Creates enumerated CSS classes for each element with style(s).
         this.openElement = function (elmName, className, node, customStyles, customAttr, content, close) {
+
+            if (angular.isDefined(node)) {
+                node.id = elmId;
+                elementsById[elmId++] = node;
+            }
 
             var nativeStyles = _.reduce(node, ShadeStyles.handleStyles, ''),
                 nativeClass = ((nativeStyles || customStyles) ? "class" + ++classCount : ''),
@@ -577,14 +585,13 @@ angular.module('ShadeServices', [])
                 content: angular.isDefined(content) ? content : node.Text,
                 nodes: [],
                 parent: currentElement,
-                id: ++elmId,
+                id: node.id,
                 close: _.isUndefined(close)
 
             });
             if (customStyles || nativeStyles) {
                 ShadeStyles.addStyles(nativeClass, (customStyles || '') + (nativeStyles || ''));
             }
-
             currentElement = currentElement.nodes[cur - 1];
 
 
@@ -603,11 +610,16 @@ angular.module('ShadeServices', [])
             return elements;
         };
 
+        this.getElementsById = function () {
+            return elementsById;
+        };
+
         this.init = function () {
             classCount = 0;
             elmId = 0;
             elements = [];
             currentElement = {nodes: elements};
+            elementsById = [];
         };
 
         return this;

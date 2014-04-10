@@ -16,39 +16,6 @@ angular.module('ShadeApp')
 
       return
 
-.directive 'vSub', () ->
-  restrict: 'A'
-  require: '^renderPanel'
-  scope: false
-  link: (scope, elm, attr, renderPanelCtrl) ->
-    scope.vSub = attr.vSub
-    elm.removeAttr('v-sub')
-    scope.$watch 'scope.vars[scope.vSub].model', renderPanelCtrl.render
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .directive 'prettyPrintPanel', ($filter, shadeTemplate) ->
     restrict: 'A'
