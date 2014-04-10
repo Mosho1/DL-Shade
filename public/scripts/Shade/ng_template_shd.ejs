@@ -8,7 +8,10 @@ var handleAttributes = function (value, attr) {
     //wrappers for creating HTML elements. Creates enumerated CSS classes for each element with style(s).
     openElement = function (elm) {
 
-        %><<%=elm.elmName%> id="<%=elm.id%>"<%
+        %><<%=elm.elmName%><%
+        if (elm.id !== undefined) {
+            %> shd-id="<%=elm.id%>"<%
+        }
         if (elm.className || elm.nativeClass) {
             %> class="<%=elm.className%> <%=elm.nativeClass%>"<%
         }
@@ -31,6 +34,7 @@ var handleAttributes = function (value, attr) {
     };
 
 if (shd) {
+    console.log(shd);
     _.each(shd.elements, handleElement); 
 }
 %>

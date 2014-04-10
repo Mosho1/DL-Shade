@@ -26,8 +26,8 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 
       if angular.isDefined(ngModel)
         ngModel.$render = () ->
           $http.head(ngModel.$modelValue or 'default')
-            .success(->elm.attr('src',ngModel.$modelValue))
-            .error(->elm.attr('src',scope.src))
+            .success(->elm.attr 'src', ngModel.$modelValue)
+            .error(->elm.attr 'src', scope.src)
 
 
 
@@ -56,4 +56,5 @@ angular.module('ShadeApp',['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 
         scope.vText = attr.vText
         elm.after('<span>' + attr.label + '</span>') if attr.label #TODO: put this and the element in a parent element?
       return
+
 

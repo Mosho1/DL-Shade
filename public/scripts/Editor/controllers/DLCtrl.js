@@ -28,7 +28,7 @@
       }
     });
     $scope.styles = {
-      active: 'basics',
+      active: 'control',
       sheets: {
         basics: {
           source: 'XML/shade.xml',

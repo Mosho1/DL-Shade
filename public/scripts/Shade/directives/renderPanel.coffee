@@ -1,6 +1,6 @@
 angular.module('ShadeApp')
 
-.directive 'renderPanel', ($compile, $rootScope, shadeTemplate) ->
+.directive 'renderPanel', ($compile, $rootScope, shadeTemplate, shadeData) ->
     restrict: 'E'
     scope:
       vars: '='
@@ -8,19 +8,25 @@ angular.module('ShadeApp')
       styles: '='
     controller: ($element, $scope) ->
       this.render = ->
-        if $scope.data = shadeTemplate.toHTML($scope.styles)
-          $element.html('<style>' + $scope.data.styles + '</style>' + $scope.data.body)
+        if shadeData.set shadeTemplate.toHTML $scope.styles
+          $element.html '<style>' + shadeData.getStyles() + '</style>' + shadeData.getBody()
           $compile($element.contents())($scope)
 
       $rootScope.$on 'Run', this.render
 
       return
 
-.directive 'vSub', () ->
-    restrict: 'A'
-    link: (scope, elm, attrs) ->
-      scope.vSub = attrs.vSub
-      console.log(scope.data)
+.directive 'vSub', ($compile, shadeData, shadeTemplate, x2js) ->
+  restrict: 'A'
+  link: (scope, elm, attr) ->
+    scope.vSub = attr.vSub
+    scope.$watch 'vSub', () ->
+      shadeNode = shadeData.getElementById(attr.shdId)
+      shadeNode.Sub.Node.push (x2js.xml2json scope.vars[scope.vSub].model).Node
+      content = shadeTemplate.toHTML {Shade:{Node:shadeNode}}
+      body = angular.element content.body
+      elm.html body.html()
+      $compile(elm.contents())(scope)
 
 .directive 'prettyPrintPanel', ($filter, shadeTemplate) ->
     restrict: 'A'

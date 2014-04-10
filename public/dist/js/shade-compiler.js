@@ -101,7 +101,7 @@ var that = {},
             return {'span': span, 'heights': heights};
         },
         'Xy' : function (grid, span) {
-            var nodes = grid.Sub.Node;
+            var nodes = _.filter(grid.Sub.Node, 'Xy');
             //create a map for the nodes according to Xy elements
             var gridMap = _.map(nodes, function (node, index) {
                 return [node.Xy.match(/[^ ,]+/g).reduce(function (prev, cur) {
@@ -182,7 +182,7 @@ var that = {},
         nodes = this.Sub.Node;
         //check if parameters for each mode exist in grid (or nodes for 'Xy')
         if (this[mode]
-                || (mode === 'Xy' && _.every(nodes, 'Xy'))
+                || (mode === 'Xy' && _.some(nodes, 'Xy'))
                 || (mode === 'CSpan' && _.some(nodes, 'CSpan'))) {
             return modeHandlers[mode](this, data.span);
         }

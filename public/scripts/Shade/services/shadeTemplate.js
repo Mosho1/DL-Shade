@@ -11,7 +11,10 @@
     });
     this.toHTML = function(shade) {
       var parsed;
-      parsed = ShadeParser.parse(x2js.xml2json(shade)) || {};
+      if (!angular.isObject(shade)) {
+        shade = x2js.xml2json(shade);
+      }
+      parsed = ShadeParser.parse(shade) || {};
       _.extend(parsed, ShadeAttrDictionary);
       return {
         body: template(parsed),
