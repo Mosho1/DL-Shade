@@ -16,6 +16,11 @@ angular.module('ShadeApp')
 
       return
 
+.directive 'vSub', () ->
+    restrict: 'A'
+    link: (scope, elm, attrs) ->
+      scope.vSub = attrs.vSub
+      console.log(scope.data)
 
 .directive 'prettyPrintPanel', ($filter, shadeTemplate) ->
     restrict: 'A'

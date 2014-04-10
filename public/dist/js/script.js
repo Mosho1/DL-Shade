@@ -3840,7 +3840,7 @@ angular.module('ShadeServices', [])
         //wrappers for creating HTML elements. Creates enumerated CSS classes for each element with style(s).
         this.openElement = function (elmName, className, node, customStyles, customAttr, content, close) {
 
-            if (angular.isDefined(node)) {
+            if (!_.isEmpty(node)) {
                 node.id = elmId;
                 elementsById[elmId++] = node;
             }
@@ -4150,12 +4150,11 @@ angular.module('ShadeServices', [])
       template: function(elm, attr) {
         var getAttrs;
         getAttrs = function() {
-          var args, ret;
+          var args;
           args = arguments;
-          ret = _.reduce(args, function(str, val) {
+          return _.reduce(args, function(str, val) {
             return str + val + '="' + attr[val] + '" ';
           }, '');
-          return ret + '';
         };
         return '<div class="input-group">' + '<input style="width:90%" class="form-control" type="text" ng-model="vars[vText].model" dvalue="' + getAttrs('dvalue', 'min', 'max', 'format') + '"/>' + '<div class="btn-group-vertical">' + '<button class="btn btn-default" ng-mousedown="increase()" ng-mouseup="stop()" ng-mouseout="stop()">' + '<span class="glyphicon glyphicon-chevron-up" />' + '</button>' + '<button class="btn btn-default" ng-mousedown="decrease()" ng-mouseup="stop()" ng-mouseout="stop()">' + '<span class="glyphicon glyphicon-chevron-down" />' + '</button>' + '</div>' + '</div>';
       },
@@ -4172,7 +4171,7 @@ angular.module('ShadeServices', [])
         cto = null;
         updateModel = function(value) {
           value = +value;
-          if (scope.vars && angular.isNumber(value)) {
+          if (scope.vars && _.isFinite(value)) {
             return scope.vars[scope.vText].model = (value > maxVal ? maxVal : (value < minVal ? minVal : value));
           }
         };
@@ -4217,6 +4216,14 @@ angular.module('ShadeServices', [])
           }
         };
         $rootScope.$on('Run', this.render);
+      }
+    };
+  }).directive('vSub', function() {
+    return {
+      restrict: 'A',
+      link: function(scope, elm, attrs) {
+        scope.vSub = attrs.vSub;
+        return console.log(scope.data);
       }
     };
   }).directive('prettyPrintPanel', function($filter, shadeTemplate) {
@@ -4410,13 +4417,12 @@ angular.module('ShadeServices', [])
     });
     this.toHTML = function(shade) {
       var parsed;
-      parsed = ShadeParser.parse(x2js.xml2json(shade));
+      parsed = ShadeParser.parse(x2js.xml2json(shade)) || {};
       _.extend(parsed, ShadeAttrDictionary);
       return {
-        'body': template(parsed || {}),
-        'styles': (parsed || {
-          styles: ''
-        }).styles
+        body: template(parsed),
+        styles: parsed.styles,
+        elementsById: parsed.elementsById
       };
     };
     return this;

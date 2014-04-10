@@ -18,6 +18,14 @@
         $rootScope.$on('Run', this.render);
       }
     };
+  }).directive('vSub', function() {
+    return {
+      restrict: 'A',
+      link: function(scope, elm, attrs) {
+        scope.vSub = attrs.vSub;
+        return console.log(scope.data);
+      }
+    };
   }).directive('prettyPrintPanel', function($filter, shadeTemplate) {
     return {
       restrict: 'A',

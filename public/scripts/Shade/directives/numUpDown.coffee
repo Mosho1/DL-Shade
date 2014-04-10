@@ -7,10 +7,9 @@ angular.module('ShadeApp')
 
     getAttrs = () ->
       args = arguments
-      ret = _.reduce args, (str, val) ->
+      _.reduce args, (str, val) ->
         str + val + '="' + attr[val] + '" '
       , ''
-      ret + ''
 
     '<div class="input-group">' +
       '<input style="width:90%" class="form-control" type="text" ng-model="vars[vText].model" dvalue="' + getAttrs('dvalue','min','max','format') + '"/>' +
@@ -37,7 +36,7 @@ angular.module('ShadeApp')
 
     updateModel = (value) ->
       value = +value
-      if scope.vars and angular.isNumber value
+      if scope.vars and _.isFinite value
         scope.vars[scope.vText].model = (if value > maxVal then maxVal else (if value < minVal then minVal else value))
 
     $timeout () ->

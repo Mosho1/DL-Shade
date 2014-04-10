@@ -8,9 +8,9 @@ var handleAttributes = function (value, attr) {
     //wrappers for creating HTML elements. Creates enumerated CSS classes for each element with style(s).
     openElement = function (elm) {
 
-        %><<%=elm.elmName%><%
+        %><<%=elm.elmName%> id="<%=elm.id%>"<%
         if (elm.className || elm.nativeClass) {
-            %> class = "<%=elm.className%> <%=elm.nativeClass%>"<%
+            %> class="<%=elm.className%> <%=elm.nativeClass%>"<%
         }
         %> <%=elm.customAttr%><%
         _.each(elm.node, handleAttributes)%><%=elm.close?'':' /'%>><%

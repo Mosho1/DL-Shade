@@ -567,7 +567,7 @@ angular.module('ShadeServices', [])
         //wrappers for creating HTML elements. Creates enumerated CSS classes for each element with style(s).
         this.openElement = function (elmName, className, node, customStyles, customAttr, content, close) {
 
-            if (angular.isDefined(node)) {
+            if (!_.isEmpty(node)) {
                 node.id = elmId;
                 elementsById[elmId++] = node;
             }

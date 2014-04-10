@@ -13,9 +13,14 @@ angular.module('ShadeApp')
       console.log("could not retrieve shade template"))
 
   @toHTML = (shade) ->
-    parsed = ShadeParser.parse(x2js.xml2json(shade))
+    parsed = ShadeParser.parse(x2js.xml2json(shade)) || {}
     _.extend(parsed, ShadeAttrDictionary)
-    {'body': template(parsed || {}), 'styles': (parsed || {styles: ''}).styles}
+
+    body: template(parsed),
+    styles: parsed.styles,
+    elementsById: parsed.elementsById
+
+
 
 
   return this
