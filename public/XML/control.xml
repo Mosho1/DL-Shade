@@ -1,22 +1,28 @@
 ﻿<Shade>
     <Node>
         <UI>Grid</UI>
-        <Span>2,2</Span>
-        <ShowGridLines>True</ShowGridLines>
-        <RowHeight>*</RowHeight>
-        <ColWidth>*</ColWidth>
-        <vSub>SampleTest.a</vSub>
+        <Span>2, 2</Span>
         <Sub>
             <Node>
-                <UI>TextBox</UI>
-                <Xy>0,0</Xy>
-                <vText>SampleTest.x</vText>
+                <UI>Button</UI>
+                <Text>Spanned button</Text>
+                <CSpan>2</CSpan>
             </Node>
             <Node>
-                <UI>TextBox</UI>
-                <Xy>1,0</Xy>
-                <vText>SampleTest.y</vText>
+                <UI>Label</UI>
+                <Text>blue</Text>
+                <Fg>White</Fg>
+                <Bg>Blue</Bg>
+                <Xy>1, 0</Xy>
+            </Node>
+            <Node>
+                <UI>Label</UI>
+                <Text>green</Text>
+                <Fg>White</Fg>
+                <Bg>Green</Bg>
+                <Xy>1, 1</Xy>
             </Node>
         </Sub>
     </Node>
+
 </Shade>
