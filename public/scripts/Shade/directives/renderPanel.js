@@ -18,26 +18,6 @@
         $rootScope.$on('Run', this.render);
       }
     };
-  }).directive('vSub', function($compile, shadeData, shadeTemplate, x2js) {
-    return {
-      restrict: 'A',
-      link: function(scope, elm, attr) {
-        scope.vSub = attr.vSub;
-        return scope.$watch('vSub', function() {
-          var body, content, shadeNode;
-          shadeNode = shadeData.getElementById(attr.shdId);
-          shadeNode.Sub.Node.push((x2js.xml2json(scope.vars[scope.vSub].model)).Node);
-          content = shadeTemplate.toHTML({
-            Shade: {
-              Node: shadeNode
-            }
-          });
-          body = angular.element(content.body);
-          elm.html(body.html());
-          return $compile(elm.contents())(scope);
-        });
-      }
-    };
   }).directive('prettyPrintPanel', function($filter, shadeTemplate) {
     return {
       restrict: 'A',

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Format service</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="app.html">
+                app.coffee
+              </a>
+            
+              
+              <a class="source" href="DLCtrl.html">
+                DLCtrl.coffee
+              </a>
+            
+              
+              <a class="source" href="editor.html">
+                editor.coffee
+              </a>
+            
+              
+              <a class="source" href="render_graph.html">
+                render_graph.coffee
+              </a>
+            
+              
+              <a class="source" href="split-panel.html">
+                split-panel.coffee
+              </a>
+            
+              
+              <a class="source" href="code_filters.html">
+                code_filters.coffee
+              </a>
+            
+              
+              <a class="source" href="graph-text.html">
+                graph-text.coffee
+              </a>
+            
+              
+              <a class="source" href="x2js.html">
+                x2js.coffee
+              </a>
+            
+              
+              <a class="source" href="attributes.html">
+                attributes.coffee
+              </a>
+            
+              
+              <a class="source" href="button.html">
+                button.coffee
+              </a>
+            
+              
+              <a class="source" href="dropDown.html">
+                dropDown.coffee
+              </a>
+            
+              
+              <a class="source" href="numUpDown.html">
+                numUpDown.coffee
+              </a>
+            
+              
+              <a class="source" href="renderPanel.html">
+                renderPanel.coffee
+              </a>
+            
+              
+              <a class="source" href="shdImage.html">
+                shdImage.coffee
+              </a>
+            
+              
+              <a class="source" href="vText.html">
+                vText.coffee
+              </a>
+            
+              
+              <a class="source" href="ngGridPlugin.html">
+                ngGridPlugin.coffee
+              </a>
+            
+              
+              <a class="source" href="vTextProvider.html">
+                vTextProvider.coffee
+              </a>
+            
+              
+              <a class="source" href="selectedArray.html">
+                selectedArray.coffee
+              </a>
+            
+              
+              <a class="source" href="format.html">
+                format.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeData.html">
+                shadeData.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeDictionary.html">
+                shadeDictionary.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeTemplate.html">
+                shadeTemplate.coffee
+              </a>
+            
+              
+              <a class="source" href="shade_module.html">
+                shade_module.coffee
+              </a>
+            
+              
+              <a class="source" href="ast-validator.html">
+                ast-validator.js
+              </a>
+            
+              
+              <a class="source" href="calc-handlers.html">
+                calc-handlers.js
+              </a>
+            
+              
+              <a class="source" href="calculator.html">
+                calculator.js
+              </a>
+            
+              
+              <a class="source" href="compiler.html">
+                compiler.js
+              </a>
+            
+              
+              <a class="source" href="functions.html">
+                functions.js
+              </a>
+            
+              
+              <a class="source" href="graph-text.html">
+                graph-text.js
+              </a>
+            
+              
+              <a class="source" href="js-compiler.html">
+                js-compiler.js
+              </a>
+            
+              
+              <a class="source" href="lexer.html">
+                lexer.js
+              </a>
+            
+              
+              <a class="source" href="node-handlers.html">
+                node-handlers.js
+              </a>
+            
+              
+              <a class="source" href="nodes.html">
+                nodes.js
+              </a>
+            
+              
+              <a class="source" href="parser.html">
+                parser.js
+              </a>
+            
+              
+              <a class="source" href="rewriter.html">
+                rewriter.js
+              </a>
+            
+              
+              <a class="source" href="scope-manager.html">
+                scope-manager.js
+              </a>
+            
+              
+              <a class="source" href="tools.html">
+                tools.js
+              </a>
+            
+              
+              <a class="source" href="variable-registry.html">
+                variable-registry.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <h1 id="format-service">Format service</h1>
+<p>Takes an input string, and a formatting string (using .NET’s <em>Custom Numeric Format Strings</em> specifiers), and returns the formatted string.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>angular.<span class="hljs-built_in">module</span>(<span class="hljs-string">'ShadeApp'</span>)
+
+  .service <span class="hljs-string">'format'</span>,<span class="hljs-function"> -&gt;</span>
+    <span class="hljs-function"><span class="hljs-params">(input, str)</span> -&gt;</span>
+      <span class="hljs-keyword">if</span> angular.isNumber(input)
+        input = input.toString()
+        <span class="hljs-function"><span class="hljs-title">replacer</span> = <span class="hljs-params">(match)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Skip decimal point</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          i++  <span class="hljs-keyword">if</span> input[i] <span class="hljs-keyword">is</span> <span class="hljs-string">"."</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>If the input has a digit at location <code>i</code>, use it, otherwise ignore <code>#</code>‘s or insert <code>0</code>‘s.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          input[i++] <span class="hljs-keyword">or</span> <span class="hljs-keyword">if</span> match <span class="hljs-keyword">is</span> <span class="hljs-string">"#"</span> <span class="hljs-keyword">then</span> <span class="hljs-string">""</span> <span class="hljs-keyword">else</span> <span class="hljs-string">"0"</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>length of integer part</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        length = parseInt(input, <span class="hljs-number">10</span>).toString().length</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>number of ‘#’ or ‘0’ matches</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        matches = str.match(<span class="hljs-regexp">/[0#](?=.*\.)/g</span>).length</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Begin the replacement at the leftmost digit</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        i = length - matches</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Remove whitespace and commas, then replaces all <code>0</code>‘s and <code>#</code>‘s using the <code>replacer</code> function.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        output = str.replace(<span class="hljs-regexp">/[\s,]/g</span>, <span class="hljs-string">''</span>).replace(<span class="hljs-regexp">/[0#]/g</span>, replacer)</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Button directive.</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="app.html">
+                app.coffee
+              </a>
+            
+              
+              <a class="source" href="DLCtrl.html">
+                DLCtrl.coffee
+              </a>
+            
+              
+              <a class="source" href="editor.html">
+                editor.coffee
+              </a>
+            
+              
+              <a class="source" href="render_graph.html">
+                render_graph.coffee
+              </a>
+            
+              
+              <a class="source" href="split-panel.html">
+                split-panel.coffee
+              </a>
+            
+              
+              <a class="source" href="code_filters.html">
+                code_filters.coffee
+              </a>
+            
+              
+              <a class="source" href="graph-text.html">
+                graph-text.coffee
+              </a>
+            
+              
+              <a class="source" href="x2js.html">
+                x2js.coffee
+              </a>
+            
+              
+              <a class="source" href="attributes.html">
+                attributes.coffee
+              </a>
+            
+              
+              <a class="source" href="button.html">
+                button.coffee
+              </a>
+            
+              
+              <a class="source" href="dropDown.html">
+                dropDown.coffee
+              </a>
+            
+              
+              <a class="source" href="numUpDown.html">
+                numUpDown.coffee
+              </a>
+            
+              
+              <a class="source" href="renderPanel.html">
+                renderPanel.coffee
+              </a>
+            
+              
+              <a class="source" href="shdImage.html">
+                shdImage.coffee
+              </a>
+            
+              
+              <a class="source" href="vText.html">
+                vText.coffee
+              </a>
+            
+              
+              <a class="source" href="ngGridPlugin.html">
+                ngGridPlugin.coffee
+              </a>
+            
+              
+              <a class="source" href="vTextProvider.html">
+                vTextProvider.coffee
+              </a>
+            
+              
+              <a class="source" href="selectedArray.html">
+                selectedArray.coffee
+              </a>
+            
+              
+              <a class="source" href="format.html">
+                format.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeData.html">
+                shadeData.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeDictionary.html">
+                shadeDictionary.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeTemplate.html">
+                shadeTemplate.coffee
+              </a>
+            
+              
+              <a class="source" href="shade_module.html">
+                shade_module.coffee
+              </a>
+            
+              
+              <a class="source" href="ast-validator.html">
+                ast-validator.js
+              </a>
+            
+              
+              <a class="source" href="calc-handlers.html">
+                calc-handlers.js
+              </a>
+            
+              
+              <a class="source" href="calculator.html">
+                calculator.js
+              </a>
+            
+              
+              <a class="source" href="compiler.html">
+                compiler.js
+              </a>
+            
+              
+              <a class="source" href="functions.html">
+                functions.js
+              </a>
+            
+              
+              <a class="source" href="graph-text.html">
+                graph-text.js
+              </a>
+            
+              
+              <a class="source" href="js-compiler.html">
+                js-compiler.js
+              </a>
+            
+              
+              <a class="source" href="lexer.html">
+                lexer.js
+              </a>
+            
+              
+              <a class="source" href="node-handlers.html">
+                node-handlers.js
+              </a>
+            
+              
+              <a class="source" href="nodes.html">
+                nodes.js
+              </a>
+            
+              
+              <a class="source" href="parser.html">
+                parser.js
+              </a>
+            
+              
+              <a class="source" href="rewriter.html">
+                rewriter.js
+              </a>
+            
+              
+              <a class="source" href="scope-manager.html">
+                scope-manager.js
+              </a>
+            
+              
+              <a class="source" href="tools.html">
+                tools.js
+              </a>
+            
+              
+              <a class="source" href="variable-registry.html">
+                variable-registry.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <h1 id="button-directive-">Button directive.</h1>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+angular.<span class="hljs-built_in">module</span>(<span class="hljs-string">'ShadeApp'</span>)
+
+.directive <span class="hljs-string">'shdButton'</span>, <span class="hljs-function"><span class="hljs-params">($compile, $timeout, $templateCache)</span> -&gt;</span>
+  <span class="hljs-attribute">restrict</span>: <span class="hljs-string">'E'</span>
+  <span class="hljs-attribute">replace</span>: <span class="hljs-literal">true</span>
+  <span class="hljs-attribute">scope</span>: <span class="hljs-literal">true</span>
+  <span class="hljs-attribute">transclude</span>: <span class="hljs-literal">true</span>
+  <span class="hljs-attribute">template</span>: <span class="hljs-function"><span class="hljs-params">(elm, attr)</span> -&gt;</span>
+    toAppend = <span class="hljs-string">''</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>callback attributes are of the form: <code>&quot;Event,callback,option1,option2&quot;</code>. If there is more than one they are delimited by <code>;</code>.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> (attr.controlBlock)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>First, the callback strings are parsed into an object.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      cbs = <span class="hljs-keyword">do</span><span class="hljs-function"> -&gt;</span>
+        obj = {}
+        cb_arr = attr.controlBlock.split(<span class="hljs-string">';'</span>)
+        cb_arr = _.map cb_arr, <span class="hljs-function"><span class="hljs-params">(str)</span> -&gt;</span>  str.split(<span class="hljs-regexp">/\s?,\s?/</span>)
+        _.each cb_arr, <span class="hljs-function"><span class="hljs-params">(arr)</span> -&gt;</span>
+          obj[arr[<span class="hljs-number">0</span>]] = obj[arr[<span class="hljs-number">0</span>]] || []
+          obj[arr[<span class="hljs-number">0</span>]].push arr.slice(<span class="hljs-number">1</span>)
+        obj</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Each event is translated to the appropriate angular attribute.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      events =
+        <span class="hljs-attribute">Click</span>: <span class="hljs-string">'ng-click='</span>
+        <span class="hljs-attribute">default</span>: <span class="hljs-string">'ng-click='</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>With the appropriate function, parsed according to the callback type.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      handlers =
+        <span class="hljs-attribute">setDL</span>: <span class="hljs-function"><span class="hljs-params">(name ,val)</span> -&gt;</span>
+          <span class="hljs-string">'vars[&amp;quot;'</span> + name + <span class="hljs-string">'&amp;quot;].model='</span> + val + <span class="hljs-string">';'</span>
+        <span class="hljs-attribute">popup</span>: <span class="hljs-function"><span class="hljs-params">(popup, location)</span> -&gt;</span>
+          <span class="hljs-string">"popup('"</span> + popup + <span class="hljs-string">"','"</span> + location + <span class="hljs-string">"')"</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Then, the callbacks are iterated over and the required attribute to append to the element is created.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      _.each cbs, <span class="hljs-function"><span class="hljs-params">(cb, name)</span> -&gt;</span>
+        toAppend += <span class="hljs-function"><span class="hljs-params">(events[name] || events.<span class="hljs-reserved">default</span>)</span> + '"' + <span class="hljs-params">(_.map cb, (el) -&gt;
+          handlers[el[<span class="hljs-number">0</span>]] el[<span class="hljs-number">1</span>], el[<span class="hljs-number">2</span>])</span>.<span class="hljs-title">join</span><span class="hljs-params">(<span class="hljs-string">''</span>)</span> + '" '
+
+    '&lt;<span class="hljs-title">button</span> ' + <span class="hljs-title">toAppend</span> + '&gt;{{<span class="hljs-title">vars</span>[<span class="hljs-title">vText</span>].<span class="hljs-title">model</span>||<span class="hljs-title">text</span>}}&lt;/<span class="hljs-title">button</span>&gt;'
+  <span class="hljs-title">link</span>: <span class="hljs-params">(scope, elm, attr)</span> -&gt;</span>
+    scope.vText = attr.vText
+    scope.text = attr.text</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>This is the popup callback. <code>id</code> is the popup’s id, and <code>elm</code> is the target (element to append to popup to).</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    scope.<span class="hljs-function"><span class="hljs-title">popup</span> = <span class="hljs-params">(id, elm)</span> -&gt;</span>
+      popup = angular.element(<span class="hljs-string">'#'</span> + id)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>append the popup to the target element, unless it’s already appended.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">unless</span> popup.attr(<span class="hljs-string">'container'</span>) <span class="hljs-keyword">is</span> <span class="hljs-string">'#'</span> + elm</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>make sure the popup isn’t open</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        popup.triggerHandler(<span class="hljs-string">'leave'</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>And append the popup</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        clone = popup.clone()
+        popup.after(clone).remove()
+        clone.children().removeAttr(<span class="hljs-string">'ng-transclude'</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>With these attributes, used by the popup provider (from the <code>mgcrea.ngStrap.popover</code> module)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        clone.attr({
+          <span class="hljs-string">'container'</span>: <span class="hljs-string">'#'</span> + elm,
+          <span class="hljs-string">'bs-popover'</span>: <span class="hljs-string">''</span>
+          <span class="hljs-string">'trigger'</span>: <span class="hljs-string">'manual'</span>
+          <span class="hljs-string">'template'</span>: angular.element(<span class="hljs-string">'&lt;div /&gt;'</span>).append(angular.element(<span class="hljs-string">'&lt;div /&gt;'</span>).append(angular.element(<span class="hljs-string">'&lt;div class="popupt"/&gt;'</span>).append(clone.children()))).html()
+        })</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Compile the popup and add it to the scope</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        popup = $compile(clone)(scope)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Open the popup</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      $timeout<span class="hljs-function"><span class="hljs-params">((() -&gt; popup.triggerHandler(<span class="hljs-string">'popup'</span>)),<span class="hljs-number">50</span>)</span>
+
+      <span class="hljs-title">return</span>
+</span></pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>scope-manager.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="app.html">
+                app.coffee
+              </a>
+            
+              
+              <a class="source" href="DLCtrl.html">
+                DLCtrl.coffee
+              </a>
+            
+              
+              <a class="source" href="editor.html">
+                editor.coffee
+              </a>
+            
+              
+              <a class="source" href="render_graph.html">
+                render_graph.coffee
+              </a>
+            
+              
+              <a class="source" href="split-panel.html">
+                split-panel.coffee
+              </a>
+            
+              
+              <a class="source" href="code_filters.html">
+                code_filters.coffee
+              </a>
+            
+              
+              <a class="source" href="graph-text.html">
+                graph-text.coffee
+              </a>
+            
+              
+              <a class="source" href="x2js.html">
+                x2js.coffee
+              </a>
+            
+              
+              <a class="source" href="attributes.html">
+                attributes.coffee
+              </a>
+            
+              
+              <a class="source" href="button.html">
+                button.coffee
+              </a>
+            
+              
+              <a class="source" href="dropDown.html">
+                dropDown.coffee
+              </a>
+            
+              
+              <a class="source" href="numUpDown.html">
+                numUpDown.coffee
+              </a>
+            
+              
+              <a class="source" href="renderPanel.html">
+                renderPanel.coffee
+              </a>
+            
+              
+              <a class="source" href="shdImage.html">
+                shdImage.coffee
+              </a>
+            
+              
+              <a class="source" href="vText.html">
+                vText.coffee
+              </a>
+            
+              
+              <a class="source" href="ngGridPlugin.html">
+                ngGridPlugin.coffee
+              </a>
+            
+              
+              <a class="source" href="vTextProvider.html">
+                vTextProvider.coffee
+              </a>
+            
+              
+              <a class="source" href="selectedArray.html">
+                selectedArray.coffee
+              </a>
+            
+              
+              <a class="source" href="format.html">
+                format.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeData.html">
+                shadeData.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeDictionary.html">
+                shadeDictionary.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeTemplate.html">
+                shadeTemplate.coffee
+              </a>
+            
+              
+              <a class="source" href="shade_module.html">
+                shade_module.coffee
+              </a>
+            
+              
+              <a class="source" href="ast-validator.html">
+                ast-validator.js
+              </a>
+            
+              
+              <a class="source" href="calc-handlers.html">
+                calc-handlers.js
+              </a>
+            
+              
+              <a class="source" href="calculator.html">
+                calculator.js
+              </a>
+            
+              
+              <a class="source" href="compiler.html">
+                compiler.js
+              </a>
+            
+              
+              <a class="source" href="functions.html">
+                functions.js
+              </a>
+            
+              
+              <a class="source" href="graph-text.html">
+                graph-text.js
+              </a>
+            
+              
+              <a class="source" href="js-compiler.html">
+                js-compiler.js
+              </a>
+            
+              
+              <a class="source" href="lexer.html">
+                lexer.js
+              </a>
+            
+              
+              <a class="source" href="node-handlers.html">
+                node-handlers.js
+              </a>
+            
+              
+              <a class="source" href="nodes.html">
+                nodes.js
+              </a>
+            
+              
+              <a class="source" href="parser.html">
+                parser.js
+              </a>
+            
+              
+              <a class="source" href="rewriter.html">
+                rewriter.js
+              </a>
+            
+              
+              <a class="source" href="scope-manager.html">
+                scope-manager.js
+              </a>
+            
+              
+              <a class="source" href="tools.html">
+                tools.js
+              </a>
+            
+              
+              <a class="source" href="variable-registry.html">
+                variable-registry.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>scope-manager.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+
+<span class="hljs-comment">/**
+  *Keeps track of variables and their scope
+  *@class ScopeManager
+  *@constructor
+*/</span>
+<span class="hljs-keyword">var</span> ScopeManager = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+    <span class="hljs-keyword">this</span>.initialise.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
+};
+ScopeManager.prototype = {
+
+ <span class="hljs-comment">/**
+   *@method initialise
+
+ */</span>
+    initialise: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>
+    {</span>
+        _.bindAll(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">this</span>.global = <span class="hljs-keyword">new</span> Scope(<span class="hljs-string">'__GLOBAL__'</span>);
+        <span class="hljs-keyword">this</span>.currentScope = <span class="hljs-keyword">this</span>.global;
+    },
+    <span class="hljs-comment">/**
+     *Creates a new scope.
+     *@method createScope
+     *@param name The name of the scope
+     */</span>
+    createScope: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name)</span>
+    {</span>
+        <span class="hljs-keyword">var</span> scope = <span class="hljs-keyword">this</span>.currentScope.pushScope(name, <span class="hljs-keyword">this</span>.currentScope);
+
+        <span class="hljs-keyword">if</span> (!scope) {
+            console.log(<span class="hljs-string">"Scope conlict: Cannot define identifier %s in scope %s"</span>, name, <span class="hljs-keyword">this</span>.currentScope.name);
+            process.exit();
+        }
+
+        <span class="hljs-keyword">this</span>.currentScope = scope;
+    },
+
+     <span class="hljs-comment">/**
+     *Changes scope.
+     *@method changeScope
+     *@param scope the name of the scope
+     */</span>
+     changeScope: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name)</span>
+     {</span>
+        <span class="hljs-keyword">var</span> scope = <span class="hljs-keyword">this</span>.currentScope.pushScope(name, <span class="hljs-keyword">this</span>.currentScope);
+
+        <span class="hljs-keyword">if</span> (!scope) {
+            console.log(<span class="hljs-string">"Scope conlict: Cannot define identifier %s in scope %s"</span>, name, <span class="hljs-keyword">this</span>.currentScope.name);
+            process.exit();
+        }
+
+        <span class="hljs-keyword">this</span>.currentScope = scope;
+     },
+ <span class="hljs-comment">/**
+   *Exits current scope.
+   *@method exitScope
+
+ */</span>
+    exitScope: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>
+    {</span>
+        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.currentScope.parent) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Cannot exit global scope</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">return</span>;
+        }
+
+        <span class="hljs-keyword">this</span>.currentScope = <span class="hljs-keyword">this</span>.currentScope.parent;
+    },
+ <span class="hljs-comment">/**
+   *Pushes a new identifier into the current scope.
+   *@method pushIdentifier
+   *@param name The name of the identifier
+   *@param node The expression for the identifier
+ */</span>
+    pushIdentifier: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name, node)</span>
+    {</span>
+        <span class="hljs-keyword">this</span>.currentScope.pushIdentifier(name, node);
+    },
+ <span class="hljs-comment">/**
+   *Pushes new identifiers from a namespace.
+   *@method pushNamespace
+   *@param ns The namespace
+ */</span>
+    pushNamespace: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(ns,name)</span>
+    {</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> v <span class="hljs-keyword">in</span> ns) 
+            <span class="hljs-keyword">this</span>.currentScope.pushIdentifier(name+<span class="hljs-string">"."</span>+v, {expr:{_type:<span class="hljs-string">"Function"</span>}});
+    },
+ <span class="hljs-comment">/**
+   *Checks if current scope has an Identifier.
+   *@method hasIdentifier
+   *@param name The name of the identifier
+ */</span>
+    hasIdentifier: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name)</span>
+    {</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.currentScope.hasIdentifier(name);
+    },
+ <span class="hljs-comment">/**
+   *Gets an Identifier.
+   *@method getIdentifier
+   *@param name The name of the identifier
+ */</span>
+    getIdentifier: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name)</span>
+    {</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.currentScope.getIdentifier(name);
+    }
+
+};
+<span class="hljs-comment">/**
+  *Scope class
+  *@class Scope
+  *@constructor
+*/</span>
+<span class="hljs-keyword">var</span> Scope = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+    <span class="hljs-keyword">this</span>.initialise.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
+};
+
+
+Scope.prototype = {
+
+<span class="hljs-comment">/**
+ *@method initialise
+ 
+*/</span>
+    initialise: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name, parent)</span>
+    {</span>
+        _.bindAll(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">this</span>.name = name;
+        <span class="hljs-keyword">this</span>.parent = parent;
+        <span class="hljs-keyword">this</span>.identifiers = {};
+        <span class="hljs-keyword">this</span>.children = {};
+    },
+<span class="hljs-comment">/**
+ *@method pushIdentifier
+ 
+*/</span>
+    pushIdentifier: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name, node)</span>
+    {</span>
+        <span class="hljs-keyword">this</span>.identifiers[name] = node;
+    },
+<span class="hljs-comment">/**
+ *@method hasIdentifier
+ 
+*/</span>
+    hasIdentifier: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name)</span>
+    {</span>
+        <span class="hljs-keyword">return</span> name <span class="hljs-keyword">in</span> <span class="hljs-keyword">this</span>.identifiers;
+    },
+<span class="hljs-comment">/**
+ *@method getIdentifier
+ 
+*/</span>
+    getIdentifier: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name)</span>
+    {</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.identifiers[name];
+    },
+<span class="hljs-comment">/**
+ *@method pushScope
+ 
+*/</span>
+    pushScope: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name)</span>
+    {</span>
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.hasScope(name)) {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }
+
+        <span class="hljs-keyword">this</span>.children[name] = <span class="hljs-keyword">new</span> Scope(name, <span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.children[name];
+    },
+<span class="hljs-comment">/**
+ *@method hasScope
+ 
+*/</span>
+    hasScope: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name)</span>
+    {</span>
+        <span class="hljs-keyword">return</span> name <span class="hljs-keyword">in</span> <span class="hljs-keyword">this</span>.children;
+    }
+
+};
+
+exports.ScopeManager = ScopeManager;</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

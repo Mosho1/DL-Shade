@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>code_filters.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="app.html">
+                app.coffee
+              </a>
+            
+              
+              <a class="source" href="DLCtrl.html">
+                DLCtrl.coffee
+              </a>
+            
+              
+              <a class="source" href="editor.html">
+                editor.coffee
+              </a>
+            
+              
+              <a class="source" href="render_graph.html">
+                render_graph.coffee
+              </a>
+            
+              
+              <a class="source" href="split-panel.html">
+                split-panel.coffee
+              </a>
+            
+              
+              <a class="source" href="code_filters.html">
+                code_filters.coffee
+              </a>
+            
+              
+              <a class="source" href="graph-text.html">
+                graph-text.coffee
+              </a>
+            
+              
+              <a class="source" href="x2js.html">
+                x2js.coffee
+              </a>
+            
+              
+              <a class="source" href="attributes.html">
+                attributes.coffee
+              </a>
+            
+              
+              <a class="source" href="button.html">
+                button.coffee
+              </a>
+            
+              
+              <a class="source" href="dropDown.html">
+                dropDown.coffee
+              </a>
+            
+              
+              <a class="source" href="numUpDown.html">
+                numUpDown.coffee
+              </a>
+            
+              
+              <a class="source" href="renderPanel.html">
+                renderPanel.coffee
+              </a>
+            
+              
+              <a class="source" href="shdImage.html">
+                shdImage.coffee
+              </a>
+            
+              
+              <a class="source" href="vText.html">
+                vText.coffee
+              </a>
+            
+              
+              <a class="source" href="ngGridPlugin.html">
+                ngGridPlugin.coffee
+              </a>
+            
+              
+              <a class="source" href="vTextProvider.html">
+                vTextProvider.coffee
+              </a>
+            
+              
+              <a class="source" href="selectedArray.html">
+                selectedArray.coffee
+              </a>
+            
+              
+              <a class="source" href="format.html">
+                format.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeData.html">
+                shadeData.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeDictionary.html">
+                shadeDictionary.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeTemplate.html">
+                shadeTemplate.coffee
+              </a>
+            
+              
+              <a class="source" href="shade_module.html">
+                shade_module.coffee
+              </a>
+            
+              
+              <a class="source" href="ast-validator.html">
+                ast-validator.js
+              </a>
+            
+              
+              <a class="source" href="calc-handlers.html">
+                calc-handlers.js
+              </a>
+            
+              
+              <a class="source" href="calculator.html">
+                calculator.js
+              </a>
+            
+              
+              <a class="source" href="compiler.html">
+                compiler.js
+              </a>
+            
+              
+              <a class="source" href="functions.html">
+                functions.js
+              </a>
+            
+              
+              <a class="source" href="graph-text.html">
+                graph-text.js
+              </a>
+            
+              
+              <a class="source" href="js-compiler.html">
+                js-compiler.js
+              </a>
+            
+              
+              <a class="source" href="lexer.html">
+                lexer.js
+              </a>
+            
+              
+              <a class="source" href="node-handlers.html">
+                node-handlers.js
+              </a>
+            
+              
+              <a class="source" href="nodes.html">
+                nodes.js
+              </a>
+            
+              
+              <a class="source" href="parser.html">
+                parser.js
+              </a>
+            
+              
+              <a class="source" href="rewriter.html">
+                rewriter.js
+              </a>
+            
+              
+              <a class="source" href="scope-manager.html">
+                scope-manager.js
+              </a>
+            
+              
+              <a class="source" href="tools.html">
+                tools.js
+              </a>
+            
+              
+              <a class="source" href="variable-registry.html">
+                variable-registry.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>code_filters.coffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-string">'use strict'</span>
+
+angular.<span class="hljs-built_in">module</span>(<span class="hljs-string">'DLApp'</span>)
+
+.filter <span class="hljs-string">'indentHTML'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+    <span class="hljs-function"><span class="hljs-params">(html)</span> -&gt;</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">unless</span> html
+      <span class="hljs-function"><span class="hljs-title">indent</span> = <span class="hljs-params">(html)</span> -&gt;</span>
+        str = html
+        i = <span class="hljs-number">1</span>
+        k = <span class="hljs-number">0</span>
+        open = -<span class="hljs-number">1</span>
+        <span class="hljs-function"><span class="hljs-title">insert</span> = -&gt;</span>
+          str = [
+            str.slice(<span class="hljs-number">0</span>, open)
+            <span class="hljs-string">'('</span>
+            Array(i).join(<span class="hljs-string">')'</span>)
+            str.slice(open)
+          ].join(<span class="hljs-string">''</span>)
+
+        <span class="hljs-function"><span class="hljs-title">ind</span> = <span class="hljs-params">(c)</span> -&gt;</span>
+          str.indexOf c, open + i + k + <span class="hljs-number">1</span>
+
+        <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> [<span class="hljs-number">1.</span><span class="hljs-number">.1000</span>]
+          open = ind(<span class="hljs-string">'&lt;'</span>)
+          <span class="hljs-keyword">return</span> str  <span class="hljs-keyword">if</span> open <span class="hljs-keyword">is</span> -<span class="hljs-number">1</span>
+          <span class="hljs-keyword">if</span> str.charAt(open + <span class="hljs-number">1</span>) <span class="hljs-keyword">is</span> <span class="hljs-string">'/'</span>
+            insert()
+            i--
+            k = <span class="hljs-number">1</span>
+          <span class="hljs-keyword">else</span>
+            i++
+            insert()
+            k = <span class="hljs-number">0</span>
+          op = ind(<span class="hljs-string">'&lt;'</span>)
+          cl = ind(<span class="hljs-string">'/&gt;'</span>)
+          <span class="hljs-keyword">if</span> cl &gt; -<span class="hljs-number">1</span> <span class="hljs-keyword">and</span> op &gt; cl
+            k = <span class="hljs-number">1</span>
+            i--
+
+      indent(html,<span class="hljs-number">1</span>).replace(<span class="hljs-regexp">/\(/g</span>,<span class="hljs-string">'\n'</span>)
+                    .replace(<span class="hljs-regexp">/\)/g</span>,<span class="hljs-string">'  '</span>)
+
+
+
+
+
+.filter <span class="hljs-string">'md2html'</span>, <span class="hljs-function"><span class="hljs-params">($interpolate, $rootScope)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Turns markdown into html courtesy of markdown.js</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-function"><span class="hljs-params">(md)</span> -&gt;</span> <span class="hljs-keyword">if</span> md <span class="hljs-keyword">and</span> md.replace(<span class="hljs-regexp">/\s*/</span>,<span class="hljs-string">''</span>) <span class="hljs-keyword">then</span> markdown.toHTML(md) <span class="hljs-keyword">else</span> <span class="hljs-string">''</span>
+
+.filter <span class="hljs-string">'shade2html'</span>, <span class="hljs-function"><span class="hljs-params">(x2js)</span> -&gt;</span>
+    <span class="hljs-function"><span class="hljs-params">(Shade)</span> -&gt;</span>
+      templateData=x2js.xml2json(Shade)
+      _.extend(templateData,{<span class="hljs-string">'NodeHandlers'</span>:NodeHandlers})
+      template = _.template($rootScope.shadeTemplate)
+      template(templateData)
+
+
+
+.filter <span class="hljs-string">'escapeHTML'</span>, <span class="hljs-function"><span class="hljs-params">($interpolate, $rootScope)</span> -&gt;</span>
+  <span class="hljs-function"><span class="hljs-params">(html)</span> -&gt;</span>
+    <span class="hljs-keyword">if</span> html <span class="hljs-keyword">and</span> html.replace(<span class="hljs-regexp">/\s*/</span>,<span class="hljs-string">''</span>)
+      html.replace( <span class="hljs-regexp">/&amp;/g</span>, <span class="hljs-string">"&amp;amp;"</span> )
+          .replace( <span class="hljs-regexp">/&lt;/g</span>, <span class="hljs-string">"&amp;lt;"</span> )
+          .replace( <span class="hljs-regexp">/&gt;/g</span>, <span class="hljs-string">"&amp;gt;"</span> )
+          .replace( <span class="hljs-regexp">/"/g</span>, <span class="hljs-string">"&amp;quot;"</span> )
+          .replace( <span class="hljs-regexp">/'/g</span>, <span class="hljs-string">"&amp;#39;"</span> )
+    <span class="hljs-keyword">else</span> <span class="hljs-string">''</span>
+
+
+.filter <span class="hljs-string">'scopeCSS'</span>, <span class="hljs-function"><span class="hljs-params">($filter)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Parses the supplied CSS and restricts it to the scope of the supplied prefix</p>
+<ul>
+<li>selectors referencing blacklisted tags are removed</li>
+<li>references to body are replaced with the prefix</li>
+<li>all other selectors are prefixed so as to limit their scope appropriately</li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-function"><span class="hljs-params">(css, prefix, prettify)</span> -&gt;</span>
+    doc = <span class="hljs-built_in">document</span>.implementation.createHTMLDocument(<span class="hljs-string">""</span>)
+    styles = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"style"</span>)
+    styles.innerText = css
+    doc.body.appendChild(styles)
+    blacklist = <span class="hljs-regexp">/(^| )(head|title|link|style|script)($| )/</span>
+    response = <span class="hljs-string">''</span>
+    <span class="hljs-function"><span class="hljs-title">scope_selectors</span> = <span class="hljs-params">(rules)</span> -&gt;</span>
+
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">unless</span> rules.length
+      <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> [<span class="hljs-number">0.</span>..rules.length]
+        <span class="hljs-keyword">if</span> rules[i].selectorText
+          selectors = rules[i].selectorText.split(<span class="hljs-string">', '</span>)
+          selector = ((<span class="hljs-keyword">if</span> <span class="hljs-regexp">/(^| )(body|html)($| )/</span>.test(s) <span class="hljs-keyword">then</span> s.replace(<span class="hljs-regexp">/(body|html)/</span>, prefix) <span class="hljs-keyword">else</span> <span class="hljs-string">"<span class="hljs-subst">#{prefix}</span> <span class="hljs-subst">#{s}</span>"</span>) <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> selectors <span class="hljs-keyword">when</span> <span class="hljs-keyword">not</span> blacklist.test(s)).join(<span class="hljs-string">', '</span>)
+          <span class="hljs-keyword">if</span> selector</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>some hackery is required to get deal with urls which the document object excludes from css injected in this way</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            cssText = <span class="hljs-string">""</span>
+            <span class="hljs-keyword">if</span> <span class="hljs-regexp">/url\(\)/</span>.test(rules[i].cssText)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>find the number of previous occrences of this selector</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>              n = <span class="hljs-number">0</span>
+              n += <span class="hljs-number">1</span> <span class="hljs-keyword">for</span> r <span class="hljs-keyword">of</span> rules <span class="hljs-keyword">when</span> rules[r].selectorText <span class="hljs-keyword">is</span> rules[i].selectorText <span class="hljs-keyword">and</span> parseInt(r) &lt; i</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>grab the raw text of the styles of this selector</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>              splitter = RegExp(rules[i].selectorText+<span class="hljs-string">"\\s*\{"</span>)
+              contained_styles = css.split(splitter)[n+<span class="hljs-number">1</span>].split(<span class="hljs-string">'}'</span>)[<span class="hljs-number">0</span>]</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>find porperty url pairs within the contained styles</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>              prop_url_pairs = {}
+              <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> contained_styles.match(<span class="hljs-regexp">/\s*(.+?)\s*:.+?url\((.+?)\).*?;/g</span>)
+                mtch = line.match(<span class="hljs-regexp">/\s*([\-\w]+)\s*:.+?url\((.+?)\).*?;/</span>)
+                url_selector = mtch[<span class="hljs-number">1</span>].replace(<span class="hljs-regexp">/\s+/g</span>, <span class="hljs-string">''</span>)
+                url_content = mtch[<span class="hljs-number">2</span>].replace(<span class="hljs-regexp">/\s+/g</span>, <span class="hljs-string">''</span>)
+                prop_url_pairs[url_selector] = url_content</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>reconstruct css one line at a time in order to add the url from the original css text without going through the parser</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>              cssText += selector + <span class="hljs-string">' { '</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>for each css property declaration</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>              <span class="hljs-keyword">for</span> prop_decl <span class="hljs-keyword">in</span> rules[i].cssText.match(<span class="hljs-regexp">/\{(.+)\}/</span>)[<span class="hljs-number">1</span>].split(<span class="hljs-string">';'</span>)
+                <span class="hljs-keyword">if</span> !!~ prop_decl.indexOf <span class="hljs-string">'url()'</span>
+                  url_selector = prop_decl.match(<span class="hljs-regexp">/\s*(.+?)\s*:.+/</span>)[<span class="hljs-number">1</span>].replace(<span class="hljs-regexp">/\s+/g</span>, <span class="hljs-string">''</span>)
+                  url_content = prop_url_pairs[url_selector]
+                  <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> url_content <span class="hljs-comment"># account for reformatting by css parser</span>
+                    <span class="hljs-keyword">if</span> url_selector <span class="hljs-keyword">is</span> <span class="hljs-string">'background-image'</span>
+                      url_content = prop_url_pairs[<span class="hljs-string">'background'</span>]
+                  prop_decl = prop_decl.replace(<span class="hljs-string">'url()'</span>, <span class="hljs-string">'url('</span>+url_content+<span class="hljs-string">')'</span>)
+                  cssText += prop_decl + <span class="hljs-string">'; '</span>
+                <span class="hljs-keyword">else</span>
+                  cssText += prop_decl + <span class="hljs-string">'; '</span>
+              cssText += <span class="hljs-string">' } '</span>
+            <span class="hljs-keyword">else</span>
+              rules[i].selectorText = selector
+              cssText = rules[i].cssText
+
+            response += cssText + <span class="hljs-string">'   '</span>
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> rules[i].media[<span class="hljs-number">0</span>] <span class="hljs-keyword">is</span> <span class="hljs-string">'screen'</span>
+          scope_selectors(rules[i].cssRules)
+    scope_selectors(styles.sheet.cssRules)
+    response
+
+
+.filter <span class="hljs-string">'deSassify'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>removes debug spam sometimes added to css by sass</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-function"><span class="hljs-params">(css)</span> -&gt;</span> `<span class="javascript">css.replace( <span class="hljs-regexp">/@media -sass-debug-info.*?\{(?:.*?\{.*?\})+.*?\}/g</span>, <span class="hljs-string">''</span>)</span>`
+
+
+.filter <span class="hljs-string">'prettifyCSS'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>prettify and standardize the distrobution of whitespace in the a string of css</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-function"><span class="hljs-params">(css)</span> -&gt;</span>
+    `<span class="javascript">css
+    .replace( <span class="hljs-regexp">/^\s+/g</span>,    <span class="hljs-string">''</span>         )
+    .replace( <span class="hljs-regexp">/\s*,\s*/g</span>, <span class="hljs-string">', '</span>       )
+    .replace( <span class="hljs-regexp">/\s*{\s*/g</span>, <span class="hljs-string">' {\n    '</span> )
+    .replace( <span class="hljs-regexp">/\s*;\s*/g</span>, <span class="hljs-string">';\n    '</span>  )
+    .replace( <span class="hljs-regexp">/\*\//g</span>,    <span class="hljs-string">'*/\n'</span>     )
+    .replace( <span class="hljs-regexp">/\n\n+/g</span>,   <span class="hljs-string">'\n'</span>       )
+    .replace( <span class="hljs-regexp">/\s*}\s*/g</span>, <span class="hljs-string">'\n}\n\n'</span>  )</span>`
+
+
+.filter <span class="hljs-string">'prettifyHTML'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>an almost simple as possible method for adding sensible whitespace to blocky html
+doesn’t try very hard to fail gracefully given malformed html (e.g. unclosed tags without excuse)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-function"><span class="hljs-title">indent</span> = <span class="hljs-params">(n,inline_count)</span>  -&gt;</span> <span class="hljs-keyword">if</span> n &lt;= <span class="hljs-number">0</span> <span class="hljs-keyword">then</span> <span class="hljs-string">""</span> <span class="hljs-keyword">else</span> Array(n-inline_count+<span class="hljs-number">1</span>).join(<span class="hljs-string">'  '</span>)
+  <span class="hljs-function"><span class="hljs-title">inline</span> = <span class="hljs-params">(tag)</span> -&gt;</span> tag <span class="hljs-keyword">in</span> [<span class="hljs-string">'span'</span>, <span class="hljs-string">'a'</span>, <span class="hljs-string">'code'</span>, <span class="hljs-string">'i'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'em'</span>, <span class="hljs-string">'strong'</span>, <span class="hljs-string">'abbr'</span>, <span class="hljs-string">'img'</span>, <span class="hljs-string">'h1'</span>, <span class="hljs-string">'h2'</span>, <span class="hljs-string">'h3'</span>, <span class="hljs-string">'h4'</span>, <span class="hljs-string">'h5'</span>, <span class="hljs-string">'h6'</span>, <span class="hljs-string">'bdi'</span>, <span class="hljs-string">'bdo'</span>, <span class="hljs-string">'wbr'</span>, <span class="hljs-string">'kbd'</span>, <span class="hljs-string">'del'</span>, <span class="hljs-string">'ins'</span>, <span class="hljs-string">'s'</span>, <span class="hljs-string">'rt'</span>, <span class="hljs-string">'rp'</span>, <span class="hljs-string">'var'</span>, <span class="hljs-string">'time'</span>, <span class="hljs-string">'sub'</span>, <span class="hljs-string">'sup'</span>, <span class="hljs-string">'link'</span>, <span class="hljs-string">'title'</span>, <span class="hljs-string">'label'</span>, <span class="hljs-string">'input'</span>]
+  <span class="hljs-function"><span class="hljs-title">closing</span> = <span class="hljs-params">(tag)</span> -&gt;</span> tag <span class="hljs-keyword">in</span> [<span class="hljs-string">'area'</span>, <span class="hljs-string">'br'</span>, <span class="hljs-string">'col'</span>, <span class="hljs-string">'embed'</span>, <span class="hljs-string">'hr'</span>, <span class="hljs-string">'img'</span>, <span class="hljs-string">'input'</span>, <span class="hljs-string">'keygen'</span>, <span class="hljs-string">'link'</span>, <span class="hljs-string">'meta'</span>, <span class="hljs-string">'base'</span>, <span class="hljs-string">'param'</span>, <span class="hljs-string">'source'</span>, <span class="hljs-string">'track'</span>, <span class="hljs-string">'wbr'</span>] <span class="hljs-comment"># option can be self closing but usually isn't!</span>
+  <span class="hljs-function"><span class="hljs-title">count_inline</span> = <span class="hljs-params">(stack)</span> -&gt;</span> (t <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> stack <span class="hljs-keyword">when</span> inline(t)).length
+  tag_re = <span class="hljs-string">'&lt;(?:(?:(\\w+)[^&gt;&lt;]*?)|(?:\\/(\\w+)))&gt;'</span>
+  tag_re = <span class="hljs-keyword">new</span> RegExp(tag_re)
+  tag_re.compile(tag_re)
+
+  <span class="hljs-function"><span class="hljs-params">(html)</span> -&gt;</span>
+    saved = html
+    inline_count = <span class="hljs-number">0</span>
+    stack = []
+    pretty_html = <span class="hljs-string">""</span>
+
+    <span class="hljs-keyword">while</span> html
+      i = html.search(tag_re)
+      <span class="hljs-keyword">unless</span> i+<span class="hljs-number">1</span> <span class="hljs-comment"># no tags left</span>
+        pretty_html += html
+        html = <span class="hljs-string">""</span>
+      m = html.match(tag_re)
+      <span class="hljs-keyword">if</span> tag_name = m[<span class="hljs-number">1</span>] <span class="hljs-comment"># found opening tag</span>
+        <span class="hljs-keyword">if</span> inline tag_name <span class="hljs-comment"># open inline tag</span>
+          pretty_html += indent(stack.length, inline_count) <span class="hljs-keyword">if</span> pretty_html.charAt(pretty_html.length-<span class="hljs-number">1</span>) <span class="hljs-keyword">is</span> <span class="hljs-string">'\n'</span>
+          pretty_html += html.substr(<span class="hljs-number">0</span>,i+m[<span class="hljs-number">0</span>].length)
+          stack.push tag_name
+          inline_count += <span class="hljs-number">1</span>
+          html = html.substr(i+m[<span class="hljs-number">0</span>].length)
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> closing tag_name
+          pretty_html += indent(stack.length, inline_count) <span class="hljs-keyword">if</span> pretty_html.charAt(pretty_html.length-<span class="hljs-number">1</span>) <span class="hljs-keyword">is</span> <span class="hljs-string">'\n'</span>
+          pretty_html += html.substr(<span class="hljs-number">0</span>,i+m[<span class="hljs-number">0</span>].length)
+          html = html.substr(i+m[<span class="hljs-number">0</span>].length)
+        <span class="hljs-keyword">else</span> <span class="hljs-comment"># open block tag</span>
+          pretty_html += indent(stack.length, inline_count) <span class="hljs-keyword">if</span> i <span class="hljs-keyword">and</span> pretty_html.charAt(pretty_html.length-<span class="hljs-number">1</span>) <span class="hljs-keyword">is</span> <span class="hljs-string">'\n'</span>
+          pretty_html += <span class="hljs-string">"<span class="hljs-subst">#{html.substr(<span class="hljs-number">0</span>,i)}</span>"</span>
+          pretty_html += <span class="hljs-string">'\n'</span> <span class="hljs-keyword">unless</span> pretty_html.charAt(pretty_html.length-<span class="hljs-number">1</span>) <span class="hljs-keyword">is</span> <span class="hljs-string">'\n'</span>
+          pretty_html += indent(stack.length, inline_count) + m[<span class="hljs-number">0</span>]
+          stack.push tag_name
+          pretty_html += <span class="hljs-string">'\n'</span>
+          html = html.substr(i+m[<span class="hljs-number">0</span>].length)
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> tag_name = m[<span class="hljs-number">2</span>] <span class="hljs-comment"># found closing tag</span>
+        last_t = stack.lastIndexOf(tag_name)
+        <span class="hljs-keyword">if</span> last_t+<span class="hljs-number">1</span>
+          <span class="hljs-keyword">if</span> inline tag_name <span class="hljs-comment"># close inline tag</span>
+            inline_count -= <span class="hljs-number">1</span>
+            stack.splice(last_t)
+            pretty_html += <span class="hljs-string">"<span class="hljs-subst">#{html.substr(<span class="hljs-number">0</span>,i)}</span><span class="hljs-subst">#{m[<span class="hljs-number">0</span>]}</span>"</span>
+            html = html.substr(i+m[<span class="hljs-number">0</span>].length)
+          <span class="hljs-keyword">else</span> <span class="hljs-comment"># close block tag</span>
+            pretty_html += indent(stack.length, inline_count) <span class="hljs-keyword">if</span> i <span class="hljs-keyword">and</span> pretty_html.charAt(pretty_html.length-<span class="hljs-number">1</span>) <span class="hljs-keyword">is</span> <span class="hljs-string">'\n'</span>
+            stack.splice(last_t)
+            inline_count = count_inline(stack)
+            pretty_html += <span class="hljs-string">"<span class="hljs-subst">#{html.substr(<span class="hljs-number">0</span>,i)}</span><span class="hljs-subst">#{ <span class="hljs-keyword">if</span> pretty_html.charAt(pretty_html.length-<span class="hljs-number">1</span>) <span class="hljs-keyword">is</span> <span class="hljs-string">'\n'</span> <span class="hljs-keyword">then</span> <span class="hljs-string">''</span> <span class="hljs-keyword">else</span> <span class="hljs-string">'\n'</span>}</span><span class="hljs-subst">#{indent(stack.length, inline_count)}</span><span class="hljs-subst">#{m[<span class="hljs-number">0</span>]}</span>"</span>
+            html = html.substr(i+m[<span class="hljs-number">0</span>].length)
+            pretty_html += <span class="hljs-string">'\n'</span> <span class="hljs-keyword">unless</span> html[<span class="hljs-number">0</span>] <span class="hljs-keyword">is</span> <span class="hljs-string">'\n'</span>
+        <span class="hljs-keyword">else</span>
+          pretty_html += <span class="hljs-string">"<span class="hljs-subst">#{html.substr(<span class="hljs-number">0</span>,i+m[<span class="hljs-number">0</span>].length)}</span>"</span>
+          html = html.substr(i+m[<span class="hljs-number">0</span>].length)
+
+      <span class="hljs-keyword">else</span> <span class="hljs-comment"># um wut?</span>
+        <span class="hljs-built_in">console</span>.warn <span class="hljs-string">"UH OH: found a tag that's not an opening tag or a closing tag!?!?"</span>
+    pretty_html</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>DLCtrl.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="app.html">
+                app.coffee
+              </a>
+            
+              
+              <a class="source" href="DLCtrl.html">
+                DLCtrl.coffee
+              </a>
+            
+              
+              <a class="source" href="editor.html">
+                editor.coffee
+              </a>
+            
+              
+              <a class="source" href="render_graph.html">
+                render_graph.coffee
+              </a>
+            
+              
+              <a class="source" href="split-panel.html">
+                split-panel.coffee
+              </a>
+            
+              
+              <a class="source" href="code_filters.html">
+                code_filters.coffee
+              </a>
+            
+              
+              <a class="source" href="graph-text.html">
+                graph-text.coffee
+              </a>
+            
+              
+              <a class="source" href="x2js.html">
+                x2js.coffee
+              </a>
+            
+              
+              <a class="source" href="attributes.html">
+                attributes.coffee
+              </a>
+            
+              
+              <a class="source" href="button.html">
+                button.coffee
+              </a>
+            
+              
+              <a class="source" href="dropDown.html">
+                dropDown.coffee
+              </a>
+            
+              
+              <a class="source" href="numUpDown.html">
+                numUpDown.coffee
+              </a>
+            
+              
+              <a class="source" href="renderPanel.html">
+                renderPanel.coffee
+              </a>
+            
+              
+              <a class="source" href="shdImage.html">
+                shdImage.coffee
+              </a>
+            
+              
+              <a class="source" href="vText.html">
+                vText.coffee
+              </a>
+            
+              
+              <a class="source" href="ngGridPlugin.html">
+                ngGridPlugin.coffee
+              </a>
+            
+              
+              <a class="source" href="vTextProvider.html">
+                vTextProvider.coffee
+              </a>
+            
+              
+              <a class="source" href="selectedArray.html">
+                selectedArray.coffee
+              </a>
+            
+              
+              <a class="source" href="format.html">
+                format.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeData.html">
+                shadeData.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeDictionary.html">
+                shadeDictionary.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeTemplate.html">
+                shadeTemplate.coffee
+              </a>
+            
+              
+              <a class="source" href="shade_module.html">
+                shade_module.coffee
+              </a>
+            
+              
+              <a class="source" href="ast-validator.html">
+                ast-validator.js
+              </a>
+            
+              
+              <a class="source" href="calc-handlers.html">
+                calc-handlers.js
+              </a>
+            
+              
+              <a class="source" href="calculator.html">
+                calculator.js
+              </a>
+            
+              
+              <a class="source" href="compiler.html">
+                compiler.js
+              </a>
+            
+              
+              <a class="source" href="functions.html">
+                functions.js
+              </a>
+            
+              
+              <a class="source" href="graph-text.html">
+                graph-text.js
+              </a>
+            
+              
+              <a class="source" href="js-compiler.html">
+                js-compiler.js
+              </a>
+            
+              
+              <a class="source" href="lexer.html">
+                lexer.js
+              </a>
+            
+              
+              <a class="source" href="node-handlers.html">
+                node-handlers.js
+              </a>
+            
+              
+              <a class="source" href="nodes.html">
+                nodes.js
+              </a>
+            
+              
+              <a class="source" href="parser.html">
+                parser.js
+              </a>
+            
+              
+              <a class="source" href="rewriter.html">
+                rewriter.js
+              </a>
+            
+              
+              <a class="source" href="scope-manager.html">
+                scope-manager.js
+              </a>
+            
+              
+              <a class="source" href="tools.html">
+                tools.js
+              </a>
+            
+              
+              <a class="source" href="variable-registry.html">
+                variable-registry.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>DLCtrl.coffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-string">'use strict'</span>
+
+default_lc = <span class="hljs-string">"/* Welcome to Dependency Language in JavaScript!\n
+Features:\n
+-Supported Formats:\n
+    Numbers, Strings, arrays\n
+-Namespaces (format: '$ns')
+-Built-in Functions:\n
+    f.abs, f.avg\n
+-Themes for the editor\n
+-Graph or table presentation of the graph\n
+-Click 'Run' above or alt+R */\n
+\n
+x=1;\n
+y=2;\n
+z=f.avg(x,y,6);"</span>;
+
+angular.<span class="hljs-built_in">module</span>(<span class="hljs-string">'DLApp'</span>)
+
+
+
+.controller <span class="hljs-string">'DLCtrl'</span>, <span class="hljs-function"><span class="hljs-params">($scope, $rootScope, $http, $filter, $element, $<span class="hljs-built_in">document</span>, $timeout, Graph)</span> -&gt;</span>
+  $scope.DLcode = {<span class="hljs-attribute">code</span>:default_lc}
+
+  DLpath = <span class="hljs-string">'DLcode/test.txt'</span>
+
+  $http.get<span class="hljs-function"><span class="hljs-params">(DLpath)</span>.<span class="hljs-title">then</span> <span class="hljs-params">(response)</span> -&gt;</span>
+    $scope.DLcode = {<span class="hljs-attribute">code</span>:response.data}
+
+  $<span class="hljs-built_in">document</span>.keyup <span class="hljs-function"><span class="hljs-params">(e)</span> -&gt;</span>
+    <span class="hljs-keyword">if</span> e.altKey
+      <span class="hljs-keyword">if</span> e.keyCode == <span class="hljs-number">82</span>
+        $scope.DLrun(e)
+      <span class="hljs-keyword">if</span> col = $scope.cols[e.keyCode - <span class="hljs-number">49</span>]
+        $scope.$apply col.show = !col.show
+
+  $scope.styles =
+  <span class="hljs-attribute">active</span>: <span class="hljs-string">'control'</span>
+  <span class="hljs-attribute">sheets</span>:
+    <span class="hljs-attribute">basics</span>:
+      <span class="hljs-attribute">source</span>: <span class="hljs-string">'XML/shade.xml'</span>
+      <span class="hljs-attribute">native</span>: <span class="hljs-literal">true</span>
+    <span class="hljs-attribute">control</span>:
+      <span class="hljs-attribute">source</span>: <span class="hljs-string">'XML/control.xml'</span>
+      <span class="hljs-attribute">native</span>: <span class="hljs-literal">true</span>
+    <span class="hljs-attribute">menu</span>:
+      <span class="hljs-attribute">source</span>: <span class="hljs-string">'XML/menu.xml'</span>
+      <span class="hljs-attribute">native</span>: <span class="hljs-literal">true</span>
+  <span class="hljs-attribute">external</span>: <span class="hljs-string">''</span>
+  <span class="hljs-attribute">editor</span>: <span class="hljs-string">''</span>
+
+  $scope.<span class="hljs-function"><span class="hljs-title">copy_style</span> = <span class="hljs-params">(e,style_name)</span> -&gt;</span>
+    _.kill_event(e)
+    copy = _.clone $scope.styles.sheets[style_name]
+    style_name = style_name.match(<span class="hljs-regexp">/(.*?)(:? copy(:? \d+)?)?$/</span>)[<span class="hljs-number">1</span>]
+    name = <span class="hljs-string">"<span class="hljs-subst">#{style_name}</span> copy"</span>
+    i = <span class="hljs-number">0</span>
+    name = <span class="hljs-string">"<span class="hljs-subst">#{style_name}</span> copy <span class="hljs-subst">#{++i}</span>"</span> <span class="hljs-keyword">while</span> name <span class="hljs-keyword">of</span> $scope.styles.sheets
+    copy.<span class="hljs-reserved">native</span> = <span class="hljs-literal">false</span>
+    $scope.styles.sheets[name] = copy
+    $scope.styles.active = name
+
+
+  $scope.<span class="hljs-function"><span class="hljs-title">delete_style</span> = <span class="hljs-params">(e,style_name)</span> -&gt;</span>
+    _.kill_event(e)
+    <span class="hljs-keyword">delete</span> $scope.styles.sheets[style_name]
+    $scope.styles.active = Object.keys($scope.styles.sheets)[<span class="hljs-number">0</span>] <span class="hljs-keyword">if</span> $scope.styles.active <span class="hljs-keyword">is</span> style_name
+
+  $scope.<span class="hljs-function"><span class="hljs-title">DLrun</span> = <span class="hljs-params">(e)</span> -&gt;</span>
+    <span class="hljs-keyword">if</span> e
+      _.kill_event(e)
+    Graph.getGraph<span class="hljs-function"><span class="hljs-params">($scope.DLcode.code,$scope.styles,(graph) -&gt;
+      $scope.graph = graph.evaluate()
+      $rootScope.$broadcast <span class="hljs-string">"Run"</span>)</span>
+
+
+
+  <span class="hljs-title">$document</span>.<span class="hljs-title">ready</span> <span class="hljs-params">()</span> -&gt;</span>
+    $timeout $scope.DLrun, <span class="hljs-number">100</span>
+
+  $scope.$watch <span class="hljs-string">'styles.active'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+    <span class="hljs-keyword">if</span> $scope.styles.active <span class="hljs-keyword">of</span> $scope.styles.sheets
+      styles = $scope.styles.sheets[$scope.styles.active]
+      <span class="hljs-keyword">if</span> styles.css
+        $scope.styles.editor = $filter(<span class="hljs-string">'prettifyCSS'</span>)($filter(<span class="hljs-string">'deSassify'</span>)(styles.css))
+      <span class="hljs-keyword">else</span>
+        $http.get<span class="hljs-function"><span class="hljs-params">(styles.source)</span>.<span class="hljs-title">then</span> <span class="hljs-params">(response)</span> -&gt;</span>
+          styles.css = response.data
+          $scope.styles.editor = $filter(<span class="hljs-string">'prettifyCSS'</span>)($filter(<span class="hljs-string">'deSassify'</span>)(styles.css))
+
+  $scope.$watch <span class="hljs-string">'styles.editor'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+   <span class="hljs-keyword">if</span> $scope.styles.sheets[$scope.styles.active]
+    $scope.styles.sheets[$scope.styles.active].css = $scope.styles.editor
+
+  $scope.$watch <span class="hljs-string">'styles.external'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">unless</span> $scope.styles.external <span class="hljs-keyword">and</span> <span class="hljs-regexp">/^(https?:\/\/)?(\w+\.)+[\w\/]+/</span>.test $scope.styles.external
+    $http.get<span class="hljs-function"><span class="hljs-params">(_.corsproxy($scope.styles.external))</span>.<span class="hljs-title">then</span> <span class="hljs-params">(response)</span> -&gt;</span>
+      i = <span class="hljs-number">0</span>
+      file_name = $scope.styles.external.match(<span class="hljs-regexp">/.+?\/(\w+)\.css/</span>)
+      name = file_name <span class="hljs-keyword">and</span> file_name[<span class="hljs-number">1</span>] <span class="hljs-keyword">or</span> <span class="hljs-string">"external"</span>
+      name = <span class="hljs-string">"external <span class="hljs-subst">#{++i}</span>"</span> <span class="hljs-keyword">while</span> name <span class="hljs-keyword">of</span> $scope.styles.sheets
+      $scope.styles.sheets[name] =
+        <span class="hljs-attribute">source</span>: $scope.styles.external
+        <span class="hljs-attribute">css</span>: response.data
+        <span class="hljs-attribute">external</span>: <span class="hljs-literal">true</span>
+        <span class="hljs-attribute">edited</span>: <span class="hljs-literal">false</span>
+      $scope.styles.active = name
+      $scope.styles.external = <span class="hljs-string">''</span>
+
+
+.directive <span class="hljs-string">'menu'</span>, <span class="hljs-function"><span class="hljs-params">($compile, $rootScope)</span> -&gt;</span>
+  <span class="hljs-attribute">scope</span>: {
+    <span class="hljs-attribute">col</span>: <span class="hljs-string">'='</span>,
+    <span class="hljs-attribute">themes</span>: <span class="hljs-string">'='</span>,
+    <span class="hljs-attribute">setTheme</span>: <span class="hljs-string">'&amp;'</span>
+  }
+  <span class="hljs-attribute">restrict</span>: <span class="hljs-string">'C'</span>
+  <span class="hljs-attribute">controller</span>: <span class="hljs-function"><span class="hljs-params">($scope)</span> -&gt;</span>
+    $scope.menuitems ||= {<span class="hljs-attribute">show</span>: <span class="hljs-literal">false</span>}
+    $scope.$<span class="hljs-literal">on</span> <span class="hljs-string">'bg_click'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+      $scope.$apply<span class="hljs-function"> -&gt;</span> $scope.menuitems.show = <span class="hljs-literal">false</span>
+
+  <span class="hljs-attribute">link</span>: <span class="hljs-function"><span class="hljs-params">(scope, elm, attrs)</span> -&gt;</span>
+    elm.children<span class="hljs-function"><span class="hljs-params">(<span class="hljs-string">'.menu-title'</span>)</span>.<span class="hljs-title">bind</span> '<span class="hljs-title">click</span>', <span class="hljs-params">(e)</span> -&gt;</span>
+      _.kill_event(e)
+      show = !scope.menuitems.show
+      $rootScope.$broadcast <span class="hljs-string">'bg_click'</span>
+      scope.$apply<span class="hljs-function"> -&gt;</span> scope.menuitems.show = show
+    menu_items = elm.children(<span class="hljs-string">'.menu-items'</span>)
+    menu_items.attr <span class="hljs-string">'ng-class'</span>, <span class="hljs-string">"{in:menuitems.show}"</span>
+    menu_items.bind <span class="hljs-string">'click'</span>, _.kill_event
+    $compile(menu_items)(scope)</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

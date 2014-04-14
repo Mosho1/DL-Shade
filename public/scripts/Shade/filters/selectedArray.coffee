@@ -1,3 +1,7 @@
+#SelectedArray filter
+#=====
+#Takes an array of elements and returns a formatted string.
+#-------
 angular.module("ShadeApp")
 
 .filter "selectedArray", ->

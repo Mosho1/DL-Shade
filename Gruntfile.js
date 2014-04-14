@@ -79,6 +79,12 @@ module.exports = function(grunt) {
             }
         },
 
+        docco: {
+            all: {
+                src: ['public/scripts/graph-dev/*.js', 'public/scripts/Shade/**/*.coffee', 'public/scripts/Editor/**/*.coffee']
+            }
+        },
+
         watch: {
             browserify1: {
                 files: ['public/scripts/Shade/shadeCompiler/*.js'],
@@ -111,7 +117,13 @@ module.exports = function(grunt) {
             uglify2: {
                 files: ['public/dist/js/script.js'],
                 tasks: ['uglify:set2']
-            }
+            },
+            docco: {
+                files: ['<%= docco.all.src %>'],
+                tasks: ['newer:docco:all']
+            },
+
+
         },
         concurrent: {
             options: {
@@ -156,6 +168,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-express-server');
+    grunt.loadNpmTasks('grunt-newer');
+    grunt.loadNpmTasks('grunt-docco-multi');
 
     grunt.registerTask('default', ['browserify', 'concat']);
     grunt.registerTask('all', ['browserify', 'concat', 'uglify']);
@@ -163,5 +177,6 @@ module.exports = function(grunt) {
     grunt.registerTask('test', ['jasmine_node']);
     grunt.registerTask('wat', ['concurrent:watch']);
     grunt.registerTask('serve', ['express:dev']);
+    grunt.registerTask('docs', ['newer:docco:all']);
 
 };
