@@ -118,7 +118,7 @@ var that = {},
         }
     },
 
-    modes = ['ColWidth', 'RowHeight', 'Span', 'Rows', 'Cols', 'Xy', 'CSpan'];
+    modes = ['ColWidth', 'RowHeight', 'Span', 'Rows', 'Cols', 'CSpan', 'Xy'];
 
 module.exports = function (grid) {
 

@@ -70,13 +70,6 @@ process.browser = true;
 process.env = {};
 process.argv = [];
 
-function noop() {}
-
-process.on = noop;
-process.once = noop;
-process.off = noop;
-process.emit = noop;
-
 process.binding = function (name) {
     throw new Error('process.binding is not supported');
 }
@@ -314,8 +307,8 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-}).call(this,require("c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
-},{"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3}],5:[function(require,module,exports){
+}).call(this,require("c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
+},{"c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3}],5:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
@@ -911,8 +904,8 @@ function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-}).call(this,require("c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":5,"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3,"inherits":2}],7:[function(require,module,exports){
+}).call(this,require("c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./support/isBuffer":5,"c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3,"inherits":2}],7:[function(require,module,exports){
 var ScopeManager = require('./scope-manager').ScopeManager,
     f = require("util").format,
     functions = require('./functions'); //Built-in functions
@@ -2677,8 +2670,62 @@ if (typeof require !== 'undefined' && typeof exports !== 'undefined') {
         exports.main(process.argv.slice(1));
     }
 }
+<<<<<<< HEAD
 }).call(this,require("c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
 },{"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3,"fs":1,"path":4}],18:[function(require,module,exports){
+=======
+}).call(this,require("c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
+},{"c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3,"fs":1,"path":4}],18:[function(require,module,exports){
+
+var Rewriter = function() {
+    this.initialise.apply(this, arguments);
+};
+Rewriter.prototype = {
+
+    initialise: function(tokens)
+    {
+        _.bindAll(this);
+        this.tokens = tokens;
+    },
+
+    rewrite: function()
+    {
+        this.newTokens = _.filter(this.tokens, this.rewriteToken);
+
+        return this.newTokens;
+    },
+
+    rewriteToken: function(token, index)
+    {
+        if (token[0] == "{") {
+            this.markForRemoval("TERMINATOR", token[2]);
+        }
+
+        if (token.length === 4 && token[3] === false) {
+            return false;
+        }
+
+        return true;
+    },
+
+    markForRemoval: function(name, lineNo)
+    {
+        _.each(this.tokens, function(token, i) {
+            if (token[0] == name && token[2] == lineNo) {
+                this.tokens[i][3] = false;
+            }
+        }, this);
+    }
+
+};
+
+exports.rewrite = function(tokens)
+{
+    var rewriter = new Rewriter(tokens);
+    return rewriter.rewrite();
+}
+},{}],19:[function(require,module,exports){
+>>>>>>> df63bbdad4bc749be287e539bb4d038d8a4b4c1c
 (function (process){
 
 
@@ -2862,8 +2909,13 @@ Scope.prototype = {
 };
 
 exports.ScopeManager = ScopeManager;
+<<<<<<< HEAD
 }).call(this,require("c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
 },{"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3}],19:[function(require,module,exports){
+=======
+}).call(this,require("c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
+},{"c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3}],20:[function(require,module,exports){
+>>>>>>> df63bbdad4bc749be287e539bb4d038d8a4b4c1c
 // Generated by CoffeeScript 1.7.1
 (function() {
   module.exports = {
@@ -3343,7 +3395,7 @@ var that = {},
         }
     },
 
-    modes = ['ColWidth', 'RowHeight', 'Span', 'Rows', 'Cols', 'Xy', 'CSpan'];
+    modes = ['ColWidth', 'RowHeight', 'Span', 'Rows', 'Cols', 'CSpan', 'Xy'];
 
 module.exports = function (grid) {
 
@@ -3376,35 +3428,6 @@ module.exports.test = {
     handleMode: handleMode
 };
 },{}],3:[function(require,module,exports){
-module.exports = function (styles) {
-
-    var that = this;
-    //parses styles. A bit messy, but gets the job done concisely and shouldn't be too hard to follow with the comments.
-    var parsedStyles = styles.replace(/[^!-~]/g, "") //remove unneeded characters
-        .split('}') //split lines into array
-        .map(function (elm) {
-            return elm.split('{');
-        }) //split each line into an array: [name,styles]
-        .map(function (elm) {
-            if (elm[1]) { //if element has styles
-                return [elm[0], (elm[1].split(';')//split styles into an array: ["styleName:styleValue" x <number of styles>]
-                    .map(function (elm) {
-                        return elm.split(':');
-                    }) //split each "styleName:styleValue" pair into an array [styleName,styleValue]
-                    .reduce(function (obj, val, ind) { //reduce the style array into an object where each style is a field.
-                        obj[val[0]] = val[1]; // obj = {styleName: styleValue}
-                        return obj;
-                    }, {})
-                    )];
-            }
-        })
-        .filter(function (elm) {return elm; }) //remove garbage (undefined or otherwise falsey elements)
-        .forEach(function (elm) { //for each of the parsed and organized classes
-            var styles = _.reduce(elm[1], that.handleStyles, ''); //parse the styles using our handlers
-            that.addStyles(elm[0], styles); //add styles to string to be added to the HTML output
-        });
-}
-},{}],4:[function(require,module,exports){
 angular.module('ShadeServices', [])
 
     .service('ShadeHandlers', function (ShadeElements, ShadeStyles) {
@@ -3556,7 +3579,7 @@ angular.module('ShadeServices', [])
         };
 
         this.nodeHandlers = {
-            Styles: require('./Styles').bind(that),
+            Styles: that.addStyles,
 
             Node: function (node) {
 
@@ -3651,29 +3674,40 @@ angular.module('ShadeServices', [])
             styleValues = ShadeStaticHandlers.styleValueHandlers,
             gstyles = "";
 
+        var translateStyle = function(style, value) {
+            var styleTranslation, type, ret = '';
+            if (value && styleNames.hasOwnProperty(style)) {
+
+                ret += (styleNames[style] || style) + ': ';
+
+                type = typeof (styleTranslation = (styleValues[value] || styleValues[style]));
+
+                var typeHandlers = {
+                    undefined: function(value) { return value.toLowerCase()},
+                    function: function(value) { return styleTranslation(value)},
+                    other: function() {return styleTranslation;}
+                }
+
+                ret += (typeHandlers[type] || typeHandlers.other)(value) + " !important;";
+
+            }
+            return ret;
+        }
+
         this.addStyles = function (className, styles) {
-            if (className && styles) {
+            if (_.isString(className) && _.isString(styles)) {
                 gstyles += "." + className + " { " + styles + "}\n";
+            } else { //in case there's only 1 argument, it's a string of styles.
+                var parsedStyles = className.replace(/\s/g, '').replace(/(\w+):(\w+)/g, function (match, p1, p2) {
+                    return translateStyle(p1, p2);
+                });
+                gstyles += parsedStyles + "\n";
             }
         };
 
+
         this.handleStyles = function (styles, value, style) {
-            var stval, type;
-            if (value && styleNames.hasOwnProperty(style)) {
-                styles += (styleNames[style] || style) + ': ';
-                type = typeof (stval = (styleValues[value] || styleValues[style]));
-                if (type === 'undefined') {
-                    styles += value.toLowerCase();
-                } else if (type === 'function') {
-                    styles += stval(value);
-                } else {
-                    styles += stval;
-                }
-                styles += " !important;";
-            }
-
-            return styles;
-
+            return styles + translateStyle(style, value)
         };
 
         this.getStyles = function () {
@@ -3685,6 +3719,7 @@ angular.module('ShadeServices', [])
         };
 
         return this;
+
     })
 
     //creates an object describing an HTML page's element hierarchy.
@@ -3760,7 +3795,7 @@ angular.module('ShadeServices', [])
 
     })
 
-},{"./DropDown":1,"./Grid":2,"./Styles":3}]},{},[4]);// Generated by CoffeeScript 1.7.1
+},{"./DropDown":1,"./Grid":2}]},{},[3]);// Generated by CoffeeScript 1.7.1
 (function() {
   angular.module('ShadeApp', ['ShadeServices', 'ngGrid', 'mgcrea.ngStrap.popover', 'ui.bootstrap']);
 

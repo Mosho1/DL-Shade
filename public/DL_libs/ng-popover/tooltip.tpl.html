@@ -1,6 +1,43 @@
-Object.defineProperty(String.prototype, "contains", {
-    get: function myProperty() {
-        return (function {
-			console.log(this);
-    }).bind(this);
-});
+/* description: Parses end executes mathematical expressions. */
+
+/* lexical grammar */
+%lex
+%%
+
+(\$|[a-z])([a-z0-9_$])* return 'IDENTIFIER'
+if|else                 return 'SYNTAX'
+<<EOF>>                 return 'EOF'
+.                       return 'JUNK'
+
+/lex
+
+/* operator associations and precedence */
+
+
+%start program
+
+%% /* language grammar */
+
+program
+    : EOF
+        {  }
+    | body EOF
+        {  console.log('body EOF is ' + $1); return $1; }
+    ;
+
+body
+    : expr
+        { $$ = $1; console.log('expr is ' + $$) }
+    | body expr
+        { $$ = $1 + $2; console.log('body expr is ' + $$) }
+    ;
+
+
+expr
+    : SYNTAX 
+        { $$ = $1; console.log('SYNTAX is ' + $$) }
+    | IDENTIFIER 
+        { $$ = yy.replace($1) }
+    | JUNK
+        { $$ = $1; console.log('JUNK is ' + $$) }
+    ;
