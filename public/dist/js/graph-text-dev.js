@@ -70,6 +70,13 @@ process.browser = true;
 process.env = {};
 process.argv = [];
 
+function noop() {}
+
+process.on = noop;
+process.once = noop;
+process.off = noop;
+process.emit = noop;
+
 process.binding = function (name) {
     throw new Error('process.binding is not supported');
 }
@@ -307,8 +314,8 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-}).call(this,require("c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
-},{"c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3}],5:[function(require,module,exports){
+}).call(this,require("c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
+},{"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3}],5:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
@@ -904,8 +911,8 @@ function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-}).call(this,require("c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":5,"c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3,"inherits":2}],7:[function(require,module,exports){
+}).call(this,require("c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./support/isBuffer":5,"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3,"inherits":2}],7:[function(require,module,exports){
 var ScopeManager = require('./scope-manager').ScopeManager,
     f = require("util").format,
     functions = require('./functions'); //Built-in functions
@@ -2670,62 +2677,8 @@ if (typeof require !== 'undefined' && typeof exports !== 'undefined') {
         exports.main(process.argv.slice(1));
     }
 }
-<<<<<<< HEAD
 }).call(this,require("c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
 },{"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3,"fs":1,"path":4}],18:[function(require,module,exports){
-=======
-}).call(this,require("c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
-},{"c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3,"fs":1,"path":4}],18:[function(require,module,exports){
-
-var Rewriter = function() {
-    this.initialise.apply(this, arguments);
-};
-Rewriter.prototype = {
-
-    initialise: function(tokens)
-    {
-        _.bindAll(this);
-        this.tokens = tokens;
-    },
-
-    rewrite: function()
-    {
-        this.newTokens = _.filter(this.tokens, this.rewriteToken);
-
-        return this.newTokens;
-    },
-
-    rewriteToken: function(token, index)
-    {
-        if (token[0] == "{") {
-            this.markForRemoval("TERMINATOR", token[2]);
-        }
-
-        if (token.length === 4 && token[3] === false) {
-            return false;
-        }
-
-        return true;
-    },
-
-    markForRemoval: function(name, lineNo)
-    {
-        _.each(this.tokens, function(token, i) {
-            if (token[0] == name && token[2] == lineNo) {
-                this.tokens[i][3] = false;
-            }
-        }, this);
-    }
-
-};
-
-exports.rewrite = function(tokens)
-{
-    var rewriter = new Rewriter(tokens);
-    return rewriter.rewrite();
-}
-},{}],19:[function(require,module,exports){
->>>>>>> df63bbdad4bc749be287e539bb4d038d8a4b4c1c
 (function (process){
 
 
@@ -2909,13 +2862,8 @@ Scope.prototype = {
 };
 
 exports.ScopeManager = ScopeManager;
-<<<<<<< HEAD
 }).call(this,require("c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
 },{"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3}],19:[function(require,module,exports){
-=======
-}).call(this,require("c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
-},{"c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3}],20:[function(require,module,exports){
->>>>>>> df63bbdad4bc749be287e539bb4d038d8a4b4c1c
 // Generated by CoffeeScript 1.7.1
 (function() {
   module.exports = {

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-<testsuite name="VariableEntry" errors="0" tests="7" failures="0" time="0.002" timestamp="2014-04-15T18:05:12">
-  <testcase classname="VariableEntry" name="should create an empty entry" time="0"></testcase>
-  <testcase classname="VariableEntry" name="should create an entry" time="0.001"></testcase>
+<testsuite name="VariableEntry" errors="0" tests="7" failures="0" time="0.002" timestamp="2014-04-15T19:10:47">
+  <testcase classname="VariableEntry" name="should create an empty entry" time="0.001"></testcase>
+  <testcase classname="VariableEntry" name="should create an entry" time="0"></testcase>
   <testcase classname="VariableEntry" name="should set, get, and unset entry value" time="0"></testcase>
-  <testcase classname="VariableEntry" name="should concatenate two entries" time="0"></testcase>
+  <testcase classname="VariableEntry" name="should concatenate two entries" time="0.001"></testcase>
   <testcase classname="VariableEntry" name="should set, get, and unset entry value" time="0"></testcase>
   <testcase classname="VariableEntry" name="should concatenate two entries" time="0"></testcase>
   <testcase classname="VariableEntry" name="should leave entry unchanged by concatenating a blank entry" time="0"></testcase>

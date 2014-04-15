@@ -70,6 +70,13 @@ process.browser = true;
 process.env = {};
 process.argv = [];
 
+function noop() {}
+
+process.on = noop;
+process.once = noop;
+process.off = noop;
+process.emit = noop;
+
 process.binding = function (name) {
     throw new Error('process.binding is not supported');
 }
@@ -307,8 +314,8 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-}).call(this,require("c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
-},{"c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3}],5:[function(require,module,exports){
+}).call(this,require("c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
+},{"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3}],5:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
@@ -904,8 +911,8 @@ function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-}).call(this,require("c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":5,"c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3,"inherits":2}],7:[function(require,module,exports){
+}).call(this,require("c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./support/isBuffer":5,"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3,"inherits":2}],7:[function(require,module,exports){
 var ScopeManager = require('./scope-manager').ScopeManager,
     f = require("util").format,
     functions = require('./functions'); //Built-in functions
@@ -2670,62 +2677,8 @@ if (typeof require !== 'undefined' && typeof exports !== 'undefined') {
         exports.main(process.argv.slice(1));
     }
 }
-<<<<<<< HEAD
 }).call(this,require("c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
 },{"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3,"fs":1,"path":4}],18:[function(require,module,exports){
-=======
-}).call(this,require("c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
-},{"c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3,"fs":1,"path":4}],18:[function(require,module,exports){
-
-var Rewriter = function() {
-    this.initialise.apply(this, arguments);
-};
-Rewriter.prototype = {
-
-    initialise: function(tokens)
-    {
-        _.bindAll(this);
-        this.tokens = tokens;
-    },
-
-    rewrite: function()
-    {
-        this.newTokens = _.filter(this.tokens, this.rewriteToken);
-
-        return this.newTokens;
-    },
-
-    rewriteToken: function(token, index)
-    {
-        if (token[0] == "{") {
-            this.markForRemoval("TERMINATOR", token[2]);
-        }
-
-        if (token.length === 4 && token[3] === false) {
-            return false;
-        }
-
-        return true;
-    },
-
-    markForRemoval: function(name, lineNo)
-    {
-        _.each(this.tokens, function(token, i) {
-            if (token[0] == name && token[2] == lineNo) {
-                this.tokens[i][3] = false;
-            }
-        }, this);
-    }
-
-};
-
-exports.rewrite = function(tokens)
-{
-    var rewriter = new Rewriter(tokens);
-    return rewriter.rewrite();
-}
-},{}],19:[function(require,module,exports){
->>>>>>> df63bbdad4bc749be287e539bb4d038d8a4b4c1c
 (function (process){
 
 
@@ -2909,13 +2862,8 @@ Scope.prototype = {
 };
 
 exports.ScopeManager = ScopeManager;
-<<<<<<< HEAD
 }).call(this,require("c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
 },{"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3}],19:[function(require,module,exports){
-=======
-}).call(this,require("c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
-},{"c:\\Users\\Mosho\\Documents\\GitHub\\DL-Shade2\\DL-Shade\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3}],20:[function(require,module,exports){
->>>>>>> df63bbdad4bc749be287e539bb4d038d8a4b4c1c
 // Generated by CoffeeScript 1.7.1
 (function() {
   module.exports = {
@@ -3802,6 +3750,83 @@ angular.module('ShadeServices', [])
 }).call(this);
 ;// Generated by CoffeeScript 1.7.1
 (function() {
+  angular.module('ShadeApp').directive('format', function(format) {
+    return {
+      restrict: 'A',
+      require: '?ngModel',
+      link: {
+        pre: function(scope, elm, attr, ngModel) {
+          var formatStr;
+          formatStr = attr.format;
+          if (angular.isDefined(ngModel)) {
+            ngModel.$formatters.push(function(value) {
+              if (angular.isNumber(value)) {
+                return value = format(value, formatStr);
+              }
+            });
+            ngModel.$parsers.unshift(function(value) {
+              if (isNaN(value)) {
+                value = ngModel.$modelValue;
+              }
+              return +value;
+            });
+            return elm.on('blur', function() {
+              if (isNaN(elm.val())) {
+                return elm.val(format(+ngModel.$modelValue, formatStr));
+              } else {
+                return elm.val(format(+elm.val(), formatStr));
+              }
+            });
+          }
+        }
+      }
+    };
+  }).directive('vActiveTabIndex', function() {
+    return {
+      restrict: 'A',
+      link: function(scope, elm, attr) {
+        scope.vactive = attr.vActiveTabIndex;
+        scope.$watch('vars[vactive].model', function(vactive) {
+          vactive = Number(vactive);
+          if (angular.isDefined(scope.tabs[vactive])) {
+            return _.each(scope.tabs, function(tab, ind) {
+              tab.active = false;
+              if (ind === vactive) {
+                return tab.active = true;
+              }
+            });
+          }
+        });
+        return scope.$watch('active', function(active) {
+          return scope.vars[scope.vactive].model = active;
+        });
+      }
+    };
+  }).directive('vSub', function($compile, shadeData, shadeTemplate, x2js) {
+    return {
+      restrict: 'A',
+      link: function(scope, elm, attr) {
+        scope.vSub = attr.vSub;
+        return scope.$watch('vSub', function() {
+          var body, content, shadeNode;
+          shadeNode = shadeData.getElementById(attr.shdId);
+          shadeNode.Sub.Node.push((x2js.xml2json(scope.vars[scope.vSub].model)).Node);
+          content = shadeTemplate.toHTML({
+            Shade: {
+              Node: shadeNode
+            }
+          });
+          body = angular.element(content.body);
+          elm.html(body.html());
+          return $compile(elm.contents())(scope);
+        });
+      }
+    };
+  });
+
+}).call(this);
+;// Generated by CoffeeScript 1.7.1
+(function() {
   angular.module('ShadeApp').directive('shdButton', function($compile, $timeout, $templateCache) {
     return {
       restrict: 'E',
@@ -3937,42 +3962,6 @@ angular.module('ShadeServices', [])
 }).call(this);
 ;// Generated by CoffeeScript 1.7.1
 (function() {
-  angular.module('ShadeApp').directive('format', function(format) {
-    return {
-      restrict: 'A',
-      require: '?ngModel',
-      link: {
-        pre: function(scope, elm, attr, ngModel) {
-          var formatStr;
-          formatStr = attr.format;
-          if (angular.isDefined(ngModel)) {
-            ngModel.$formatters.push(function(value) {
-              if (angular.isNumber(value)) {
-                return value = format(value, formatStr);
-              }
-            });
-            ngModel.$parsers.unshift(function(value) {
-              if (isNaN(value)) {
-                value = ngModel.$modelValue;
-              }
-              return +value;
-            });
-            return elm.on('blur', function() {
-              if (isNaN(elm.val())) {
-                return elm.val(format(+ngModel.$modelValue, formatStr));
-              } else {
-                return elm.val(format(+elm.val(), formatStr));
-              }
-            });
-          }
-        }
-      }
-    };
-  });
-
-}).call(this);
-;// Generated by CoffeeScript 1.7.1
-(function() {
   angular.module('ShadeApp').directive('numUpDown', function($timeout, format) {
     return {
       restrict: 'E',
@@ -4048,26 +4037,6 @@ angular.module('ShadeServices', [])
         $rootScope.$on('Run', this.render);
       }
     };
-  }).directive('vSub', function($compile, shadeData, shadeTemplate, x2js) {
-    return {
-      restrict: 'A',
-      link: function(scope, elm, attr) {
-        scope.vSub = attr.vSub;
-        return scope.$watch('vSub', function() {
-          var body, content, shadeNode;
-          shadeNode = shadeData.getElementById(attr.shdId);
-          shadeNode.Sub.Node.push((x2js.xml2json(scope.vars[scope.vSub].model)).Node);
-          content = shadeTemplate.toHTML({
-            Shade: {
-              Node: shadeNode
-            }
-          });
-          body = angular.element(content.body);
-          elm.html(body.html());
-          return $compile(elm.contents())(scope);
-        });
-      }
-    };
   }).directive('prettyPrintPanel', function($filter, shadeTemplate) {
     return {
       restrict: 'A',
@@ -4119,39 +4088,13 @@ angular.module('ShadeServices', [])
         scope.vText = attr.vText;
         if (angular.isDefined(ngModel)) {
           return ngModel.$render = function() {
-            return $http.head(ngModel.$modelValue || 'default').success(function() {
+            return $http.head(ngModel.$modelValue).success(function() {
               return elm.attr('src', ngModel.$modelValue);
             }).error(function() {
               return elm.attr('src', scope.src);
             });
           };
         }
-      }
-    };
-  });
-
-}).call(this);
-;// Generated by CoffeeScript 1.7.1
-(function() {
-  angular.module('ShadeApp').directive('vActiveTabIndex', function() {
-    return {
-      restrict: 'A',
-      link: function(scope, elm, attr) {
-        scope.vactive = attr.vActiveTabIndex;
-        scope.$watch('vars[vactive].model', function(vactive) {
-          vactive = Number(vactive);
-          if (angular.isDefined(scope.tabs[vactive])) {
-            return _.each(scope.tabs, function(tab, ind) {
-              tab.active = false;
-              if (ind === vactive) {
-                return tab.active = true;
-              }
-            });
-          }
-        });
-        return scope.$watch('active', function(active) {
-          return scope.vars[scope.vactive].model = active;
-        });
       }
     };
   });
@@ -4227,7 +4170,23 @@ angular.module('ShadeServices', [])
 }).call(this);
 ;// Generated by CoffeeScript 1.7.1
 (function() {
-
+  angular.module('ShadeApp').factory('vTextProvider', function() {
+    return function(template) {
+      this.restrict = 'ACE';
+      this.transclude = !!template.match('ng-transclude');
+      this.replace = true;
+      this.scope = true;
+      this.template = template.replace(/\/?>/, function(match) {
+        return ' ng-model="vars[vText].model" ' + match;
+      });
+      this.link = function(scope, elm, attr) {
+        scope.vText = attr.vText;
+        if (attr.label) {
+          return elm.after('<span>' + attr.label + '</span>');
+        }
+      };
+    };
+  });
 
 }).call(this);
 ;// Generated by CoffeeScript 1.7.1
@@ -4349,7 +4308,7 @@ angular.module('ShadeServices', [])
       _.templateSettings.variable = "shd";
       return template = _.template(data);
     }).error(function() {
-      return console.log("could not retrieve shade template");
+      return console.log("Could not retrieve shade template");
     });
     this.toHTML = function(shade) {
       var parsed;

@@ -73,7 +73,7 @@ var NodeHandlers = {
                 args.push(this.compileNode(arg));
             }, this);
         }
-        return f("%s(%s)", node.name.join("."), args.join(", "));
+        return f("%s(%s)", node.name[0].join("."), args.join(", "));
     },
 
     // true|false

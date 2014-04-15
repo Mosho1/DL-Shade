@@ -187,6 +187,6 @@ module.exports = function(grunt) {
     grunt.registerTask('test', ['jasmine_node']);
     grunt.registerTask('wat', ['concurrent:watch']);
     grunt.registerTask('serve', ['express:dev']);
-    grunt.registerTask('docs', ['newer:docco:all']);
+    grunt.registerTask('docs', ['docco:all']);
 
 };
