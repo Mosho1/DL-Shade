@@ -188,7 +188,7 @@ var that = {},
         }
     },
 
-    modes = ['ColWidth', 'RowHeight', 'Span', 'Rows', 'Cols', 'Xy', 'CSpan'];
+    modes = ['ColWidth', 'RowHeight', 'Span', 'Rows', 'Cols', 'CSpan', 'Xy'];
 
 module.exports = function (grid) {
 
@@ -221,35 +221,6 @@ module.exports.test = {
     handleMode: handleMode
 };
 },{}],3:[function(require,module,exports){
-module.exports = function (styles) {
-
-    var that = this;
-    //parses styles. A bit messy, but gets the job done concisely and shouldn't be too hard to follow with the comments.
-    var parsedStyles = styles.replace(/[^!-~]/g, "") //remove unneeded characters
-        .split('}') //split lines into array
-        .map(function (elm) {
-            return elm.split('{');
-        }) //split each line into an array: [name,styles]
-        .map(function (elm) {
-            if (elm[1]) { //if element has styles
-                return [elm[0], (elm[1].split(';')//split styles into an array: ["styleName:styleValue" x <number of styles>]
-                    .map(function (elm) {
-                        return elm.split(':');
-                    }) //split each "styleName:styleValue" pair into an array [styleName,styleValue]
-                    .reduce(function (obj, val, ind) { //reduce the style array into an object where each style is a field.
-                        obj[val[0]] = val[1]; // obj = {styleName: styleValue}
-                        return obj;
-                    }, {})
-                    )];
-            }
-        })
-        .filter(function (elm) {return elm; }) //remove garbage (undefined or otherwise falsey elements)
-        .forEach(function (elm) { //for each of the parsed and organized classes
-            var styles = _.reduce(elm[1], that.handleStyles, ''); //parse the styles using our handlers
-            that.addStyles(elm[0], styles); //add styles to string to be added to the HTML output
-        });
-}
-},{}],4:[function(require,module,exports){
 angular.module('ShadeServices', [])
 
     .service('ShadeHandlers', function (ShadeElements, ShadeStyles) {
@@ -401,7 +372,7 @@ angular.module('ShadeServices', [])
         };
 
         this.nodeHandlers = {
-            Styles: require('./Styles').bind(that),
+            Styles: that.addStyles,
 
             Node: function (node) {
 
@@ -496,29 +467,40 @@ angular.module('ShadeServices', [])
             styleValues = ShadeStaticHandlers.styleValueHandlers,
             gstyles = "";
 
+        var translateStyle = function(style, value) {
+            var styleTranslation, type, ret = '';
+            if (value && styleNames.hasOwnProperty(style)) {
+
+                ret += (styleNames[style] || style) + ': ';
+
+                type = typeof (styleTranslation = (styleValues[value] || styleValues[style]));
+
+                var typeHandlers = {
+                    undefined: function(value) { return value.toLowerCase()},
+                    function: function(value) { return styleTranslation(value)},
+                    other: function() {return styleTranslation;}
+                }
+
+                ret += (typeHandlers[type] || typeHandlers.other)(value) + " !important;";
+
+            }
+            return ret;
+        }
+
         this.addStyles = function (className, styles) {
-            if (className && styles) {
+            if (_.isString(className) && _.isString(styles)) {
                 gstyles += "." + className + " { " + styles + "}\n";
+            } else { //in case there's only 1 argument, it's a string of styles.
+                var parsedStyles = className.replace(/\s/g, '').replace(/(\w+):(\w+)/g, function (match, p1, p2) {
+                    return translateStyle(p1, p2);
+                });
+                gstyles += parsedStyles + "\n";
             }
         };
 
+
         this.handleStyles = function (styles, value, style) {
-            var stval, type;
-            if (value && styleNames.hasOwnProperty(style)) {
-                styles += (styleNames[style] || style) + ': ';
-                type = typeof (stval = (styleValues[value] || styleValues[style]));
-                if (type === 'undefined') {
-                    styles += value.toLowerCase();
-                } else if (type === 'function') {
-                    styles += stval(value);
-                } else {
-                    styles += stval;
-                }
-                styles += " !important;";
-            }
-
-            return styles;
-
+            return styles + translateStyle(style, value)
         };
 
         this.getStyles = function () {
@@ -530,6 +512,7 @@ angular.module('ShadeServices', [])
         };
 
         return this;
+
     })
 
     //creates an object describing an HTML page's element hierarchy.
@@ -605,4 +588,4 @@ angular.module('ShadeServices', [])
 
     })
 
-},{"./DropDown":1,"./Grid":2,"./Styles":3}]},{},[4])
+},{"./DropDown":1,"./Grid":2}]},{},[3])
