@@ -7,7 +7,7 @@
       _.templateSettings.variable = "shd";
       return template = _.template(data);
     }).error(function() {
-      return console.log("could not retrieve shade template");
+      return console.log("Could not retrieve shade template");
     });
     this.toHTML = function(shade) {
       var parsed;

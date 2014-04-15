@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>functions.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="app.html">
+                app.coffee
+              </a>
+            
+              
+              <a class="source" href="DLCtrl.html">
+                DLCtrl.coffee
+              </a>
+            
+              
+              <a class="source" href="editor.html">
+                editor.coffee
+              </a>
+            
+              
+              <a class="source" href="render_graph.html">
+                render_graph.coffee
+              </a>
+            
+              
+              <a class="source" href="split-panel.html">
+                split-panel.coffee
+              </a>
+            
+              
+              <a class="source" href="code_filters.html">
+                code_filters.coffee
+              </a>
+            
+              
+              <a class="source" href="graph-text.html">
+                graph-text.coffee
+              </a>
+            
+              
+              <a class="source" href="x2js.html">
+                x2js.coffee
+              </a>
+            
+              
+              <a class="source" href="attributes.html">
+                attributes.coffee
+              </a>
+            
+              
+              <a class="source" href="button.html">
+                button.coffee
+              </a>
+            
+              
+              <a class="source" href="dropDown.html">
+                dropDown.coffee
+              </a>
+            
+              
+              <a class="source" href="numUpDown.html">
+                numUpDown.coffee
+              </a>
+            
+              
+              <a class="source" href="renderPanel.html">
+                renderPanel.coffee
+              </a>
+            
+              
+              <a class="source" href="shdImage.html">
+                shdImage.coffee
+              </a>
+            
+              
+              <a class="source" href="vText.html">
+                vText.coffee
+              </a>
+            
+              
+              <a class="source" href="ngGridPlugin.html">
+                ngGridPlugin.coffee
+              </a>
+            
+              
+              <a class="source" href="vTextProvider.html">
+                vTextProvider.coffee
+              </a>
+            
+              
+              <a class="source" href="selectedArray.html">
+                selectedArray.coffee
+              </a>
+            
+              
+              <a class="source" href="format.html">
+                format.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeData.html">
+                shadeData.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeDictionary.html">
+                shadeDictionary.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeTemplate.html">
+                shadeTemplate.coffee
+              </a>
+            
+              
+              <a class="source" href="shade_module.html">
+                shade_module.coffee
+              </a>
+            
+              
+              <a class="source" href="ast-validator.html">
+                ast-validator.js
+              </a>
+            
+              
+              <a class="source" href="calc-handlers.html">
+                calc-handlers.js
+              </a>
+            
+              
+              <a class="source" href="calculator.html">
+                calculator.js
+              </a>
+            
+              
+              <a class="source" href="compiler.html">
+                compiler.js
+              </a>
+            
+              
+              <a class="source" href="functions.html">
+                functions.js
+              </a>
+            
+              
+              <a class="source" href="graph-text.html">
+                graph-text.js
+              </a>
+            
+              
+              <a class="source" href="js-compiler.html">
+                js-compiler.js
+              </a>
+            
+              
+              <a class="source" href="lexer.html">
+                lexer.js
+              </a>
+            
+              
+              <a class="source" href="node-handlers.html">
+                node-handlers.js
+              </a>
+            
+              
+              <a class="source" href="nodes.html">
+                nodes.js
+              </a>
+            
+              
+              <a class="source" href="parser.html">
+                parser.js
+              </a>
+            
+              
+              <a class="source" href="rewriter.html">
+                rewriter.js
+              </a>
+            
+              
+              <a class="source" href="scope-manager.html">
+                scope-manager.js
+              </a>
+            
+              
+              <a class="source" href="tools.html">
+                tools.js
+              </a>
+            
+              
+              <a class="source" href="variable-registry.html">
+                variable-registry.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>functions.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿
+<span class="hljs-keyword">var</span> f = {
+    a2l: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(arr, delim)</span> {</span>
+        <span class="hljs-keyword">return</span> arr.join(delim);
+    },
+
+    abs: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(num)</span> {</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.abs(num);
+    },
+
+    avg: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+        <span class="hljs-keyword">var</span> i, avg = <span class="hljs-number">0</span>, num = <span class="hljs-number">0</span>, len = <span class="hljs-built_in">arguments</span>.length;
+        <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">arguments</span>.length; i++) {
+            num = <span class="hljs-built_in">Number</span>(<span class="hljs-built_in">arguments</span>[i]);
+            !<span class="hljs-built_in">isNaN</span>(num) ? avg += num : len--;
+        }
+        <span class="hljs-keyword">return</span> avg / len;
+    }
+}
+
+
+
+
+module.exports = f;</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

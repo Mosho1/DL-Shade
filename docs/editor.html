@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>editor.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="app.html">
+                app.coffee
+              </a>
+            
+              
+              <a class="source" href="DLCtrl.html">
+                DLCtrl.coffee
+              </a>
+            
+              
+              <a class="source" href="editor.html">
+                editor.coffee
+              </a>
+            
+              
+              <a class="source" href="render_graph.html">
+                render_graph.coffee
+              </a>
+            
+              
+              <a class="source" href="split-panel.html">
+                split-panel.coffee
+              </a>
+            
+              
+              <a class="source" href="code_filters.html">
+                code_filters.coffee
+              </a>
+            
+              
+              <a class="source" href="graph-text.html">
+                graph-text.coffee
+              </a>
+            
+              
+              <a class="source" href="x2js.html">
+                x2js.coffee
+              </a>
+            
+              
+              <a class="source" href="attributes.html">
+                attributes.coffee
+              </a>
+            
+              
+              <a class="source" href="button.html">
+                button.coffee
+              </a>
+            
+              
+              <a class="source" href="dropDown.html">
+                dropDown.coffee
+              </a>
+            
+              
+              <a class="source" href="numUpDown.html">
+                numUpDown.coffee
+              </a>
+            
+              
+              <a class="source" href="renderPanel.html">
+                renderPanel.coffee
+              </a>
+            
+              
+              <a class="source" href="shdImage.html">
+                shdImage.coffee
+              </a>
+            
+              
+              <a class="source" href="vText.html">
+                vText.coffee
+              </a>
+            
+              
+              <a class="source" href="ngGridPlugin.html">
+                ngGridPlugin.coffee
+              </a>
+            
+              
+              <a class="source" href="vTextProvider.html">
+                vTextProvider.coffee
+              </a>
+            
+              
+              <a class="source" href="selectedArray.html">
+                selectedArray.coffee
+              </a>
+            
+              
+              <a class="source" href="format.html">
+                format.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeData.html">
+                shadeData.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeDictionary.html">
+                shadeDictionary.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeTemplate.html">
+                shadeTemplate.coffee
+              </a>
+            
+              
+              <a class="source" href="shade_module.html">
+                shade_module.coffee
+              </a>
+            
+              
+              <a class="source" href="ast-validator.html">
+                ast-validator.js
+              </a>
+            
+              
+              <a class="source" href="calc-handlers.html">
+                calc-handlers.js
+              </a>
+            
+              
+              <a class="source" href="calculator.html">
+                calculator.js
+              </a>
+            
+              
+              <a class="source" href="compiler.html">
+                compiler.js
+              </a>
+            
+              
+              <a class="source" href="functions.html">
+                functions.js
+              </a>
+            
+              
+              <a class="source" href="graph-text.html">
+                graph-text.js
+              </a>
+            
+              
+              <a class="source" href="js-compiler.html">
+                js-compiler.js
+              </a>
+            
+              
+              <a class="source" href="lexer.html">
+                lexer.js
+              </a>
+            
+              
+              <a class="source" href="node-handlers.html">
+                node-handlers.js
+              </a>
+            
+              
+              <a class="source" href="nodes.html">
+                nodes.js
+              </a>
+            
+              
+              <a class="source" href="parser.html">
+                parser.js
+              </a>
+            
+              
+              <a class="source" href="rewriter.html">
+                rewriter.js
+              </a>
+            
+              
+              <a class="source" href="scope-manager.html">
+                scope-manager.js
+              </a>
+            
+              
+              <a class="source" href="tools.html">
+                tools.js
+              </a>
+            
+              
+              <a class="source" href="variable-registry.html">
+                variable-registry.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>editor.coffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+angular.<span class="hljs-built_in">module</span>(<span class="hljs-string">'DLApp'</span>)
+
+
+.directive <span class="hljs-string">'aceEditor'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+  <span class="hljs-attribute">restrict</span>: <span class="hljs-string">'A'</span>
+  <span class="hljs-attribute">require</span>: <span class="hljs-string">'?ngModel'</span>
+  <span class="hljs-attribute">scope</span>: <span class="hljs-literal">false</span>
+  <span class="hljs-attribute">link</span>: <span class="hljs-function"><span class="hljs-params">(scope, elm, attrs, ngModel)</span> -&gt;</span>
+
+    scope.acee = acee = <span class="hljs-built_in">window</span>.ace.edit(elm[<span class="hljs-number">0</span>])
+    scope.session = session = acee.getSession()
+    scope.mode = attrs.mode
+
+    scope.<span class="hljs-function"><span class="hljs-title">makeCompletions</span> = <span class="hljs-params">(prefix, collection, meta)</span> -&gt;</span>
+      collection.filter <span class="hljs-function"><span class="hljs-params">(elm)</span>-&gt;</span>
+        elm.substring(<span class="hljs-number">0</span>, prefix.length).toUpperCase() == prefix.toUpperCase()
+      .map<span class="hljs-function"><span class="hljs-params">((elm)-&gt;
+          name:elm, value:elm, meta:meta)</span>
+
+    <span class="hljs-title">acee</span>.<span class="hljs-title">setTheme</span><span class="hljs-params">(<span class="hljs-string">"ace/theme/solarized_light"</span>)</span>
+    <span class="hljs-title">acee</span>.<span class="hljs-title">getSession</span><span class="hljs-params">()</span>.<span class="hljs-title">setMode</span><span class="hljs-params">(<span class="hljs-string">"ace/mode/<span class="hljs-subst">#{scope.mode}</span>"</span>)</span>
+    <span class="hljs-title">acee</span>.<span class="hljs-title">setOptions</span>
+      <span class="hljs-title">showGutter</span>: <span class="hljs-title">true</span>,
+      <span class="hljs-title">enableCustomAutocompletion</span>: <span class="hljs-title">true</span>,
+    <span class="hljs-title">acee</span>.<span class="hljs-title">setReadOnly</span> <span class="hljs-title">false</span>
+    <span class="hljs-title">acee</span>.<span class="hljs-title">setHighlightActiveLine</span> <span class="hljs-title">false</span>
+    <span class="hljs-title">acee</span>.<span class="hljs-title">setShowPrintMargin</span> <span class="hljs-title">false</span>
+
+    <span class="hljs-title">acee</span>.<span class="hljs-title">commands</span>.<span class="hljs-title">on</span> "<span class="hljs-title">afterExec</span>", <span class="hljs-params">(e)</span> -&gt;</span>
+      acee.execCommand <span class="hljs-string">"startCustomAutocomplete"</span>  <span class="hljs-keyword">if</span> e.command.name <span class="hljs-keyword">is</span> <span class="hljs-string">"insertstring"</span> <span class="hljs-keyword">and</span> <span class="hljs-regexp">/^[\w.]$/</span>.test(e.args)
+      <span class="hljs-keyword">return</span>
+
+
+    scope.themes = [
+      <span class="hljs-string">'merbivore'</span>, <span class="hljs-string">'merbivore_soft'</span>, <span class="hljs-string">'mono_industrial'</span>, <span class="hljs-string">'monokai'</span>, <span class="hljs-string">'pastel_on_dark'</span>, <span class="hljs-string">'solarized_dark'</span>,
+      <span class="hljs-string">'solarized_light'</span>, <span class="hljs-string">'terminal'</span>, <span class="hljs-string">'textmate'</span>, <span class="hljs-string">'tomorrow'</span>, <span class="hljs-string">'tomorrow_night'</span>, <span class="hljs-string">'tomorrow_night_blue'</span>,
+      <span class="hljs-string">'tomorrow_night_eighties'</span>, <span class="hljs-string">'twilight'</span>, <span class="hljs-string">'vibrant_ink'</span>, <span class="hljs-string">'xcode'</span>
+    ]
+
+    scope.<span class="hljs-function"><span class="hljs-title">setTheme</span> = <span class="hljs-params">(name)</span> -&gt;</span>
+      scope.acee.setTheme <span class="hljs-string">"ace/theme/"</span> + name
+
+    <span class="hljs-keyword">if</span> angular.isDefined(ngModel)
+      ngModel.$formatters.push <span class="hljs-function"><span class="hljs-params">(value)</span> -&gt;</span>
+        <span class="hljs-keyword">if</span> angular.isUndefined(value) <span class="hljs-keyword">or</span> value <span class="hljs-keyword">is</span> <span class="hljs-literal">null</span>
+          <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> angular.isObject(value) <span class="hljs-keyword">or</span> angular.isArray(value)
+          <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Error(<span class="hljs-string">'ace-editor cannot use an object or an array as a model'</span>)
+        <span class="hljs-keyword">return</span> value
+      ngModel.<span class="hljs-function"><span class="hljs-title">$render</span> = -&gt;</span> session.setValue(ngModel.$viewValue)
+
+    session.<span class="hljs-literal">on</span> <span class="hljs-string">'change'</span>, <span class="hljs-function"><span class="hljs-params">(e)</span> -&gt;</span>
+      newValue = session.getValue()
+      <span class="hljs-keyword">if</span> newValue <span class="hljs-keyword">isnt</span> scope.$eval(attrs.value) <span class="hljs-keyword">and</span> !scope.$$phase <span class="hljs-keyword">and</span> angular.isDefined(ngModel)
+        scope.$apply<span class="hljs-function"> -&gt;</span> ngModel.$setViewValue(newValue)
+
+
+  <span class="hljs-attribute">controller</span>: <span class="hljs-function"><span class="hljs-params">($scope, $rootScope)</span> -&gt;</span>
+    $rootScope.$<span class="hljs-literal">on</span> <span class="hljs-string">'panel_resized'</span>, <span class="hljs-function"><span class="hljs-params">()</span>-&gt;</span> $scope.acee.resize()
+
+
+
+
+.directive <span class="hljs-string">'dlEditor'</span>, <span class="hljs-function"><span class="hljs-params">(Graph)</span> -&gt;</span>
+  <span class="hljs-attribute">restrict</span>: <span class="hljs-string">'A'</span>
+  <span class="hljs-attribute">scope</span>: <span class="hljs-literal">false</span>
+  <span class="hljs-attribute">link</span>: <span class="hljs-function"><span class="hljs-params">(scope,elm,attrs)</span> -&gt;</span>
+    scope.langTools = <span class="hljs-built_in">window</span>.ace.<span class="hljs-built_in">require</span>(<span class="hljs-string">"ace/ext/language_tools"</span>)
+    DLcompleter =
+      <span class="hljs-attribute">getCompletions</span>: <span class="hljs-function"><span class="hljs-params">(editor, session, pos, prefix, callback)</span> -&gt;</span>
+        <span class="hljs-keyword">unless</span> session.$modeId <span class="hljs-keyword">is</span> <span class="hljs-string">"ace/mode/"</span> + attrs.mode
+          <span class="hljs-keyword">return</span> callback <span class="hljs-literal">null</span>, []
+        identifiers = scope.makeCompletions prefix, Object.keys(scope.graph.variables.variables), <span class="hljs-string">"variable"</span>
+        functions = scope.makeCompletions prefix, Graph.getFunctions(), <span class="hljs-string">"function"</span>
+        nameList = identifiers.concat(functions)
+        callback <span class="hljs-literal">null</span>, nameList
+
+
+    scope.langTools.addCompleter(DLcompleter)
+
+
+.directive <span class="hljs-string">'shadeEditor'</span>, <span class="hljs-function"><span class="hljs-params">(Graph, ShadeIdentifiers)</span> -&gt;</span>
+  <span class="hljs-attribute">restrict</span>: <span class="hljs-string">'A'</span>
+  <span class="hljs-attribute">scope</span>: <span class="hljs-literal">false</span>
+  <span class="hljs-attribute">link</span>: <span class="hljs-function"><span class="hljs-params">(scope,elm,attrs)</span> -&gt;</span>
+    scope.langTools = <span class="hljs-built_in">window</span>.ace.<span class="hljs-built_in">require</span>(<span class="hljs-string">"ace/ext/language_tools"</span>)
+    DLcompleter =
+      <span class="hljs-attribute">getCompletions</span>: <span class="hljs-function"><span class="hljs-params">(editor, session, pos, prefix, callback)</span> -&gt;</span>
+        <span class="hljs-keyword">unless</span> session.$modeId <span class="hljs-keyword">is</span> <span class="hljs-string">"ace/mode/"</span> + attrs.mode
+          <span class="hljs-keyword">return</span> callback <span class="hljs-literal">null</span>, []
+        nameList = []
+        _.each ShadeIdentifiers, <span class="hljs-function"><span class="hljs-params">(dict)</span> -&gt;</span>
+          nameList = nameList.concat scope.makeCompletions prefix, dict.keys, dict.type
+        callback <span class="hljs-literal">null</span>, nameList
+
+
+    scope.langTools.addCompleter(DLcompleter)</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

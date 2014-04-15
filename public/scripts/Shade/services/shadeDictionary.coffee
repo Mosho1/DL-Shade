@@ -1,5 +1,10 @@
+#shadeDictionary services
+#======
 angular.module("ShadeApp")
 
+#ShadeIdentifiers service
+#-------
+#Holds names to be used by the Editor's autocomplete feature.
 .service("ShadeIdentifiers", (ShadeStaticHandlers, ShadeHandlers) ->
   sh = ShadeStaticHandlers
   sw = ShadeHandlers

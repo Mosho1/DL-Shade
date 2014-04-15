@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>lexer.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="app.html">
+                app.coffee
+              </a>
+            
+              
+              <a class="source" href="DLCtrl.html">
+                DLCtrl.coffee
+              </a>
+            
+              
+              <a class="source" href="editor.html">
+                editor.coffee
+              </a>
+            
+              
+              <a class="source" href="render_graph.html">
+                render_graph.coffee
+              </a>
+            
+              
+              <a class="source" href="split-panel.html">
+                split-panel.coffee
+              </a>
+            
+              
+              <a class="source" href="code_filters.html">
+                code_filters.coffee
+              </a>
+            
+              
+              <a class="source" href="graph-text.html">
+                graph-text.coffee
+              </a>
+            
+              
+              <a class="source" href="x2js.html">
+                x2js.coffee
+              </a>
+            
+              
+              <a class="source" href="attributes.html">
+                attributes.coffee
+              </a>
+            
+              
+              <a class="source" href="button.html">
+                button.coffee
+              </a>
+            
+              
+              <a class="source" href="dropDown.html">
+                dropDown.coffee
+              </a>
+            
+              
+              <a class="source" href="numUpDown.html">
+                numUpDown.coffee
+              </a>
+            
+              
+              <a class="source" href="renderPanel.html">
+                renderPanel.coffee
+              </a>
+            
+              
+              <a class="source" href="shdImage.html">
+                shdImage.coffee
+              </a>
+            
+              
+              <a class="source" href="vText.html">
+                vText.coffee
+              </a>
+            
+              
+              <a class="source" href="ngGridPlugin.html">
+                ngGridPlugin.coffee
+              </a>
+            
+              
+              <a class="source" href="vTextProvider.html">
+                vTextProvider.coffee
+              </a>
+            
+              
+              <a class="source" href="selectedArray.html">
+                selectedArray.coffee
+              </a>
+            
+              
+              <a class="source" href="format.html">
+                format.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeData.html">
+                shadeData.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeDictionary.html">
+                shadeDictionary.coffee
+              </a>
+            
+              
+              <a class="source" href="shadeTemplate.html">
+                shadeTemplate.coffee
+              </a>
+            
+              
+              <a class="source" href="shade_module.html">
+                shade_module.coffee
+              </a>
+            
+              
+              <a class="source" href="ast-validator.html">
+                ast-validator.js
+              </a>
+            
+              
+              <a class="source" href="calc-handlers.html">
+                calc-handlers.js
+              </a>
+            
+              
+              <a class="source" href="calculator.html">
+                calculator.js
+              </a>
+            
+              
+              <a class="source" href="compiler.html">
+                compiler.js
+              </a>
+            
+              
+              <a class="source" href="functions.html">
+                functions.js
+              </a>
+            
+              
+              <a class="source" href="graph-text.html">
+                graph-text.js
+              </a>
+            
+              
+              <a class="source" href="js-compiler.html">
+                js-compiler.js
+              </a>
+            
+              
+              <a class="source" href="lexer.html">
+                lexer.js
+              </a>
+            
+              
+              <a class="source" href="node-handlers.html">
+                node-handlers.js
+              </a>
+            
+              
+              <a class="source" href="nodes.html">
+                nodes.js
+              </a>
+            
+              
+              <a class="source" href="parser.html">
+                parser.js
+              </a>
+            
+              
+              <a class="source" href="rewriter.html">
+                rewriter.js
+              </a>
+            
+              
+              <a class="source" href="scope-manager.html">
+                scope-manager.js
+              </a>
+            
+              
+              <a class="source" href="tools.html">
+                tools.js
+              </a>
+            
+              
+              <a class="source" href="variable-registry.html">
+                variable-registry.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>lexer.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/*!
+ DLengine lexer
+
+ TODO: So much similar code in this file, there must be a way to refactor this
+*/</span>
+
+
+<span class="hljs-keyword">var</span> LONG       = <span class="hljs-regexp">/^[0-9]+/</span>,
+    DOUBLE     = <span class="hljs-regexp">/^[0-9]+\.[0-9]+/</span>,
+    STRING     = <span class="hljs-regexp">/^(\'|\")(\\.|[^\"])*(\'|\")/</span>,
+    WHITESPACE = <span class="hljs-regexp">/^[^\n\S]+/</span>,
+    KEYWORD    = <span class="hljs-regexp">/^([a-z]+)/ig</span>,
+    IDENTIFIER = <span class="hljs-regexp">/^(([a-z])([a-z0-9_$])*)/ig</span>,
+    TERMINATOR = <span class="hljs-regexp">/^(\n|;)/</span>,
+    MULTILINE_COMMENT = <span class="hljs-regexp">/^\/\*([^*]|[\r\n]|(\*+([^*\/]|[\r\n])))*\*+\//gm</span>,
+    SINGLELINE_COMMENT = <span class="hljs-regexp">/^((\/\/|#)).*$/</span>;
+
+<span class="hljs-keyword">var</span> KEYWORDS = [</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>values</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-string">"print"</span>,
+    <span class="hljs-string">"var"</span>,
+    <span class="hljs-string">"val"</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>control</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-string">"if"</span>,
+    <span class="hljs-string">"else"</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>language</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-string">"fun"</span>,
+    <span class="hljs-string">"class"</span>,
+    <span class="hljs-string">"public"</span>,
+    <span class="hljs-string">"new"</span>
+];
+
+<span class="hljs-keyword">var</span> SYNTAX = [
+    <span class="hljs-string">'{'</span>, <span class="hljs-string">'}'</span>,
+    <span class="hljs-string">'('</span>, <span class="hljs-string">')'</span>,
+    <span class="hljs-string">'['</span>, <span class="hljs-string">']'</span>,
+    <span class="hljs-string">'!'</span>,
+    <span class="hljs-string">'.'</span>,
+    <span class="hljs-string">','</span>,
+    <span class="hljs-string">':'</span>,
+    <span class="hljs-string">'?'</span>,
+    <span class="hljs-string">"@"</span>,
+    <span class="hljs-string">"$cx"</span>
+];
+
+<span class="hljs-keyword">var</span> LITERALS = {
+
+    COMPARE: [
+        <span class="hljs-string">"==="</span>,
+        <span class="hljs-string">"!=="</span>,
+        <span class="hljs-string">"=="</span>,
+        <span class="hljs-string">"!="</span>,
+        <span class="hljs-string">"&lt;="</span>,
+        <span class="hljs-string">"&gt;="</span>,
+        <span class="hljs-string">"&lt;"</span>,
+        <span class="hljs-string">"&gt;"</span>
+    ],
+
+    BOOLOP: [
+        <span class="hljs-string">'||'</span>,
+        <span class="hljs-string">'&amp;&amp;'</span>
+    ],
+
+    BOOLEAN: [
+        <span class="hljs-string">"true"</span>,
+        <span class="hljs-string">"false"</span>
+    ],
+
+     ASSIGN: [</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <pre><code><span class="hljs-string">"+="</span>,
+<span class="hljs-string">"-="</span>,
+<span class="hljs-string">"*="</span>,
+<span class="hljs-string">"/="</span>,
+</code></pre>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>         <span class="hljs-string">"="</span>
+     ],
+
+    MATH: [
+        <span class="hljs-string">"*"</span>,
+        <span class="hljs-string">"/"</span>,
+        <span class="hljs-string">"^"</span>,
+        <span class="hljs-string">"%"</span>,
+        <span class="hljs-string">"+"</span>,
+        <span class="hljs-string">"-"</span>
+    ]</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>INDENT: [ ‘{‘ ],
+DEDENT: [ ‘}’ ]</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+};
+
+<span class="hljs-keyword">var</span> Lexer = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>};
+
+Lexer.prototype = {
+
+    tokenise: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(code)</span> {</span>
+        <span class="hljs-keyword">this</span>.lineNo = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">var</span> chunk, tokens = [], i = <span class="hljs-number">0</span>, token;
+
+        chunk = code.substring(i);
+        
+
+
+        <span class="hljs-keyword">while</span> (i &lt; code.length) {
+            chunk = code.substring(i);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Discard whitespace</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            token = <span class="hljs-keyword">this</span>.whitespace(chunk);
+            <span class="hljs-keyword">if</span> (token.length === <span class="hljs-number">2</span>) {
+                i += token[<span class="hljs-number">1</span>].length;
+
+                <span class="hljs-keyword">continue</span>;
+            }
+
+            token = <span class="hljs-keyword">this</span>.comments(chunk);
+            <span class="hljs-keyword">if</span> (token.length == <span class="hljs-number">2</span>) {
+                i += token[<span class="hljs-number">1</span>].length;
+                <span class="hljs-keyword">this</span>.lineNo = token[<span class="hljs-number">1</span>].split(<span class="hljs-string">"\n"</span>).length - <span class="hljs-number">1</span>;
+                <span class="hljs-keyword">continue</span>;
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Test for literal</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            token = <span class="hljs-keyword">this</span>.literals(chunk);
+            <span class="hljs-keyword">if</span> (token.length === <span class="hljs-number">2</span>) {
+                i += token[<span class="hljs-number">1</span>].length;
+                token[<span class="hljs-number">2</span>] = <span class="hljs-keyword">this</span>.lineNo;
+                tokens.push(token);
+                <span class="hljs-keyword">continue</span>;
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Test for keyword</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            token = <span class="hljs-keyword">this</span>.keyword(chunk);
+            <span class="hljs-keyword">if</span> (token.length === <span class="hljs-number">2</span>) {
+                i += token[<span class="hljs-number">1</span>].length;
+                token[<span class="hljs-number">2</span>] = <span class="hljs-keyword">this</span>.lineNo;
+                tokens.push(token);
+                <span class="hljs-keyword">continue</span>;
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Test for identifier (variable name, method name, etc)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            token = <span class="hljs-keyword">this</span>.identifier(chunk);
+            <span class="hljs-keyword">if</span> (token.length === <span class="hljs-number">2</span>) {
+                i += token[<span class="hljs-number">1</span>].length;
+                token[<span class="hljs-number">2</span>] = <span class="hljs-keyword">this</span>.lineNo;
+                tokens.push(token);
+                <span class="hljs-keyword">continue</span>;
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Test for statement terminators</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            token = <span class="hljs-keyword">this</span>.terminator(chunk);
+            <span class="hljs-keyword">if</span> (token.length === <span class="hljs-number">2</span>) {
+                i += token[<span class="hljs-number">1</span>].length;
+                token[<span class="hljs-number">2</span>] = <span class="hljs-keyword">this</span>.lineNo;
+                <span class="hljs-keyword">if</span> (tokens.length!=<span class="hljs-number">0</span>) <span class="hljs-comment">//discard newlines at beginning of document</span>
+                    tokens.push(token);
+
+                <span class="hljs-keyword">if</span> (token[<span class="hljs-number">1</span>] == <span class="hljs-string">"\n"</span>) {
+                    <span class="hljs-keyword">this</span>.lineNo += <span class="hljs-number">1</span>;
+                }
+
+                <span class="hljs-keyword">continue</span>;
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Test for syntax</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            token = <span class="hljs-keyword">this</span>.syntax(chunk);
+            <span class="hljs-keyword">if</span> (token.length === <span class="hljs-number">2</span>) {
+                i += token[<span class="hljs-number">1</span>].length;
+                token[<span class="hljs-number">2</span>] = <span class="hljs-keyword">this</span>.lineNo;
+                tokens.push(token);
+                <span class="hljs-keyword">continue</span>;
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Test for string</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            token = <span class="hljs-keyword">this</span>.string(chunk);
+            <span class="hljs-keyword">if</span> (token.length === <span class="hljs-number">2</span>) {
+                i += token[<span class="hljs-number">1</span>].length;
+                token[<span class="hljs-number">2</span>] = <span class="hljs-keyword">this</span>.lineNo;
+                tokens.push(token);
+                <span class="hljs-keyword">continue</span>;
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Test for long</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            token = <span class="hljs-keyword">this</span>.long(chunk);
+            <span class="hljs-keyword">if</span> (token.length === <span class="hljs-number">2</span>) {
+                i += token[<span class="hljs-number">1</span>].length;
+                token[<span class="hljs-number">2</span>] = <span class="hljs-keyword">this</span>.lineNo;
+                tokens.push(token);
+                <span class="hljs-keyword">continue</span>;
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Test for double</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            token = <span class="hljs-keyword">this</span>.double(chunk);
+            <span class="hljs-keyword">if</span> (token.length === <span class="hljs-number">2</span>) {
+                i += token[<span class="hljs-number">1</span>].length;
+                token[<span class="hljs-number">2</span>] = <span class="hljs-keyword">this</span>.lineNo;
+                tokens.push(token);
+                <span class="hljs-keyword">continue</span>;
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Test for boolean</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            token = <span class="hljs-keyword">this</span>.boolean(chunk);
+            <span class="hljs-keyword">if</span> (token.length === <span class="hljs-number">2</span>) {
+                i += token[<span class="hljs-number">1</span>].length;
+                token[<span class="hljs-number">2</span>] = <span class="hljs-keyword">this</span>.lineNo;
+                tokens.push(token);
+                <span class="hljs-keyword">continue</span>;
+            }
+
+            console.log(<span class="hljs-string">"Could not match chunk starting with "</span> + chunk[<span class="hljs-number">0</span>] + <span class="hljs-string">"...skipping"</span>);
+            i += <span class="hljs-number">1</span>;
+        }
+
+        tokens.push([<span class="hljs-string">'EOF'</span>, <span class="hljs-string">''</span>, <span class="hljs-keyword">this</span>.lineNo]);
+
+        <span class="hljs-keyword">return</span> tokens;
+    },
+
+    syntax: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(chunk)</span>
+    {</span>
+        <span class="hljs-keyword">var</span> token = [];
+
+        _.find(SYNTAX, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(syntax)</span> {</span>
+            <span class="hljs-keyword">if</span> (chunk.indexOf(syntax) === <span class="hljs-number">0</span>) {
+                token = [syntax, syntax];
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+            }
+        }, <span class="hljs-keyword">this</span>);
+
+        <span class="hljs-keyword">return</span> token;
+    },
+
+    comments: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(chunk)</span>
+    {</span>
+        <span class="hljs-keyword">var</span> token = [];
+
+        _.find([SINGLELINE_COMMENT, MULTILINE_COMMENT], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(regex)</span> {</span>
+            <span class="hljs-keyword">if</span> (chunk.search(regex) === <span class="hljs-number">0</span>) {
+                <span class="hljs-keyword">var</span> result = chunk.match(regex)[<span class="hljs-number">0</span>];
+
+                token = [<span class="hljs-string">"COMMENT"</span>, result];
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+            }
+        });
+
+        <span class="hljs-keyword">return</span> token;
+    },
+
+    keyword: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(chunk)</span> {</span>
+        <span class="hljs-keyword">if</span> (chunk.search(KEYWORD) === <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">var</span> result = chunk.match(KEYWORD)[<span class="hljs-number">0</span>];
+            <span class="hljs-keyword">var</span> index = KEYWORDS.indexOf(result);
+
+            <span class="hljs-keyword">if</span> (index !== -<span class="hljs-number">1</span>) {
+                <span class="hljs-keyword">return</span> [result.toUpperCase(), result];
+            }
+        }
+
+        <span class="hljs-keyword">return</span> [];
+    },
+
+    identifier: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(chunk)</span> {</span>
+        <span class="hljs-keyword">if</span> (chunk.search(IDENTIFIER) === <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">var</span> result = chunk.match(IDENTIFIER)[<span class="hljs-number">0</span>];
+
+            <span class="hljs-keyword">return</span> [<span class="hljs-string">"IDENTIFIER"</span>, result];
+        }
+
+        <span class="hljs-keyword">return</span> [];
+    },
+
+    whitespace: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(chunk)</span> {</span>
+        <span class="hljs-keyword">if</span> (chunk.search(WHITESPACE) === <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">var</span> result = chunk.match(WHITESPACE)[<span class="hljs-number">0</span>];
+
+            <span class="hljs-keyword">return</span> [<span class="hljs-string">"WHITESPACE"</span>, result];
+        }
+
+        <span class="hljs-keyword">return</span> [];
+    },
+
+    long: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(chunk)</span> {</span>
+        <span class="hljs-keyword">if</span> (chunk.search(LONG) === <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">var</span> result = chunk.match(LONG)[<span class="hljs-number">0</span>];
+
+            <span class="hljs-keyword">return</span> [<span class="hljs-string">"LONG"</span>, result];
+        }
+
+        <span class="hljs-keyword">return</span> [];
+    },
+
+    double: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(chunk)</span> {</span>
+        <span class="hljs-keyword">if</span> (chunk.search(DOUBLE) === <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">var</span> result = chunk.match(DOUBLE)[<span class="hljs-number">0</span>];
+
+            <span class="hljs-keyword">return</span> [<span class="hljs-string">"DOUBLE"</span>, result];
+        }
+
+        <span class="hljs-keyword">return</span> [];
+    },
+
+    boolean: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(chunk)</span> {</span>
+        <span class="hljs-keyword">if</span> (chunk.search(BOOLEAN) === <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">var</span> result = chunk.match(BOOLEAN)[<span class="hljs-number">0</span>];
+
+            <span class="hljs-keyword">return</span> [<span class="hljs-string">"BOOLEAN"</span>, result];
+        }
+
+        <span class="hljs-keyword">return</span> [];
+    },
+
+    literals: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(chunk)</span> {</span>
+        <span class="hljs-keyword">var</span> token = [];
+
+        _(LITERALS).find(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(lits, name)</span> {</span>
+            <span class="hljs-keyword">return</span> _(lits).find(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(lit)</span> {</span>
+                <span class="hljs-keyword">if</span> (chunk.indexOf(lit) === <span class="hljs-number">0</span>) {
+                    token = [name, lit];
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+                }
+            });
+        });
+
+        <span class="hljs-keyword">return</span> token;
+    },
+
+    string: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(chunk)</span> {</span>
+        <span class="hljs-keyword">if</span> (chunk.search(STRING) === <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">var</span> result = chunk.match(STRING)[<span class="hljs-number">0</span>];
+
+            <span class="hljs-keyword">return</span> [<span class="hljs-string">"STRING"</span>, result];
+        }
+
+        <span class="hljs-keyword">return</span> [];
+    },
+
+    terminator: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(chunk)</span> {</span>
+        <span class="hljs-keyword">if</span> (chunk.search(TERMINATOR) === <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">return</span> [<span class="hljs-string">'TERMINATOR'</span>, chunk[<span class="hljs-number">0</span>]];
+        }
+
+        <span class="hljs-keyword">return</span> [];
+    }
+
+};
+
+exports.Lexer = Lexer;
+
+exports.tokenise = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(code)</span> {</span>
+    <span class="hljs-keyword">var</span> lexer = <span class="hljs-keyword">new</span> Lexer();
+    <span class="hljs-keyword">return</span> lexer.tokenise(code);
+};</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
