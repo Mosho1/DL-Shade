@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-<testsuite name="functionTest-avg" errors="0" tests="1" failures="0" time="0" timestamp="2014-04-10T11:01:29">
+<testsuite name="functionTest-avg" errors="0" tests="1" failures="0" time="0" timestamp="2014-04-15T18:05:12">
   <testcase classname="functionTest-avg" name="should compute the average of values" time="0"></testcase>
 </testsuite>
 </testsuites>

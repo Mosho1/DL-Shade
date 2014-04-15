@@ -10,7 +10,7 @@ angular.module('ShadeApp')
   transclude: true
   template: (elm, attr) ->
     toAppend = ''
-    #callback attributes are of the form: `"Event,callback,option1,option2"`. If there is more than one they are delimited by `;`.
+    #callback attributes are of the form: `"Event,callback,option1,option2"`. If there are more than one they are delimited by `;`.
     if (attr.controlBlock)
       #First, the callback strings are parsed into an object.
       cbs = do ->
@@ -44,7 +44,7 @@ angular.module('ShadeApp')
     scope.vText = attr.vText
     scope.text = attr.text
 
-    #This is the popup callback. `id` is the popup's id, and `elm` is the target (element to append to popup to).
+    #Popup callback. `id` is the popup's id, and `elm` is the target (element to append to popup to).
     scope.popup = (id, elm) ->
       popup = angular.element('#' + id)
       #append the popup to the target element, unless it's already appended.

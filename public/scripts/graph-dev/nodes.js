@@ -1,4 +1,4 @@
-//parser sends here after a node has been classified
+//Parser calls these after a node has been classified
 var Nodes = {
 
     // 4 + 3
@@ -82,29 +82,6 @@ var Nodes = {
         this.comparator = comparator;
     },
 
-    // if (true) { [expr] } else { [expr] }
-    IfBlock: function(evaluation, trueBlock, falseBlock, elseIfs) {
-        this._type = "IfBlock";
-        this.evaluation = evaluation;
-        this.trueBlock = trueBlock;
-        this.falseBlock = falseBlock;
-        this.elseIfs = elseIfs;
-    },
-
-    // else if (true) { [expr] }
-    ElseIfBlock: function(evaluation, trueBlock) {
-        this._type = "ElseIfBlock";
-        this.evaluation = evaluation;
-        this.trueBlock = trueBlock;
-    },
-
-    // fun(paramaters):ReturnType { [expr] }
-    Closure: function(body, parameters, returnType) {
-        this._type = "Closure";
-        this.body = body;
-        this.parameters = parameters;
-        this.returnType = returnType;
-    },
 
     // var name: Type
     VariableParameter: function(name, type) {
@@ -113,40 +90,10 @@ var Nodes = {
         this.type = type;
     },
 
-    // val name: Type
-    ValueParameter: function(name, type) {
-        this._type = "ValueParameter";
-        this.name = name;
-        this.type = type;
-    },
-
     // name([args])
     CallFunction: function(name, args) {
         this._type = "CallFunction";
         this.name = [name];
-        this.args = args || [];
-    },
-
-    // class { [body] }
-    Class: function(name, body) {
-        this._type = "Class";
-        this.name = name;
-        this.body = body;
-    },
-
-    // visisiblity name(parameters)
-    Method: function(visibility, name, body, parameters) {
-        this._type = "Method";
-        this.visibility = visibility;
-        this.name = name;
-        this.body = body;
-        this.parameters = parameters;
-    },
-
-    // new Name([args])
-    ClassInstantiation: function(name, args) {
-        this._type = "ClassInstantiation";
-        this.name = name;
         this.args = args || [];
     },
 

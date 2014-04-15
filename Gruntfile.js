@@ -148,6 +148,15 @@ module.exports = function(grunt) {
             },
             all: ['jasmine/spec/']
         },
+        karma: {
+            unit: {
+                configFile: 'jasmine/karma-unit.js',
+                // run karma in the background
+                background: true,
+                // which browsers to run the tests on
+                browsers: ['Chrome', 'Firefox']
+            }
+        },
         express: {
             options: {
                 background: false
@@ -165,6 +174,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-jasmine-node');
+    grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-express-server');

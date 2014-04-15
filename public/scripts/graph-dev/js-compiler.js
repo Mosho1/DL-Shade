@@ -1,3 +1,7 @@
+//JsCompiler class
+//=====
+//Takes DL code as a string and compiles it into a JSON format graph.
+
 var ScopeManager = require('./scope-manager').ScopeManager,
     VariableRegistry = require('./variable-registry.js').VariableRegistry,
     VariableEntry = require('./variable-registry.js').VariableEntry,

@@ -11,207 +11,6 @@
   <div id="container">
     <div id="background"></div>
     
-      <ul id="jump_to">
-        <li>
-          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
-          <a class="small" href="javascript:void(0);">+</a>
-          <div id="jump_wrapper">
-          <div id="jump_page">
-            
-              
-              <a class="source" href="app.html">
-                app.coffee
-              </a>
-            
-              
-              <a class="source" href="DLCtrl.html">
-                DLCtrl.coffee
-              </a>
-            
-              
-              <a class="source" href="editor.html">
-                editor.coffee
-              </a>
-            
-              
-              <a class="source" href="render_graph.html">
-                render_graph.coffee
-              </a>
-            
-              
-              <a class="source" href="split-panel.html">
-                split-panel.coffee
-              </a>
-            
-              
-              <a class="source" href="code_filters.html">
-                code_filters.coffee
-              </a>
-            
-              
-              <a class="source" href="graph-text.html">
-                graph-text.coffee
-              </a>
-            
-              
-              <a class="source" href="x2js.html">
-                x2js.coffee
-              </a>
-            
-              
-              <a class="source" href="attributes.html">
-                attributes.coffee
-              </a>
-            
-              
-              <a class="source" href="button.html">
-                button.coffee
-              </a>
-            
-              
-              <a class="source" href="dropDown.html">
-                dropDown.coffee
-              </a>
-            
-              
-              <a class="source" href="numUpDown.html">
-                numUpDown.coffee
-              </a>
-            
-              
-              <a class="source" href="renderPanel.html">
-                renderPanel.coffee
-              </a>
-            
-              
-              <a class="source" href="shdImage.html">
-                shdImage.coffee
-              </a>
-            
-              
-              <a class="source" href="vText.html">
-                vText.coffee
-              </a>
-            
-              
-              <a class="source" href="ngGridPlugin.html">
-                ngGridPlugin.coffee
-              </a>
-            
-              
-              <a class="source" href="vTextProvider.html">
-                vTextProvider.coffee
-              </a>
-            
-              
-              <a class="source" href="selectedArray.html">
-                selectedArray.coffee
-              </a>
-            
-              
-              <a class="source" href="format.html">
-                format.coffee
-              </a>
-            
-              
-              <a class="source" href="shadeData.html">
-                shadeData.coffee
-              </a>
-            
-              
-              <a class="source" href="shadeDictionary.html">
-                shadeDictionary.coffee
-              </a>
-            
-              
-              <a class="source" href="shadeTemplate.html">
-                shadeTemplate.coffee
-              </a>
-            
-              
-              <a class="source" href="shade_module.html">
-                shade_module.coffee
-              </a>
-            
-              
-              <a class="source" href="ast-validator.html">
-                ast-validator.js
-              </a>
-            
-              
-              <a class="source" href="calc-handlers.html">
-                calc-handlers.js
-              </a>
-            
-              
-              <a class="source" href="calculator.html">
-                calculator.js
-              </a>
-            
-              
-              <a class="source" href="compiler.html">
-                compiler.js
-              </a>
-            
-              
-              <a class="source" href="functions.html">
-                functions.js
-              </a>
-            
-              
-              <a class="source" href="graph-text.html">
-                graph-text.js
-              </a>
-            
-              
-              <a class="source" href="js-compiler.html">
-                js-compiler.js
-              </a>
-            
-              
-              <a class="source" href="lexer.html">
-                lexer.js
-              </a>
-            
-              
-              <a class="source" href="node-handlers.html">
-                node-handlers.js
-              </a>
-            
-              
-              <a class="source" href="nodes.html">
-                nodes.js
-              </a>
-            
-              
-              <a class="source" href="parser.html">
-                parser.js
-              </a>
-            
-              
-              <a class="source" href="rewriter.html">
-                rewriter.js
-              </a>
-            
-              
-              <a class="source" href="scope-manager.html">
-                scope-manager.js
-              </a>
-            
-              
-              <a class="source" href="tools.html">
-                tools.js
-              </a>
-            
-              
-              <a class="source" href="variable-registry.html">
-                variable-registry.js
-              </a>
-            
-          </div>
-        </li>
-      </ul>
-    
     <ul class="sections">
         
           <li id="title">
@@ -228,7 +27,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <p>parser sends here after a node has been classified</p>
+              <p>Parser calls these after a node has been classified</p>
 
             </div>
             
@@ -456,66 +255,6 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
-              <p>if (true) { [expr] } else { [expr] }</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>    IfBlock: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(evaluation, trueBlock, falseBlock, elseIfs)</span> {</span>
-        <span class="hljs-keyword">this</span>._type = <span class="hljs-string">"IfBlock"</span>;
-        <span class="hljs-keyword">this</span>.evaluation = evaluation;
-        <span class="hljs-keyword">this</span>.trueBlock = trueBlock;
-        <span class="hljs-keyword">this</span>.falseBlock = falseBlock;
-        <span class="hljs-keyword">this</span>.elseIfs = elseIfs;
-    },</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-14">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-14">&#182;</a>
-              </div>
-              <p>else if (true) { [expr] }</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>    ElseIfBlock: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(evaluation, trueBlock)</span> {</span>
-        <span class="hljs-keyword">this</span>._type = <span class="hljs-string">"ElseIfBlock"</span>;
-        <span class="hljs-keyword">this</span>.evaluation = evaluation;
-        <span class="hljs-keyword">this</span>.trueBlock = trueBlock;
-    },</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-15">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-15">&#182;</a>
-              </div>
-              <p>fun(paramaters):ReturnType { [expr] }</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>    Closure: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(body, parameters, returnType)</span> {</span>
-        <span class="hljs-keyword">this</span>._type = <span class="hljs-string">"Closure"</span>;
-        <span class="hljs-keyword">this</span>.body = body;
-        <span class="hljs-keyword">this</span>.parameters = parameters;
-        <span class="hljs-keyword">this</span>.returnType = returnType;
-    },</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-16">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-16">&#182;</a>
-              </div>
               <p>var name: Type</p>
 
             </div>
@@ -529,30 +268,11 @@
         </li>
         
         
-        <li id="section-17">
+        <li id="section-14">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-17">&#182;</a>
-              </div>
-              <p>val name: Type</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>    ValueParameter: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name, type)</span> {</span>
-        <span class="hljs-keyword">this</span>._type = <span class="hljs-string">"ValueParameter"</span>;
-        <span class="hljs-keyword">this</span>.name = name;
-        <span class="hljs-keyword">this</span>.type = type;
-    },</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-18">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-18">&#182;</a>
+                <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
               <p>name([args])</p>
 
@@ -567,70 +287,11 @@
         </li>
         
         
-        <li id="section-19">
+        <li id="section-15">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-19">&#182;</a>
-              </div>
-              <p>class { [body] }</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>    Class: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name, body)</span> {</span>
-        <span class="hljs-keyword">this</span>._type = <span class="hljs-string">"Class"</span>;
-        <span class="hljs-keyword">this</span>.name = name;
-        <span class="hljs-keyword">this</span>.body = body;
-    },</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-20">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-20">&#182;</a>
-              </div>
-              <p>visisiblity name(parameters)</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>    Method: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(visibility, name, body, parameters)</span> {</span>
-        <span class="hljs-keyword">this</span>._type = <span class="hljs-string">"Method"</span>;
-        <span class="hljs-keyword">this</span>.visibility = visibility;
-        <span class="hljs-keyword">this</span>.name = name;
-        <span class="hljs-keyword">this</span>.body = body;
-        <span class="hljs-keyword">this</span>.parameters = parameters;
-    },</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-21">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-21">&#182;</a>
-              </div>
-              <p>new Name([args])</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>    ClassInstantiation: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name, args)</span> {</span>
-        <span class="hljs-keyword">this</span>._type = <span class="hljs-string">"ClassInstantiation"</span>;
-        <span class="hljs-keyword">this</span>.name = name;
-        <span class="hljs-keyword">this</span>.args = args || [];
-    },</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-22">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-22">&#182;</a>
+                <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
               <p>true|false</p>
 
@@ -644,11 +305,11 @@
         </li>
         
         
-        <li id="section-23">
+        <li id="section-16">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-23">&#182;</a>
+                <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
               <p>(x == y) ? “eq : “neq”</p>
 

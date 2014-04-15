@@ -1,10 +1,10 @@
-﻿//parser sends here after a node has been classified
+﻿//Parser calls these after a node has been classified
 var  f = require('util').format;
 
 var NodeHandlers = {
 
     // 4 + 3
-    Math: function (node) {
+    Math: function (node) {console.log(this);
         return f("%s %s %s", this.compileNode(node.left), node.operator, this.compileNode(node.right));
     },
 
@@ -34,27 +34,9 @@ var NodeHandlers = {
         return list;
     },
 
-    // print expr
-    Print: function (node) {
-        return f("console.log(%s);", this.compileNode(node.expr));
-    },
-
-    // (expr)
-    BracketBlock: function (node) {
-        return f("(%s)", this.compileNode(node.expr));
-    },
-
     // var name = expr
     AssignVariable: function (node) {
         return f("var %s = %s;", node.name, this.compileNode(node.expr));
-    },
-
-    // val name = expr
-    AssignValue: function (node) {
-        this._type = "AssignValue";
-        this.name = name;
-        this.expr = expr;
-        this.assignType = assignType;
     },
 
     // name = expr
@@ -82,30 +64,6 @@ var NodeHandlers = {
         return f("%s %s %s", this.compileNode(node.left), node.comparator, this.compileNode(node.right));
     },
 
-
-
-    // fun(paramaters):ReturnType { [expr] }
-    Closure: function (node) {
-        var params = [], body = [];
-
-        if (node.parameters) {
-            _.each(node.parameters, function (parameter) {
-                params.push(this.compileNode(parameter));
-            }, this);
-        }
-
-        _.each(node.body, function (bodyNode) {
-            body.push(this.compileNode(bodyNode));
-        }, this);
-
-        return f("_.bind(function (%s) {\n%s\n}, this)", params.join(""), body.join("\n"));
-    },
-
-    // var name: Type
-    VariableParameter: function (node) {
-
-    },
-
     // name([args])
     CallFunction: function (node) {
         var args = [];
@@ -115,44 +73,7 @@ var NodeHandlers = {
                 args.push(this.compileNode(arg));
             }, this);
         }
-        return f("%s(%s)", node.name[0].join("."), args.join(", "));
-    },
-
-    // class { [body] }
-    Class: function (node) {
-         var body = [];
-
-        currentClass = node.name;
-
-        _.each(node.body, function (bodyNode) {
-            body.push(this.compileNode(bodyNode));
-        });
-
-        currentClass = "";
-
-        return f("function %s() {\n_.bindAll(this);\nthis.initialise && this.initialise.apply(this, arguments);\n}\n%s", node.name, body.join("\n"));
-    },
-
-    // visisiblity name(parameters)
-    Method: function (node) {
-        var params = [], body = [];
-
-        if (node.parameters) {
-            _.each(node.parameters, function (parameter) {
-                params.push(this.compileNode(parameter));
-            }, this);
-        }
-
-        _.each(node.body, function (bodyNode) {
-            body.push(this.compileNode(bodyNode));
-        });
-
-        return f("%s.prototype.%s = function(%s) {\n%s\n};", currentClass, node.name, params.join("\n"), body.join("\n"));
-    },
-
-    // new Name([args])
-    ClassInstantiation: function (node) {
-        return f("new %s()", node.name);
+        return f("%s(%s)", node.name.join("."), args.join(", "));
     },
 
     // true|false

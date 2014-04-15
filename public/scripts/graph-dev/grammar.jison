@@ -1,4 +1,4 @@
-/* description: I like kill bats and mice, and have cute eyes. */
+
 
 %left 'MATH' 'COMPARE' 'BOOLOP' 'TERNARY'
 

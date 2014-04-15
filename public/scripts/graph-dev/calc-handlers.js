@@ -1,5 +1,7 @@
 ﻿var f = require('./functions');
 
+
+//Functions to be used by the parser.
 var CalcHandlers = function(that){
     return{
 

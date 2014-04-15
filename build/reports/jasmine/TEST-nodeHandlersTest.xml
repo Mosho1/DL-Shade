@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+<testsuite name="nodeHandlersTest" errors="0" tests="1" failures="0" time="0.011" timestamp="2014-04-15T17:43:55">
+  <testcase classname="nodeHandlersTest" name="should handle nodes" time="0.011"></testcase>
+</testsuite>
+</testsuites>

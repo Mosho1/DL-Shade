@@ -1,12 +1,16 @@
+
+
 var parser       = require('./parser').parser,
     nodes        = require('./nodes'),
     lexer        = require('./lexer'),
-    rewriter     = require('./rewriter'),
     astValidator = require('./ast-validator'),
     jsCompiler   = require('./js-compiler');
 
+//Attaches handlers to the parser
 parser.yy = nodes;
 
+
+//Functions required by the parser's lexer.
 parser.lexer = {
 
     lex: function () {
@@ -29,10 +33,12 @@ parser.lexer = {
 
 exports.parser = parser;
 
+
+//This is the function used by the `Graph` class to compile DL.
 exports.compile = function (code) {
     var tokens = lexer.tokenise(code),
-    //tokens = rewriter.rewrite(tokens);
         ast = parser.parse(tokens),
+    //TODO: make necessary changes to `astValidator` to output errors in the provided DL code.
     /*var valid = astValidator.validate(ast);
 3
     if (!valid) {

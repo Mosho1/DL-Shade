@@ -1138,9 +1138,11 @@ exports.validate = function(ast) {
     return validator.validate(ast);
 };
 
-},{"./functions":11,"./scope-manager":19,"util":6}],8:[function(require,module,exports){
+},{"./functions":11,"./scope-manager":18,"util":6}],8:[function(require,module,exports){
 var f = require('./functions');
 
+
+//Functions to be used by the parser.
 var CalcHandlers = function(that){
     return{
 
@@ -1566,15 +1568,19 @@ return new Parser;
 
 exports.parser = parser;
 },{}],10:[function(require,module,exports){
+
+
 var parser       = require('./parser').parser,
     nodes        = require('./nodes'),
     lexer        = require('./lexer'),
-    rewriter     = require('./rewriter'),
     astValidator = require('./ast-validator'),
     jsCompiler   = require('./js-compiler');
 
+//Attaches handlers to the parser
 parser.yy = nodes;
 
+
+//Functions required by the parser's lexer.
 parser.lexer = {
 
     lex: function () {
@@ -1597,10 +1603,12 @@ parser.lexer = {
 
 exports.parser = parser;
 
+
+//This is the function used by the `Graph` class to compile DL.
 exports.compile = function (code) {
     var tokens = lexer.tokenise(code),
-    //tokens = rewriter.rewrite(tokens);
         ast = parser.parse(tokens),
+    //TODO: make necessary changes to `astValidator` to output errors in the provided DL code.
     /*var valid = astValidator.validate(ast);
 3
     if (!valid) {
@@ -1611,21 +1619,30 @@ exports.compile = function (code) {
 
     return js;
 };
-},{"./ast-validator":7,"./js-compiler":13,"./lexer":14,"./nodes":16,"./parser":17,"./rewriter":18}],11:[function(require,module,exports){
-
+},{"./ast-validator":7,"./js-compiler":13,"./lexer":14,"./nodes":16,"./parser":17}],11:[function(require,module,exports){
+//Built-in DL functions
+//====
 var f = {
+    //Turns an array into a list (string) delimited by `delim`
     a2l: function (arr, delim) {
-        return arr.join(delim);
+        if (_.isArray(arr)) {
+            return arr.join(delim);
+        }
     },
 
+    //Returns absolute value of `num`
     abs: function (num) {
-        return Math.abs(num);
+        if (_.isFinite(num)) {
+            return Math.abs(num);
+        }
     },
 
+    //Averages arguments sent.
     avg: function () {
         var i, avg = 0, num = 0, len = arguments.length;
         for (i = 0; i < arguments.length; i++) {
             num = Number(arguments[i]);
+            //If `num` could not be converted to a number, ignore it
             !isNaN(num) ? avg += num : len--;
         }
         return avg / len;
@@ -1641,13 +1658,15 @@ module.exports = f;
 
 },{}],12:[function(require,module,exports){
 (function (global){
-﻿
+﻿//Graph class
+//=====
 
 var compiler = require('./compiler'),
     VariableRegistry = require('./variable-registry.js').VariableRegistry;
 
-//Graph class. Holds the variable registry, currently has no distinctive methods and merely provides an interface for the registry.
+//Holds `VariableRegistry` objects, currently has no distinctive methods and merely provides an interface for the registry.
 
+//Constructor function. Takes DL code as a string and compiles it.
 var Graph = function (data) {
     this.initialise.apply(this, arguments);
     this.variables = (typeof data === 'string') ? compiler.compile(data).sortDependencies() : {};
@@ -1655,18 +1674,22 @@ var Graph = function (data) {
 };
 Graph.prototype = {
 
+    //Binds the functions in the prototype to the calling `Graph` object.
     initialise: function () {
         _.bindAll(this);
     },
 
+    //Sets value of variable `name` to `value`
     set: function (name, value) {
         this.variables.set(name, value);
     },
 
+    //Unsets value of variable `name`.
     unset: function (name) {
         this.variables.unset(name);
     },
 
+    //Evaluates the `VariableRegistry`. Goes over all the variables and resolves their correct values based on the expressions assigned to them in the DL declaration.
     evaluate: function () {
         this.variables.evaluate();
         return this;
@@ -1680,13 +1703,17 @@ Graph.prototype = {
 
 };
 
-//exposed API
+//Globally exposed API.
 global.DL = global.DL  || {};
 global.DL.createGraph = function (data) { return new Graph(data); };
 global.DL.tokens = require('./lexer').tokenise;
 global.DL.builtInFunctions = Object.keys(require('./functions')).map(function (elm) { return "f." + elm; });
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./compiler":10,"./functions":11,"./lexer":14,"./variable-registry.js":21}],13:[function(require,module,exports){
+},{"./compiler":10,"./functions":11,"./lexer":14,"./variable-registry.js":20}],13:[function(require,module,exports){
+//JsCompiler class
+//=====
+//Takes DL code as a string and compiles it into a JSON format graph.
+
 var ScopeManager = require('./scope-manager').ScopeManager,
     VariableRegistry = require('./variable-registry.js').VariableRegistry,
     VariableEntry = require('./variable-registry.js').VariableEntry,
@@ -1728,7 +1755,7 @@ exports.compile = function(ast) {
 
 
 
-},{"./node-handlers":15,"./scope-manager":19,"./variable-registry.js":21}],14:[function(require,module,exports){
+},{"./node-handlers":15,"./scope-manager":18,"./variable-registry.js":20}],14:[function(require,module,exports){
 /*!
  DLengine lexer
 
@@ -2085,13 +2112,13 @@ exports.tokenise = function(code) {
     return lexer.tokenise(code);
 };
 },{}],15:[function(require,module,exports){
-//parser sends here after a node has been classified
+//Parser calls these after a node has been classified
 var  f = require('util').format;
 
 var NodeHandlers = {
 
     // 4 + 3
-    Math: function (node) {
+    Math: function (node) {console.log(this);
         return f("%s %s %s", this.compileNode(node.left), node.operator, this.compileNode(node.right));
     },
 
@@ -2121,27 +2148,9 @@ var NodeHandlers = {
         return list;
     },
 
-    // print expr
-    Print: function (node) {
-        return f("console.log(%s);", this.compileNode(node.expr));
-    },
-
-    // (expr)
-    BracketBlock: function (node) {
-        return f("(%s)", this.compileNode(node.expr));
-    },
-
     // var name = expr
     AssignVariable: function (node) {
         return f("var %s = %s;", node.name, this.compileNode(node.expr));
-    },
-
-    // val name = expr
-    AssignValue: function (node) {
-        this._type = "AssignValue";
-        this.name = name;
-        this.expr = expr;
-        this.assignType = assignType;
     },
 
     // name = expr
@@ -2169,30 +2178,6 @@ var NodeHandlers = {
         return f("%s %s %s", this.compileNode(node.left), node.comparator, this.compileNode(node.right));
     },
 
-
-
-    // fun(paramaters):ReturnType { [expr] }
-    Closure: function (node) {
-        var params = [], body = [];
-
-        if (node.parameters) {
-            _.each(node.parameters, function (parameter) {
-                params.push(this.compileNode(parameter));
-            }, this);
-        }
-
-        _.each(node.body, function (bodyNode) {
-            body.push(this.compileNode(bodyNode));
-        }, this);
-
-        return f("_.bind(function (%s) {\n%s\n}, this)", params.join(""), body.join("\n"));
-    },
-
-    // var name: Type
-    VariableParameter: function (node) {
-
-    },
-
     // name([args])
     CallFunction: function (node) {
         var args = [];
@@ -2203,43 +2188,6 @@ var NodeHandlers = {
             }, this);
         }
         return f("%s(%s)", node.name[0].join("."), args.join(", "));
-    },
-
-    // class { [body] }
-    Class: function (node) {
-         var body = [];
-
-        currentClass = node.name;
-
-        _.each(node.body, function (bodyNode) {
-            body.push(this.compileNode(bodyNode));
-        });
-
-        currentClass = "";
-
-        return f("function %s() {\n_.bindAll(this);\nthis.initialise && this.initialise.apply(this, arguments);\n}\n%s", node.name, body.join("\n"));
-    },
-
-    // visisiblity name(parameters)
-    Method: function (node) {
-        var params = [], body = [];
-
-        if (node.parameters) {
-            _.each(node.parameters, function (parameter) {
-                params.push(this.compileNode(parameter));
-            }, this);
-        }
-
-        _.each(node.body, function (bodyNode) {
-            body.push(this.compileNode(bodyNode));
-        });
-
-        return f("%s.prototype.%s = function(%s) {\n%s\n};", currentClass, node.name, params.join("\n"), body.join("\n"));
-    },
-
-    // new Name([args])
-    ClassInstantiation: function (node) {
-        return f("new %s()", node.name);
     },
 
     // true|false
@@ -2259,7 +2207,7 @@ var NodeHandlers = {
 
 module.exports = NodeHandlers;
 },{"util":6}],16:[function(require,module,exports){
-//parser sends here after a node has been classified
+//Parser calls these after a node has been classified
 var Nodes = {
 
     // 4 + 3
@@ -2343,29 +2291,6 @@ var Nodes = {
         this.comparator = comparator;
     },
 
-    // if (true) { [expr] } else { [expr] }
-    IfBlock: function(evaluation, trueBlock, falseBlock, elseIfs) {
-        this._type = "IfBlock";
-        this.evaluation = evaluation;
-        this.trueBlock = trueBlock;
-        this.falseBlock = falseBlock;
-        this.elseIfs = elseIfs;
-    },
-
-    // else if (true) { [expr] }
-    ElseIfBlock: function(evaluation, trueBlock) {
-        this._type = "ElseIfBlock";
-        this.evaluation = evaluation;
-        this.trueBlock = trueBlock;
-    },
-
-    // fun(paramaters):ReturnType { [expr] }
-    Closure: function(body, parameters, returnType) {
-        this._type = "Closure";
-        this.body = body;
-        this.parameters = parameters;
-        this.returnType = returnType;
-    },
 
     // var name: Type
     VariableParameter: function(name, type) {
@@ -2374,40 +2299,10 @@ var Nodes = {
         this.type = type;
     },
 
-    // val name: Type
-    ValueParameter: function(name, type) {
-        this._type = "ValueParameter";
-        this.name = name;
-        this.type = type;
-    },
-
     // name([args])
     CallFunction: function(name, args) {
         this._type = "CallFunction";
         this.name = [name];
-        this.args = args || [];
-    },
-
-    // class { [body] }
-    Class: function(name, body) {
-        this._type = "Class";
-        this.name = name;
-        this.body = body;
-    },
-
-    // visisiblity name(parameters)
-    Method: function(visibility, name, body, parameters) {
-        this._type = "Method";
-        this.visibility = visibility;
-        this.name = name;
-        this.body = body;
-        this.parameters = parameters;
-    },
-
-    // new Name([args])
-    ClassInstantiation: function(name, args) {
-        this._type = "ClassInstantiation";
-        this.name = name;
         this.args = args || [];
     },
 
@@ -2784,55 +2679,6 @@ if (typeof require !== 'undefined' && typeof exports !== 'undefined') {
 }
 }).call(this,require("c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
 },{"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3,"fs":1,"path":4}],18:[function(require,module,exports){
-
-var Rewriter = function() {
-    this.initialise.apply(this, arguments);
-};
-Rewriter.prototype = {
-
-    initialise: function(tokens)
-    {
-        _.bindAll(this);
-        this.tokens = tokens;
-    },
-
-    rewrite: function()
-    {
-        this.newTokens = _.filter(this.tokens, this.rewriteToken);
-
-        return this.newTokens;
-    },
-
-    rewriteToken: function(token, index)
-    {
-        if (token[0] == "{") {
-            this.markForRemoval("TERMINATOR", token[2]);
-        }
-
-        if (token.length === 4 && token[3] === false) {
-            return false;
-        }
-
-        return true;
-    },
-
-    markForRemoval: function(name, lineNo)
-    {
-        _.each(this.tokens, function(token, i) {
-            if (token[0] == name && token[2] == lineNo) {
-                this.tokens[i][3] = false;
-            }
-        }, this);
-    }
-
-};
-
-exports.rewrite = function(tokens)
-{
-    var rewriter = new Rewriter(tokens);
-    return rewriter.rewrite();
-}
-},{}],19:[function(require,module,exports){
 (function (process){
 
 
@@ -3017,7 +2863,7 @@ Scope.prototype = {
 
 exports.ScopeManager = ScopeManager;
 }).call(this,require("c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js"))
-},{"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3}],20:[function(require,module,exports){
+},{"c:\\Users\\SR71042\\Documents\\GitHub\\DependencyLanguage\\node_modules\\grunt-browserify\\node_modules\\browserify\\node_modules\\insert-module-globals\\node_modules\\process\\browser.js":3}],19:[function(require,module,exports){
 // Generated by CoffeeScript 1.7.1
 (function() {
   module.exports = {
@@ -3049,34 +2895,44 @@ exports.ScopeManager = ScopeManager;
 
 
 
-},{}],21:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
+//Variable Registry class
+//=====
+//Holds DL variables and exposes an API
+//-----
+
 var parser = require('./calculator').parser,
     CalcHandlers = require('./calc-handlers');
 
 _ = _ || {};
 _.observe = require('./tools').observe;
 
-//variable registry which holds each variable in an entry
 
+//Constructor function.
 var VariableRegistry = function () {
 
     this.initialise.apply(this, arguments);
     this.variables = {};
 };
+
+
 VariableRegistry.prototype = {
 
+    //Binds the functions in the prototype to the calling `VariableRegistry` object.
     initialise: function () {
         _.bindAll(this);
     },
 
-    //TODO: refactor (and tests)
+    //Adds to a variable entry (or creates a new one if it doesn't exist)
     addToEntry: function (entry) {
         var _entry = this.createEntry(entry);
         this.variables[entry.name] = _entry.concat(this.variables[entry.name] || {});
     },
 
+    //Creates a new entry. Can accept an existing `VariableEntry` object for data, otherwise initializes an empty entry.
     createEntry: function (entry) {
         var _entry = new VariableEntry(entry), _this = this;
+        //The `observe` method adds an attribute with a `getter` and a `setter` to an object.
         _.observe(_entry, 'model', 42, {
             set: function (value) {
                 _this.set(_entry.name, value);
@@ -3088,6 +2944,7 @@ VariableRegistry.prototype = {
         return _entry;
     },
 
+    //Sets variable `name` to `value` if it exists in the registry.
     set: function (name, value) {
         if (this.variables[name]) {
             this.variables[name].set(value);
@@ -3095,28 +2952,30 @@ VariableRegistry.prototype = {
         }
     },
 
+    //Gets the `value` (or `setValue` if it exists) of the variable `name`, if it exists
     getValue: function (name) {
         if (this.variables[name]) {
             return this.variables[name].get();
         }
 
     },
-
+    //Gets the `VariableEntry` object `name`
     get: function (name) {
         return this.variables[name];
 
     },
-
-    unset: function (name, value) {
+    //Unsets the value of the variable `name`, resetting its value to what was defined in the DL declaration.
+    unset: function (name) {
         if (this.variables[name]) {
             this.variables[name].unset();
         }
     },
 
-    //resolve each variable's value according to its expression
-    //TODO: refactor (and tests), refactor CalcHandlers to not be outside the object
+    //Resolve each variable's value according to its expression. TODO: create an array for each variable so we don't waste time iterating over variables we don't need.
     evaluate: function (changed) {
+        //Attaching `CalcHandlers` to the parser. This is used by the parser for specific rules like this: `yy.callFunction($1)`
         parser.yy = new CalcHandlers(this.variables);
+        //Go over the topologically sorted array of variables, starting from the location of the changed variable.
         var val, i, entry, start = changed ? this.sorted.indexOf(changed) + 1 : 0;
         for (i = 0; i < this.sorted.length - start; i++) {
             entry = this.get(this.sorted[start + i]);
@@ -3129,13 +2988,15 @@ VariableRegistry.prototype = {
         return this;
     },
 
+    //Creates an array that we use to update variables on changes.
     sortDependencies: function () {
 
-        //resolve dependencies
+        //Gets edges between dependent variables
         this.edges = this.getEdges();
-        //topological sort
+        //Create a topologically sorted array representation of the graph
         this.sorted = tsort(this.edges);
         var v;
+        //Add variables that have no dependencies (and therefore no edges, so they will not be included in the sort).
         for (v in this.variables) {
             if (this.variables.hasOwnProperty(v)) {
                 if (this.sorted.indexOf(v) === -1) {
@@ -3163,13 +3024,20 @@ VariableRegistry.prototype = {
 
 };
 
+//Variable Entry class
+//=====
+//Holds a DL variable and exposes an API
+//-----
+
+//Constructor function.
 var VariableEntry = function () {
 
+    //arguments passed to the function. We use these to construct the entry based on the number/type of arguments.
     var args = arguments, entry = args[0];
 
     this.initialise.apply(this, arguments);
 
-    //no arguments, blank entry
+    //No arguments, blank entry
     if (!arguments.length) {
         this.name = "";
         this.expr = "";
@@ -3177,14 +3045,16 @@ var VariableEntry = function () {
         this.setValue = null;
         this.dependsOn = [];
         this.dependedOnBy = [];
-    } else if (_.isObject(entry)) { //1 object argument, create entry from object
+    //1 object argument, create entry from object
+    } else if (_.isObject(entry)) {
         this.name = entry.name || "";
         this.expr = entry.expr || "";
         this.value = entry.value === 0 ? 0 : (entry.value || null);
         this.setValue = entry.setValue === 0 ? 0 : (entry.setValue || null);
         this.dependsOn = entry.dependsOn || [];
         this.dependedOnBy = entry.dependedOnBy || [];
-    } else { //otherwise create new entry from first 6 arguments
+    //otherwise create new entry from first 6 arguments
+    } else {
         this.name = args[0] || "";
         this.expr = args[1] || "";
         this.value = args[2] === 0 ? 0 : (args[2] || null);
@@ -3194,44 +3064,49 @@ var VariableEntry = function () {
     }
 };
 VariableEntry.prototype = {
-
+    //Binds the functions in the prototype to the calling `VariableEntry` object.
     initialise: function () {
         _.bindAll(this);
     },
 
-    //maybe have this not change `this`?
+    //Concatenates an argument entry to the `VariableEntry` that the function is called from.
     concat: function (entry) {
         if (entry) {
             this.name = entry.name || this.name;
             this.expr = entry.expr || this.expr;
             this.value = entry.value === 0 ? 0 : (entry.value || this.value);
             this.setValue = entry.setValue === 0 ? 0 : (entry.setValue || this.setValue);
-            this.dependsOn = this.dependsOn.concat(entry.dependsOn || []);
-            this.dependedOnBy = this.dependedOnBy.concat(entry.dependedOnBy || []);
+            this.dependsOn = _.union(this.dependsOn, entry.dependsOn);
+            this.dependedOnBy = _.union(this.dependedOnBy, entry.dependedOnBy);
         }
         return this;
     },
 
+    //Set the `VariableEntry`'s `value` attribute from the expression assigned to it in the DL declaration.
     evaluate: function (value) {
         this.value = value;
         return this;
     },
 
+    //Set the `VariableEntry`'s `setValue` attribute from anywhere but the DL declaration.
     set: function (value) {
         this.setValue = value;
         return this;
     },
 
+    //Get the `VariableEntry`'s value. Returns `value` or `setValue` if it is set.
     get: function () {
         return (_.isNull(this.setValue) || _.isUndefined(this.setValue)) ? this.value : this.setValue;
     },
 
+    //Sets `setValue` to `null`, resetting its value to what was defined in the DL declaration.
     unset: function () {
         this.setValue = null;
         return this;
     }
 };
 
+//Topological sort function.
 function tsort(edges) {
     var nodes   = {}, // hash: stringified id of the node => { id: id, afters: lisf of ids }
         sorted  = [], // sorted list of IDs ( returned value )
@@ -3242,7 +3117,7 @@ function tsort(edges) {
             this.afters = [];
         }
 
-  // 1. build data structures
+  //- build data structures
   edges.forEach(function(v) {
     var from = v[0], to = v[1];
     if (!nodes[from]) nodes[from] = new Node(from);
@@ -3250,7 +3125,7 @@ function tsort(edges) {
     nodes[from].afters.push(to);
   });
  
-  // 2. topological sort
+  //- topological sort
   Object.keys(nodes).forEach(function visit(idstr, ancestors) {
     var node = nodes[idstr],
         id   = node.id;
@@ -3278,7 +3153,7 @@ function tsort(edges) {
 }
 exports.VariableEntry = VariableEntry;
 exports.VariableRegistry = VariableRegistry;
-},{"./calc-handlers":8,"./calculator":9,"./tools":20}]},{},[12]);(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+},{"./calc-handlers":8,"./calculator":9,"./tools":19}]},{},[12]);(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 
 var handleCol = function (col) {
         this[col.Name] = _.transform(_.omit(col, 'Name'), function (str, val, opt) {
