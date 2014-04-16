@@ -1,10 +1,11 @@
 describe('inputs tests', function () {
-    var elm, scope;
+    var element, scope;
     beforeEAch(module('shadeApp'));
 
-    beforeEach(inject(function (_$rootScope_, $compile) {
-        scope = _$rootScope_.$new();
-        scope.testModel = 42;
+    beforeEach(inject(function ($rootScope, $compile) {
+        scope = $rootScope;
+        element = angular.element("<div />");
+        $compile(element)($rootScope);
 
     }));
 
