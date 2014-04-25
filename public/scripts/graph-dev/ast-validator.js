@@ -1,3 +1,8 @@
+//AST VALIDATOR
+//=====
+
+//Used to infer types and check validity of the AST output of the lex. Currently disabled and needs to be updated.
+
 var ScopeManager = require('./scope-manager').ScopeManager,
     f = require("util").format,
     functions = require('./functions'); //Built-in functions

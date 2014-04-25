@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>render_graph.coffee</title>
+  <title>Render Graph directive</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -24,8 +24,8 @@
               </a>
             
               
-              <a class="source" href="DLCtrl.html">
-                DLCtrl.coffee
+              <a class="source" href="EditorCtrl.html">
+                EditorCtrl.coffee
               </a>
             
               
@@ -214,12 +214,6 @@
     
     <ul class="sections">
         
-          <li id="title">
-              <div class="annotation">
-                  <h1>render_graph.coffee</h1>
-              </div>
-          </li>
-        
         
         
         <li id="section-1">
@@ -228,11 +222,24 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              
+              <h1 id="render-graph-directive">Render Graph directive</h1>
+
             </div>
             
-            <div class="content"><div class='highlight'><pre>
-angular.<span class="hljs-built_in">module</span>(<span class="hljs-string">'DLApp'</span>)
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <h2 id="renders-a-table-or-graph-view-for-the-dl-graph-text">Renders a table or graph view for the DL graph-text</h2>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>angular.<span class="hljs-built_in">module</span>(<span class="hljs-string">'DLApp'</span>)
 
 .directive <span class="hljs-string">'renderGraph'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
   <span class="hljs-attribute">restrict</span>: <span class="hljs-string">'E'</span>
@@ -253,10 +260,25 @@ angular.<span class="hljs-built_in">module</span>(<span class="hljs-string">'DLA
 
       <span class="hljs-title">$rootScope</span>.<span class="hljs-title">$on</span> '<span class="hljs-title">Run</span>', <span class="hljs-params">()</span> -&gt;</span>
         _.each<span class="hljs-function"><span class="hljs-params">($scope.themes, (value) -&gt;
-          graphService.deleteGraph(value)
-          graphService.drawGraph[value]($scope.graph,$scope.elems[value][<span class="hljs-number">0</span>]))</span>
+</span></span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>redraw graph/table</p>
 
-      <span class="hljs-title">$scope</span>.<span class="hljs-title">setTheme</span> = <span class="hljs-params">(name)</span> -&gt;</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          graphService.deleteGraph(value)
+          graphService.drawGraph[value]($scope.graph,$scope.elems[value][<span class="hljs-number">0</span>]))
+
+      $scope.<span class="hljs-function"><span class="hljs-title">setTheme</span> = <span class="hljs-params">(name)</span> -&gt;</span>
         graphService.deleteGraph(name <span class="hljs-keyword">is</span> <span class="hljs-string">'Graph'</span> ? <span class="hljs-string">'Table'</span> : <span class="hljs-string">'Graph'</span> )
         graphService.drawGraph[name]($scope.graph,$scope.elems[name][<span class="hljs-number">0</span>])
         $scope.gshow = name <span class="hljs-keyword">is</span> <span class="hljs-string">'Graph'</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span></pre></div></div>

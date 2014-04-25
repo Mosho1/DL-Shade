@@ -1,3 +1,4 @@
+#Used to add an observable property to an object (i.e. property with a getter and setter)
 module.exports =
   observe:
     (object, property, value, handler) ->

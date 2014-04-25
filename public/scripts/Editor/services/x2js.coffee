@@ -1,3 +1,9 @@
+#X2JS service
+#=====
+
+#converts XML to JSON
+#-----
+
 angular.module('DLApp')
 
 

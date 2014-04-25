@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>editor.coffee</title>
+  <title>Editor directive</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -24,8 +24,8 @@
               </a>
             
               
-              <a class="source" href="DLCtrl.html">
-                DLCtrl.coffee
+              <a class="source" href="EditorCtrl.html">
+                EditorCtrl.coffee
               </a>
             
               
@@ -214,12 +214,6 @@
     
     <ul class="sections">
         
-          <li id="title">
-              <div class="annotation">
-                  <h1>editor.coffee</h1>
-              </div>
-          </li>
-        
         
         
         <li id="section-1">
@@ -228,7 +222,21 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
+              <h1 id="editor-directive">Editor directive</h1>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
               
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <h2 id="used-to-instantiate-an-ace-editor-">Used to instantiate an Ace editor </h2>
+
             </div>
             
             <div class="content"><div class='highlight'><pre>
@@ -243,24 +251,66 @@ angular.<span class="hljs-built_in">module</span>(<span class="hljs-string">'DLA
 
     scope.acee = acee = <span class="hljs-built_in">window</span>.ace.edit(elm[<span class="hljs-number">0</span>])
     scope.session = session = acee.getSession()
-    scope.mode = attrs.mode
+    scope.mode = attrs.mode</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Used by auto-completion</p>
 
-    scope.<span class="hljs-function"><span class="hljs-title">makeCompletions</span> = <span class="hljs-params">(prefix, collection, meta)</span> -&gt;</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    scope.<span class="hljs-function"><span class="hljs-title">makeCompletions</span> = <span class="hljs-params">(prefix, collection, meta)</span> -&gt;</span>
       collection.filter <span class="hljs-function"><span class="hljs-params">(elm)</span>-&gt;</span>
         elm.substring(<span class="hljs-number">0</span>, prefix.length).toUpperCase() == prefix.toUpperCase()
       .map<span class="hljs-function"><span class="hljs-params">((elm)-&gt;
           name:elm, value:elm, meta:meta)</span>
 
-    <span class="hljs-title">acee</span>.<span class="hljs-title">setTheme</span><span class="hljs-params">(<span class="hljs-string">"ace/theme/solarized_light"</span>)</span>
-    <span class="hljs-title">acee</span>.<span class="hljs-title">getSession</span><span class="hljs-params">()</span>.<span class="hljs-title">setMode</span><span class="hljs-params">(<span class="hljs-string">"ace/mode/<span class="hljs-subst">#{scope.mode}</span>"</span>)</span>
-    <span class="hljs-title">acee</span>.<span class="hljs-title">setOptions</span>
-      <span class="hljs-title">showGutter</span>: <span class="hljs-title">true</span>,
-      <span class="hljs-title">enableCustomAutocompletion</span>: <span class="hljs-title">true</span>,
-    <span class="hljs-title">acee</span>.<span class="hljs-title">setReadOnly</span> <span class="hljs-title">false</span>
-    <span class="hljs-title">acee</span>.<span class="hljs-title">setHighlightActiveLine</span> <span class="hljs-title">false</span>
-    <span class="hljs-title">acee</span>.<span class="hljs-title">setShowPrintMargin</span> <span class="hljs-title">false</span>
 
-    <span class="hljs-title">acee</span>.<span class="hljs-title">commands</span>.<span class="hljs-title">on</span> "<span class="hljs-title">afterExec</span>", <span class="hljs-params">(e)</span> -&gt;</span>
+</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Settings</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    acee.setTheme(<span class="hljs-string">"ace/theme/solarized_light"</span>)
+    acee.getSession().setMode(<span class="hljs-string">"ace/mode/<span class="hljs-subst">#{scope.mode}</span>"</span>)
+    acee.setOptions
+      <span class="hljs-attribute">showGutter</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attribute">enableCustomAutocompletion</span>: <span class="hljs-literal">true</span>,
+    acee.setReadOnly <span class="hljs-literal">false</span>
+    acee.setHighlightActiveLine <span class="hljs-literal">false</span>
+    acee.setShowPrintMargin <span class="hljs-literal">false</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>create a command to make auto completions</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    acee.commands.<span class="hljs-literal">on</span> <span class="hljs-string">"afterExec"</span>, <span class="hljs-function"><span class="hljs-params">(e)</span> -&gt;</span>
       acee.execCommand <span class="hljs-string">"startCustomAutocomplete"</span>  <span class="hljs-keyword">if</span> e.command.name <span class="hljs-keyword">is</span> <span class="hljs-string">"insertstring"</span> <span class="hljs-keyword">and</span> <span class="hljs-regexp">/^[\w.]$/</span>.test(e.args)
       <span class="hljs-keyword">return</span>
 
@@ -272,16 +322,58 @@ angular.<span class="hljs-built_in">module</span>(<span class="hljs-string">'DLA
     ]
 
     scope.<span class="hljs-function"><span class="hljs-title">setTheme</span> = <span class="hljs-params">(name)</span> -&gt;</span>
-      scope.acee.setTheme <span class="hljs-string">"ace/theme/"</span> + name
+      scope.acee.setTheme <span class="hljs-string">"ace/theme/"</span> + name</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>When <code>require</code> is used, the required controller is sent to the linking function as the fourth argument.
+In this case, we require ngModel to customize the model’s behaviour - to have the model update the Ace session and vice versa.</p>
 
-    <span class="hljs-keyword">if</span> angular.isDefined(ngModel)
-      ngModel.$formatters.push <span class="hljs-function"><span class="hljs-params">(value)</span> -&gt;</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> angular.isDefined(ngModel)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p><code>$formatters</code> is an array of functions to be executed one after another on the model before it reaches the view.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      ngModel.$formatters.push <span class="hljs-function"><span class="hljs-params">(value)</span> -&gt;</span>
         <span class="hljs-keyword">if</span> angular.isUndefined(value) <span class="hljs-keyword">or</span> value <span class="hljs-keyword">is</span> <span class="hljs-literal">null</span>
           <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>
         <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> angular.isObject(value) <span class="hljs-keyword">or</span> angular.isArray(value)
           <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Error(<span class="hljs-string">'ace-editor cannot use an object or an array as a model'</span>)
-        <span class="hljs-keyword">return</span> value
-      ngModel.<span class="hljs-function"><span class="hljs-title">$render</span> = -&gt;</span> session.setValue(ngModel.$viewValue)
+        <span class="hljs-keyword">return</span> value</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>This function gets called when the view needs to be updated.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      ngModel.<span class="hljs-function"><span class="hljs-title">$render</span> = -&gt;</span> session.setValue(ngModel.$viewValue)
 
     session.<span class="hljs-literal">on</span> <span class="hljs-string">'change'</span>, <span class="hljs-function"><span class="hljs-params">(e)</span> -&gt;</span>
       newValue = session.getValue()
@@ -290,12 +382,35 @@ angular.<span class="hljs-built_in">module</span>(<span class="hljs-string">'DLA
 
 
   <span class="hljs-attribute">controller</span>: <span class="hljs-function"><span class="hljs-params">($scope, $rootScope)</span> -&gt;</span>
-    $rootScope.$<span class="hljs-literal">on</span> <span class="hljs-string">'panel_resized'</span>, <span class="hljs-function"><span class="hljs-params">()</span>-&gt;</span> $scope.acee.resize()
+    $rootScope.$<span class="hljs-literal">on</span> <span class="hljs-string">'panel_resized'</span>, <span class="hljs-function"><span class="hljs-params">()</span>-&gt;</span> $scope.acee.resize()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <h2 id="dl-editor-directive-">DL editor directive.</h2>
 
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Adds the auto-complete feature to the editor</p>
 
-
-
-.directive <span class="hljs-string">'dlEditor'</span>, <span class="hljs-function"><span class="hljs-params">(Graph)</span> -&gt;</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>.directive <span class="hljs-string">'dlEditor'</span>, <span class="hljs-function"><span class="hljs-params">(Graph)</span> -&gt;</span>
   <span class="hljs-attribute">restrict</span>: <span class="hljs-string">'A'</span>
   <span class="hljs-attribute">scope</span>: <span class="hljs-literal">false</span>
   <span class="hljs-attribute">link</span>: <span class="hljs-function"><span class="hljs-params">(scope,elm,attrs)</span> -&gt;</span>
@@ -310,10 +425,35 @@ angular.<span class="hljs-built_in">module</span>(<span class="hljs-string">'DLA
         callback <span class="hljs-literal">null</span>, nameList
 
 
-    scope.langTools.addCompleter(DLcompleter)
+    scope.langTools.addCompleter(DLcompleter)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <h2 id="shade-editor-directive-">Shade editor directive.</h2>
 
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Adds the auto-complete feature to the editor</p>
 
-.directive <span class="hljs-string">'shadeEditor'</span>, <span class="hljs-function"><span class="hljs-params">(Graph, ShadeIdentifiers)</span> -&gt;</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>.directive <span class="hljs-string">'shadeEditor'</span>, <span class="hljs-function"><span class="hljs-params">(Graph, ShadeIdentifiers)</span> -&gt;</span>
   <span class="hljs-attribute">restrict</span>: <span class="hljs-string">'A'</span>
   <span class="hljs-attribute">scope</span>: <span class="hljs-literal">false</span>
   <span class="hljs-attribute">link</span>: <span class="hljs-function"><span class="hljs-params">(scope,elm,attrs)</span> -&gt;</span>

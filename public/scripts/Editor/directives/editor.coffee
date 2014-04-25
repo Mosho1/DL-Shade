@@ -1,3 +1,8 @@
+#Editor directive
+#=====
+
+#Used to instantiate an Ace editor 
+#-----
 
 angular.module('DLApp')
 
@@ -12,12 +17,15 @@ angular.module('DLApp')
     scope.session = session = acee.getSession()
     scope.mode = attrs.mode
 
+    #Used by auto-completion
     scope.makeCompletions = (prefix, collection, meta) ->
       collection.filter (elm)->
         elm.substring(0, prefix.length).toUpperCase() == prefix.toUpperCase()
       .map((elm)->
           name:elm, value:elm, meta:meta)
 
+
+    #Settings
     acee.setTheme("ace/theme/solarized_light")
     acee.getSession().setMode("ace/mode/#{scope.mode}")
     acee.setOptions
@@ -27,6 +35,7 @@ angular.module('DLApp')
     acee.setHighlightActiveLine false
     acee.setShowPrintMargin false
 
+    #create a command to make auto completions
     acee.commands.on "afterExec", (e) ->
       acee.execCommand "startCustomAutocomplete"  if e.command.name is "insertstring" and /^[\w.]$/.test(e.args)
       return
@@ -41,13 +50,17 @@ angular.module('DLApp')
     scope.setTheme = (name) ->
       scope.acee.setTheme "ace/theme/" + name
 
+    #When `require` is used, the required controller is sent to the linking function as the fourth argument.
+    #In this case, we require ngModel to customize the model's behaviour - to have the model update the Ace session and vice versa.
     if angular.isDefined(ngModel)
+      #`$formatters` is an array of functions to be executed one after another on the model before it reaches the view.
       ngModel.$formatters.push (value) ->
         if angular.isUndefined(value) or value is null
           return ''
         else if angular.isObject(value) or angular.isArray(value)
           throw new Error('ace-editor cannot use an object or an array as a model')
         return value
+      #This function gets called when the view needs to be updated.
       ngModel.$render = -> session.setValue(ngModel.$viewValue)
 
     session.on 'change', (e) ->
@@ -61,7 +74,10 @@ angular.module('DLApp')
 
 
 
+#DL editor directive.
+#-----
 
+#Adds the auto-complete feature to the editor
 .directive 'dlEditor', (Graph) ->
   restrict: 'A'
   scope: false
@@ -79,7 +95,10 @@ angular.module('DLApp')
 
     scope.langTools.addCompleter(DLcompleter)
 
+#Shade editor directive.
+#-----
 
+#Adds the auto-complete feature to the editor
 .directive 'shadeEditor', (Graph, ShadeIdentifiers) ->
   restrict: 'A'
   scope: false

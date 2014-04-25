@@ -1,4 +1,8 @@
+#Render Graph directive
+#=====
 
+#Renders a table or graph view for the DL graph-text
+#-----
 angular.module('DLApp')
 
 .directive 'renderGraph', () ->
@@ -20,6 +24,7 @@ angular.module('DLApp')
 
       $rootScope.$on 'Run', () ->
         _.each($scope.themes, (value) ->
+          #redraw graph/table
           graphService.deleteGraph(value)
           graphService.drawGraph[value]($scope.graph,$scope.elems[value][0]))
 
