@@ -10,7 +10,7 @@ angular.module('ShadeApp')
   require: '?ngModel'
   link:
     #When `require` is used, the required controller is sent to the linking function as the fourth argument.
-    pre: (scope, elm, attr, ngModel) ->
+    post: (scope, elm, attr, ngModel) ->
       formatStr = attr.format
       if angular.isDefined ngModel
         #`$formatters` is an array of functions to be executed one after another on the model before it reaches the view.
