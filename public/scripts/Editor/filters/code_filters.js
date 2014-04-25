@@ -269,7 +269,7 @@
             html = html.substr(i + m[0].length);
           }
         } else {
-          console.warn("UH OH: found a tag that's not an opening tag or a closing tag!?!?");
+          console.warn("UH OH: found a tag that's not an opening tag or a closing tag");
         }
       }
       return pretty_html;
@@ -277,3 +277,5 @@
   });
 
 }).call(this);
+
+//# sourceMappingURL=code_filters.map

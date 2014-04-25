@@ -2,6 +2,8 @@
 
 angular.module('DLApp')
 
+
+#Simple HTML indenter
 .filter 'indentHTML', () ->
     (html) ->
       return unless html
@@ -211,8 +213,8 @@ angular.module('DLApp')
           pretty_html += "#{html.substr(0,i+m[0].length)}"
           html = html.substr(i+m[0].length)
 
-      else # um wut?
-        console.warn "UH OH: found a tag that's not an opening tag or a closing tag!?!?"
+      else 
+        console.warn "UH OH: found a tag that's not an opening tag or a closing tag"
     pretty_html
 
 

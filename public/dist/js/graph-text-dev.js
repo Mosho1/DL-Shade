@@ -2891,7 +2891,7 @@ exports.ScopeManager = ScopeManager;
 
 }).call(this);
 
-
+//# sourceMappingURL=tools.map
 
 },{}],20:[function(require,module,exports){
 //Variable Registry class

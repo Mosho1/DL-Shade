@@ -5,7 +5,7 @@
       restrict: 'A',
       require: '?ngModel',
       link: {
-        pre: function(scope, elm, attr, ngModel) {
+        post: function(scope, elm, attr, ngModel) {
           var formatStr;
           formatStr = attr.format;
           if (angular.isDefined(ngModel)) {
@@ -75,3 +75,5 @@
   });
 
 }).call(this);
+
+//# sourceMappingURL=attributes.map

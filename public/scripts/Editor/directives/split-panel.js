@@ -13,7 +13,7 @@
       },
       replace: true,
       template: '<div class="split-row" ng-transclude></div>',
-      controller: function($scope, $element, $compile, $rootScope, $window) {
+      controller: function($scope, $element, $compile, $rootScope) {
         var body, cols, dragged;
         $scope.row = $element[0];
         cols = $scope.cols = [];
@@ -78,6 +78,7 @@
               last_shown = c;
             }
           }
+          console.log(last_shown);
           if (last_shown) {
             return last_shown.last_shown = true;
           }
@@ -92,7 +93,6 @@
             };
           })(this));
         };
-        $window.r = $scope.row;
         dragged = (function(_this) {
           return function(x) {
             return $scope.$apply(function() {
@@ -207,7 +207,9 @@
         scope.mouseover = false;
         setTimeout((function() {
           scope.show = !!scope.show;
-          return splitRowCtrl.addCol(scope);
+          splitRowCtrl.addCol(scope);
+          splitRowCtrl.equalCols();
+          return splitRowCtrl.findLastCol();
         }), 0);
         elm.bind('mousemove', function(e) {
           e.originalEvent.caughtBy = scope.name;
@@ -237,3 +239,5 @@
   });
 
 }).call(this);
+
+//# sourceMappingURL=split-panel.map

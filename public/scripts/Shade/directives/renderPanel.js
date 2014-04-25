@@ -55,3 +55,5 @@
   });
 
 }).call(this);
+
+//# sourceMappingURL=renderPanel.map

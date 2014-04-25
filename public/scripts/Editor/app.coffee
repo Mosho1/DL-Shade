@@ -1,19 +1,17 @@
 'use strict'
 
+#Module declaration
 angular.module('DLApp', ['ShadeApp'])
 
-.config(['$httpProvider', ($httpProvider) ->
-  $httpProvider.defaults.useXDomain = true
-  delete $httpProvider.defaults.headers.common['X-Requested-With']
-])
-
-
+#A few helper functions
+#-----
 _.kill_event = (e) ->
   if _.isObject(e)
     e.cancelBubble = true
     e.stopPropagation()
     e.preventDefault()
 
+#Used to fetch external resources
 _.corsproxy = (css_url) ->
   m = css_url.match(/https?:\/\/(.+)/)
   return false unless m

@@ -1,5 +1,11 @@
 angular.module('DLApp')
 
+#Split Row directive
+#=====
+
+#The element that holds the panels
+#-----
+
 .directive 'splitRow', () ->
   restrict: 'E'
   transclude: true
@@ -11,7 +17,7 @@ angular.module('DLApp')
     DLcode: '='
   replace: true
   template: '<div class="split-row" ng-transclude></div>'
-  controller: ($scope, $element, $compile, $rootScope, $window) ->
+  controller: ($scope, $element, $compile, $rootScope) ->
     $scope.row = $element[0]
     cols = $scope.cols = []
 
@@ -25,6 +31,7 @@ angular.module('DLApp')
     $(document).keyup (e) ->
       $rootScope.$broadcast 'bg_click' if e.keyCode is 27 # esc
 
+    #Used by panels to find their initial part of the view width
     this.equalCols = (ncols) ->
       ncols ||= (c for c in cols when c.show).length
       new_ratio = 1/ncols
@@ -34,15 +41,18 @@ angular.module('DLApp')
         else
           c.ratio = 0
 
+    #Used to find the last panel, so that its drag-area can be hidden
     this.findLastCol = () ->
       return unless cols.length
       last_shown = null
       for c in cols
         c.last_shown = false
         last_shown = c if c.show
+      console.log(last_shown)
       last_shown.last_shown = true if last_shown
 
 
+    #Used by panels to add themselves to the row's controller, and add a drag area
     this.addCol = (col) ->
       $scope.$apply () =>
         col.index = cols.length
@@ -50,13 +60,12 @@ angular.module('DLApp')
         this.equalCols()
         col.div.append $compile('<drag-area ng-show="!last_shown"></drag-area>')(col)
 
-    $window.r = $scope.row
-
+    #Function that calculates panel widths
     dragged = (x) =>
       $scope.$apply () =>
         before = $scope.dragging
         after = cols[i = before.index+1]
-        after = cols[++i] until after.show # could inifinite loop, but should never
+        after = cols[++i] until after.show 
         cumRatio = (c.ratio for c in cols when c.index < before.index).reduce(((t, s) -> t + s), 0)
         before.ratio = (x-$scope.row.offsetLeft) / this.row_width - cumRatio
 
@@ -90,6 +99,12 @@ angular.module('DLApp')
 
     return
 
+#Resizable panel directive
+#=====
+
+#Panel element
+#-----
+
 .directive 'resizablePanel', ($rootScope, $timeout) ->
   require: '^splitRow'
   restrict: 'E'
@@ -100,6 +115,7 @@ angular.module('DLApp')
   replace: true
   template: '<div class="resizable-panel" ng-transclude ng-style="{width: \'\'+(ratio*100)+\'%\'}" ng-show="show"></div>'
   controller: ($scope, $rootScope) ->
+    #If toggled
     $scope.$watch 'show', () ->
       $scope.show = !!$scope.show
       $scope.ctrl.equalCols()
@@ -111,9 +127,12 @@ angular.module('DLApp')
     scope.div = elm
     scope.ctrl = splitRowCtrl
     scope.mouseover = false
-    setTimeout (() -> 
+    #Adds itself to the row of panels
+    setTimeout (() ->
       scope.show = !!scope.show
-      splitRowCtrl.addCol(scope))
+      splitRowCtrl.addCol scope
+      splitRowCtrl.equalCols()
+      splitRowCtrl.findLastCol())
       , 0
 
     elm.bind 'mousemove', (e) ->
@@ -124,6 +143,8 @@ angular.module('DLApp')
       $timeout () -> scope.mouseover = name is scope.name
 
 
+#drag area directive
+#=====
 
 .directive 'dragArea', () ->
   restrict: 'E'

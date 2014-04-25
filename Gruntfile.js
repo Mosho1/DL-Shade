@@ -159,7 +159,8 @@ module.exports = function(grunt) {
         },
         express: {
             options: {
-                background: false
+                background: false,
+                port: 3000
             },
             dev: {
                 options: {
@@ -182,11 +183,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-docco-multi');
 
     grunt.registerTask('default', ['browserify', 'concat']);
-    grunt.registerTask('all', ['browserify', 'concat', 'uglify']);
-    grunt.registerTask('lib', ['uglify']);
+    grunt.registerTask('mini', ['uglify']);
+    grunt.registerTask('all', ['default', 'mini']);
     grunt.registerTask('test', ['jasmine_node']);
-    grunt.registerTask('wat', ['concurrent:watch']);
-    grunt.registerTask('serve', ['express:dev']);
+    grunt.registerTask('watchall', ['concurrent:watch']);
+    grunt.registerTask('serve', ['default', 'express:dev']);
     grunt.registerTask('docs', ['docco:all']);
 
 };
