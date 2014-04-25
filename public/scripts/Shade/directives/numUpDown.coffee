@@ -14,7 +14,7 @@ angular.module('ShadeApp')
         str + val + '="' + attr[val] + '" '
       , ''
 
-     #Returns the template, consists of the input element and buttons.
+    #Returns the template, consists of the input element and buttons.
     '<div class="input-group">' +
       '<input style="width:90%" class="form-control" type="text" ng-model="vars[vText].model" dvalue="' + getAttrs('dvalue','min','max','format') + '"/>' +
       '<div class="btn-group-vertical">' +
