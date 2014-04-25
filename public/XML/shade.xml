@@ -289,17 +289,6 @@
             </Node>
             <Node>
                 <UI>Label</UI>
-                <Text>DateTime Picker</Text>
-            </Node>
-            <Node>
-                <UI>DateTimePicker</UI>
-                <AutoCloseCalendar>true</AutoCloseCalendar>
-                <FormatString>yyyy-MMM-dd hh:mm:ss tt</FormatString>
-                <vText>x</vText>
-                <Watermark>Enter/Select Your DateTime</Watermark>
-            </Node>
-            <Node>
-                <UI>Label</UI>
                 <Text>Borders and Colors</Text>
             </Node>
             <Node>
@@ -365,50 +354,6 @@
                 <Minimum>20</Minimum>
                 <DefaultValue>25.23</DefaultValue>
                 <vText>x</vText>
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Text>Record Control</Text>
-            </Node>
-            <Node>
-                <UI>Button</UI>
-                <Width>50</Width>
-                <Height>50</Height>
-            </Node>
-            <Node>
-                <UI>Label</UI>
-                <Text>Gradient Brush</Text>
-            </Node>
-            <Node>
-                <UI>Grid</UI>
-                <Span>1,4</Span>
-                <ShowGridLines>True</ShowGridLines>
-                <Sub>
-                    <Node>
-                        <UI>Label</UI>
-                        <Text>Linear 1</Text>
-                        <Bg>linear(red;blue;yellow,0;0.5;1)</Bg>
-                        <Xy>0,0</Xy>
-                    </Node>
-                    <Node>
-                        <UI>Label</UI>
-                        <Text>Linear 2</Text>
-                        <Bg>linear(red;blue;yellow)</Bg>
-                        <Xy>0,1</Xy>
-                    </Node>
-                    <Node>
-                        <UI>Label</UI>
-                        <Text>Radial 1</Text>
-                        <Bg>radial(red;blue;yellow,0;0.5;1)</Bg>
-                        <Xy>0,2</Xy>
-                    </Node>
-                    <Node>
-                        <UI>Label</UI>
-                        <Text>Radial 1</Text>
-                        <Bg>radial(red;blue;yellow)</Bg>
-                        <Xy>0,3</Xy>
-                    </Node>
-                </Sub>
             </Node>
         </Sub>
     </Node>

@@ -27,7 +27,7 @@ angular.module('DLApp').controller('DLCtrl', function($scope, $rootScope, $http,
     }
   });
   $scope.styles = {
-    active: 'control',
+    active: 'basics',
     sheets: {
       basics: {
         source: 'XML/shade.xml',
@@ -82,19 +82,19 @@ angular.module('DLApp').controller('DLCtrl', function($scope, $rootScope, $http,
     var styles;
     if ($scope.styles.active in $scope.styles.sheets) {
       styles = $scope.styles.sheets[$scope.styles.active];
-      if (styles.css) {
-        return $scope.styles.editor = $filter('prettifyCSS')($filter('deSassify')(styles.css));
+      if (styles.xml) {
+        return $scope.styles.editor = $filter('prettifyCSS')($filter('deSassify')(styles.xml));
       } else {
         return $http.get(styles.source).then(function(response) {
-          styles.css = response.data;
-          return $scope.styles.editor = $filter('prettifyCSS')($filter('deSassify')(styles.css));
+          styles.xml = response.data;
+          return $scope.styles.editor = $filter('prettifyCSS')($filter('deSassify')(styles.xml));
         });
       }
     }
   });
   $scope.$watch('styles.editor', function() {
     if ($scope.styles.sheets[$scope.styles.active]) {
-      return $scope.styles.sheets[$scope.styles.active].css = $scope.styles.editor;
+      return $scope.styles.sheets[$scope.styles.active].xml = $scope.styles.editor;
     }
   });
   return $scope.$watch('styles.external', function() {
@@ -104,14 +104,14 @@ angular.module('DLApp').controller('DLCtrl', function($scope, $rootScope, $http,
     return $http.get(_.corsproxy($scope.styles.external)).then(function(response) {
       var file_name, i, name;
       i = 0;
-      file_name = $scope.styles.external.match(/.+?\/(\w+)\.css/);
+      file_name = $scope.styles.external.match(/.+?\/(\w+)\.shd/);
       name = file_name && file_name[1] || "external";
       while (name in $scope.styles.sheets) {
         name = "external " + (++i);
       }
       $scope.styles.sheets[name] = {
         source: $scope.styles.external,
-        css: response.data,
+        xml: response.data,
         external: true,
         edited: false
       };

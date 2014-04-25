@@ -78,7 +78,7 @@ html.no-js
                   ul.menu-items
                       li.menu-item(ng-repeat='theme in themes', ng-click='setTheme(theme)') {{theme}}
                   span.hide-button(ng-click='col("Shade Editor").show=false', title='Hide Shade Editor panel.') X
-                div(ace-editor='ace-editor', shade-editor, mode='xml', ng-model='styles.sheets[styles.active].css')
+                div(ace-editor='ace-editor', shade-editor, mode='xml', ng-model='styles.sheets[styles.active].xml')
               resizable-panel#html_col(name='Output HTML', show='show')
                 .menu.panel-menu(ng-class='{show:col("Output HTML").mouseover}', col='col')
                   span.menu-title Theme
@@ -87,7 +87,7 @@ html.no-js
                   span.hide-button(ng-click='col("Output HTML").show=false', title='Hide Output HTML panel.') X
                 style(type='text/css', ng-bind='themes.css | scopeCSS:"#html_div"')
                 #html_div(style='height: 100%;')
-                  div(pretty-print-panel='styles.sheets[styles.active].css')
+                  div(pretty-print-panel='styles.sheets[styles.active].xml')
               resizable-panel#render_col(name='Rendered Output', show='show')
                 .menu.panel-menu(ng-class='{show:col("Rendered Output").mouseover}', col="col")
                   span.menu-title Theme ▾
@@ -102,7 +102,7 @@ html.no-js
                       label(for='external-css') External:
                       input#external-css(ng-model='styles.external', ng-keydown='keydown_input($event)', type='text', name='external-css', placeholder='http://')
                   span.hide-button(ng-click='col("Rendered Output").show=false', title='Hide Rendered Output panel.') X
-                render-panel(vars="graph.variables.variables", graph="graph", styles="styles.sheets[styles.active].css")
+                render-panel(vars="graph.variables.variables", graph="graph", styles="styles.sheets[styles.active].xml")
 
     //
         script(src='DL_libs/jquery-2.1.0.min.js')

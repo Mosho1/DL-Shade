@@ -46,7 +46,7 @@ angular.module('DLApp')
 
   #Shade files
   $scope.styles =
-  active: 'control'
+  active: 'basics'
   sheets:
     basics:
       source: 'XML/shade.xml'
@@ -94,7 +94,7 @@ angular.module('DLApp')
   #if the active shade file is changed, update the file in the editor
   $scope.$watch 'styles.active', () ->
     if $scope.styles.active of $scope.styles.sheets
-      style = $scope.styles.sheets[$scope.styles.active]
+      styles = $scope.styles.sheets[$scope.styles.active]
       if styles.xml
         $scope.styles.editor = $filter('prettifyCSS')($filter('deSassify')(styles.xml))
       else
@@ -104,7 +104,7 @@ angular.module('DLApp')
 
   $scope.$watch 'styles.editor', () ->
    if $scope.styles.sheets[$scope.styles.active]
-    $scope.styles.sheets[$scope.styles.active].shd = $scope.styles.editor
+    $scope.styles.sheets[$scope.styles.active].xml = $scope.styles.editor
 
   $scope.$watch 'styles.external', () ->
     return unless $scope.styles.external and /^(https?:\/\/)?(\w+\.)+[\w\/]+/.test $scope.styles.external
@@ -115,7 +115,7 @@ angular.module('DLApp')
       name = "external #{++i}" while name of $scope.styles.sheets
       $scope.styles.sheets[name] =
         source: $scope.styles.external
-        css: response.data
+        xml: response.data
         external: true
         edited: false
       $scope.styles.active = name
